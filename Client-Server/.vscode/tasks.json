@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run All Servers",
+            "type": "shell",
+            "dependsOn": ["Server 1", "Server 2", "Server 3", "Server 4"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Server 1",
+            "type": "shell",
+            "command": "python",
+            "args": ["server_code_1.py"]
+        },
+        {
+            "label": "Server 2",
+            "type": "shell",
+            "command": "python",
+            "args": ["server_code_2.py"]
+        },
+        {
+            "label": "Server 3",
+            "type": "shell",
+            "command": "python",
+            "args": ["server_code_3.py"]
+        },
+        {
+            "label": "Server 4",
+            "type": "shell",
+            "command": "python",
+            "args": ["server_code_4.py"]
+        }
+    ]
+}
