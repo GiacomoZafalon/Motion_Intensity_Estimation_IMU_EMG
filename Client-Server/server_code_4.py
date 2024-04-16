@@ -60,7 +60,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     numbers = re.findall(r'\d+\.\d+', line)
                     
                     # Check if the row contains valid data
-                    if len(numbers) == 16:
+                    if len(numbers) == 20:
                         print(numbers)
                         # Append received data to the CSV file
                         with open(file_path, mode='a', newline='') as file:

@@ -1,0 +1,2623 @@
+[2024-04-16 10:39:00.740] [info] Updating Model file from 40000 to latest format...
+[2024-04-16 10:39:00.776] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015.osim
+[2024-04-16 10:39:01.814] [info] Heading correction computed to be 113.307 degs about ground Y.
+[2024-04-16 10:39:01.820] [info] Processing torso_imu
+[2024-04-16 10:39:01.820] [info] Computed offset for torso_imu
+[2024-04-16 10:39:01.821] [info] Offset is 
+[0.315294,-0.0237375,0.948697]
+[0.94644,0.0811645,-0.312513]
+[-0.0695822,0.996418,0.0480568]
+
+[2024-04-16 10:39:01.822] [info] Creating offset frame for torso_imu
+[2024-04-16 10:39:01.825] [info] Added offset frame for torso_imu.
+[2024-04-16 10:39:01.826] [info] torso_imu offset computed from torso_imu data from file.
+[2024-04-16 10:39:01.826] [info] Processing pelvis_imu
+[2024-04-16 10:39:01.826] [info] Computed offset for pelvis_imu
+[2024-04-16 10:39:01.827] [info] Offset is 
+[0.280953,0.00157552,0.95972]
+[0.957527,0.0671338,-0.280421]
+[-0.0648715,0.997743,0.0173528]
+
+[2024-04-16 10:39:01.827] [info] Creating offset frame for pelvis_imu
+[2024-04-16 10:39:01.831] [info] Added offset frame for pelvis_imu.
+[2024-04-16 10:39:01.831] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-04-16 10:39:01.831] [info] Processing tibia_r_imu
+[2024-04-16 10:39:01.832] [info] Computed offset for tibia_r_imu
+[2024-04-16 10:39:01.834] [info] Offset is 
+[0.0965278,0.977377,-0.188191]
+[0.989909,-0.113978,-0.0842017]
+[-0.103746,-0.178164,-0.978516]
+
+[2024-04-16 10:39:01.836] [info] Creating offset frame for tibia_r_imu
+[2024-04-16 10:39:01.841] [info] Added offset frame for tibia_r_imu.
+[2024-04-16 10:39:01.841] [info] tibia_r_imu offset computed from tibia_r_imu data from file.
+[2024-04-16 10:39:01.842] [info] Processing femur_r_imu
+[2024-04-16 10:39:01.842] [info] Computed offset for femur_r_imu
+[2024-04-16 10:39:01.842] [info] Offset is 
+[-0.0408079,0.969041,-0.243505]
+[0.996553,0.0570898,0.0601841]
+[0.0722225,-0.24021,-0.968031]
+
+[2024-04-16 10:39:01.843] [info] Creating offset frame for femur_r_imu
+[2024-04-16 10:39:01.847] [info] Added offset frame for femur_r_imu.
+[2024-04-16 10:39:01.847] [info] femur_r_imu offset computed from femur_r_imu data from file.
+[2024-04-16 10:39:01.847] [info] Processing tibia_l_imu
+[2024-04-16 10:39:01.848] [info] Computed offset for tibia_l_imu
+[2024-04-16 10:39:01.848] [info] Offset is 
+[0.0950796,-0.941402,0.323607]
+[0.992984,0.0667322,-0.0976203]
+[0.070305,0.330618,0.941142]
+
+[2024-04-16 10:39:01.849] [info] Creating offset frame for tibia_l_imu
+[2024-04-16 10:39:01.851] [info] Added offset frame for tibia_l_imu.
+[2024-04-16 10:39:01.851] [info] tibia_l_imu offset computed from tibia_l_imu data from file.
+[2024-04-16 10:39:01.851] [info] Processing femur_l_imu
+[2024-04-16 10:39:01.852] [info] Computed offset for femur_l_imu
+[2024-04-16 10:39:01.852] [info] Offset is 
+[0.15939,-0.980766,0.112659]
+[0.985443,0.164899,0.0413474]
+[-0.0591295,0.104428,0.992773]
+
+[2024-04-16 10:39:01.854] [info] Creating offset frame for femur_l_imu
+[2024-04-16 10:39:01.857] [info] Added offset frame for femur_l_imu.
+[2024-04-16 10:39:01.858] [info] femur_l_imu offset computed from femur_l_imu data from file.
+[2024-04-16 10:39:01.858] [info] Processing calcn_r_imu
+[2024-04-16 10:39:01.858] [info] Computed offset for calcn_r_imu
+[2024-04-16 10:39:01.858] [info] Offset is 
+[0.132853,0.838951,-0.527742]
+[0.052645,-0.537683,-0.841502]
+[-0.989737,0.0840129,-0.115599]
+
+[2024-04-16 10:39:01.860] [info] Creating offset frame for calcn_r_imu
+[2024-04-16 10:39:01.863] [info] Added offset frame for calcn_r_imu.
+[2024-04-16 10:39:01.863] [info] calcn_r_imu offset computed from calcn_r_imu data from file.
+[2024-04-16 10:39:01.863] [info] Processing calcn_l_imu
+[2024-04-16 10:39:01.864] [info] Computed offset for calcn_l_imu
+[2024-04-16 10:39:01.864] [info] Offset is 
+[0.055168,-0.866604,-0.495938]
+[0.00919381,0.497114,-0.867636]
+[0.998435,0.0433062,0.0353922]
+
+[2024-04-16 10:39:01.865] [info] Creating offset frame for calcn_l_imu
+[2024-04-16 10:39:01.867] [info] Added offset frame for calcn_l_imu.
+[2024-04-16 10:39:01.867] [info] calcn_l_imu offset computed from calcn_l_imu data from file.
+[2024-04-16 10:39:03.370] [info] InverseKinematicsSolver found 8 model frames to track.
+[2024-04-16 10:40:48.931] [info] Updating Model file from 40000 to latest format...
+[2024-04-16 10:40:48.988] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015.osim
+[2024-04-16 10:40:49.119] [info] Heading correction computed to be 113.307 degs about ground Y.
+[2024-04-16 10:40:49.126] [info] Processing torso_imu
+[2024-04-16 10:40:49.126] [info] Computed offset for torso_imu
+[2024-04-16 10:40:49.126] [info] Offset is 
+[0.315294,-0.0237375,0.948697]
+[0.94644,0.0811645,-0.312513]
+[-0.0695822,0.996418,0.0480568]
+
+[2024-04-16 10:40:49.126] [info] Creating offset frame for torso_imu
+[2024-04-16 10:40:49.129] [info] Added offset frame for torso_imu.
+[2024-04-16 10:40:49.129] [info] torso_imu offset computed from torso_imu data from file.
+[2024-04-16 10:40:49.129] [info] Processing pelvis_imu
+[2024-04-16 10:40:49.129] [info] Computed offset for pelvis_imu
+[2024-04-16 10:40:49.129] [info] Offset is 
+[0.280953,0.00157552,0.95972]
+[0.957527,0.0671338,-0.280421]
+[-0.0648715,0.997743,0.0173528]
+
+[2024-04-16 10:40:49.130] [info] Creating offset frame for pelvis_imu
+[2024-04-16 10:40:49.132] [info] Added offset frame for pelvis_imu.
+[2024-04-16 10:40:49.132] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-04-16 10:40:49.133] [info] Processing tibia_r_imu
+[2024-04-16 10:40:49.133] [info] Computed offset for tibia_r_imu
+[2024-04-16 10:40:49.133] [info] Offset is 
+[0.0965278,0.977377,-0.188191]
+[0.989909,-0.113978,-0.0842017]
+[-0.103746,-0.178164,-0.978516]
+
+[2024-04-16 10:40:49.134] [info] Creating offset frame for tibia_r_imu
+[2024-04-16 10:40:49.136] [info] Added offset frame for tibia_r_imu.
+[2024-04-16 10:40:49.136] [info] tibia_r_imu offset computed from tibia_r_imu data from file.
+[2024-04-16 10:40:49.137] [info] Processing femur_r_imu
+[2024-04-16 10:40:49.137] [info] Computed offset for femur_r_imu
+[2024-04-16 10:40:49.137] [info] Offset is 
+[-0.0408079,0.969041,-0.243505]
+[0.996553,0.0570898,0.0601841]
+[0.0722225,-0.24021,-0.968031]
+
+[2024-04-16 10:40:49.139] [info] Creating offset frame for femur_r_imu
+[2024-04-16 10:40:49.142] [info] Added offset frame for femur_r_imu.
+[2024-04-16 10:40:49.142] [info] femur_r_imu offset computed from femur_r_imu data from file.
+[2024-04-16 10:40:49.142] [info] Processing tibia_l_imu
+[2024-04-16 10:40:49.143] [info] Computed offset for tibia_l_imu
+[2024-04-16 10:40:49.143] [info] Offset is 
+[0.0950796,-0.941402,0.323607]
+[0.992984,0.0667322,-0.0976203]
+[0.070305,0.330618,0.941142]
+
+[2024-04-16 10:40:49.144] [info] Creating offset frame for tibia_l_imu
+[2024-04-16 10:40:49.147] [info] Added offset frame for tibia_l_imu.
+[2024-04-16 10:40:49.147] [info] tibia_l_imu offset computed from tibia_l_imu data from file.
+[2024-04-16 10:40:49.147] [info] Processing femur_l_imu
+[2024-04-16 10:40:49.147] [info] Computed offset for femur_l_imu
+[2024-04-16 10:40:49.148] [info] Offset is 
+[0.15939,-0.980766,0.112659]
+[0.985443,0.164899,0.0413474]
+[-0.0591295,0.104428,0.992773]
+
+[2024-04-16 10:40:49.149] [info] Creating offset frame for femur_l_imu
+[2024-04-16 10:40:49.152] [info] Added offset frame for femur_l_imu.
+[2024-04-16 10:40:49.152] [info] femur_l_imu offset computed from femur_l_imu data from file.
+[2024-04-16 10:40:49.153] [info] Processing calcn_r_imu
+[2024-04-16 10:40:49.153] [info] Computed offset for calcn_r_imu
+[2024-04-16 10:40:49.153] [info] Offset is 
+[0.132853,0.838951,-0.527742]
+[0.052645,-0.537683,-0.841502]
+[-0.989737,0.0840129,-0.115599]
+
+[2024-04-16 10:40:49.154] [info] Creating offset frame for calcn_r_imu
+[2024-04-16 10:40:49.156] [info] Added offset frame for calcn_r_imu.
+[2024-04-16 10:40:49.156] [info] calcn_r_imu offset computed from calcn_r_imu data from file.
+[2024-04-16 10:40:49.157] [info] Processing calcn_l_imu
+[2024-04-16 10:40:49.157] [info] Computed offset for calcn_l_imu
+[2024-04-16 10:40:49.157] [info] Offset is 
+[0.055168,-0.866604,-0.495938]
+[0.00919381,0.497114,-0.867636]
+[0.998435,0.0433062,0.0353922]
+
+[2024-04-16 10:40:49.159] [info] Creating offset frame for calcn_l_imu
+[2024-04-16 10:40:49.162] [info] Added offset frame for calcn_l_imu.
+[2024-04-16 10:40:49.162] [info] calcn_l_imu offset computed from calcn_l_imu data from file.
+[2024-04-16 10:40:49.946] [info] InverseKinematicsSolver found 8 model frames to track.
+[2024-04-16 10:43:14.506] [info] Updating Model file from 40000 to latest format...
+[2024-04-16 10:43:14.533] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015.osim
+[2024-04-16 10:43:14.739] [info] Heading correction computed to be 113.307 degs about ground Y.
+[2024-04-16 10:43:14.746] [info] Processing torso_imu
+[2024-04-16 10:43:14.746] [info] Computed offset for torso_imu
+[2024-04-16 10:43:14.747] [info] Offset is 
+[0.315294,-0.0237375,0.948697]
+[0.94644,0.0811645,-0.312513]
+[-0.0695822,0.996418,0.0480568]
+
+[2024-04-16 10:43:14.748] [info] Creating offset frame for torso_imu
+[2024-04-16 10:43:14.752] [info] Added offset frame for torso_imu.
+[2024-04-16 10:43:14.753] [info] torso_imu offset computed from torso_imu data from file.
+[2024-04-16 10:43:14.753] [info] Processing pelvis_imu
+[2024-04-16 10:43:14.753] [info] Computed offset for pelvis_imu
+[2024-04-16 10:43:14.753] [info] Offset is 
+[0.280953,0.00157552,0.95972]
+[0.957527,0.0671338,-0.280421]
+[-0.0648715,0.997743,0.0173528]
+
+[2024-04-16 10:43:14.754] [info] Creating offset frame for pelvis_imu
+[2024-04-16 10:43:14.756] [info] Added offset frame for pelvis_imu.
+[2024-04-16 10:43:14.757] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-04-16 10:43:14.757] [info] Processing tibia_r_imu
+[2024-04-16 10:43:14.757] [info] Computed offset for tibia_r_imu
+[2024-04-16 10:43:14.758] [info] Offset is 
+[0.0965278,0.977377,-0.188191]
+[0.989909,-0.113978,-0.0842017]
+[-0.103746,-0.178164,-0.978516]
+
+[2024-04-16 10:43:14.760] [info] Creating offset frame for tibia_r_imu
+[2024-04-16 10:43:14.762] [info] Added offset frame for tibia_r_imu.
+[2024-04-16 10:43:14.762] [info] tibia_r_imu offset computed from tibia_r_imu data from file.
+[2024-04-16 10:43:14.762] [info] Processing femur_r_imu
+[2024-04-16 10:43:14.762] [info] Computed offset for femur_r_imu
+[2024-04-16 10:43:14.763] [info] Offset is 
+[-0.0408079,0.969041,-0.243505]
+[0.996553,0.0570898,0.0601841]
+[0.0722225,-0.24021,-0.968031]
+
+[2024-04-16 10:43:14.764] [info] Creating offset frame for femur_r_imu
+[2024-04-16 10:43:14.766] [info] Added offset frame for femur_r_imu.
+[2024-04-16 10:43:14.767] [info] femur_r_imu offset computed from femur_r_imu data from file.
+[2024-04-16 10:43:14.767] [info] Processing tibia_l_imu
+[2024-04-16 10:43:14.768] [info] Computed offset for tibia_l_imu
+[2024-04-16 10:43:14.768] [info] Offset is 
+[0.0950796,-0.941402,0.323607]
+[0.992984,0.0667322,-0.0976203]
+[0.070305,0.330618,0.941142]
+
+[2024-04-16 10:43:14.769] [info] Creating offset frame for tibia_l_imu
+[2024-04-16 10:43:14.772] [info] Added offset frame for tibia_l_imu.
+[2024-04-16 10:43:14.772] [info] tibia_l_imu offset computed from tibia_l_imu data from file.
+[2024-04-16 10:43:14.772] [info] Processing femur_l_imu
+[2024-04-16 10:43:14.772] [info] Computed offset for femur_l_imu
+[2024-04-16 10:43:14.773] [info] Offset is 
+[0.15939,-0.980766,0.112659]
+[0.985443,0.164899,0.0413474]
+[-0.0591295,0.104428,0.992773]
+
+[2024-04-16 10:43:14.774] [info] Creating offset frame for femur_l_imu
+[2024-04-16 10:43:14.777] [info] Added offset frame for femur_l_imu.
+[2024-04-16 10:43:14.777] [info] femur_l_imu offset computed from femur_l_imu data from file.
+[2024-04-16 10:43:14.777] [info] Processing calcn_r_imu
+[2024-04-16 10:43:14.777] [info] Computed offset for calcn_r_imu
+[2024-04-16 10:43:14.778] [info] Offset is 
+[0.132853,0.838951,-0.527742]
+[0.052645,-0.537683,-0.841502]
+[-0.989737,0.0840129,-0.115599]
+
+[2024-04-16 10:43:14.778] [info] Creating offset frame for calcn_r_imu
+[2024-04-16 10:43:14.781] [info] Added offset frame for calcn_r_imu.
+[2024-04-16 10:43:14.781] [info] calcn_r_imu offset computed from calcn_r_imu data from file.
+[2024-04-16 10:43:14.781] [info] Processing calcn_l_imu
+[2024-04-16 10:43:14.781] [info] Computed offset for calcn_l_imu
+[2024-04-16 10:43:14.782] [info] Offset is 
+[0.055168,-0.866604,-0.495938]
+[0.00919381,0.497114,-0.867636]
+[0.998435,0.0433062,0.0353922]
+
+[2024-04-16 10:43:14.784] [info] Creating offset frame for calcn_l_imu
+[2024-04-16 10:43:14.787] [info] Added offset frame for calcn_l_imu.
+[2024-04-16 10:43:14.788] [info] calcn_l_imu offset computed from calcn_l_imu data from file.
+[2024-04-16 10:43:15.625] [info] InverseKinematicsSolver found 8 model frames to track.
+[2024-04-16 10:44:28.749] [info] Updating Model file from 40000 to latest format...
+[2024-04-16 10:44:28.771] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015.osim
+[2024-04-16 10:44:28.901] [info] Heading correction computed to be 113.307 degs about ground Y.
+[2024-04-16 10:44:28.908] [info] Processing torso_imu
+[2024-04-16 10:44:28.908] [info] Computed offset for torso_imu
+[2024-04-16 10:44:28.908] [info] Offset is 
+[0.315294,-0.0237375,0.948697]
+[0.94644,0.0811645,-0.312513]
+[-0.0695822,0.996418,0.0480568]
+
+[2024-04-16 10:44:28.911] [info] Creating offset frame for torso_imu
+[2024-04-16 10:44:28.913] [info] Added offset frame for torso_imu.
+[2024-04-16 10:44:28.914] [info] torso_imu offset computed from torso_imu data from file.
+[2024-04-16 10:44:28.914] [info] Processing pelvis_imu
+[2024-04-16 10:44:28.914] [info] Computed offset for pelvis_imu
+[2024-04-16 10:44:28.914] [info] Offset is 
+[0.280953,0.00157552,0.95972]
+[0.957527,0.0671338,-0.280421]
+[-0.0648715,0.997743,0.0173528]
+
+[2024-04-16 10:44:28.915] [info] Creating offset frame for pelvis_imu
+[2024-04-16 10:44:28.917] [info] Added offset frame for pelvis_imu.
+[2024-04-16 10:44:28.918] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-04-16 10:44:28.918] [info] Processing tibia_r_imu
+[2024-04-16 10:44:28.918] [info] Computed offset for tibia_r_imu
+[2024-04-16 10:44:28.918] [info] Offset is 
+[0.0965278,0.977377,-0.188191]
+[0.989909,-0.113978,-0.0842017]
+[-0.103746,-0.178164,-0.978516]
+
+[2024-04-16 10:44:28.919] [info] Creating offset frame for tibia_r_imu
+[2024-04-16 10:44:28.922] [info] Added offset frame for tibia_r_imu.
+[2024-04-16 10:44:28.922] [info] tibia_r_imu offset computed from tibia_r_imu data from file.
+[2024-04-16 10:44:28.922] [info] Processing femur_r_imu
+[2024-04-16 10:44:28.923] [info] Computed offset for femur_r_imu
+[2024-04-16 10:44:28.923] [info] Offset is 
+[-0.0408079,0.969041,-0.243505]
+[0.996553,0.0570898,0.0601841]
+[0.0722225,-0.24021,-0.968031]
+
+[2024-04-16 10:44:28.924] [info] Creating offset frame for femur_r_imu
+[2024-04-16 10:44:28.926] [info] Added offset frame for femur_r_imu.
+[2024-04-16 10:44:28.927] [info] femur_r_imu offset computed from femur_r_imu data from file.
+[2024-04-16 10:44:28.927] [info] Processing tibia_l_imu
+[2024-04-16 10:44:28.927] [info] Computed offset for tibia_l_imu
+[2024-04-16 10:44:28.927] [info] Offset is 
+[0.0950796,-0.941402,0.323607]
+[0.992984,0.0667322,-0.0976203]
+[0.070305,0.330618,0.941142]
+
+[2024-04-16 10:44:28.928] [info] Creating offset frame for tibia_l_imu
+[2024-04-16 10:44:28.930] [info] Added offset frame for tibia_l_imu.
+[2024-04-16 10:44:28.931] [info] tibia_l_imu offset computed from tibia_l_imu data from file.
+[2024-04-16 10:44:28.931] [info] Processing femur_l_imu
+[2024-04-16 10:44:28.931] [info] Computed offset for femur_l_imu
+[2024-04-16 10:44:28.931] [info] Offset is 
+[0.15939,-0.980766,0.112659]
+[0.985443,0.164899,0.0413474]
+[-0.0591295,0.104428,0.992773]
+
+[2024-04-16 10:44:28.932] [info] Creating offset frame for femur_l_imu
+[2024-04-16 10:44:28.936] [info] Added offset frame for femur_l_imu.
+[2024-04-16 10:44:28.937] [info] femur_l_imu offset computed from femur_l_imu data from file.
+[2024-04-16 10:44:28.937] [info] Processing calcn_r_imu
+[2024-04-16 10:44:28.937] [info] Computed offset for calcn_r_imu
+[2024-04-16 10:44:28.937] [info] Offset is 
+[0.132853,0.838951,-0.527742]
+[0.052645,-0.537683,-0.841502]
+[-0.989737,0.0840129,-0.115599]
+
+[2024-04-16 10:44:28.938] [info] Creating offset frame for calcn_r_imu
+[2024-04-16 10:44:28.940] [info] Added offset frame for calcn_r_imu.
+[2024-04-16 10:44:28.941] [info] calcn_r_imu offset computed from calcn_r_imu data from file.
+[2024-04-16 10:44:28.941] [info] Processing calcn_l_imu
+[2024-04-16 10:44:28.941] [info] Computed offset for calcn_l_imu
+[2024-04-16 10:44:28.941] [info] Offset is 
+[0.055168,-0.866604,-0.495938]
+[0.00919381,0.497114,-0.867636]
+[0.998435,0.0433062,0.0353922]
+
+[2024-04-16 10:44:28.943] [info] Creating offset frame for calcn_l_imu
+[2024-04-16 10:44:28.949] [info] Added offset frame for calcn_l_imu.
+[2024-04-16 10:44:28.966] [info] calcn_l_imu offset computed from calcn_l_imu data from file.
+[2024-04-16 10:44:29.727] [info] InverseKinematicsSolver found 8 model frames to track.
+[2024-04-16 10:48:42.952] [info] Updating Model file from 40000 to latest format...
+[2024-04-16 10:48:42.977] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015.osim
+[2024-04-16 10:48:43.175] [info] Heading correction computed to be 113.307 degs about ground Y.
+[2024-04-16 10:48:43.181] [info] Processing torso_imu
+[2024-04-16 10:48:43.181] [info] Computed offset for torso_imu
+[2024-04-16 10:48:43.182] [info] Offset is 
+[0.315294,-0.0237375,0.948697]
+[0.94644,0.0811645,-0.312513]
+[-0.0695822,0.996418,0.0480568]
+
+[2024-04-16 10:48:43.183] [info] Creating offset frame for torso_imu
+[2024-04-16 10:48:43.186] [info] Added offset frame for torso_imu.
+[2024-04-16 10:48:43.186] [info] torso_imu offset computed from torso_imu data from file.
+[2024-04-16 10:48:43.187] [info] Processing pelvis_imu
+[2024-04-16 10:48:43.187] [info] Computed offset for pelvis_imu
+[2024-04-16 10:48:43.187] [info] Offset is 
+[0.280953,0.00157552,0.95972]
+[0.957527,0.0671338,-0.280421]
+[-0.0648715,0.997743,0.0173528]
+
+[2024-04-16 10:48:43.188] [info] Creating offset frame for pelvis_imu
+[2024-04-16 10:48:43.190] [info] Added offset frame for pelvis_imu.
+[2024-04-16 10:48:43.191] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-04-16 10:48:43.191] [info] Processing tibia_r_imu
+[2024-04-16 10:48:43.191] [info] Computed offset for tibia_r_imu
+[2024-04-16 10:48:43.191] [info] Offset is 
+[0.0965278,0.977377,-0.188191]
+[0.989909,-0.113978,-0.0842017]
+[-0.103746,-0.178164,-0.978516]
+
+[2024-04-16 10:48:43.193] [info] Creating offset frame for tibia_r_imu
+[2024-04-16 10:48:43.195] [info] Added offset frame for tibia_r_imu.
+[2024-04-16 10:48:43.195] [info] tibia_r_imu offset computed from tibia_r_imu data from file.
+[2024-04-16 10:48:43.195] [info] Processing femur_r_imu
+[2024-04-16 10:48:43.195] [info] Computed offset for femur_r_imu
+[2024-04-16 10:48:43.195] [info] Offset is 
+[-0.0408079,0.969041,-0.243505]
+[0.996553,0.0570898,0.0601841]
+[0.0722225,-0.24021,-0.968031]
+
+[2024-04-16 10:48:43.197] [info] Creating offset frame for femur_r_imu
+[2024-04-16 10:48:43.199] [info] Added offset frame for femur_r_imu.
+[2024-04-16 10:48:43.199] [info] femur_r_imu offset computed from femur_r_imu data from file.
+[2024-04-16 10:48:43.200] [info] Processing tibia_l_imu
+[2024-04-16 10:48:43.200] [info] Computed offset for tibia_l_imu
+[2024-04-16 10:48:43.200] [info] Offset is 
+[0.0950796,-0.941402,0.323607]
+[0.992984,0.0667322,-0.0976203]
+[0.070305,0.330618,0.941142]
+
+[2024-04-16 10:48:43.201] [info] Creating offset frame for tibia_l_imu
+[2024-04-16 10:48:43.203] [info] Added offset frame for tibia_l_imu.
+[2024-04-16 10:48:43.204] [info] tibia_l_imu offset computed from tibia_l_imu data from file.
+[2024-04-16 10:48:43.204] [info] Processing femur_l_imu
+[2024-04-16 10:48:43.205] [info] Computed offset for femur_l_imu
+[2024-04-16 10:48:43.205] [info] Offset is 
+[0.15939,-0.980766,0.112659]
+[0.985443,0.164899,0.0413474]
+[-0.0591295,0.104428,0.992773]
+
+[2024-04-16 10:48:43.206] [info] Creating offset frame for femur_l_imu
+[2024-04-16 10:48:43.209] [info] Added offset frame for femur_l_imu.
+[2024-04-16 10:48:43.209] [info] femur_l_imu offset computed from femur_l_imu data from file.
+[2024-04-16 10:48:43.210] [info] Processing calcn_r_imu
+[2024-04-16 10:48:43.210] [info] Computed offset for calcn_r_imu
+[2024-04-16 10:48:43.210] [info] Offset is 
+[0.132853,0.838951,-0.527742]
+[0.052645,-0.537683,-0.841502]
+[-0.989737,0.0840129,-0.115599]
+
+[2024-04-16 10:48:43.211] [info] Creating offset frame for calcn_r_imu
+[2024-04-16 10:48:43.214] [info] Added offset frame for calcn_r_imu.
+[2024-04-16 10:48:43.214] [info] calcn_r_imu offset computed from calcn_r_imu data from file.
+[2024-04-16 10:48:43.214] [info] Processing calcn_l_imu
+[2024-04-16 10:48:43.214] [info] Computed offset for calcn_l_imu
+[2024-04-16 10:48:43.214] [info] Offset is 
+[0.055168,-0.866604,-0.495938]
+[0.00919381,0.497114,-0.867636]
+[0.998435,0.0433062,0.0353922]
+
+[2024-04-16 10:48:43.215] [info] Creating offset frame for calcn_l_imu
+[2024-04-16 10:48:43.218] [info] Added offset frame for calcn_l_imu.
+[2024-04-16 10:48:43.218] [info] calcn_l_imu offset computed from calcn_l_imu data from file.
+[2024-04-16 10:48:44.164] [info] InverseKinematicsSolver found 8 model frames to track.
+[2024-04-16 10:52:07.403] [info] Updating Model file from 40000 to latest format...
+[2024-04-16 10:52:07.443] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015.osim
+[2024-04-16 10:52:07.615] [info] Heading correction computed to be 113.307 degs about ground Y.
+[2024-04-16 10:52:07.620] [info] Processing torso_imu
+[2024-04-16 10:52:07.621] [info] Computed offset for torso_imu
+[2024-04-16 10:52:07.621] [info] Offset is 
+[0.315294,-0.0237375,0.948697]
+[0.94644,0.0811645,-0.312513]
+[-0.0695822,0.996418,0.0480568]
+
+[2024-04-16 10:52:07.622] [info] Creating offset frame for torso_imu
+[2024-04-16 10:52:07.626] [info] Added offset frame for torso_imu.
+[2024-04-16 10:52:07.626] [info] torso_imu offset computed from torso_imu data from file.
+[2024-04-16 10:52:07.626] [info] Processing pelvis_imu
+[2024-04-16 10:52:07.627] [info] Computed offset for pelvis_imu
+[2024-04-16 10:52:07.627] [info] Offset is 
+[0.280953,0.00157552,0.95972]
+[0.957527,0.0671338,-0.280421]
+[-0.0648715,0.997743,0.0173528]
+
+[2024-04-16 10:52:07.629] [info] Creating offset frame for pelvis_imu
+[2024-04-16 10:52:07.632] [info] Added offset frame for pelvis_imu.
+[2024-04-16 10:52:07.632] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-04-16 10:52:07.633] [info] Processing tibia_r_imu
+[2024-04-16 10:52:07.633] [info] Computed offset for tibia_r_imu
+[2024-04-16 10:52:07.633] [info] Offset is 
+[0.0965278,0.977377,-0.188191]
+[0.989909,-0.113978,-0.0842017]
+[-0.103746,-0.178164,-0.978516]
+
+[2024-04-16 10:52:07.634] [info] Creating offset frame for tibia_r_imu
+[2024-04-16 10:52:07.637] [info] Added offset frame for tibia_r_imu.
+[2024-04-16 10:52:07.637] [info] tibia_r_imu offset computed from tibia_r_imu data from file.
+[2024-04-16 10:52:07.637] [info] Processing femur_r_imu
+[2024-04-16 10:52:07.637] [info] Computed offset for femur_r_imu
+[2024-04-16 10:52:07.637] [info] Offset is 
+[-0.0408079,0.969041,-0.243505]
+[0.996553,0.0570898,0.0601841]
+[0.0722225,-0.24021,-0.968031]
+
+[2024-04-16 10:52:07.639] [info] Creating offset frame for femur_r_imu
+[2024-04-16 10:52:07.641] [info] Added offset frame for femur_r_imu.
+[2024-04-16 10:52:07.642] [info] femur_r_imu offset computed from femur_r_imu data from file.
+[2024-04-16 10:52:07.642] [info] Processing tibia_l_imu
+[2024-04-16 10:52:07.642] [info] Computed offset for tibia_l_imu
+[2024-04-16 10:52:07.643] [info] Offset is 
+[0.0950796,-0.941402,0.323607]
+[0.992984,0.0667322,-0.0976203]
+[0.070305,0.330618,0.941142]
+
+[2024-04-16 10:52:07.644] [info] Creating offset frame for tibia_l_imu
+[2024-04-16 10:52:07.646] [info] Added offset frame for tibia_l_imu.
+[2024-04-16 10:52:07.646] [info] tibia_l_imu offset computed from tibia_l_imu data from file.
+[2024-04-16 10:52:07.646] [info] Processing femur_l_imu
+[2024-04-16 10:52:07.646] [info] Computed offset for femur_l_imu
+[2024-04-16 10:52:07.647] [info] Offset is 
+[0.15939,-0.980766,0.112659]
+[0.985443,0.164899,0.0413474]
+[-0.0591295,0.104428,0.992773]
+
+[2024-04-16 10:52:07.648] [info] Creating offset frame for femur_l_imu
+[2024-04-16 10:52:07.651] [info] Added offset frame for femur_l_imu.
+[2024-04-16 10:52:07.651] [info] femur_l_imu offset computed from femur_l_imu data from file.
+[2024-04-16 10:52:07.651] [info] Processing calcn_r_imu
+[2024-04-16 10:52:07.651] [info] Computed offset for calcn_r_imu
+[2024-04-16 10:52:07.652] [info] Offset is 
+[0.132853,0.838951,-0.527742]
+[0.052645,-0.537683,-0.841502]
+[-0.989737,0.0840129,-0.115599]
+
+[2024-04-16 10:52:07.653] [info] Creating offset frame for calcn_r_imu
+[2024-04-16 10:52:07.655] [info] Added offset frame for calcn_r_imu.
+[2024-04-16 10:52:07.655] [info] calcn_r_imu offset computed from calcn_r_imu data from file.
+[2024-04-16 10:52:07.656] [info] Processing calcn_l_imu
+[2024-04-16 10:52:07.656] [info] Computed offset for calcn_l_imu
+[2024-04-16 10:52:07.656] [info] Offset is 
+[0.055168,-0.866604,-0.495938]
+[0.00919381,0.497114,-0.867636]
+[0.998435,0.0433062,0.0353922]
+
+[2024-04-16 10:52:07.657] [info] Creating offset frame for calcn_l_imu
+[2024-04-16 10:52:07.660] [info] Added offset frame for calcn_l_imu.
+[2024-04-16 10:52:07.660] [info] calcn_l_imu offset computed from calcn_l_imu data from file.
+[2024-04-16 10:52:08.500] [info] InverseKinematicsSolver found 8 model frames to track.
+[2024-04-16 10:52:10.436] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015_calibrated.osim
+[2024-04-16 10:52:10.553] [info] Loading orientations as quaternions from 'MT_012005D6_009-001_orientations.sto'...
+[2024-04-16 10:52:11.206] [info] InverseKinematicsSolver found 8 model frames to track.
+[2024-04-16 10:52:37.161] [info] Wrote IK with IMU tracking results to: 'ik_MT_012005D6_009-001_orientations.mot'.
+[2024-04-16 10:58:01.311] [info] Updating Model file from 40000 to latest format...
+[2024-04-16 10:58:01.332] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015.osim
+[2024-04-16 10:58:01.507] [info] Heading correction computed to be 113.307 degs about ground Y.
+[2024-04-16 10:58:01.513] [info] Processing torso_imu
+[2024-04-16 10:58:01.514] [info] Computed offset for torso_imu
+[2024-04-16 10:58:01.514] [info] Offset is 
+[0.315294,-0.0237375,0.948697]
+[0.94644,0.0811645,-0.312513]
+[-0.0695822,0.996418,0.0480568]
+
+[2024-04-16 10:58:01.517] [info] Creating offset frame for torso_imu
+[2024-04-16 10:58:01.519] [info] Added offset frame for torso_imu.
+[2024-04-16 10:58:01.520] [info] torso_imu offset computed from torso_imu data from file.
+[2024-04-16 10:58:01.520] [info] Processing pelvis_imu
+[2024-04-16 10:58:01.520] [info] Computed offset for pelvis_imu
+[2024-04-16 10:58:01.520] [info] Offset is 
+[0.280953,0.00157552,0.95972]
+[0.957527,0.0671338,-0.280421]
+[-0.0648715,0.997743,0.0173528]
+
+[2024-04-16 10:58:01.522] [info] Creating offset frame for pelvis_imu
+[2024-04-16 10:58:01.525] [info] Added offset frame for pelvis_imu.
+[2024-04-16 10:58:01.525] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-04-16 10:58:01.525] [info] Processing tibia_r_imu
+[2024-04-16 10:58:01.526] [info] Computed offset for tibia_r_imu
+[2024-04-16 10:58:01.526] [info] Offset is 
+[0.0965278,0.977377,-0.188191]
+[0.989909,-0.113978,-0.0842017]
+[-0.103746,-0.178164,-0.978516]
+
+[2024-04-16 10:58:01.527] [info] Creating offset frame for tibia_r_imu
+[2024-04-16 10:58:01.529] [info] Added offset frame for tibia_r_imu.
+[2024-04-16 10:58:01.529] [info] tibia_r_imu offset computed from tibia_r_imu data from file.
+[2024-04-16 10:58:01.530] [info] Processing femur_r_imu
+[2024-04-16 10:58:01.530] [info] Computed offset for femur_r_imu
+[2024-04-16 10:58:01.530] [info] Offset is 
+[-0.0408079,0.969041,-0.243505]
+[0.996553,0.0570898,0.0601841]
+[0.0722225,-0.24021,-0.968031]
+
+[2024-04-16 10:58:01.532] [info] Creating offset frame for femur_r_imu
+[2024-04-16 10:58:01.535] [info] Added offset frame for femur_r_imu.
+[2024-04-16 10:58:01.535] [info] femur_r_imu offset computed from femur_r_imu data from file.
+[2024-04-16 10:58:01.540] [info] Processing tibia_l_imu
+[2024-04-16 10:58:01.540] [info] Computed offset for tibia_l_imu
+[2024-04-16 10:58:01.540] [info] Offset is 
+[0.0950796,-0.941402,0.323607]
+[0.992984,0.0667322,-0.0976203]
+[0.070305,0.330618,0.941142]
+
+[2024-04-16 10:58:01.541] [info] Creating offset frame for tibia_l_imu
+[2024-04-16 10:58:01.543] [info] Added offset frame for tibia_l_imu.
+[2024-04-16 10:58:01.544] [info] tibia_l_imu offset computed from tibia_l_imu data from file.
+[2024-04-16 10:58:01.544] [info] Processing femur_l_imu
+[2024-04-16 10:58:01.544] [info] Computed offset for femur_l_imu
+[2024-04-16 10:58:01.544] [info] Offset is 
+[0.15939,-0.980766,0.112659]
+[0.985443,0.164899,0.0413474]
+[-0.0591295,0.104428,0.992773]
+
+[2024-04-16 10:58:01.545] [info] Creating offset frame for femur_l_imu
+[2024-04-16 10:58:01.548] [info] Added offset frame for femur_l_imu.
+[2024-04-16 10:58:01.549] [info] femur_l_imu offset computed from femur_l_imu data from file.
+[2024-04-16 10:58:01.549] [info] Processing calcn_r_imu
+[2024-04-16 10:58:01.549] [info] Computed offset for calcn_r_imu
+[2024-04-16 10:58:01.549] [info] Offset is 
+[0.132853,0.838951,-0.527742]
+[0.052645,-0.537683,-0.841502]
+[-0.989737,0.0840129,-0.115599]
+
+[2024-04-16 10:58:01.550] [info] Creating offset frame for calcn_r_imu
+[2024-04-16 10:58:01.553] [info] Added offset frame for calcn_r_imu.
+[2024-04-16 10:58:01.553] [info] calcn_r_imu offset computed from calcn_r_imu data from file.
+[2024-04-16 10:58:01.553] [info] Processing calcn_l_imu
+[2024-04-16 10:58:01.553] [info] Computed offset for calcn_l_imu
+[2024-04-16 10:58:01.553] [info] Offset is 
+[0.055168,-0.866604,-0.495938]
+[0.00919381,0.497114,-0.867636]
+[0.998435,0.0433062,0.0353922]
+
+[2024-04-16 10:58:01.554] [info] Creating offset frame for calcn_l_imu
+[2024-04-16 10:58:01.557] [info] Added offset frame for calcn_l_imu.
+[2024-04-16 10:58:01.557] [info] calcn_l_imu offset computed from calcn_l_imu data from file.
+[2024-04-16 10:58:02.506] [info] InverseKinematicsSolver found 8 model frames to track.
+[2024-04-16 10:58:04.593] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015_calibrated.osim
+[2024-04-16 10:58:04.706] [info] Loading orientations as quaternions from 'MT_012005D6_009-001_orientations.sto'...
+[2024-04-16 10:58:05.311] [info] InverseKinematicsSolver found 8 model frames to track.
+[2024-04-16 10:58:31.260] [info] Wrote IK with IMU tracking results to: 'ik_MT_012005D6_009-001_orientations.mot'.
+[2024-04-16 10:59:56.968] [info] Updating Model file from 40000 to latest format...
+[2024-04-16 10:59:56.996] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015.osim
+[2024-04-16 10:59:57.146] [info] Heading correction computed to be 113.307 degs about ground Y.
+[2024-04-16 10:59:57.155] [info] Processing torso_imu
+[2024-04-16 10:59:57.155] [info] Computed offset for torso_imu
+[2024-04-16 10:59:57.156] [info] Offset is 
+[0.315294,-0.0237375,0.948697]
+[0.94644,0.0811645,-0.312513]
+[-0.0695822,0.996418,0.0480568]
+
+[2024-04-16 10:59:57.158] [info] Creating offset frame for torso_imu
+[2024-04-16 10:59:57.162] [info] Added offset frame for torso_imu.
+[2024-04-16 10:59:57.163] [info] torso_imu offset computed from torso_imu data from file.
+[2024-04-16 10:59:57.163] [info] Processing pelvis_imu
+[2024-04-16 10:59:57.163] [info] Computed offset for pelvis_imu
+[2024-04-16 10:59:57.164] [info] Offset is 
+[0.280953,0.00157552,0.95972]
+[0.957527,0.0671338,-0.280421]
+[-0.0648715,0.997743,0.0173528]
+
+[2024-04-16 10:59:57.165] [info] Creating offset frame for pelvis_imu
+[2024-04-16 10:59:57.169] [info] Added offset frame for pelvis_imu.
+[2024-04-16 10:59:57.170] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-04-16 10:59:57.170] [info] Processing tibia_r_imu
+[2024-04-16 10:59:57.171] [info] Computed offset for tibia_r_imu
+[2024-04-16 10:59:57.171] [info] Offset is 
+[0.0965278,0.977377,-0.188191]
+[0.989909,-0.113978,-0.0842017]
+[-0.103746,-0.178164,-0.978516]
+
+[2024-04-16 10:59:57.172] [info] Creating offset frame for tibia_r_imu
+[2024-04-16 10:59:57.177] [info] Added offset frame for tibia_r_imu.
+[2024-04-16 10:59:57.178] [info] tibia_r_imu offset computed from tibia_r_imu data from file.
+[2024-04-16 10:59:57.178] [info] Processing femur_r_imu
+[2024-04-16 10:59:57.179] [info] Computed offset for femur_r_imu
+[2024-04-16 10:59:57.179] [info] Offset is 
+[-0.0408079,0.969041,-0.243505]
+[0.996553,0.0570898,0.0601841]
+[0.0722225,-0.24021,-0.968031]
+
+[2024-04-16 10:59:57.181] [info] Creating offset frame for femur_r_imu
+[2024-04-16 10:59:57.184] [info] Added offset frame for femur_r_imu.
+[2024-04-16 10:59:57.185] [info] femur_r_imu offset computed from femur_r_imu data from file.
+[2024-04-16 10:59:57.185] [info] Processing tibia_l_imu
+[2024-04-16 10:59:57.185] [info] Computed offset for tibia_l_imu
+[2024-04-16 10:59:57.185] [info] Offset is 
+[0.0950796,-0.941402,0.323607]
+[0.992984,0.0667322,-0.0976203]
+[0.070305,0.330618,0.941142]
+
+[2024-04-16 10:59:57.186] [info] Creating offset frame for tibia_l_imu
+[2024-04-16 10:59:57.189] [info] Added offset frame for tibia_l_imu.
+[2024-04-16 10:59:57.189] [info] tibia_l_imu offset computed from tibia_l_imu data from file.
+[2024-04-16 10:59:57.190] [info] Processing femur_l_imu
+[2024-04-16 10:59:57.190] [info] Computed offset for femur_l_imu
+[2024-04-16 10:59:57.191] [info] Offset is 
+[0.15939,-0.980766,0.112659]
+[0.985443,0.164899,0.0413474]
+[-0.0591295,0.104428,0.992773]
+
+[2024-04-16 10:59:57.194] [info] Creating offset frame for femur_l_imu
+[2024-04-16 10:59:57.209] [info] Added offset frame for femur_l_imu.
+[2024-04-16 10:59:57.216] [info] femur_l_imu offset computed from femur_l_imu data from file.
+[2024-04-16 10:59:57.216] [info] Processing calcn_r_imu
+[2024-04-16 10:59:57.217] [info] Computed offset for calcn_r_imu
+[2024-04-16 10:59:57.217] [info] Offset is 
+[0.132853,0.838951,-0.527742]
+[0.052645,-0.537683,-0.841502]
+[-0.989737,0.0840129,-0.115599]
+
+[2024-04-16 10:59:57.218] [info] Creating offset frame for calcn_r_imu
+[2024-04-16 10:59:57.224] [info] Added offset frame for calcn_r_imu.
+[2024-04-16 10:59:57.231] [info] calcn_r_imu offset computed from calcn_r_imu data from file.
+[2024-04-16 10:59:57.232] [info] Processing calcn_l_imu
+[2024-04-16 10:59:57.236] [info] Computed offset for calcn_l_imu
+[2024-04-16 10:59:57.236] [info] Offset is 
+[0.055168,-0.866604,-0.495938]
+[0.00919381,0.497114,-0.867636]
+[0.998435,0.0433062,0.0353922]
+
+[2024-04-16 10:59:57.237] [info] Creating offset frame for calcn_l_imu
+[2024-04-16 10:59:57.242] [info] Added offset frame for calcn_l_imu.
+[2024-04-16 10:59:57.243] [info] calcn_l_imu offset computed from calcn_l_imu data from file.
+[2024-04-16 10:59:58.019] [info] InverseKinematicsSolver found 8 model frames to track.
+[2024-04-16 11:00:00.626] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015_calibrated.osim
+[2024-04-16 11:00:00.741] [info] Loading orientations as quaternions from 'MT_012005D6_009-001_orientations.sto'...
+[2024-04-16 11:00:01.324] [info] InverseKinematicsSolver found 8 model frames to track.
+[2024-04-16 11:00:27.848] [info] Wrote IK with IMU tracking results to: 'ik_MT_012005D6_009-001_orientations.mot'.
+[2024-04-16 11:00:51.011] [info] Updating Model file from 40000 to latest format...
+[2024-04-16 11:00:51.038] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015.osim
+[2024-04-16 11:00:51.207] [info] Heading correction computed to be 113.307 degs about ground Y.
+[2024-04-16 11:00:51.215] [info] Processing torso_imu
+[2024-04-16 11:00:51.215] [info] Computed offset for torso_imu
+[2024-04-16 11:00:51.215] [info] Offset is 
+[0.315294,-0.0237375,0.948697]
+[0.94644,0.0811645,-0.312513]
+[-0.0695822,0.996418,0.0480568]
+
+[2024-04-16 11:00:51.217] [info] Creating offset frame for torso_imu
+[2024-04-16 11:00:51.220] [info] Added offset frame for torso_imu.
+[2024-04-16 11:00:51.220] [info] torso_imu offset computed from torso_imu data from file.
+[2024-04-16 11:00:51.221] [info] Processing pelvis_imu
+[2024-04-16 11:00:51.221] [info] Computed offset for pelvis_imu
+[2024-04-16 11:00:51.221] [info] Offset is 
+[0.280953,0.00157552,0.95972]
+[0.957527,0.0671338,-0.280421]
+[-0.0648715,0.997743,0.0173528]
+
+[2024-04-16 11:00:51.223] [info] Creating offset frame for pelvis_imu
+[2024-04-16 11:00:51.226] [info] Added offset frame for pelvis_imu.
+[2024-04-16 11:00:51.227] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-04-16 11:00:51.227] [info] Processing tibia_r_imu
+[2024-04-16 11:00:51.228] [info] Computed offset for tibia_r_imu
+[2024-04-16 11:00:51.228] [info] Offset is 
+[0.0965278,0.977377,-0.188191]
+[0.989909,-0.113978,-0.0842017]
+[-0.103746,-0.178164,-0.978516]
+
+[2024-04-16 11:00:51.230] [info] Creating offset frame for tibia_r_imu
+[2024-04-16 11:00:51.233] [info] Added offset frame for tibia_r_imu.
+[2024-04-16 11:00:51.233] [info] tibia_r_imu offset computed from tibia_r_imu data from file.
+[2024-04-16 11:00:51.234] [info] Processing femur_r_imu
+[2024-04-16 11:00:51.234] [info] Computed offset for femur_r_imu
+[2024-04-16 11:00:51.234] [info] Offset is 
+[-0.0408079,0.969041,-0.243505]
+[0.996553,0.0570898,0.0601841]
+[0.0722225,-0.24021,-0.968031]
+
+[2024-04-16 11:00:51.235] [info] Creating offset frame for femur_r_imu
+[2024-04-16 11:00:51.237] [info] Added offset frame for femur_r_imu.
+[2024-04-16 11:00:51.238] [info] femur_r_imu offset computed from femur_r_imu data from file.
+[2024-04-16 11:00:51.238] [info] Processing tibia_l_imu
+[2024-04-16 11:00:51.238] [info] Computed offset for tibia_l_imu
+[2024-04-16 11:00:51.239] [info] Offset is 
+[0.0950796,-0.941402,0.323607]
+[0.992984,0.0667322,-0.0976203]
+[0.070305,0.330618,0.941142]
+
+[2024-04-16 11:00:51.250] [info] Creating offset frame for tibia_l_imu
+[2024-04-16 11:00:51.268] [info] Added offset frame for tibia_l_imu.
+[2024-04-16 11:00:51.285] [info] tibia_l_imu offset computed from tibia_l_imu data from file.
+[2024-04-16 11:00:51.286] [info] Processing femur_l_imu
+[2024-04-16 11:00:51.287] [info] Computed offset for femur_l_imu
+[2024-04-16 11:00:51.287] [info] Offset is 
+[0.15939,-0.980766,0.112659]
+[0.985443,0.164899,0.0413474]
+[-0.0591295,0.104428,0.992773]
+
+[2024-04-16 11:00:51.288] [info] Creating offset frame for femur_l_imu
+[2024-04-16 11:00:51.305] [info] Added offset frame for femur_l_imu.
+[2024-04-16 11:00:51.306] [info] femur_l_imu offset computed from femur_l_imu data from file.
+[2024-04-16 11:00:51.306] [info] Processing calcn_r_imu
+[2024-04-16 11:00:51.306] [info] Computed offset for calcn_r_imu
+[2024-04-16 11:00:51.306] [info] Offset is 
+[0.132853,0.838951,-0.527742]
+[0.052645,-0.537683,-0.841502]
+[-0.989737,0.0840129,-0.115599]
+
+[2024-04-16 11:00:51.307] [info] Creating offset frame for calcn_r_imu
+[2024-04-16 11:00:51.309] [info] Added offset frame for calcn_r_imu.
+[2024-04-16 11:00:51.309] [info] calcn_r_imu offset computed from calcn_r_imu data from file.
+[2024-04-16 11:00:51.310] [info] Processing calcn_l_imu
+[2024-04-16 11:00:51.310] [info] Computed offset for calcn_l_imu
+[2024-04-16 11:00:51.310] [info] Offset is 
+[0.055168,-0.866604,-0.495938]
+[0.00919381,0.497114,-0.867636]
+[0.998435,0.0433062,0.0353922]
+
+[2024-04-16 11:00:51.311] [info] Creating offset frame for calcn_l_imu
+[2024-04-16 11:00:51.313] [info] Added offset frame for calcn_l_imu.
+[2024-04-16 11:00:51.313] [info] calcn_l_imu offset computed from calcn_l_imu data from file.
+[2024-04-16 11:00:52.033] [info] InverseKinematicsSolver found 8 model frames to track.
+[2024-04-16 11:01:07.554] [info] Updating Model file from 40000 to latest format...
+[2024-04-16 11:01:07.582] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015.osim
+[2024-04-16 11:01:07.711] [info] Heading correction computed to be 113.307 degs about ground Y.
+[2024-04-16 11:01:07.715] [info] Processing torso_imu
+[2024-04-16 11:01:07.715] [info] Computed offset for torso_imu
+[2024-04-16 11:01:07.715] [info] Offset is 
+[0.315294,-0.0237375,0.948697]
+[0.94644,0.0811645,-0.312513]
+[-0.0695822,0.996418,0.0480568]
+
+[2024-04-16 11:01:07.716] [info] Creating offset frame for torso_imu
+[2024-04-16 11:01:07.717] [info] Added offset frame for torso_imu.
+[2024-04-16 11:01:07.718] [info] torso_imu offset computed from torso_imu data from file.
+[2024-04-16 11:01:07.718] [info] Processing pelvis_imu
+[2024-04-16 11:01:07.718] [info] Computed offset for pelvis_imu
+[2024-04-16 11:01:07.718] [info] Offset is 
+[0.280953,0.00157552,0.95972]
+[0.957527,0.0671338,-0.280421]
+[-0.0648715,0.997743,0.0173528]
+
+[2024-04-16 11:01:07.719] [info] Creating offset frame for pelvis_imu
+[2024-04-16 11:01:07.721] [info] Added offset frame for pelvis_imu.
+[2024-04-16 11:01:07.722] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-04-16 11:01:07.722] [info] Processing tibia_r_imu
+[2024-04-16 11:01:07.722] [info] Computed offset for tibia_r_imu
+[2024-04-16 11:01:07.722] [info] Offset is 
+[0.0965278,0.977377,-0.188191]
+[0.989909,-0.113978,-0.0842017]
+[-0.103746,-0.178164,-0.978516]
+
+[2024-04-16 11:01:07.723] [info] Creating offset frame for tibia_r_imu
+[2024-04-16 11:01:07.725] [info] Added offset frame for tibia_r_imu.
+[2024-04-16 11:01:07.726] [info] tibia_r_imu offset computed from tibia_r_imu data from file.
+[2024-04-16 11:01:07.726] [info] Processing femur_r_imu
+[2024-04-16 11:01:07.727] [info] Computed offset for femur_r_imu
+[2024-04-16 11:01:07.727] [info] Offset is 
+[-0.0408079,0.969041,-0.243505]
+[0.996553,0.0570898,0.0601841]
+[0.0722225,-0.24021,-0.968031]
+
+[2024-04-16 11:01:07.728] [info] Creating offset frame for femur_r_imu
+[2024-04-16 11:01:07.731] [info] Added offset frame for femur_r_imu.
+[2024-04-16 11:01:07.731] [info] femur_r_imu offset computed from femur_r_imu data from file.
+[2024-04-16 11:01:07.732] [info] Processing tibia_l_imu
+[2024-04-16 11:01:07.732] [info] Computed offset for tibia_l_imu
+[2024-04-16 11:01:07.732] [info] Offset is 
+[0.0950796,-0.941402,0.323607]
+[0.992984,0.0667322,-0.0976203]
+[0.070305,0.330618,0.941142]
+
+[2024-04-16 11:01:07.733] [info] Creating offset frame for tibia_l_imu
+[2024-04-16 11:01:07.735] [info] Added offset frame for tibia_l_imu.
+[2024-04-16 11:01:07.736] [info] tibia_l_imu offset computed from tibia_l_imu data from file.
+[2024-04-16 11:01:07.736] [info] Processing femur_l_imu
+[2024-04-16 11:01:07.736] [info] Computed offset for femur_l_imu
+[2024-04-16 11:01:07.737] [info] Offset is 
+[0.15939,-0.980766,0.112659]
+[0.985443,0.164899,0.0413474]
+[-0.0591295,0.104428,0.992773]
+
+[2024-04-16 11:01:07.738] [info] Creating offset frame for femur_l_imu
+[2024-04-16 11:01:07.740] [info] Added offset frame for femur_l_imu.
+[2024-04-16 11:01:07.740] [info] femur_l_imu offset computed from femur_l_imu data from file.
+[2024-04-16 11:01:07.740] [info] Processing calcn_r_imu
+[2024-04-16 11:01:07.740] [info] Computed offset for calcn_r_imu
+[2024-04-16 11:01:07.741] [info] Offset is 
+[0.132853,0.838951,-0.527742]
+[0.052645,-0.537683,-0.841502]
+[-0.989737,0.0840129,-0.115599]
+
+[2024-04-16 11:01:07.742] [info] Creating offset frame for calcn_r_imu
+[2024-04-16 11:01:07.746] [info] Added offset frame for calcn_r_imu.
+[2024-04-16 11:01:07.747] [info] calcn_r_imu offset computed from calcn_r_imu data from file.
+[2024-04-16 11:01:07.747] [info] Processing calcn_l_imu
+[2024-04-16 11:01:07.747] [info] Computed offset for calcn_l_imu
+[2024-04-16 11:01:07.747] [info] Offset is 
+[0.055168,-0.866604,-0.495938]
+[0.00919381,0.497114,-0.867636]
+[0.998435,0.0433062,0.0353922]
+
+[2024-04-16 11:01:07.749] [info] Creating offset frame for calcn_l_imu
+[2024-04-16 11:01:07.753] [info] Added offset frame for calcn_l_imu.
+[2024-04-16 11:01:07.753] [info] calcn_l_imu offset computed from calcn_l_imu data from file.
+[2024-04-16 11:01:08.462] [info] InverseKinematicsSolver found 8 model frames to track.
+[2024-04-16 11:01:09.969] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015_calibrated.osim
+[2024-04-16 11:01:10.087] [info] Loading orientations as quaternions from 'MT_012005D6_009-001_orientations.sto'...
+[2024-04-16 11:01:10.688] [info] InverseKinematicsSolver found 8 model frames to track.
+[2024-04-16 11:01:50.700] [info] Wrote IK with IMU tracking results to: 'ik_MT_012005D6_009-001_orientations.mot'.
+[2024-04-16 15:42:16.964] [info] Updating Model file from 40000 to latest format...
+[2024-04-16 15:42:16.989] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015.osim
+[2024-04-16 16:24:13.263] [info] Updating Model file from 40000 to latest format...
+[2024-04-16 16:24:13.282] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015.osim
+[2024-04-16 16:24:13.336] [info] Heading correction computed to be 87.6764 degs about ground Y.
+[2024-04-16 16:24:13.337] [info] Processing pelvis_imu
+[2024-04-16 16:24:13.337] [info] Computed offset for pelvis_imu
+[2024-04-16 16:24:13.338] [info] Offset is 
+[0.0193498,-0.997943,0.0611115]
+[-0.0393449,0.0603156,0.997404]
+[-0.999038,-0.021704,-0.0380969]
+
+[2024-04-16 16:24:13.340] [info] Creating offset frame for pelvis_imu
+[2024-04-16 16:24:13.343] [info] Added offset frame for pelvis_imu.
+[2024-04-16 16:24:13.343] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-04-16 16:24:13.343] [info] Processing torso_imu
+[2024-04-16 16:24:13.344] [info] Computed offset for torso_imu
+[2024-04-16 16:24:13.344] [info] Offset is 
+[0.0401113,-0.998962,0.0215945]
+[-0.03998,0.01999,0.999]
+[-0.998395,-0.0409346,-0.0391367]
+
+[2024-04-16 16:24:13.345] [info] Creating offset frame for torso_imu
+[2024-04-16 16:24:13.346] [info] Added offset frame for torso_imu.
+[2024-04-16 16:24:13.347] [info] torso_imu offset computed from torso_imu data from file.
+[2024-04-16 16:24:13.347] [info] Processing humerus_r_imu
+[2024-04-16 16:24:13.347] [info] Computed offset for humerus_r_imu
+[2024-04-16 16:24:13.347] [info] Offset is 
+[0.0405432,-0.989434,0.139203]
+[-5.55112e-17,0.139317,0.990248]
+[-0.999178,-0.0401479,0.00564838]
+
+[2024-04-16 16:24:13.348] [info] Creating offset frame for humerus_r_imu
+[2024-04-16 16:24:13.351] [info] Added offset frame for humerus_r_imu.
+[2024-04-16 16:24:13.352] [info] humerus_r_imu offset computed from humerus_r_imu data from file.
+[2024-04-16 16:24:13.352] [info] Processing ulna_r_imu
+[2024-04-16 16:24:13.352] [info] Computed offset for ulna_r_imu
+[2024-04-16 16:24:13.352] [info] Offset is 
+[-0.283468,-0.927814,0.242501]
+[-0.816432,0.366144,0.446517]
+[-0.503075,-0.0714122,-0.861287]
+
+[2024-04-16 16:24:13.353] [info] Creating offset frame for ulna_r_imu
+[2024-04-16 16:24:13.356] [info] Added offset frame for ulna_r_imu.
+[2024-04-16 16:24:13.356] [info] ulna_r_imu offset computed from ulna_r_imu data from file.
+[2024-04-16 16:24:14.439] [info] InverseKinematicsSolver found 4 model frames to track.
+[2024-04-16 16:25:57.301] [info] Updating Model file from 40000 to latest format...
+[2024-04-16 16:25:57.322] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015.osim
+[2024-04-16 16:25:57.352] [info] Heading correction computed to be 87.6764 degs about ground Y.
+[2024-04-16 16:25:57.353] [info] Processing pelvis_imu
+[2024-04-16 16:25:57.353] [info] Computed offset for pelvis_imu
+[2024-04-16 16:25:57.353] [info] Offset is 
+[0.0193498,-0.997943,0.0611115]
+[-0.0393449,0.0603156,0.997404]
+[-0.999038,-0.021704,-0.0380969]
+
+[2024-04-16 16:25:57.355] [info] Creating offset frame for pelvis_imu
+[2024-04-16 16:25:57.357] [info] Added offset frame for pelvis_imu.
+[2024-04-16 16:25:57.357] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-04-16 16:25:57.357] [info] Processing torso_imu
+[2024-04-16 16:25:57.357] [info] Computed offset for torso_imu
+[2024-04-16 16:25:57.358] [info] Offset is 
+[0.0401113,-0.998962,0.0215945]
+[-0.03998,0.01999,0.999]
+[-0.998395,-0.0409346,-0.0391367]
+
+[2024-04-16 16:25:57.359] [info] Creating offset frame for torso_imu
+[2024-04-16 16:25:57.362] [info] Added offset frame for torso_imu.
+[2024-04-16 16:25:57.363] [info] torso_imu offset computed from torso_imu data from file.
+[2024-04-16 16:25:57.363] [info] Processing humerus_r_imu
+[2024-04-16 16:25:57.363] [info] Computed offset for humerus_r_imu
+[2024-04-16 16:25:57.364] [info] Offset is 
+[0.0405432,-0.989434,0.139203]
+[-5.55112e-17,0.139317,0.990248]
+[-0.999178,-0.0401479,0.00564838]
+
+[2024-04-16 16:25:57.365] [info] Creating offset frame for humerus_r_imu
+[2024-04-16 16:25:57.368] [info] Added offset frame for humerus_r_imu.
+[2024-04-16 16:25:57.368] [info] humerus_r_imu offset computed from humerus_r_imu data from file.
+[2024-04-16 16:25:57.368] [info] Processing ulna_r_imu
+[2024-04-16 16:25:57.368] [info] Computed offset for ulna_r_imu
+[2024-04-16 16:25:57.369] [info] Offset is 
+[-0.283468,-0.927814,0.242501]
+[-0.816432,0.366144,0.446517]
+[-0.503075,-0.0714122,-0.861287]
+
+[2024-04-16 16:25:57.369] [info] Creating offset frame for ulna_r_imu
+[2024-04-16 16:25:57.371] [info] Added offset frame for ulna_r_imu.
+[2024-04-16 16:25:57.372] [info] ulna_r_imu offset computed from ulna_r_imu data from file.
+[2024-04-16 16:25:57.971] [info] InverseKinematicsSolver found 4 model frames to track.
+[2024-04-16 16:26:01.405] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015_calibrated.osim
+[2024-04-16 16:26:01.406] [warning] Couldn't find file 'r_pelvis.vtp'.
+[2024-04-16 16:26:01.407] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2024-04-16 16:26:01.407] [warning] Couldn't find file 'sacrum.vtp'.
+[2024-04-16 16:26:01.408] [warning] Couldn't find file 'femur_r.vtp'.
+[2024-04-16 16:26:01.408] [warning] Couldn't find file 'tibia_r.vtp'.
+[2024-04-16 16:26:01.408] [warning] Couldn't find file 'r_fibula.vtp'.
+[2024-04-16 16:26:01.408] [warning] Couldn't find file 'r_patella.vtp'.
+[2024-04-16 16:26:01.409] [warning] Couldn't find file 'r_talus.vtp'.
+[2024-04-16 16:26:01.409] [warning] Couldn't find file 'r_foot.vtp'.
+[2024-04-16 16:26:01.409] [warning] Couldn't find file 'r_bofoot.vtp'.
+[2024-04-16 16:26:01.410] [warning] Couldn't find file 'femur_l.vtp'.
+[2024-04-16 16:26:01.410] [warning] Couldn't find file 'tibia_l.vtp'.
+[2024-04-16 16:26:01.410] [warning] Couldn't find file 'l_fibula.vtp'.
+[2024-04-16 16:26:01.411] [warning] Couldn't find file 'l_patella.vtp'.
+[2024-04-16 16:26:01.411] [warning] Couldn't find file 'l_talus.vtp'.
+[2024-04-16 16:26:01.411] [warning] Couldn't find file 'l_foot.vtp'.
+[2024-04-16 16:26:01.412] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2024-04-16 16:26:01.412] [warning] Couldn't find file 'hat_spine.vtp'.
+[2024-04-16 16:26:01.413] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2024-04-16 16:26:01.413] [warning] Couldn't find file 'hat_skull.vtp'.
+[2024-04-16 16:26:01.414] [warning] Couldn't find file 'hat_ribs_scap.vtp'.
+[2024-04-16 16:26:01.414] [warning] Couldn't find file 'humerus_rv.vtp'.
+[2024-04-16 16:26:01.414] [warning] Couldn't find file 'ulna_rv.vtp'.
+[2024-04-16 16:26:01.415] [warning] Couldn't find file 'radius_rv.vtp'.
+[2024-04-16 16:26:01.415] [warning] Couldn't find file 'pisiform_rvs.vtp'.
+[2024-04-16 16:26:01.415] [warning] Couldn't find file 'lunate_rvs.vtp'.
+[2024-04-16 16:26:01.415] [warning] Couldn't find file 'scaphoid_rvs.vtp'.
+[2024-04-16 16:26:01.416] [warning] Couldn't find file 'triquetrum_rvs.vtp'.
+[2024-04-16 16:26:01.416] [warning] Couldn't find file 'hamate_rvs.vtp'.
+[2024-04-16 16:26:01.416] [warning] Couldn't find file 'capitate_rvs.vtp'.
+[2024-04-16 16:26:01.417] [warning] Couldn't find file 'trapezoid_rvs.vtp'.
+[2024-04-16 16:26:01.417] [warning] Couldn't find file 'trapezium_rvs.vtp'.
+[2024-04-16 16:26:01.417] [warning] Couldn't find file 'metacarpal2_rvs.vtp'.
+[2024-04-16 16:26:01.418] [warning] Couldn't find file 'index_proximal_rvs.vtp'.
+[2024-04-16 16:26:01.418] [warning] Couldn't find file 'index_medial_rvs.vtp'.
+[2024-04-16 16:26:01.419] [warning] Couldn't find file 'index_distal_rvs.vtp'.
+[2024-04-16 16:26:01.419] [warning] Couldn't find file 'metacarpal3_rvs.vtp'.
+[2024-04-16 16:26:01.420] [warning] Couldn't find file 'middle_proximal_rvs.vtp'.
+[2024-04-16 16:26:01.421] [warning] Couldn't find file 'middle_medial_rvs.vtp'.
+[2024-04-16 16:26:01.421] [warning] Couldn't find file 'middle_distal_rvs.vtp'.
+[2024-04-16 16:26:01.422] [warning] Couldn't find file 'metacarpal4_rvs.vtp'.
+[2024-04-16 16:26:01.422] [warning] Couldn't find file 'ring_proximal_rvs.vtp'.
+[2024-04-16 16:26:01.423] [warning] Couldn't find file 'ring_medial_rvs.vtp'.
+[2024-04-16 16:26:01.423] [warning] Couldn't find file 'ring_distal_rvs.vtp'.
+[2024-04-16 16:26:01.423] [warning] Couldn't find file 'metacarpal5_rvs.vtp'.
+[2024-04-16 16:26:01.423] [warning] Couldn't find file 'little_proximal_rvs.vtp'.
+[2024-04-16 16:26:01.424] [warning] Couldn't find file 'little_medial_rvs.vtp'.
+[2024-04-16 16:26:01.424] [warning] Couldn't find file 'little_distal_rvs.vtp'.
+[2024-04-16 16:26:01.424] [warning] Couldn't find file 'metacarpal1_rvs.vtp'.
+[2024-04-16 16:26:01.425] [warning] Couldn't find file 'thumb_proximal_rvs.vtp'.
+[2024-04-16 16:26:01.425] [warning] Couldn't find file 'thumb_distal_rvs.vtp'.
+[2024-04-16 16:26:01.425] [warning] Couldn't find file 'humerus_lv.vtp'.
+[2024-04-16 16:26:01.425] [warning] Couldn't find file 'ulna_lv.vtp'.
+[2024-04-16 16:26:01.426] [warning] Couldn't find file 'radius_lv.vtp'.
+[2024-04-16 16:26:01.426] [warning] Couldn't find file 'pisiform_lvs.vtp'.
+[2024-04-16 16:26:01.426] [warning] Couldn't find file 'lunate_lvs.vtp'.
+[2024-04-16 16:26:01.426] [warning] Couldn't find file 'scaphoid_lvs.vtp'.
+[2024-04-16 16:26:01.427] [warning] Couldn't find file 'triquetrum_lvs.vtp'.
+[2024-04-16 16:26:01.427] [warning] Couldn't find file 'hamate_lvs.vtp'.
+[2024-04-16 16:26:01.427] [warning] Couldn't find file 'capitate_lvs.vtp'.
+[2024-04-16 16:26:01.428] [warning] Couldn't find file 'trapezoid_lvs.vtp'.
+[2024-04-16 16:26:01.428] [warning] Couldn't find file 'trapezium_lvs.vtp'.
+[2024-04-16 16:26:01.428] [warning] Couldn't find file 'metacarpal2_lvs.vtp'.
+[2024-04-16 16:26:01.429] [warning] Couldn't find file 'index_proximal_lvs.vtp'.
+[2024-04-16 16:26:01.429] [warning] Couldn't find file 'index_medial_lvs.vtp'.
+[2024-04-16 16:26:01.429] [warning] Couldn't find file 'index_distal_lvs.vtp'.
+[2024-04-16 16:26:01.429] [warning] Couldn't find file 'metacarpal3_lvs.vtp'.
+[2024-04-16 16:26:01.430] [warning] Couldn't find file 'middle_proximal_lvs.vtp'.
+[2024-04-16 16:26:01.430] [warning] Couldn't find file 'middle_medial_lvs.vtp'.
+[2024-04-16 16:26:01.430] [warning] Couldn't find file 'middle_distal_lvs.vtp'.
+[2024-04-16 16:26:01.430] [warning] Couldn't find file 'metacarpal4_lvs.vtp'.
+[2024-04-16 16:26:01.431] [warning] Couldn't find file 'ring_proximal_lvs.vtp'.
+[2024-04-16 16:26:01.431] [warning] Couldn't find file 'ring_medial_lvs.vtp'.
+[2024-04-16 16:26:01.432] [warning] Couldn't find file 'ring_distal_lvs.vtp'.
+[2024-04-16 16:26:01.433] [warning] Couldn't find file 'metacarpal5_lvs.vtp'.
+[2024-04-16 16:26:01.433] [warning] Couldn't find file 'little_proximal_lvs.vtp'.
+[2024-04-16 16:26:01.434] [warning] Couldn't find file 'little_medial_lvs.vtp'.
+[2024-04-16 16:26:01.434] [warning] Couldn't find file 'little_distal_lvs.vtp'.
+[2024-04-16 16:26:01.434] [warning] Couldn't find file 'metacarpal1_lvs.vtp'.
+[2024-04-16 16:26:01.435] [warning] Couldn't find file 'thumb_proximal_lvs.vtp'.
+[2024-04-16 16:26:01.435] [warning] Couldn't find file 'thumb_distal_lvs.vtp'.
+[2024-04-16 16:27:26.514] [info] Updating Model file from 40000 to latest format...
+[2024-04-16 16:27:26.531] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015.osim
+[2024-04-16 16:27:26.561] [info] Heading correction computed to be 87.6764 degs about ground Y.
+[2024-04-16 16:27:26.562] [info] Processing pelvis_imu
+[2024-04-16 16:27:26.563] [info] Computed offset for pelvis_imu
+[2024-04-16 16:27:26.563] [info] Offset is 
+[0.0193498,-0.997943,0.0611115]
+[-0.0393449,0.0603156,0.997404]
+[-0.999038,-0.021704,-0.0380969]
+
+[2024-04-16 16:27:26.564] [info] Creating offset frame for pelvis_imu
+[2024-04-16 16:27:26.566] [info] Added offset frame for pelvis_imu.
+[2024-04-16 16:27:26.567] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-04-16 16:27:26.567] [info] Processing torso_imu
+[2024-04-16 16:27:26.567] [info] Computed offset for torso_imu
+[2024-04-16 16:27:26.568] [info] Offset is 
+[0.0401113,-0.998962,0.0215945]
+[-0.03998,0.01999,0.999]
+[-0.998395,-0.0409346,-0.0391367]
+
+[2024-04-16 16:27:26.568] [info] Creating offset frame for torso_imu
+[2024-04-16 16:27:26.571] [info] Added offset frame for torso_imu.
+[2024-04-16 16:27:26.571] [info] torso_imu offset computed from torso_imu data from file.
+[2024-04-16 16:27:26.571] [info] Processing humerus_r_imu
+[2024-04-16 16:27:26.572] [info] Computed offset for humerus_r_imu
+[2024-04-16 16:27:26.572] [info] Offset is 
+[0.0405432,-0.989434,0.139203]
+[-5.55112e-17,0.139317,0.990248]
+[-0.999178,-0.0401479,0.00564838]
+
+[2024-04-16 16:27:26.573] [info] Creating offset frame for humerus_r_imu
+[2024-04-16 16:27:26.575] [info] Added offset frame for humerus_r_imu.
+[2024-04-16 16:27:26.576] [info] humerus_r_imu offset computed from humerus_r_imu data from file.
+[2024-04-16 16:27:26.576] [info] Processing ulna_r_imu
+[2024-04-16 16:27:26.576] [info] Computed offset for ulna_r_imu
+[2024-04-16 16:27:26.576] [info] Offset is 
+[-0.283468,-0.927814,0.242501]
+[-0.816432,0.366144,0.446517]
+[-0.503075,-0.0714122,-0.861287]
+
+[2024-04-16 16:27:26.577] [info] Creating offset frame for ulna_r_imu
+[2024-04-16 16:27:26.580] [info] Added offset frame for ulna_r_imu.
+[2024-04-16 16:27:26.580] [info] ulna_r_imu offset computed from ulna_r_imu data from file.
+[2024-04-16 16:27:27.216] [info] InverseKinematicsSolver found 4 model frames to track.
+[2024-04-16 16:27:29.908] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015_calibrated.osim
+[2024-04-16 16:27:29.910] [warning] Couldn't find file 'r_pelvis.vtp'.
+[2024-04-16 16:27:29.910] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2024-04-16 16:27:29.911] [warning] Couldn't find file 'sacrum.vtp'.
+[2024-04-16 16:27:29.911] [warning] Couldn't find file 'femur_r.vtp'.
+[2024-04-16 16:27:29.912] [warning] Couldn't find file 'tibia_r.vtp'.
+[2024-04-16 16:27:29.912] [warning] Couldn't find file 'r_fibula.vtp'.
+[2024-04-16 16:27:29.913] [warning] Couldn't find file 'r_patella.vtp'.
+[2024-04-16 16:27:29.913] [warning] Couldn't find file 'r_talus.vtp'.
+[2024-04-16 16:27:29.914] [warning] Couldn't find file 'r_foot.vtp'.
+[2024-04-16 16:27:29.914] [warning] Couldn't find file 'r_bofoot.vtp'.
+[2024-04-16 16:27:29.915] [warning] Couldn't find file 'femur_l.vtp'.
+[2024-04-16 16:27:29.915] [warning] Couldn't find file 'tibia_l.vtp'.
+[2024-04-16 16:27:29.916] [warning] Couldn't find file 'l_fibula.vtp'.
+[2024-04-16 16:27:29.916] [warning] Couldn't find file 'l_patella.vtp'.
+[2024-04-16 16:27:29.917] [warning] Couldn't find file 'l_talus.vtp'.
+[2024-04-16 16:27:29.917] [warning] Couldn't find file 'l_foot.vtp'.
+[2024-04-16 16:27:29.918] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2024-04-16 16:27:29.918] [warning] Couldn't find file 'hat_spine.vtp'.
+[2024-04-16 16:27:29.919] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2024-04-16 16:27:29.919] [warning] Couldn't find file 'hat_skull.vtp'.
+[2024-04-16 16:27:29.920] [warning] Couldn't find file 'hat_ribs_scap.vtp'.
+[2024-04-16 16:27:29.920] [warning] Couldn't find file 'humerus_rv.vtp'.
+[2024-04-16 16:27:29.921] [warning] Couldn't find file 'ulna_rv.vtp'.
+[2024-04-16 16:27:29.922] [warning] Couldn't find file 'radius_rv.vtp'.
+[2024-04-16 16:27:29.923] [warning] Couldn't find file 'pisiform_rvs.vtp'.
+[2024-04-16 16:27:29.923] [warning] Couldn't find file 'lunate_rvs.vtp'.
+[2024-04-16 16:27:29.924] [warning] Couldn't find file 'scaphoid_rvs.vtp'.
+[2024-04-16 16:27:29.924] [warning] Couldn't find file 'triquetrum_rvs.vtp'.
+[2024-04-16 16:27:29.925] [warning] Couldn't find file 'hamate_rvs.vtp'.
+[2024-04-16 16:27:29.925] [warning] Couldn't find file 'capitate_rvs.vtp'.
+[2024-04-16 16:27:29.926] [warning] Couldn't find file 'trapezoid_rvs.vtp'.
+[2024-04-16 16:27:29.926] [warning] Couldn't find file 'trapezium_rvs.vtp'.
+[2024-04-16 16:27:29.926] [warning] Couldn't find file 'metacarpal2_rvs.vtp'.
+[2024-04-16 16:27:29.927] [warning] Couldn't find file 'index_proximal_rvs.vtp'.
+[2024-04-16 16:27:29.927] [warning] Couldn't find file 'index_medial_rvs.vtp'.
+[2024-04-16 16:27:29.928] [warning] Couldn't find file 'index_distal_rvs.vtp'.
+[2024-04-16 16:27:29.928] [warning] Couldn't find file 'metacarpal3_rvs.vtp'.
+[2024-04-16 16:27:29.929] [warning] Couldn't find file 'middle_proximal_rvs.vtp'.
+[2024-04-16 16:27:29.930] [warning] Couldn't find file 'middle_medial_rvs.vtp'.
+[2024-04-16 16:27:29.930] [warning] Couldn't find file 'middle_distal_rvs.vtp'.
+[2024-04-16 16:27:29.931] [warning] Couldn't find file 'metacarpal4_rvs.vtp'.
+[2024-04-16 16:27:29.931] [warning] Couldn't find file 'ring_proximal_rvs.vtp'.
+[2024-04-16 16:27:29.932] [warning] Couldn't find file 'ring_medial_rvs.vtp'.
+[2024-04-16 16:27:29.932] [warning] Couldn't find file 'ring_distal_rvs.vtp'.
+[2024-04-16 16:27:29.932] [warning] Couldn't find file 'metacarpal5_rvs.vtp'.
+[2024-04-16 16:27:29.933] [warning] Couldn't find file 'little_proximal_rvs.vtp'.
+[2024-04-16 16:27:29.933] [warning] Couldn't find file 'little_medial_rvs.vtp'.
+[2024-04-16 16:27:29.933] [warning] Couldn't find file 'little_distal_rvs.vtp'.
+[2024-04-16 16:27:29.934] [warning] Couldn't find file 'metacarpal1_rvs.vtp'.
+[2024-04-16 16:27:29.934] [warning] Couldn't find file 'thumb_proximal_rvs.vtp'.
+[2024-04-16 16:27:29.935] [warning] Couldn't find file 'thumb_distal_rvs.vtp'.
+[2024-04-16 16:27:29.935] [warning] Couldn't find file 'humerus_lv.vtp'.
+[2024-04-16 16:27:29.936] [warning] Couldn't find file 'ulna_lv.vtp'.
+[2024-04-16 16:27:29.936] [warning] Couldn't find file 'radius_lv.vtp'.
+[2024-04-16 16:27:29.939] [warning] Couldn't find file 'pisiform_lvs.vtp'.
+[2024-04-16 16:27:29.940] [warning] Couldn't find file 'lunate_lvs.vtp'.
+[2024-04-16 16:27:29.940] [warning] Couldn't find file 'scaphoid_lvs.vtp'.
+[2024-04-16 16:27:29.940] [warning] Couldn't find file 'triquetrum_lvs.vtp'.
+[2024-04-16 16:27:29.941] [warning] Couldn't find file 'hamate_lvs.vtp'.
+[2024-04-16 16:27:29.941] [warning] Couldn't find file 'capitate_lvs.vtp'.
+[2024-04-16 16:27:29.942] [warning] Couldn't find file 'trapezoid_lvs.vtp'.
+[2024-04-16 16:27:29.942] [warning] Couldn't find file 'trapezium_lvs.vtp'.
+[2024-04-16 16:27:29.942] [warning] Couldn't find file 'metacarpal2_lvs.vtp'.
+[2024-04-16 16:27:29.943] [warning] Couldn't find file 'index_proximal_lvs.vtp'.
+[2024-04-16 16:27:29.943] [warning] Couldn't find file 'index_medial_lvs.vtp'.
+[2024-04-16 16:27:29.943] [warning] Couldn't find file 'index_distal_lvs.vtp'.
+[2024-04-16 16:27:29.944] [warning] Couldn't find file 'metacarpal3_lvs.vtp'.
+[2024-04-16 16:27:29.944] [warning] Couldn't find file 'middle_proximal_lvs.vtp'.
+[2024-04-16 16:27:29.944] [warning] Couldn't find file 'middle_medial_lvs.vtp'.
+[2024-04-16 16:27:29.944] [warning] Couldn't find file 'middle_distal_lvs.vtp'.
+[2024-04-16 16:27:29.945] [warning] Couldn't find file 'metacarpal4_lvs.vtp'.
+[2024-04-16 16:27:29.945] [warning] Couldn't find file 'ring_proximal_lvs.vtp'.
+[2024-04-16 16:27:29.945] [warning] Couldn't find file 'ring_medial_lvs.vtp'.
+[2024-04-16 16:27:29.946] [warning] Couldn't find file 'ring_distal_lvs.vtp'.
+[2024-04-16 16:27:29.947] [warning] Couldn't find file 'metacarpal5_lvs.vtp'.
+[2024-04-16 16:27:29.948] [warning] Couldn't find file 'little_proximal_lvs.vtp'.
+[2024-04-16 16:27:29.949] [warning] Couldn't find file 'little_medial_lvs.vtp'.
+[2024-04-16 16:27:29.949] [warning] Couldn't find file 'little_distal_lvs.vtp'.
+[2024-04-16 16:27:29.950] [warning] Couldn't find file 'metacarpal1_lvs.vtp'.
+[2024-04-16 16:27:29.950] [warning] Couldn't find file 'thumb_proximal_lvs.vtp'.
+[2024-04-16 16:27:29.950] [warning] Couldn't find file 'thumb_distal_lvs.vtp'.
+[2024-04-16 16:27:29.958] [info] Loading orientations as quaternions from 'Dataset/lifting_orientations.sto'...
+[2024-04-16 16:27:30.002] [warning] Visualizer couldn't open r_pelvis.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_pelvis.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_pelvis.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.004] [warning] Visualizer couldn't open l_pelvis.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_pelvis.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_pelvis.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.005] [warning] Visualizer couldn't open sacrum.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\sacrum.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\sacrum.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.007] [warning] Visualizer couldn't open femur_r.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\femur_r.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\femur_r.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.009] [warning] Visualizer couldn't open tibia_r.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\tibia_r.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\tibia_r.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.011] [warning] Visualizer couldn't open r_fibula.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_fibula.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_fibula.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.013] [warning] Visualizer couldn't open r_patella.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_patella.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_patella.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.016] [warning] Visualizer couldn't open r_talus.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_talus.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_talus.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.018] [warning] Visualizer couldn't open r_foot.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_foot.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_foot.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.020] [warning] Visualizer couldn't open r_bofoot.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_bofoot.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_bofoot.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.022] [warning] Visualizer couldn't open femur_l.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\femur_l.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\femur_l.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.023] [warning] Visualizer couldn't open tibia_l.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\tibia_l.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\tibia_l.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.025] [warning] Visualizer couldn't open l_fibula.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_fibula.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_fibula.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.027] [warning] Visualizer couldn't open l_patella.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_patella.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_patella.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.029] [warning] Visualizer couldn't open l_talus.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_talus.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_talus.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.031] [warning] Visualizer couldn't open l_foot.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_foot.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_foot.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.033] [warning] Visualizer couldn't open l_bofoot.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_bofoot.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_bofoot.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.034] [warning] Visualizer couldn't open hat_spine.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hat_spine.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hat_spine.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.036] [warning] Visualizer couldn't open hat_jaw.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hat_jaw.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hat_jaw.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.037] [warning] Visualizer couldn't open hat_skull.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hat_skull.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hat_skull.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.039] [warning] Visualizer couldn't open hat_ribs_scap.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hat_ribs_scap.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hat_ribs_scap.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.040] [warning] Visualizer couldn't open humerus_rv.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\humerus_rv.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\humerus_rv.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.042] [warning] Visualizer couldn't open ulna_rv.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ulna_rv.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ulna_rv.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.044] [warning] Visualizer couldn't open radius_rv.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\radius_rv.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\radius_rv.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.046] [warning] Visualizer couldn't open pisiform_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\pisiform_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\pisiform_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.048] [warning] Visualizer couldn't open lunate_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\lunate_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\lunate_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.050] [warning] Visualizer couldn't open scaphoid_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\scaphoid_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\scaphoid_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.051] [warning] Visualizer couldn't open triquetrum_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\triquetrum_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\triquetrum_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.053] [warning] Visualizer couldn't open hamate_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hamate_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hamate_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.055] [warning] Visualizer couldn't open capitate_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\capitate_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\capitate_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.057] [warning] Visualizer couldn't open trapezoid_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\trapezoid_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\trapezoid_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.058] [warning] Visualizer couldn't open trapezium_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\trapezium_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\trapezium_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.060] [warning] Visualizer couldn't open metacarpal2_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal2_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal2_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.061] [warning] Visualizer couldn't open index_proximal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_proximal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_proximal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.062] [warning] Visualizer couldn't open index_medial_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_medial_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_medial_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.065] [warning] Visualizer couldn't open index_distal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_distal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_distal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.066] [warning] Visualizer couldn't open metacarpal3_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal3_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal3_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.068] [warning] Visualizer couldn't open middle_proximal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_proximal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_proximal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.069] [warning] Visualizer couldn't open middle_medial_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_medial_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_medial_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.070] [warning] Visualizer couldn't open middle_distal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_distal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_distal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.072] [warning] Visualizer couldn't open metacarpal4_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal4_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal4_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.074] [warning] Visualizer couldn't open ring_proximal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_proximal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_proximal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.076] [warning] Visualizer couldn't open ring_medial_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_medial_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_medial_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.077] [warning] Visualizer couldn't open ring_distal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_distal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_distal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.079] [warning] Visualizer couldn't open metacarpal5_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal5_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal5_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.080] [warning] Visualizer couldn't open little_proximal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_proximal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_proximal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.082] [warning] Visualizer couldn't open little_medial_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_medial_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_medial_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.084] [warning] Visualizer couldn't open little_distal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_distal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_distal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.085] [warning] Visualizer couldn't open metacarpal1_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal1_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal1_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.087] [warning] Visualizer couldn't open thumb_proximal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\thumb_proximal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\thumb_proximal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.088] [warning] Visualizer couldn't open thumb_distal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\thumb_distal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\thumb_distal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.090] [warning] Visualizer couldn't open humerus_lv.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\humerus_lv.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\humerus_lv.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.092] [warning] Visualizer couldn't open ulna_lv.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ulna_lv.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ulna_lv.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.094] [warning] Visualizer couldn't open radius_lv.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\radius_lv.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\radius_lv.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.096] [warning] Visualizer couldn't open pisiform_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\pisiform_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\pisiform_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.097] [warning] Visualizer couldn't open lunate_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\lunate_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\lunate_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.099] [warning] Visualizer couldn't open scaphoid_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\scaphoid_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\scaphoid_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.100] [warning] Visualizer couldn't open triquetrum_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\triquetrum_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\triquetrum_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.102] [warning] Visualizer couldn't open hamate_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hamate_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hamate_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.103] [warning] Visualizer couldn't open capitate_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\capitate_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\capitate_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.105] [warning] Visualizer couldn't open trapezoid_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\trapezoid_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\trapezoid_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.107] [warning] Visualizer couldn't open trapezium_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\trapezium_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\trapezium_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.109] [warning] Visualizer couldn't open metacarpal2_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal2_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal2_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.110] [warning] Visualizer couldn't open index_proximal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_proximal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_proximal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.112] [warning] Visualizer couldn't open index_medial_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_medial_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_medial_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.113] [warning] Visualizer couldn't open index_distal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_distal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_distal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.115] [warning] Visualizer couldn't open metacarpal3_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal3_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal3_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.117] [warning] Visualizer couldn't open middle_proximal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_proximal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_proximal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.118] [warning] Visualizer couldn't open middle_medial_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_medial_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_medial_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.120] [warning] Visualizer couldn't open middle_distal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_distal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_distal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.121] [warning] Visualizer couldn't open metacarpal4_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal4_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal4_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.123] [warning] Visualizer couldn't open ring_proximal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_proximal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_proximal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.125] [warning] Visualizer couldn't open ring_medial_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_medial_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_medial_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.127] [warning] Visualizer couldn't open ring_distal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_distal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_distal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.128] [warning] Visualizer couldn't open metacarpal5_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal5_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal5_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.130] [warning] Visualizer couldn't open little_proximal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_proximal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_proximal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.132] [warning] Visualizer couldn't open little_medial_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_medial_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_medial_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.133] [warning] Visualizer couldn't open little_distal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_distal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_distal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.135] [warning] Visualizer couldn't open metacarpal1_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal1_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal1_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.136] [warning] Visualizer couldn't open thumb_proximal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\thumb_proximal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\thumb_proximal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.138] [warning] Visualizer couldn't open thumb_distal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\thumb_distal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\thumb_distal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:27:30.139] [info] InverseKinematicsSolver found 4 model frames to track.
+[2024-04-16 16:27:35.336] [info] Wrote IK with IMU tracking results to: 'ik_lifting_orientations.mot'.
+[2024-04-16 16:29:48.944] [info] Updating Model file from 40000 to latest format...
+[2024-04-16 16:29:48.959] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015.osim
+[2024-04-16 16:30:24.154] [info] Updating Model file from 40000 to latest format...
+[2024-04-16 16:30:24.174] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015.osim
+[2024-04-16 16:30:24.306] [info] Heading correction computed to be 113.307 degs about ground Y.
+[2024-04-16 16:30:24.313] [info] Processing torso_imu
+[2024-04-16 16:30:24.314] [info] Computed offset for torso_imu
+[2024-04-16 16:30:24.314] [info] Offset is 
+[0.315294,-0.0237375,0.948697]
+[0.94644,0.0811645,-0.312513]
+[-0.0695822,0.996418,0.0480568]
+
+[2024-04-16 16:30:24.315] [info] Creating offset frame for torso_imu
+[2024-04-16 16:30:24.317] [info] Added offset frame for torso_imu.
+[2024-04-16 16:30:24.317] [info] torso_imu offset computed from torso_imu data from file.
+[2024-04-16 16:30:24.317] [info] Processing pelvis_imu
+[2024-04-16 16:30:24.318] [info] Computed offset for pelvis_imu
+[2024-04-16 16:30:24.318] [info] Offset is 
+[0.280953,0.00157552,0.95972]
+[0.957527,0.0671338,-0.280421]
+[-0.0648715,0.997743,0.0173528]
+
+[2024-04-16 16:30:24.318] [info] Creating offset frame for pelvis_imu
+[2024-04-16 16:30:24.320] [info] Added offset frame for pelvis_imu.
+[2024-04-16 16:30:24.320] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-04-16 16:30:24.320] [info] Processing tibia_r_imu
+[2024-04-16 16:30:24.320] [info] Computed offset for tibia_r_imu
+[2024-04-16 16:30:24.321] [info] Offset is 
+[0.0965278,0.977377,-0.188191]
+[0.989909,-0.113978,-0.0842017]
+[-0.103746,-0.178164,-0.978516]
+
+[2024-04-16 16:30:24.321] [info] Creating offset frame for tibia_r_imu
+[2024-04-16 16:30:24.324] [info] Added offset frame for tibia_r_imu.
+[2024-04-16 16:30:24.324] [info] tibia_r_imu offset computed from tibia_r_imu data from file.
+[2024-04-16 16:30:24.324] [info] Processing femur_r_imu
+[2024-04-16 16:30:24.324] [info] Computed offset for femur_r_imu
+[2024-04-16 16:30:24.324] [info] Offset is 
+[-0.0408079,0.969041,-0.243505]
+[0.996553,0.0570898,0.0601841]
+[0.0722225,-0.24021,-0.968031]
+
+[2024-04-16 16:30:24.325] [info] Creating offset frame for femur_r_imu
+[2024-04-16 16:30:24.327] [info] Added offset frame for femur_r_imu.
+[2024-04-16 16:30:24.327] [info] femur_r_imu offset computed from femur_r_imu data from file.
+[2024-04-16 16:30:24.327] [info] Processing tibia_l_imu
+[2024-04-16 16:30:24.327] [info] Computed offset for tibia_l_imu
+[2024-04-16 16:30:24.328] [info] Offset is 
+[0.0950796,-0.941402,0.323607]
+[0.992984,0.0667322,-0.0976203]
+[0.070305,0.330618,0.941142]
+
+[2024-04-16 16:30:24.329] [info] Creating offset frame for tibia_l_imu
+[2024-04-16 16:30:24.331] [info] Added offset frame for tibia_l_imu.
+[2024-04-16 16:30:24.331] [info] tibia_l_imu offset computed from tibia_l_imu data from file.
+[2024-04-16 16:30:24.331] [info] Processing femur_l_imu
+[2024-04-16 16:30:24.332] [info] Computed offset for femur_l_imu
+[2024-04-16 16:30:24.332] [info] Offset is 
+[0.15939,-0.980766,0.112659]
+[0.985443,0.164899,0.0413474]
+[-0.0591295,0.104428,0.992773]
+
+[2024-04-16 16:30:24.333] [info] Creating offset frame for femur_l_imu
+[2024-04-16 16:30:24.335] [info] Added offset frame for femur_l_imu.
+[2024-04-16 16:30:24.335] [info] femur_l_imu offset computed from femur_l_imu data from file.
+[2024-04-16 16:30:24.336] [info] Processing calcn_r_imu
+[2024-04-16 16:30:24.336] [info] Computed offset for calcn_r_imu
+[2024-04-16 16:30:24.336] [info] Offset is 
+[0.132853,0.838951,-0.527742]
+[0.052645,-0.537683,-0.841502]
+[-0.989737,0.0840129,-0.115599]
+
+[2024-04-16 16:30:24.337] [info] Creating offset frame for calcn_r_imu
+[2024-04-16 16:30:24.339] [info] Added offset frame for calcn_r_imu.
+[2024-04-16 16:30:24.340] [info] calcn_r_imu offset computed from calcn_r_imu data from file.
+[2024-04-16 16:30:24.340] [info] Processing calcn_l_imu
+[2024-04-16 16:30:24.340] [info] Computed offset for calcn_l_imu
+[2024-04-16 16:30:24.340] [info] Offset is 
+[0.055168,-0.866604,-0.495938]
+[0.00919381,0.497114,-0.867636]
+[0.998435,0.0433062,0.0353922]
+
+[2024-04-16 16:30:24.341] [info] Creating offset frame for calcn_l_imu
+[2024-04-16 16:30:24.343] [info] Added offset frame for calcn_l_imu.
+[2024-04-16 16:30:24.343] [info] calcn_l_imu offset computed from calcn_l_imu data from file.
+[2024-04-16 16:30:24.983] [info] InverseKinematicsSolver found 8 model frames to track.
+[2024-04-16 16:30:28.364] [info] Loaded model Rajagopal_2015 from file Rajagopal_2015_calibrated.osim
+[2024-04-16 16:30:28.365] [warning] Couldn't find file 'r_pelvis.vtp'.
+[2024-04-16 16:30:28.365] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2024-04-16 16:30:28.366] [warning] Couldn't find file 'sacrum.vtp'.
+[2024-04-16 16:30:28.366] [warning] Couldn't find file 'femur_r.vtp'.
+[2024-04-16 16:30:28.366] [warning] Couldn't find file 'tibia_r.vtp'.
+[2024-04-16 16:30:28.367] [warning] Couldn't find file 'r_fibula.vtp'.
+[2024-04-16 16:30:28.367] [warning] Couldn't find file 'r_patella.vtp'.
+[2024-04-16 16:30:28.367] [warning] Couldn't find file 'r_talus.vtp'.
+[2024-04-16 16:30:28.367] [warning] Couldn't find file 'r_foot.vtp'.
+[2024-04-16 16:30:28.368] [warning] Couldn't find file 'r_bofoot.vtp'.
+[2024-04-16 16:30:28.368] [warning] Couldn't find file 'femur_l.vtp'.
+[2024-04-16 16:30:28.368] [warning] Couldn't find file 'tibia_l.vtp'.
+[2024-04-16 16:30:28.368] [warning] Couldn't find file 'l_fibula.vtp'.
+[2024-04-16 16:30:28.369] [warning] Couldn't find file 'l_patella.vtp'.
+[2024-04-16 16:30:28.369] [warning] Couldn't find file 'l_talus.vtp'.
+[2024-04-16 16:30:28.369] [warning] Couldn't find file 'l_foot.vtp'.
+[2024-04-16 16:30:28.370] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2024-04-16 16:30:28.370] [warning] Couldn't find file 'hat_spine.vtp'.
+[2024-04-16 16:30:28.371] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2024-04-16 16:30:28.371] [warning] Couldn't find file 'hat_skull.vtp'.
+[2024-04-16 16:30:28.372] [warning] Couldn't find file 'hat_ribs_scap.vtp'.
+[2024-04-16 16:30:28.372] [warning] Couldn't find file 'humerus_rv.vtp'.
+[2024-04-16 16:30:28.373] [warning] Couldn't find file 'ulna_rv.vtp'.
+[2024-04-16 16:30:28.373] [warning] Couldn't find file 'radius_rv.vtp'.
+[2024-04-16 16:30:28.373] [warning] Couldn't find file 'pisiform_rvs.vtp'.
+[2024-04-16 16:30:28.374] [warning] Couldn't find file 'lunate_rvs.vtp'.
+[2024-04-16 16:30:28.374] [warning] Couldn't find file 'scaphoid_rvs.vtp'.
+[2024-04-16 16:30:28.374] [warning] Couldn't find file 'triquetrum_rvs.vtp'.
+[2024-04-16 16:30:28.375] [warning] Couldn't find file 'hamate_rvs.vtp'.
+[2024-04-16 16:30:28.375] [warning] Couldn't find file 'capitate_rvs.vtp'.
+[2024-04-16 16:30:28.376] [warning] Couldn't find file 'trapezoid_rvs.vtp'.
+[2024-04-16 16:30:28.376] [warning] Couldn't find file 'trapezium_rvs.vtp'.
+[2024-04-16 16:30:28.376] [warning] Couldn't find file 'metacarpal2_rvs.vtp'.
+[2024-04-16 16:30:28.376] [warning] Couldn't find file 'index_proximal_rvs.vtp'.
+[2024-04-16 16:30:28.377] [warning] Couldn't find file 'index_medial_rvs.vtp'.
+[2024-04-16 16:30:28.377] [warning] Couldn't find file 'index_distal_rvs.vtp'.
+[2024-04-16 16:30:28.377] [warning] Couldn't find file 'metacarpal3_rvs.vtp'.
+[2024-04-16 16:30:28.377] [warning] Couldn't find file 'middle_proximal_rvs.vtp'.
+[2024-04-16 16:30:28.378] [warning] Couldn't find file 'middle_medial_rvs.vtp'.
+[2024-04-16 16:30:28.378] [warning] Couldn't find file 'middle_distal_rvs.vtp'.
+[2024-04-16 16:30:28.378] [warning] Couldn't find file 'metacarpal4_rvs.vtp'.
+[2024-04-16 16:30:28.378] [warning] Couldn't find file 'ring_proximal_rvs.vtp'.
+[2024-04-16 16:30:28.379] [warning] Couldn't find file 'ring_medial_rvs.vtp'.
+[2024-04-16 16:30:28.379] [warning] Couldn't find file 'ring_distal_rvs.vtp'.
+[2024-04-16 16:30:28.379] [warning] Couldn't find file 'metacarpal5_rvs.vtp'.
+[2024-04-16 16:30:28.380] [warning] Couldn't find file 'little_proximal_rvs.vtp'.
+[2024-04-16 16:30:28.380] [warning] Couldn't find file 'little_medial_rvs.vtp'.
+[2024-04-16 16:30:28.380] [warning] Couldn't find file 'little_distal_rvs.vtp'.
+[2024-04-16 16:30:28.381] [warning] Couldn't find file 'metacarpal1_rvs.vtp'.
+[2024-04-16 16:30:28.381] [warning] Couldn't find file 'thumb_proximal_rvs.vtp'.
+[2024-04-16 16:30:28.381] [warning] Couldn't find file 'thumb_distal_rvs.vtp'.
+[2024-04-16 16:30:28.381] [warning] Couldn't find file 'humerus_lv.vtp'.
+[2024-04-16 16:30:28.382] [warning] Couldn't find file 'ulna_lv.vtp'.
+[2024-04-16 16:30:28.382] [warning] Couldn't find file 'radius_lv.vtp'.
+[2024-04-16 16:30:28.382] [warning] Couldn't find file 'pisiform_lvs.vtp'.
+[2024-04-16 16:30:28.382] [warning] Couldn't find file 'lunate_lvs.vtp'.
+[2024-04-16 16:30:28.383] [warning] Couldn't find file 'scaphoid_lvs.vtp'.
+[2024-04-16 16:30:28.383] [warning] Couldn't find file 'triquetrum_lvs.vtp'.
+[2024-04-16 16:30:28.383] [warning] Couldn't find file 'hamate_lvs.vtp'.
+[2024-04-16 16:30:28.383] [warning] Couldn't find file 'capitate_lvs.vtp'.
+[2024-04-16 16:30:28.384] [warning] Couldn't find file 'trapezoid_lvs.vtp'.
+[2024-04-16 16:30:28.384] [warning] Couldn't find file 'trapezium_lvs.vtp'.
+[2024-04-16 16:30:28.384] [warning] Couldn't find file 'metacarpal2_lvs.vtp'.
+[2024-04-16 16:30:28.385] [warning] Couldn't find file 'index_proximal_lvs.vtp'.
+[2024-04-16 16:30:28.385] [warning] Couldn't find file 'index_medial_lvs.vtp'.
+[2024-04-16 16:30:28.385] [warning] Couldn't find file 'index_distal_lvs.vtp'.
+[2024-04-16 16:30:28.386] [warning] Couldn't find file 'metacarpal3_lvs.vtp'.
+[2024-04-16 16:30:28.386] [warning] Couldn't find file 'middle_proximal_lvs.vtp'.
+[2024-04-16 16:30:28.386] [warning] Couldn't find file 'middle_medial_lvs.vtp'.
+[2024-04-16 16:30:28.386] [warning] Couldn't find file 'middle_distal_lvs.vtp'.
+[2024-04-16 16:30:28.387] [warning] Couldn't find file 'metacarpal4_lvs.vtp'.
+[2024-04-16 16:30:28.387] [warning] Couldn't find file 'ring_proximal_lvs.vtp'.
+[2024-04-16 16:30:28.387] [warning] Couldn't find file 'ring_medial_lvs.vtp'.
+[2024-04-16 16:30:28.387] [warning] Couldn't find file 'ring_distal_lvs.vtp'.
+[2024-04-16 16:30:28.388] [warning] Couldn't find file 'metacarpal5_lvs.vtp'.
+[2024-04-16 16:30:28.388] [warning] Couldn't find file 'little_proximal_lvs.vtp'.
+[2024-04-16 16:30:28.388] [warning] Couldn't find file 'little_medial_lvs.vtp'.
+[2024-04-16 16:30:28.388] [warning] Couldn't find file 'little_distal_lvs.vtp'.
+[2024-04-16 16:30:28.389] [warning] Couldn't find file 'metacarpal1_lvs.vtp'.
+[2024-04-16 16:30:28.389] [warning] Couldn't find file 'thumb_proximal_lvs.vtp'.
+[2024-04-16 16:30:28.390] [warning] Couldn't find file 'thumb_distal_lvs.vtp'.
+[2024-04-16 16:30:28.487] [info] Loading orientations as quaternions from 'OpenSense/MT_012005D6_009-001_orientations.sto'...
+[2024-04-16 16:30:28.528] [warning] Visualizer couldn't open r_pelvis.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_pelvis.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_pelvis.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.530] [warning] Visualizer couldn't open l_pelvis.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_pelvis.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_pelvis.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.531] [warning] Visualizer couldn't open sacrum.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\sacrum.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\sacrum.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.533] [warning] Visualizer couldn't open femur_r.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\femur_r.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\femur_r.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.534] [warning] Visualizer couldn't open tibia_r.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\tibia_r.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\tibia_r.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.536] [warning] Visualizer couldn't open r_fibula.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_fibula.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_fibula.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.537] [warning] Visualizer couldn't open r_patella.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_patella.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_patella.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.539] [warning] Visualizer couldn't open r_talus.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_talus.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_talus.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.541] [warning] Visualizer couldn't open r_foot.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_foot.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_foot.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.542] [warning] Visualizer couldn't open r_bofoot.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_bofoot.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\r_bofoot.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.544] [warning] Visualizer couldn't open femur_l.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\femur_l.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\femur_l.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.546] [warning] Visualizer couldn't open tibia_l.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\tibia_l.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\tibia_l.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.548] [warning] Visualizer couldn't open l_fibula.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_fibula.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_fibula.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.549] [warning] Visualizer couldn't open l_patella.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_patella.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_patella.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.551] [warning] Visualizer couldn't open l_talus.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_talus.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_talus.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.552] [warning] Visualizer couldn't open l_foot.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_foot.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_foot.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.554] [warning] Visualizer couldn't open l_bofoot.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_bofoot.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\l_bofoot.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.555] [warning] Visualizer couldn't open hat_spine.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hat_spine.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hat_spine.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.557] [warning] Visualizer couldn't open hat_jaw.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hat_jaw.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hat_jaw.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.559] [warning] Visualizer couldn't open hat_skull.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hat_skull.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hat_skull.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.561] [warning] Visualizer couldn't open hat_ribs_scap.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hat_ribs_scap.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hat_ribs_scap.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.562] [warning] Visualizer couldn't open humerus_rv.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\humerus_rv.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\humerus_rv.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.563] [warning] Visualizer couldn't open ulna_rv.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ulna_rv.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ulna_rv.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.565] [warning] Visualizer couldn't open radius_rv.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\radius_rv.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\radius_rv.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.566] [warning] Visualizer couldn't open pisiform_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\pisiform_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\pisiform_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.567] [warning] Visualizer couldn't open lunate_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\lunate_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\lunate_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.568] [warning] Visualizer couldn't open scaphoid_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\scaphoid_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\scaphoid_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.570] [warning] Visualizer couldn't open triquetrum_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\triquetrum_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\triquetrum_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.571] [warning] Visualizer couldn't open hamate_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hamate_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hamate_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.573] [warning] Visualizer couldn't open capitate_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\capitate_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\capitate_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.575] [warning] Visualizer couldn't open trapezoid_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\trapezoid_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\trapezoid_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.576] [warning] Visualizer couldn't open trapezium_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\trapezium_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\trapezium_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.577] [warning] Visualizer couldn't open metacarpal2_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal2_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal2_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.579] [warning] Visualizer couldn't open index_proximal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_proximal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_proximal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.581] [warning] Visualizer couldn't open index_medial_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_medial_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_medial_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.582] [warning] Visualizer couldn't open index_distal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_distal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_distal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.584] [warning] Visualizer couldn't open metacarpal3_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal3_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal3_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.585] [warning] Visualizer couldn't open middle_proximal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_proximal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_proximal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.586] [warning] Visualizer couldn't open middle_medial_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_medial_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_medial_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.588] [warning] Visualizer couldn't open middle_distal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_distal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_distal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.590] [warning] Visualizer couldn't open metacarpal4_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal4_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal4_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.592] [warning] Visualizer couldn't open ring_proximal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_proximal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_proximal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.593] [warning] Visualizer couldn't open ring_medial_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_medial_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_medial_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.595] [warning] Visualizer couldn't open ring_distal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_distal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_distal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.597] [warning] Visualizer couldn't open metacarpal5_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal5_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal5_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.598] [warning] Visualizer couldn't open little_proximal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_proximal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_proximal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.599] [warning] Visualizer couldn't open little_medial_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_medial_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_medial_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.601] [warning] Visualizer couldn't open little_distal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_distal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_distal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.602] [warning] Visualizer couldn't open metacarpal1_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal1_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal1_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.604] [warning] Visualizer couldn't open thumb_proximal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\thumb_proximal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\thumb_proximal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.606] [warning] Visualizer couldn't open thumb_distal_rvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\thumb_distal_rvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\thumb_distal_rvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.608] [warning] Visualizer couldn't open humerus_lv.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\humerus_lv.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\humerus_lv.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.609] [warning] Visualizer couldn't open ulna_lv.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ulna_lv.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ulna_lv.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.611] [warning] Visualizer couldn't open radius_lv.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\radius_lv.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\radius_lv.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.613] [warning] Visualizer couldn't open pisiform_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\pisiform_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\pisiform_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.614] [warning] Visualizer couldn't open lunate_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\lunate_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\lunate_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.616] [warning] Visualizer couldn't open scaphoid_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\scaphoid_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\scaphoid_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.617] [warning] Visualizer couldn't open triquetrum_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\triquetrum_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\triquetrum_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.618] [warning] Visualizer couldn't open hamate_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hamate_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\hamate_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.620] [warning] Visualizer couldn't open capitate_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\capitate_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\capitate_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.621] [warning] Visualizer couldn't open trapezoid_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\trapezoid_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\trapezoid_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.623] [warning] Visualizer couldn't open trapezium_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\trapezium_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\trapezium_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.624] [warning] Visualizer couldn't open metacarpal2_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal2_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal2_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.626] [warning] Visualizer couldn't open index_proximal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_proximal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_proximal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.627] [warning] Visualizer couldn't open index_medial_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_medial_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_medial_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.629] [warning] Visualizer couldn't open index_distal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_distal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\index_distal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.631] [warning] Visualizer couldn't open metacarpal3_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal3_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal3_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.632] [warning] Visualizer couldn't open middle_proximal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_proximal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_proximal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.633] [warning] Visualizer couldn't open middle_medial_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_medial_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_medial_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.635] [warning] Visualizer couldn't open middle_distal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_distal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\middle_distal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.636] [warning] Visualizer couldn't open metacarpal4_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal4_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal4_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.637] [warning] Visualizer couldn't open ring_proximal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_proximal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_proximal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.639] [warning] Visualizer couldn't open ring_medial_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_medial_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_medial_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.641] [warning] Visualizer couldn't open ring_distal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_distal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\ring_distal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.642] [warning] Visualizer couldn't open metacarpal5_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal5_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal5_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.644] [warning] Visualizer couldn't open little_proximal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_proximal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_proximal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.645] [warning] Visualizer couldn't open little_medial_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_medial_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_medial_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.647] [warning] Visualizer couldn't open little_distal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_distal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\little_distal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.648] [warning] Visualizer couldn't open metacarpal1_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal1_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\metacarpal1_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.650] [warning] Visualizer couldn't open thumb_proximal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\thumb_proximal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\thumb_proximal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.651] [warning] Visualizer couldn't open thumb_distal_lvs.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\thumb_distal_lvs.vtp' failed with message:
+  SimTK Exception thrown at Xml.cpp:108:
+  Error detected by Simbody method Xml::readFromFile(): Failed to load the Xml file 'c:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Geometry\thumb_distal_lvs.vtp' with error 'Failed to open file (line=0, col=0)'.
+  (Required condition 'loadOK' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2024-04-16 16:30:28.653] [info] InverseKinematicsSolver found 8 model frames to track.

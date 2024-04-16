@@ -3,10 +3,10 @@ import os
 
 # Define the paths of the input CSV files for each sensor
 sensor_files = {
-    'sensor1': 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/sensor1.csv',
-    'sensor2': 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/sensor2.csv',
-    'sensor3': 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/sensor3.csv',
-    'sensor4': 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/sensor4.csv'
+    'sensor1': 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/sensor1_sync_calib.csv',
+    'sensor2': 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/sensor2_sync_calib.csv',
+    'sensor3': 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/sensor3_sync_calib.csv',
+    'sensor4': 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/sensor4_sync_calib.csv'
 }
 
 # Define the path of the output merged CSV file

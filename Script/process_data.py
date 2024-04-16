@@ -76,7 +76,11 @@ def process_file(file_path, sensor_suffix, A, b):
         'gyro_z': [],
         'linacc_x': [],
         'linacc_y': [],
-        'linacc_z': []
+        'linacc_z': [],
+        'quat_w' : [],
+        'quat_x' : [],
+        'quat_y' : [],
+        'quat_z' : []
     }
 
     with open(file_path, mode='r', newline='') as file:
@@ -97,6 +101,10 @@ def process_file(file_path, sensor_suffix, A, b):
     linacc_x = [float(value) for value in columns['linacc_x']]
     linacc_y = [float(value) for value in columns['linacc_y']]
     linacc_z = [float(value) for value in columns['linacc_z']]
+    quat_w = [float(value) for value in columns['quat_w']]
+    quat_x = [float(value) for value in columns['quat_x']]
+    quat_y = [float(value) for value in columns['quat_y']]
+    quat_z = [float(value) for value in columns['quat_z']]
 
     # Define calibration parameters
     # Convert the lists to NumPy arrays
@@ -118,21 +126,22 @@ def process_file(file_path, sensor_suffix, A, b):
     linacc_calib_z = calibAcc[:, 2].tolist()
 
     # Write the processed data back to the CSV file
-    processed_file_path = f'{file_path[:-9]}_calib.csv'  # Append '_processed' to the original file name
+    processed_file_path = f'{file_path[:-4]}_calib.csv'  # Append '_processed' to the original file name
     with open(processed_file_path, mode='w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(['time', f'eul_z_{sensor_suffix}', f'eul_y_{sensor_suffix}', f'eul_x_{sensor_suffix}', 
                          f'gyro_x_{sensor_suffix}', f'gyro_y_{sensor_suffix}', f'gyro_z_{sensor_suffix}', 
-                         f'linacc_x_{sensor_suffix}', f'linacc_y_{sensor_suffix}', f'linacc_z_{sensor_suffix}'])
-        for values in zip(time, eul_z, eul_y, eul_x, gyro_x, gyro_y, gyro_z, linacc_calib_x, linacc_calib_y, linacc_calib_z):
+                         f'linacc_x_{sensor_suffix}', f'linacc_y_{sensor_suffix}', f'linacc_z_{sensor_suffix}',
+                         f'quat_w_{sensor_suffix}', f'quat_x_{sensor_suffix}', f'quat_y_{sensor_suffix}', f'quat_z_{sensor_suffix}'])
+        for values in zip(time, eul_z, eul_y, eul_x, gyro_x, gyro_y, gyro_z, linacc_calib_x, linacc_calib_y, linacc_calib_z, quat_w, quat_x, quat_y, quat_z):
             writer.writerow(values)
 
     return processed_file_path
 
 # Define calibration parameters for each sensor
 calibration_params = {
-    'sensor1': {'A': np.array([[1.004332, 0.000046, 0.004896], [0.000046, 0.969793, 0.009452], [0.004896, 0.009452, 1.022384]]), 
-                'b': np.array([0.027031, -0.040204, 0.046558])},
+    'sensor1': {'A': np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]]), 
+                'b': np.array([0.0, 0.0, 0.0])},
     'sensor2': {'A': np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]]), 
                 'b': np.array([0.0, 0.0, 0.0])},
     'sensor3': {'A': np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]]), 
@@ -146,4 +155,116 @@ for sensor_suffix, params in calibration_params.items():
     file_path = os.path.join(data_dir, f'{sensor_suffix}_sync.csv')
     process_file(file_path, sensor_suffix, params['A'], params['b'])
 
-print('Processing complete.')
+print("Data has been syncronized and calibrated")
+
+# Define the paths of the input CSV files for each sensor
+sensor_files = {
+    'sensor1': 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/sensor1_sync_calib.csv',
+    'sensor2': 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/sensor2_sync_calib.csv',
+    'sensor3': 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/sensor3_sync_calib.csv',
+    'sensor4': 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/sensor4_sync_calib.csv'
+}
+
+# Define the path of the output merged CSV file
+merged_file = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/merged_data.csv'
+
+def merge_csv_files(sensor_files, merged_file):
+    # Open the output CSV file for writing
+    with open(merged_file, mode='w', newline='') as outfile:
+        writer = csv.writer(outfile)
+
+        # Open the input CSV file for sensor 1
+        with open(sensor_files['sensor1'], mode='r') as file1:
+            reader1 = csv.reader(file1)
+
+            # Iterate through the rows of sensor 1
+            for row1 in reader1:
+                first_value = row1[0]
+
+                # Look for matching rows in the other CSV files
+                matching_row2 = find_matching_row(first_value, sensor_files['sensor2'])
+                matching_row3 = find_matching_row(first_value, sensor_files['sensor3'])
+                matching_row4 = find_matching_row(first_value, sensor_files['sensor4'])
+
+                # If matching rows are found in all files, merge and write to the output CSV file
+                if matching_row2 and matching_row3 and matching_row4:
+                    merged_row = row1 + matching_row2 + matching_row3 + matching_row4
+                    writer.writerow(merged_row)
+
+def find_matching_row(value, filename):
+    # Open the CSV file for reading
+    with open(filename, mode='r') as file:
+        reader = csv.reader(file)
+
+        # Iterate through the rows of the CSV file
+        for row in reader:
+            # Check if the first value of the row matches the target value
+            if row[0] == value:
+                return row
+
+    # If no matching row is found, return None
+    return None
+
+# Call the function to merge the CSV files
+merge_csv_files(sensor_files, merged_file)
+
+print('Merged data saved to: merged_data.csv')
+
+# File paths
+quaternion_table_path = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/quaternion_table.csv'
+
+# Indices of columns to keep
+columns_to_keep = [0, 10, 11, 12, 13, 24, 25, 26, 27, 38, 39, 40, 41, 52, 53, 54, 55]
+
+# Read data from the input file and write filtered data to the output file
+with open(merged_file, mode='r') as input_file, open(quaternion_table_path, mode='w', newline='') as output_file:
+    reader = csv.reader(input_file)
+    writer = csv.writer(output_file)
+    
+    for row in reader:
+        filtered_row = [row[i] for i in columns_to_keep]
+        writer.writerow(filtered_row)
+
+print("Quaternion data has been written to: quaternion_table.csv")
+
+# Input and output file paths
+input_file_path = quaternion_table_path
+output_file_path = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/lifting_orientations.sto'
+
+# Read the data from the input file
+with open(input_file_path, mode='r') as file:
+    lines = file.readlines()
+
+# Modify the header line
+# Modify the header line
+header = "DataRate=100.000000\n" \
+         "DataType=Quaternion\n" \
+         "version=3\n" \
+         "OpenSimVersion=4.5-2024-01-10-34fd6af\n" \
+         "endheader\n" \
+         "time\tpelvis_imu\ttorso_imu\thumerus_r_imu\tulna_r_imu\n"
+
+# Modify the data lines to replace comma with tab space for columns 0, 1, 5, and 6
+data_lines = []
+for line in lines[1:]:
+    parts = line.split(",")
+    modified_line = "\t".join(parts[:2]) + "," + ",".join(parts[2:5]) + "\t" + ",".join(parts[5:9]) + "\t" + ",".join(parts[9:13]) + "\t" + ",".join(parts[13:])
+    data_lines.append(modified_line)
+
+# Write the modified data to the output file
+with open(output_file_path, mode='w') as file:
+    file.write(header)
+    file.writelines(data_lines)
+
+print("Data has been written to: lifting_orientations.sto")
+
+# File path to be deleted
+file_to_delete = quaternion_table_path
+
+# # Check if the file exists before attempting to delete it
+# if os.path.exists(file_to_delete):
+#     # Delete the file
+#     os.remove(file_to_delete)
+#     print("File quaternion_table.csv has been deleted.")
+# else:
+#     print("File quaternion_table.csv does not exist.")
