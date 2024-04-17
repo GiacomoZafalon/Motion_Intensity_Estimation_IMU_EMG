@@ -4,10 +4,11 @@ import os
 import re
 import msvcrt
 import numpy as np
+from server_code import person, weight, attempt
 
 HOST = '0.0.0.0'  # Listen on all available network interfaces
 PORT = 3334       # Port number you want your server to listen on
-SAVE_DIR = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset'  # Directory where you want to save the file
+SAVE_DIR = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/imu'  # Directory where you want to save the file
 FILE_NAME = 'sensor4.csv'  # Name of the CSV file
 # COLUMN_NAMES = ['time', 'eul_z', 'eul_y', 'eul_x', 'acc_x', 'acc_y', 'acc_z', 'gyro_x', 'gyro_y', 'gyro_z', 'mag_x', 'mag_y', 'mag_z', 'linacc_x', 'linacc_y', 'linacc_z']
 

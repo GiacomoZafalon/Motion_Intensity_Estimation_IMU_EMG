@@ -47,7 +47,7 @@
 							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
 							<translation>-0.070699999999999999 0 0</translation>
 							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
-							<orientation>1.5089937318767781 1.2860052053545132 -0.0056077283090320788</orientation>
+							<orientation>0.81418708002448315 1.5124582478644144 -2.2707287499334621</orientation>
 						</PhysicalOffsetFrame>
 					</components>
 					<!--The geometry used to display the axes of this Frame.-->
@@ -399,24 +399,6 @@
 					<inertia>0.1028 0.087099999999999997 0.0579 0 0 0</inertia>
 				</Body>
 				<Body name="femur_r">
-					<!--List of components that this component owns and serializes.-->
-					<components>
-						<PhysicalOffsetFrame name="femur_r_imu">
-							<!--The geometry used to display the axes of this Frame.-->
-							<FrameGeometry name="frame_geometry">
-								<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
-								<socket_frame>..</socket_frame>
-								<!--Scale factors in X, Y, Z directions respectively.-->
-								<scale_factors>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale_factors>
-							</FrameGeometry>
-							<!--Path to a Component that satisfies the Socket 'parent' of type C (description: The parent frame to this frame.).-->
-							<socket_parent>..</socket_parent>
-							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
-							<translation>0 -0.17000000000000001 0</translation>
-							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
-							<orientation>-3.0795008798574988 -0.24597793438535903 -1.6128831027237278</orientation>
-						</PhysicalOffsetFrame>
-					</components>
 					<!--The geometry used to display the axes of this Frame.-->
 					<FrameGeometry name="frame_geometry">
 						<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -708,24 +690,6 @@
 					<inertia>0.13389999999999999 0.035099999999999999 0.14119999999999999 0 0 0</inertia>
 				</Body>
 				<Body name="tibia_r">
-					<!--List of components that this component owns and serializes.-->
-					<components>
-						<PhysicalOffsetFrame name="tibia_r_imu">
-							<!--The geometry used to display the axes of this Frame.-->
-							<FrameGeometry name="frame_geometry">
-								<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
-								<socket_frame>..</socket_frame>
-								<!--Scale factors in X, Y, Z directions respectively.-->
-								<scale_factors>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale_factors>
-							</FrameGeometry>
-							<!--Path to a Component that satisfies the Socket 'parent' of type C (description: The parent frame to this frame.).-->
-							<socket_parent>..</socket_parent>
-							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
-							<translation>0 -0.1867 0</translation>
-							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
-							<orientation>3.0557537009046536 -0.1893196335559453 -1.4723535586820047</orientation>
-						</PhysicalOffsetFrame>
-					</components>
 					<!--The geometry used to display the axes of this Frame.-->
 					<FrameGeometry name="frame_geometry">
 						<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -1024,24 +988,6 @@
 					<inertia>0.001 0.001 0.001 0 0 0</inertia>
 				</Body>
 				<Body name="calcn_r">
-					<!--List of components that this component owns and serializes.-->
-					<components>
-						<PhysicalOffsetFrame name="calcn_r_imu">
-							<!--The geometry used to display the axes of this Frame.-->
-							<FrameGeometry name="frame_geometry">
-								<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
-								<socket_frame>..</socket_frame>
-								<!--Scale factors in X, Y, Z directions respectively.-->
-								<scale_factors>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale_factors>
-							</FrameGeometry>
-							<!--Path to a Component that satisfies the Socket 'parent' of type C (description: The parent frame to this frame.).-->
-							<socket_parent>..</socket_parent>
-							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
-							<translation>0.10000000000000001 0.029999999999999999 0</translation>
-							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
-							<orientation>1.7073145704508925 -0.555940012239731 -1.4137444488865492</orientation>
-						</PhysicalOffsetFrame>
-					</components>
 					<!--The geometry used to display the axes of this Frame.-->
 					<FrameGeometry name="frame_geometry">
 						<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -1118,24 +1064,6 @@
 					<inertia>0.0001 0.00020000000000000001 0.001 0 0 0</inertia>
 				</Body>
 				<Body name="femur_l">
-					<!--List of components that this component owns and serializes.-->
-					<components>
-						<PhysicalOffsetFrame name="femur_l_imu">
-							<!--The geometry used to display the axes of this Frame.-->
-							<FrameGeometry name="frame_geometry">
-								<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
-								<socket_frame>..</socket_frame>
-								<!--Scale factors in X, Y, Z directions respectively.-->
-								<scale_factors>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale_factors>
-							</FrameGeometry>
-							<!--Path to a Component that satisfies the Socket 'parent' of type C (description: The parent frame to this frame.).-->
-							<socket_parent>..</socket_parent>
-							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
-							<translation>0 -0.17000000000000001 0</translation>
-							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
-							<orientation>-0.041624327726752439 0.11289833640599853 1.4096891940437433</orientation>
-						</PhysicalOffsetFrame>
-					</components>
 					<!--The geometry used to display the axes of this Frame.-->
 					<FrameGeometry name="frame_geometry">
 						<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -1427,24 +1355,6 @@
 					<inertia>0.13389999999999999 0.035099999999999999 0.14119999999999999 0 0 0</inertia>
 				</Body>
 				<Body name="tibia_l">
-					<!--List of components that this component owns and serializes.-->
-					<components>
-						<PhysicalOffsetFrame name="tibia_l_imu">
-							<!--The geometry used to display the axes of this Frame.-->
-							<FrameGeometry name="frame_geometry">
-								<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
-								<socket_frame>..</socket_frame>
-								<!--Scale factors in X, Y, Z directions respectively.-->
-								<scale_factors>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale_factors>
-							</FrameGeometry>
-							<!--Path to a Component that satisfies the Socket 'parent' of type C (description: The parent frame to this frame.).-->
-							<socket_parent>..</socket_parent>
-							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
-							<translation>0 -0.1867 0</translation>
-							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
-							<orientation>0.10335574656468105 0.32953902731327145 1.470139846725774</orientation>
-						</PhysicalOffsetFrame>
-					</components>
 					<!--The geometry used to display the axes of this Frame.-->
 					<FrameGeometry name="frame_geometry">
 						<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -1743,24 +1653,6 @@
 					<inertia>0.001 0.001 0.001 0 0 0</inertia>
 				</Body>
 				<Body name="calcn_l">
-					<!--List of components that this component owns and serializes.-->
-					<components>
-						<PhysicalOffsetFrame name="calcn_l_imu">
-							<!--The geometry used to display the axes of this Frame.-->
-							<FrameGeometry name="frame_geometry">
-								<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
-								<socket_frame>..</socket_frame>
-								<!--Scale factors in X, Y, Z directions respectively.-->
-								<scale_factors>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale_factors>
-							</FrameGeometry>
-							<!--Path to a Component that satisfies the Socket 'parent' of type C (description: The parent frame to this frame.).-->
-							<socket_parent>..</socket_parent>
-							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
-							<translation>0.10000000000000001 0.029999999999999999 0</translation>
-							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
-							<orientation>1.5300274213924001 -0.51891449196103823 1.5072220668884706</orientation>
-						</PhysicalOffsetFrame>
-					</components>
 					<!--The geometry used to display the axes of this Frame.-->
 					<FrameGeometry name="frame_geometry">
 						<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -1852,7 +1744,7 @@
 							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
 							<translation>-0.029999999999999999 0.32000000000000001 0</translation>
 							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
-							<orientation>1.4182161743400015 1.2490894281947971 0.07514512421791332</orientation>
+							<orientation>0.84071162624718065 1.5104847503508427 -1.6680342270421744</orientation>
 						</PhysicalOffsetFrame>
 					</components>
 					<!--The geometry used to display the axes of this Frame.-->
@@ -1938,6 +1830,24 @@
 					<inertia>1.4744999999999999 0.75549999999999995 1.4314 0 0 0</inertia>
 				</Body>
 				<Body name="humerus_r">
+					<!--List of components that this component owns and serializes.-->
+					<components>
+						<PhysicalOffsetFrame name="humerus_r_imu">
+							<!--The geometry used to display the axes of this Frame.-->
+							<FrameGeometry name="frame_geometry">
+								<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
+								<socket_frame>..</socket_frame>
+								<!--Scale factors in X, Y, Z directions respectively.-->
+								<scale_factors>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale_factors>
+							</FrameGeometry>
+							<!--Path to a Component that satisfies the Socket 'parent' of type C (description: The parent frame to this frame.).-->
+							<socket_parent>..</socket_parent>
+							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
+							<translation>0 -0.16450200000000001 0</translation>
+							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
+							<orientation>2.7951658455302986 1.4582242016438935 -2.9047925018418281</orientation>
+						</PhysicalOffsetFrame>
+					</components>
 					<!--The geometry used to display the axes of this Frame.-->
 					<FrameGeometry name="frame_geometry">
 						<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -1976,6 +1886,24 @@
 					<inertia>0.011946 0.0041209999999999997 0.013409000000000001 0 0 0</inertia>
 				</Body>
 				<Body name="ulna_r">
+					<!--List of components that this component owns and serializes.-->
+					<components>
+						<PhysicalOffsetFrame name="ulna_r_imu">
+							<!--The geometry used to display the axes of this Frame.-->
+							<FrameGeometry name="frame_geometry">
+								<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
+								<socket_frame>..</socket_frame>
+								<!--Scale factors in X, Y, Z directions respectively.-->
+								<scale_factors>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale_factors>
+							</FrameGeometry>
+							<!--Path to a Component that satisfies the Socket 'parent' of type C (description: The parent frame to this frame.).-->
+							<socket_parent>..</socket_parent>
+							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
+							<translation>0 -0.12052499999999999 0</translation>
+							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
+							<orientation>0.62928072718449746 1.5232144236898997 -1.915688181959263</orientation>
+						</PhysicalOffsetFrame>
+					</components>
 					<!--The geometry used to display the axes of this Frame.-->
 					<FrameGeometry name="frame_geometry">
 						<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -5385,37 +5313,21 @@
 		<!--Additional components in the model.-->
 		<ComponentSet name="componentset">
 			<objects>
-				<IMU name="torso_imu">
-					<!--Path to a Component that satisfies the Socket 'frame' of type PhysicalFrame (description: The frame to which the IMU is attached.).-->
-					<socket_frame>/bodyset/torso/torso_imu</socket_frame>
-				</IMU>
 				<IMU name="pelvis_imu">
 					<!--Path to a Component that satisfies the Socket 'frame' of type PhysicalFrame (description: The frame to which the IMU is attached.).-->
 					<socket_frame>/bodyset/pelvis/pelvis_imu</socket_frame>
 				</IMU>
-				<IMU name="tibia_r_imu">
+				<IMU name="torso_imu">
 					<!--Path to a Component that satisfies the Socket 'frame' of type PhysicalFrame (description: The frame to which the IMU is attached.).-->
-					<socket_frame>/bodyset/tibia_r/tibia_r_imu</socket_frame>
+					<socket_frame>/bodyset/torso/torso_imu</socket_frame>
 				</IMU>
-				<IMU name="femur_r_imu">
+				<IMU name="humerus_r_imu">
 					<!--Path to a Component that satisfies the Socket 'frame' of type PhysicalFrame (description: The frame to which the IMU is attached.).-->
-					<socket_frame>/bodyset/femur_r/femur_r_imu</socket_frame>
+					<socket_frame>/bodyset/humerus_r/humerus_r_imu</socket_frame>
 				</IMU>
-				<IMU name="tibia_l_imu">
+				<IMU name="ulna_r_imu">
 					<!--Path to a Component that satisfies the Socket 'frame' of type PhysicalFrame (description: The frame to which the IMU is attached.).-->
-					<socket_frame>/bodyset/tibia_l/tibia_l_imu</socket_frame>
-				</IMU>
-				<IMU name="femur_l_imu">
-					<!--Path to a Component that satisfies the Socket 'frame' of type PhysicalFrame (description: The frame to which the IMU is attached.).-->
-					<socket_frame>/bodyset/femur_l/femur_l_imu</socket_frame>
-				</IMU>
-				<IMU name="calcn_r_imu">
-					<!--Path to a Component that satisfies the Socket 'frame' of type PhysicalFrame (description: The frame to which the IMU is attached.).-->
-					<socket_frame>/bodyset/calcn_r/calcn_r_imu</socket_frame>
-				</IMU>
-				<IMU name="calcn_l_imu">
-					<!--Path to a Component that satisfies the Socket 'frame' of type PhysicalFrame (description: The frame to which the IMU is attached.).-->
-					<socket_frame>/bodyset/calcn_l/calcn_l_imu</socket_frame>
+					<socket_frame>/bodyset/ulna_r/ulna_r_imu</socket_frame>
 				</IMU>
 			</objects>
 			<groups />

@@ -230,6 +230,15 @@ print("Quaternion data has been written to: quaternion_table.csv")
 # Input and output file paths
 input_file_path = quaternion_table_path
 output_file_path = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/lifting_orientations.sto'
+output_file_path_2 = 'c:/Users/giaco/Documents/OpenSim/4.5/Code/Python/OpenSenseExample/lifting_orientations.sto'
+
+# Check if the file exists before attempting to delete it
+if os.path.exists(output_file_path_2):
+    # Delete the file
+    os.remove(output_file_path_2)
+    print("File lifting_orientations.csv has been deleted.")
+else:
+    print("File lifting_orientations.csv does not exist.")
 
 # Read the data from the input file
 with open(input_file_path, mode='r') as file:
@@ -256,15 +265,20 @@ with open(output_file_path, mode='w') as file:
     file.write(header)
     file.writelines(data_lines)
 
-print("Data has been written to: lifting_orientations.sto")
+# Write the modified data to the output file
+with open(output_file_path_2, mode='w') as file:
+    file.write(header)
+    file.writelines(data_lines)
+
+print("Data has been written to both lifting_orientations.sto")
 
 # File path to be deleted
 file_to_delete = quaternion_table_path
 
-# # Check if the file exists before attempting to delete it
-# if os.path.exists(file_to_delete):
-#     # Delete the file
-#     os.remove(file_to_delete)
-#     print("File quaternion_table.csv has been deleted.")
-# else:
-#     print("File quaternion_table.csv does not exist.")
+# Check if the file exists before attempting to delete it
+if os.path.exists(file_to_delete):
+    # Delete the file
+    os.remove(file_to_delete)
+    print("File quaternion_table.csv has been deleted.")
+else:
+    print("File quaternion_table.csv does not exist.")
