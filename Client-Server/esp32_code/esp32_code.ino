@@ -5,8 +5,8 @@
 
 #define BNO055_DELAY_MS (10)
 
-const char* ssid = "Jack";
-const char* password = "Ck710tete";
+const char* ssid = "YourWifiSSID";
+const char* password = "YourWifiPassword";
 
 WiFiClient client;
 const char* host = "192.168.43.19"; // IP address of your computer running a server to receive sensor data
