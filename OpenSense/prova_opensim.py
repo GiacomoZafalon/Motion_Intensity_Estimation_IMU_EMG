@@ -339,7 +339,7 @@ time = motion_data['time']
 shoulder_flex_angle = motion_data['arm_flex_r']
 shoulder_add_angle = motion_data['arm_add_r']
 elbow_flex_angle = motion_data['elbow_flex_r']
-pelvis_angle = motion_data['pelvis_tilt']
+lumbar_angle = motion_data['lumbar_extension']
 
 def butter_lowpass(cutoff, fs, order=5):
     nyquist = 0.5 * fs
@@ -358,29 +358,29 @@ cutoff_frequency_pos = 3
 elbow_flex_angle_filt = apply_lowpass_filter(elbow_flex_angle, cutoff_frequency_pos, sampling_frequency)
 shoulder_flex_angle_filt = apply_lowpass_filter(shoulder_flex_angle, cutoff_frequency_pos, sampling_frequency)
 shoulder_add_angle_filt = apply_lowpass_filter(shoulder_add_angle, cutoff_frequency_pos, sampling_frequency)
-pelvis_angle_filt = apply_lowpass_filter(pelvis_angle, cutoff_frequency_pos, sampling_frequency)
+lumbar_angle_filt = apply_lowpass_filter(lumbar_angle, cutoff_frequency_pos, sampling_frequency)
 
 shoulder_flex_vel = calculate_angular_velocity(shoulder_flex_angle_filt, time)
 shoulder_add_vel = calculate_angular_velocity(shoulder_add_angle_filt, time)
 elbow_flex_vel = calculate_angular_velocity(elbow_flex_angle_filt, time)
-pelvis_vel = calculate_angular_velocity(pelvis_angle_filt, time)
+lumbar_vel = calculate_angular_velocity(lumbar_angle_filt, time)
 
 cutoff_frequency_vel = 3
 elbow_flex_vel_filt = apply_lowpass_filter(elbow_flex_vel, cutoff_frequency_vel, sampling_frequency)
 shoulder_flex_vel_filt = apply_lowpass_filter(shoulder_flex_vel, cutoff_frequency_vel, sampling_frequency)
 shoulder_add_vel_filt = apply_lowpass_filter(shoulder_add_vel, cutoff_frequency_vel, sampling_frequency)
-pelvis_vel_filt = apply_lowpass_filter(pelvis_vel, cutoff_frequency_vel, sampling_frequency)
+lumbar_vel_filt = apply_lowpass_filter(lumbar_vel, cutoff_frequency_vel, sampling_frequency)
 
 shoulder_flex_acc = calculate_angular_acceleration(shoulder_flex_vel_filt, time)
 shoulder_add_acc = calculate_angular_acceleration(shoulder_add_vel_filt, time)
 elbow_flex_acc = calculate_angular_acceleration(elbow_flex_vel_filt, time)
-pelvis_acc = calculate_angular_acceleration(pelvis_vel_filt, time)
+lumbar_acc = calculate_angular_acceleration(lumbar_vel_filt, time)
 
 cutoff_frequency_acc = 3
 elbow_flex_acc_filt = apply_lowpass_filter(elbow_flex_acc, cutoff_frequency_acc, sampling_frequency)
 shoulder_flex_acc_filt = apply_lowpass_filter(shoulder_flex_acc, cutoff_frequency_acc, sampling_frequency)
 shoulder_add_acc_filt = apply_lowpass_filter(shoulder_add_acc, cutoff_frequency_acc, sampling_frequency)
-pelvis_acc_filt = apply_lowpass_filter(pelvis_acc, cutoff_frequency_acc, sampling_frequency)
+lumbar_acc_filt = apply_lowpass_filter(lumbar_acc, cutoff_frequency_acc, sampling_frequency)
 
 # Define the figure and subplots
 fig, axs = plt.subplots(3, 4, figsize=(15, 15))
@@ -404,9 +404,9 @@ axs[0, 2].set_title('Shoulder Adduction Angle')
 axs[0, 2].grid(True)
 
 # Plot the filtered shoulder adduction angle
-axs[0, 3].plot(time, pelvis_angle_filt, color='black')
-axs[0, 3].set_ylabel('Pelvis Angle (degrees)')
-axs[0, 3].set_title('Pelvis Angle')
+axs[0, 3].plot(time, lumbar_angle_filt, color='black')
+axs[0, 3].set_ylabel('Lumbar Angle (degrees)')
+axs[0, 3].set_title('Lumbar Angle')
 axs[0, 3].grid(True)
 
 # Plot the filtered elbow velocity
@@ -428,9 +428,9 @@ axs[1, 2].set_title('Shoulder Adduction Velocity')
 axs[1, 2].grid(True)
 
 # Plot the filtered shoulder adduction angle
-axs[1, 3].plot(time, pelvis_vel_filt, color='black')
-axs[1, 3].set_ylabel('Pelvis Velocity (degrees/s)')
-axs[1, 3].set_title('Pelvis Velocity')
+axs[1, 3].plot(time, lumbar_vel_filt, color='black')
+axs[1, 3].set_ylabel('Lumbar Velocity (degrees/s)')
+axs[1, 3].set_title('Lumbar Velocity')
 axs[1, 3].grid(True)
 
 # Plot the filtered elbow acceleration
@@ -452,9 +452,9 @@ axs[2, 2].set_title('Shoulder Adduction Acceleration')
 axs[2, 2].grid(True)
 
 # Plot the filtered shoulder adduction angle
-axs[2, 3].plot(time, pelvis_acc_filt, color='black')
-axs[2, 3].set_ylabel('Pelvis Acceleration (degrees/s^2)')
-axs[2, 3].set_title('Pelvis Acceleration')
+axs[2, 3].plot(time, lumbar_acc_filt, color='black')
+axs[2, 3].set_ylabel('Lumbar Acceleration (degrees/s^2)')
+axs[2, 3].set_title('Lumbar Acceleration')
 axs[2, 3].grid(True)
 
 # Set common xlabel
@@ -479,15 +479,15 @@ data = {
     'elbow_angle': elbow_flex_angle_filt,
     'shoulder_flex_angle': shoulder_flex_angle_filt,
     'shoulder_add_angle': shoulder_add_angle_filt,
-    'pelvis_angle': pelvis_angle_filt,
+    'lumbar_angle': lumbar_angle_filt,
     'elbow_velocity': elbow_flex_vel_filt,
     'shoulder_flex_velocity': shoulder_flex_vel_filt,
     'shoulder_add_velocity': shoulder_add_vel_filt,
-    'pelvis_velocity': pelvis_vel_filt,
+    'lumbar_velocity': lumbar_vel_filt,
     'elbow_acceleration': elbow_flex_acc_filt,
     'shoulder_flex_acceleration': shoulder_flex_acc_filt,
     'shoulder_add_acceleration': shoulder_add_acc_filt,
-    'pelvis_acceleration': pelvis_acc_filt
+    'lumbar_acceleration': lumbar_acc_filt
 }
 
 # Write the data to the CSV file
