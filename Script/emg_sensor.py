@@ -3,132 +3,112 @@ import numpy as np
 from scipy.signal import butter, filtfilt, iirnotch
 import matplotlib.pyplot as plt
 
+tot_person = 2
+tot_weights = 1
+tot_attempts = 2
 
-file_path_raw = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/Jupyter/40_raw.csv'
-file_path_fil = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/Jupyter/40_filtered.csv'
+for person in range(1, tot_person + 1):
+    for weight in range(1, tot_weights + 1):
+        for attempt in range(1, tot_attempts + 1):
+            # print(f'Processing data for Person {person}, Weight {weight}, Attempt {attempt}...')
 
-# Read the CSV file into a pandas DataFrame
-df = pd.read_csv(file_path_raw)
-df_fil = pd.read_csv(file_path_fil)
+            # File paths
+            file_paths = [
+                f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/emg/emg_1.csv',
+                f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/emg/emg_2.csv',
+                f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/emg/emg_3.csv'
+            ]
 
-print(df.head())
+            mvc_path = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/emg/emg_mvc.csv'
+            # Read the emg_mvc.csv file
+            mvc_df = pd.read_csv(mvc_path)
 
-chan_1 = (df.iloc[:, 0]).values
-chan_2 = (df.iloc[:, 1]).values
-chan_3 = (df.iloc[:, 2]).values
-chan_4 = (df.iloc[:, 3]).values
+            # Read and concatenate the data
+            dfs = [pd.read_csv(file) for file in file_paths]
+            merged_df = pd.concat(dfs, axis=1)
 
-chan_1_fil = (df_fil.iloc[:, 0]).values
-chan_2_fil = (df_fil.iloc[:, 1]).values
-chan_3_fil = (df_fil.iloc[:, 2]).values
-chan_4_fil = (df_fil.iloc[:, 3]).values
+            # Save the merged DataFrame to a CSV file
+            merged_df.to_csv('c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/emg_neural.csv', index=False)
 
-fig, axs = plt.subplots(2, 2)
+            chan_1 = (merged_df.iloc[:, 0]).values
+            chan_2 = (merged_df.iloc[:, 1]).values
+            chan_3 = (merged_df.iloc[:, 2]).values
+            mvc_sg = (mvc_df.iloc[:]).values.flatten()
 
-axs[0, 0].plot(chan_1)
-axs[0, 0].set_title('chan 1')
+            def apply_filters(signal, fs, lowcut_bp, highcut_bp, Q, f0, cutoff_freq):
+                # Design the bandpass filter
+                nyquist = 0.5 * fs
+                low = lowcut_bp / nyquist
+                high = highcut_bp / nyquist
+                b_bp, a_bp = butter(order_bp, [low, high], btype='band')
 
-axs[0, 1].plot(chan_2)
-axs[0, 1].set_title('chan 2')
+                # Design the notch filter
+                b_notch, a_notch = iirnotch(f0, Q, fs)
 
-axs[1, 0].plot(chan_3)
-axs[1, 0].set_title('chan 3')
+                # Apply the bandpass filter
+                signal_filtered = filtfilt(b_bp, a_bp, signal)
 
-axs[1, 1].plot(chan_4)
-axs[1, 1].set_title('chan 4')
+                # Apply the notch filter
+                signal_filtered = filtfilt(b_notch, a_notch, signal_filtered)
 
-fig, axs = plt.subplots(2, 2)
+                # Rectify the signal
+                signal_rectified = np.abs(signal_filtered)
 
-axs[0, 0].plot(chan_1_fil)
-axs[0, 0].set_title('chan 1')
+                # Apply lowpass filter
+                nyquist = 0.5 * fs
+                normal_cutoff = cutoff_freq / nyquist
+                b, a = butter(5, normal_cutoff, btype='low', analog=False)
+                signal_lowpass_filtered = filtfilt(b, a, signal_rectified)
 
-axs[0, 1].plot(chan_2_fil)
-axs[0, 1].set_title('chan 2')
+                # Compute RMS
+                window_size = 5
+                rms = np.sqrt(np.convolve(signal_lowpass_filtered**2, np.ones(window_size)/window_size, mode='valid'))
+                pad_width = (window_size - 1) // 2
+                rms = np.pad(rms, (pad_width, pad_width), mode='edge')
 
-axs[1, 0].plot(chan_3_fil)
-axs[1, 0].set_title('chan 3')
+                return rms
 
-axs[1, 1].plot(chan_4_fil)
-axs[1, 1].set_title('chan 4')
+            # Define filter parameters
+            lowcut_bp = 5  # Hz
+            highcut_bp = 45  # Hz
+            order_bp = 6
+            Q = 30.0  # Quality factor
+            f0 = 50.0  # Center frequency
+            cutoff_freq = 10  # Hz
+            fs = 100 # Sampling frequency
 
-def butter_bandpass(lowcut, highcut, fs, order=6):
-    nyquist = 0.5 * fs
-    low = lowcut / nyquist
-    high = highcut / nyquist
-    b, a = butter(order, [low, high], btype='band')
-    return b, a
+            # Apply filters to chan_1
+            chan_1_rms = apply_filters(chan_1, fs, lowcut_bp, highcut_bp, Q, f0, cutoff_freq)
 
-def notch_filter(fs, Q, f0):
-    b, a = iirnotch(f0, Q, fs)
-    return b, a
+            # Apply filters to chan_2
+            chan_2_rms = apply_filters(chan_2, fs, lowcut_bp, highcut_bp, Q, f0, cutoff_freq)
 
-def apply_filters(signal, fs):
-    # Define the bandpass filter parameters
-    lowcut_bp = 5
-    highcut_bp = 500
-    order_bp = 6
+            # Apply filters to chan_3
+            chan_3_rms = apply_filters(chan_3, fs, lowcut_bp, highcut_bp, Q, f0, cutoff_freq)
 
-    # Define the notch filter parameters
-    Q = 30.0  # Quality factor
-    f0 = 50.0  # Center frequency
+            mvc_rms = apply_filters(mvc_sg, fs, lowcut_bp, highcut_bp, Q, f0, cutoff_freq)
 
-    # Design the bandpass filter
-    b_bp, a_bp = butter_bandpass(lowcut_bp, highcut_bp, fs, order=order_bp)
+            # Extract the maximum value
+            mvc_max = mvc_rms.max()
 
-    # Design the notch filter
-    b_notch, a_notch = notch_filter(fs, Q, f0)
+            # Normalize the signals
+            normalized_chan_1 = chan_1_rms / mvc_max
+            normalized_chan_2 = chan_2_rms / mvc_max
+            normalized_chan_3 = chan_3_rms / mvc_max
 
-    # Apply the bandpass filter
-    signal_filtered = filtfilt(b_bp, a_bp, signal)
+            # print(max(normalized_chan_1), max(normalized_chan_2), max(normalized_chan_3))
 
-    # Apply the notch filter
-    signal_filtered = filtfilt(b_notch, a_notch, signal_filtered)
+            label = max(normalized_chan_1) + max(normalized_chan_2) + max(normalized_chan_3)
+            if label > 3:
+                label = 3
+            label = label / 3
 
-    return signal_filtered
+            # print(label)
 
-# Example usage:
-# Assuming chan_1 is your signal and fs is the sampling frequency
-fs = 2000
-chan_1_filtered = apply_filters(chan_1, fs)
-plt.plot(chan_1_filtered)
+            # Create a DataFrame for the label
+            label_df = pd.DataFrame({'label': [label]})
 
-chan_1_rec = abs(chan_1_filtered)
-plt.plot(chan_1_rec)
+            # Save the DataFrame to a CSV file
+            label_df.to_csv(f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/emg/emg_label.csv')
 
-def butter_lowpass(cutoff, fs, order=5):
-    nyquist = 0.5 * fs
-    normal_cutoff = cutoff / nyquist
-    b, a = butter(order, normal_cutoff, btype='low', analog=False)
-    return b, a
-
-def lowpass_filter(data, cutoff, fs, order=5):
-    b, a = butter_lowpass(cutoff, fs, order=order)
-    filtered_data = filtfilt(b, a, data)
-    return filtered_data
-
-# Define the cutoff frequency for the lowpass filter
-cutoff_freq = 2  # Adjust as needed
-
-# Define the sampling frequency (assuming fs is your sampling frequency)
-fs = 2000  # Adjust as needed
-
-# Apply the lowpass filter to chan_1_filtered
-chan_1_lowpass_filtered = lowpass_filter(chan_1_rec, cutoff_freq, fs)
-plt.plot(chan_1_lowpass_filtered)
-
-def smooth_with_rms(signal, window_size):
-    # Compute the RMS over a sliding window
-    rms = np.sqrt(np.convolve(signal**2, np.ones(window_size)/window_size, mode='valid'))
-    
-    # Pad the RMS array to have the same length as the original signal
-    pad_width = (window_size - 1) // 2
-    rms = np.pad(rms, (pad_width, pad_width), mode='edge')
-    
-    return rms
-
-# Define the window size for computing RMS (choose an appropriate value)
-window_size = 500
-
-# Smooth the EMG signal using RMS
-chan_1_rms = smooth_with_rms(chan_1_lowpass_filtered, window_size)
-plt.plot(chan_1_rms)
+    print(f'Data processing complete for Person {person}/{tot_person}')
