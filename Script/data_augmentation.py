@@ -9,10 +9,10 @@ def add_gaussian_noise_to_quaternion(quaternion, std_dev):
     noisy_quaternion = quaternion + noise
     return noisy_quaternion / np.linalg.norm(noisy_quaternion)
 
-def time_warping(file_path, type=2, amount_of_warping=10):
+def time_warping(sensor_data, type=2, amount_of_warping=10):
     if type == 1:
-        # Load the CSV file into a DataFrame
-        df = pd.read_csv(file_path, header=None)
+
+        df = sensor_data
 
         # Define the interpolation function
         def interpolate_row(prev_row, next_row, num_interpolations=1):
@@ -56,10 +56,9 @@ def time_warping(file_path, type=2, amount_of_warping=10):
         # Round the timestamp column to 2 decimal places
         warped_df[0] = warped_df[0].round(2)
 
-
     elif type == 2:
-        # Load the CSV file into a DataFrame
-        df = pd.read_csv(file_path, header=None)
+
+        df = sensor_data
 
         contracted_time = []
 
@@ -87,30 +86,23 @@ def time_warping(file_path, type=2, amount_of_warping=10):
 tot_person = 1
 tot_weights = 1
 tot_attempts = 2
-num_real_people = 1
 
 for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
 
             original_data_dir = f'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/imu'
-            augmented_data_dir = f'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person+num_real_people}/W{weight}/A{attempt}/imu'
+            augmented_data_dir = f'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person+tot_person}/W{weight}/A{attempt}/imu'
 
             # List of sensor data files
             data_files = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
 
-            # rand = random.randint(1, 4)
-            rand = 2
-            if rand == 1:
-                print('Data augmentation through noise')
-            if rand == 2:
-                # warp_type = random.randint(1, 2)
-                warp_type = 2
-                amount_of_warping = random.randint(10, 20)
-                if warp_type == 1:
-                    print('Data augmentation through time warping - Expansion')
-                else:
-                    print('Data augmentation through time warping - Contraction')
+            warp_type = random.randint(1, 2) # 1-> Expansion, 2-> Contraction
+            amount_of_warping = random.randint(10, 20) # insert or delete a row every 10 to 20 timesteps (ms)
+            if warp_type == 1:
+                print('Data augmentation through time warping - Expansion')
+            else:
+                print('Data augmentation through time warping - Contraction')
 
             # Process each data file
             for file_name in data_files:
@@ -118,31 +110,24 @@ for person in range(1, tot_person + 1):
                 file_path = os.path.join(original_data_dir, file_name)
                 sensor_data = pd.read_csv(file_path, header=None)
 
-                # Extract quaternions from columns 10 to 13
+                # Extract quaternions from columns 16 to 19
                 quaternions = sensor_data.iloc[:, 16:20].values
-
-                # Perform data augmentation on quaternions
                 augmented_quaternions = []
                 for quaternion in quaternions:
                     # Generate noisy quaternion
-                    if rand == 1:
-                        std_dev = 0.01
-                        noisy_quaternion = add_gaussian_noise_to_quaternion(quaternion, std_dev)
-                        # Replace the original quaternions with augmented quaternions in the DataFrame
-                        sensor_data.iloc[:, 16:20] = augmented_quaternions
-                    elif rand == 2:
-                        sensor_data = time_warping(file_path, warp_type, amount_of_warping)
-                    # elif rand == 3:
-                    # elif rand == 4:
-                    # augmented_quaternions.append(noisy_quaternion)
-
-                
+                    std_dev = 0.01
+                    noisy_quaternion = add_gaussian_noise_to_quaternion(quaternion, std_dev)
+                    augmented_quaternions.append(noisy_quaternion)
+                # Replace the original quaternions with augmented quaternions in the DataFrame
+                sensor_data.iloc[:, 16:20] = augmented_quaternions
+                # Apply the time warping
+                augmented_data = time_warping(sensor_data, warp_type, amount_of_warping)
 
                 # Ensure the output directory exists
                 os.makedirs(augmented_data_dir, exist_ok=True)
 
                 # Write the augmented data back to the same CSV file
                 augmented_file_path = os.path.join(augmented_data_dir, file_name.split('.')[0] + '.csv')
-                sensor_data.to_csv(augmented_file_path, index=False, header=False)
+                augmented_data.to_csv(augmented_file_path, index=False, header=False)
 
             print(f'Successfully augmented person {person}/{tot_person}, weight {weight}/{tot_weights}, attempt {attempt}/{tot_attempts}')
