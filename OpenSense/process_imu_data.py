@@ -13,6 +13,10 @@ tot_person = 2
 tot_weights = 1
 tot_attempts = 2
 
+# person = 2
+# weight = 1
+# attempt = 1
+
 for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
@@ -238,7 +242,7 @@ for person in range(1, tot_person + 1):
             input_file_path = quaternion_table_path
             output_file_path = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/imu/lifting_orientations.sto'
             output_file_path_2 = 'c:/Users/giaco/Documents/OpenSim/4.5/Code/Python/OpenSenseExample/lifting_orientations.sto'
-
+            output_file_path_3 = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/OpenSense/lifting_orientations.sto'
             # Read the data from the input file
             with open(input_file_path, mode='r') as file:
                 lines = file.readlines()
@@ -271,6 +275,11 @@ for person in range(1, tot_person + 1):
 
             # Write the modified data to the output file
             with open(output_file_path_2, mode='w') as file:
+                file.write(header)
+                file.writelines(data_lines)
+
+            # Write the modified data to the output file
+            with open(output_file_path_3, mode='w') as file:
                 file.write(header)
                 file.writelines(data_lines)
 
@@ -314,7 +323,7 @@ for person in range(1, tot_person + 1):
             print(f'Data processing complete for Person {person}/{tot_person}, Weight {weight}/{tot_weights}, Attempt {attempt}/{tot_attempts}')
 
             # Read the motion data file into a DataFrame
-            motion_data = pd.read_csv('c:/Users/giaco/Documents/OpenSim/4.5/Code/Python/OpenSenseExample/IKResults/ik_lifting_orientations.mot', delimiter='\t', skiprows=6)
+            motion_data = pd.read_csv('c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/OpenSense/IKResults/ik_lifting_orientations.mot', delimiter='\t', skiprows=6)
 
             def calculate_angular_velocity(angles, timestamps):
                 velocities = []
@@ -355,7 +364,7 @@ for person in range(1, tot_person + 1):
 
             sampling_frequency = 100
 
-            cutoff_frequency_pos = 3
+            cutoff_frequency_pos = 5
             elbow_flex_angle_filt = apply_lowpass_filter(elbow_flex_angle, cutoff_frequency_pos, sampling_frequency)
             shoulder_flex_angle_filt = apply_lowpass_filter(shoulder_flex_angle, cutoff_frequency_pos, sampling_frequency)
             shoulder_add_angle_filt = apply_lowpass_filter(shoulder_add_angle, cutoff_frequency_pos, sampling_frequency)
@@ -366,7 +375,7 @@ for person in range(1, tot_person + 1):
             elbow_flex_vel = calculate_angular_velocity(elbow_flex_angle_filt, time)
             lumbar_vel = calculate_angular_velocity(lumbar_angle_filt, time)
 
-            cutoff_frequency_vel = 3
+            cutoff_frequency_vel = 5
             elbow_flex_vel_filt = apply_lowpass_filter(elbow_flex_vel, cutoff_frequency_vel, sampling_frequency)
             shoulder_flex_vel_filt = apply_lowpass_filter(shoulder_flex_vel, cutoff_frequency_vel, sampling_frequency)
             shoulder_add_vel_filt = apply_lowpass_filter(shoulder_add_vel, cutoff_frequency_vel, sampling_frequency)
@@ -377,7 +386,7 @@ for person in range(1, tot_person + 1):
             elbow_flex_acc = calculate_angular_acceleration(elbow_flex_vel_filt, time)
             lumbar_acc = calculate_angular_acceleration(lumbar_vel_filt, time)
 
-            cutoff_frequency_acc = 3
+            cutoff_frequency_acc = 5
             elbow_flex_acc_filt = apply_lowpass_filter(elbow_flex_acc, cutoff_frequency_acc, sampling_frequency)
             shoulder_flex_acc_filt = apply_lowpass_filter(shoulder_flex_acc, cutoff_frequency_acc, sampling_frequency)
             shoulder_add_acc_filt = apply_lowpass_filter(shoulder_add_acc, cutoff_frequency_acc, sampling_frequency)
@@ -477,10 +486,10 @@ for person in range(1, tot_person + 1):
             # Define the data to be saved
             data = {
                 'time': time,
-                'elbow_angle': elbow_flex_angle_filt,
-                'shoulder_flex_angle': shoulder_flex_angle_filt,
-                'shoulder_add_angle': shoulder_add_angle_filt,
-                'lumbar_angle': lumbar_angle_filt,
+                'elbow_angle': elbow_flex_angle,
+                'shoulder_flex_angle': shoulder_flex_angle,
+                'shoulder_add_angle': shoulder_add_angle,
+                'lumbar_angle': lumbar_angle,
                 'elbow_velocity': elbow_flex_vel_filt,
                 'shoulder_flex_velocity': shoulder_flex_vel_filt,
                 'shoulder_add_velocity': shoulder_add_vel_filt,
