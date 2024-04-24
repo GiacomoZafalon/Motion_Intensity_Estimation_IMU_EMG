@@ -7,22 +7,22 @@ import numpy as np
 from save_dir_info import person, weight, attempt
 
 HOST = '0.0.0.0'  # Listen on all available network interfaces
-PORT = 3333       # Port number you want your server to listen on
-SAVE_DIR = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/imu'  # Directory where you want to save the file
-FILE_NAME = 'sensor3.csv'  # Name of the CSV file
-# COLUMN_NAMES = ['time', 'eul_z', 'eul_y', 'eul_x', 'acc_x', 'acc_y', 'acc_z', 'gyro_x', 'gyro_y', 'gyro_z', 'mag_x', 'mag_y', 'mag_z', 'linacc_x', 'linacc_y', 'linacc_z']
+PORT = 3335       # Port number you want your server to listen on
+FILE_NAME = 'emg_data.csv'  # Name of the CSV file
+
+person = 1
+weight = 1
+attempt = 1
+
+if FILE_NAME == 'emg_mvc.csv':
+    SAVE_DIR = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}'
+    file_path = os.path.join(SAVE_DIR, FILE_NAME)
+else:
+    SAVE_DIR = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/emg'
+    file_path = os.path.join(SAVE_DIR, FILE_NAME)
 
 # Create the save directory if it doesn't exist
 os.makedirs(SAVE_DIR, exist_ok=True)
-
-# File path
-file_path = os.path.join(SAVE_DIR, FILE_NAME)
-
-# # Function to write column names to the CSV file
-# def write_column_names(file_path, column_names):
-#     with open(file_path, mode='w', newline='') as file:
-#         writer = csv.writer(file)
-#         writer.writerow(column_names)
 
 # Create a TCP/IP socket
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -34,9 +34,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
     print(f'Server listening on port {PORT}')
     data_list = []  # List to store received data
-
-    # Write column names to the CSV file
-    # write_column_names(file_path, COLUMN_NAMES)
 
     while True:
         # Accept incoming connections
@@ -62,16 +59,12 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 for line in lines:
                     # Use regular expression to extract numeric values
                     numbers = re.findall(r'\d+\.\d+', line)
-                    
-                    # Check if the row contains valid data
-                    if len(numbers) == 20:
+
+                    # Append received data to the CSV file
+                    with open(file_path, mode='a', newline='') as file:
+                        writer = csv.writer(file)
+                        writer.writerow(numbers)
                         print(numbers)
-                        # Append received data to the CSV file
-                        with open(file_path, mode='a', newline='') as file:
-                            writer = csv.writer(file)
-                            writer.writerow(numbers)
-                        
-                        # print(numbers)
 
         print('Connection closed')
         break

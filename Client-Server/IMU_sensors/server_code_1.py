@@ -18,12 +18,6 @@ os.makedirs(SAVE_DIR, exist_ok=True)
 # File path
 file_path = os.path.join(SAVE_DIR, FILE_NAME)
 
-# # Function to write column names to the CSV file
-# def write_column_names(file_path, column_names):
-#     with open(file_path, mode='w', newline='') as file:
-#         writer = csv.writer(file)
-#         writer.writerow(column_names)
-
 # Create a TCP/IP socket
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     # Bind the socket to the address and port
