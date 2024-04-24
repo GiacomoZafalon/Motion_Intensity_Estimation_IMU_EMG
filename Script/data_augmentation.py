@@ -3,6 +3,7 @@ import pandas as pd
 from scipy.spatial.transform import Rotation
 import os
 import random
+import shutil
 
 def add_gaussian_noise_to_quaternion(quaternion, std_dev):
     noise = np.random.normal(loc=0, scale=std_dev, size=4)
@@ -83,51 +84,70 @@ def time_warping(sensor_data, type=2, amount_of_warping=10):
 
     return warped_df
 
+def copy_csv_file(source_dir, destination_dir, filename):
+    # Create the destination directory if it doesn't exist
+    if not os.path.exists(destination_dir):
+        os.makedirs(destination_dir)
+    
+    # Construct the full paths for the source and destination files
+    source_file = os.path.join(source_dir, filename)
+    destination_file = os.path.join(destination_dir, filename)
+    
+    # Copy the file from the source directory to the destination directory
+    shutil.copyfile(source_file, destination_file)
+
 tot_person = 1
 tot_weights = 1
 tot_attempts = 2
+
+
+
 
 for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
 
-            original_data_dir = f'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/imu'
-            augmented_data_dir = f'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person+tot_person}/W{weight}/A{attempt}/imu'
+            base_dir = f'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/'
+            imu_data_path = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu')
+            emg_data_path = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/emg')
+            augmented_imu_data_dir = os.path.join(base_dir, f'P{person+tot_person}/W{weight}/A{attempt}/imu')
+            augmented_emg_data_dir = os.path.join(base_dir, f'P{person+tot_person}/W{weight}/A{attempt}/emg')
 
             # List of sensor data files
             data_files = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
+            emg_file = 'emg_label.csv'
 
             warp_type = random.randint(1, 2) # 1-> Expansion, 2-> Contraction
-            amount_of_warping = random.randint(10, 20) # insert or delete a row every 10 to 20 timesteps (ms)
-            if warp_type == 1:
-                print('Data augmentation through time warping - Expansion')
-            else:
-                print('Data augmentation through time warping - Contraction')
+            amount_of_warping = random.randint(10, 20) # Insert or delete a row every 10 to 20 timesteps (ms)
 
             # Process each data file
             for file_name in data_files:
                 # Read the sensor data from the CSV file
-                file_path = os.path.join(original_data_dir, file_name)
-                sensor_data = pd.read_csv(file_path, header=None)
+                imu_file_path = os.path.join(imu_data_path, file_name)
+                sensor_data = pd.read_csv(imu_file_path, header=None)
 
                 # Extract quaternions from columns 16 to 19
                 quaternions = sensor_data.iloc[:, 16:20].values
+
+                # Apply the Gaussian noise
                 augmented_quaternions = []
                 for quaternion in quaternions:
-                    # Generate noisy quaternion
                     std_dev = 0.01
                     noisy_quaternion = add_gaussian_noise_to_quaternion(quaternion, std_dev)
                     augmented_quaternions.append(noisy_quaternion)
                 # Replace the original quaternions with augmented quaternions in the DataFrame
                 sensor_data.iloc[:, 16:20] = augmented_quaternions
+
                 # Apply the time warping
                 augmented_data = time_warping(sensor_data, warp_type, amount_of_warping)
 
                 # Ensure the output directory exists
-                os.makedirs(augmented_data_dir, exist_ok=True)
+                os.makedirs(augmented_imu_data_dir, exist_ok=True)
 
                 # Write the augmented data back to the same CSV file
-                augmented_file_path = os.path.join(augmented_data_dir, file_name.split('.')[0] + '.csv')
+                augmented_file_path = os.path.join(augmented_imu_data_dir, file_name.split('.')[0] + '.csv')
                 augmented_data.to_csv(augmented_file_path, index=False, header=False)
 
-            print(f'Successfully augmented person {person}/{tot_person}, weight {weight}/{tot_weights}, attempt {attempt}/{tot_attempts}')
+            copy_csv_file(emg_data_path, augmented_emg_data_dir, 'emg_label.csv')
+
+    print(f'Successfully augmented person {person}/{tot_person}')
