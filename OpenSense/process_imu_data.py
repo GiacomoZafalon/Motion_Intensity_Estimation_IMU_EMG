@@ -19,7 +19,7 @@ tot_attempts = 1
 
 def interpolate_sensor_data(original_data_dir, file_names):
     """
-    Interpolates missing timesteps in sensor data files and saves the interpolated data into new CSV files.
+    Interpolates missing timesteps in sensor data files.
 
     Args:
     - original_data_dir (str): Directory containing the original sensor data files.
@@ -65,11 +65,10 @@ def interpolate_sensor_data(original_data_dir, file_names):
 
 def synchronize_csv_files(data_dir, csv_files):
     """
-    Process CSV files located in the data directory.
+    Synchronize the CSV files located in the data directory.
 
     Args:
     - data_dir (str): Directory containing the original CSV files.
-    - output_dir (str): Directory to save the processed CSV files.
     - csv_files (list of str): List of CSV file names to be processed.
     """
 
@@ -197,10 +196,9 @@ def merge_csv_files(data_dir, output_file_name, csv_files):
 def create_opensim_file(data_dir, merged_file):
     # File paths
     quaternion_table_path = os.path.join(data_dir, 'quaternion_table.csv')
-    # quaternion_table_path = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/imu/quaternion_table.csv'
-    output_file_path = os.path.join(data_dir, 'lifting_orientations.sto')
-    output_file_path_2 = 'c:/Users/giaco/Documents/OpenSim/4.5/Code/Python/OpenSenseExample/lifting_orientations.sto'
-    output_file_path_3 = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/OpenSense/lifting_orientations.sto'
+    output_file_path_to_dataset = os.path.join(data_dir, 'lifting_orientations.sto')
+    output_file_path_to_opensim = 'c:/Users/giaco/Documents/OpenSim/4.5/Code/Python/OpenSenseExample/lifting_orientations.sto'
+    output_file_path_to_opensense = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/OpenSense/lifting_orientations.sto'
 
     # Indices of columns to keep
     columns_to_keep = [0, 10, 11, 12, 13, 24, 25, 26, 27, 38, 39, 40, 41, 52, 53, 54, 55]
@@ -234,7 +232,7 @@ def create_opensim_file(data_dir, merged_file):
         data_lines.append(modified_line)
 
     # Write the modified data to the output files
-    for output_path in [output_file_path, output_file_path_2, output_file_path_3]:
+    for output_path in [output_file_path_to_dataset, output_file_path_to_opensim, output_file_path_to_opensense]:
         with open(output_path, mode='w') as file:
             file.write(header)
             file.writelines(data_lines)
@@ -248,6 +246,7 @@ def delete_files(data_dir, files_to_delete):
 def opensim_processing():
     # Setup and run the IMUPlacer tool, with model visualization set to true
     imu_placer = osim.IMUPlacer('c:/Users/giaco/Documents/OpenSim/4.5/Code/Python/OpenSenseExample/myIMUPlacer_Setup.xml')
+    # imu_placer = osim.IMUPlacer('c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/OpenSense/myIMUPlacer_Setup.xml')
     imu_placer.run(False)
 
     # Write the calibrated model to file
@@ -279,12 +278,6 @@ def process_motion_data(motion_file_path, fs, cutoff_frequency_pos=5, cutoff_fre
             accelerations.append(acceleration)
         return accelerations
 
-    time = motion_data['time']
-    shoulder_flex_angle = motion_data['arm_flex_r']
-    shoulder_add_angle = motion_data['arm_add_r']
-    elbow_flex_angle = motion_data['elbow_flex_r']
-    lumbar_angle = motion_data['lumbar_extension']
-
     def butter_lowpass(cutoff, fs, order=5):
         nyquist = 0.5 * fs
         normal_cutoff = cutoff / nyquist
@@ -295,6 +288,12 @@ def process_motion_data(motion_file_path, fs, cutoff_frequency_pos=5, cutoff_fre
         b, a = butter_lowpass(cutoff_frequency, sampling_frequency, order=filter_order)
         filtered_data = filtfilt(b, a, data)
         return filtered_data
+    
+    time = motion_data['time']
+    shoulder_flex_angle = motion_data['arm_flex_r']
+    shoulder_add_angle = motion_data['arm_add_r']
+    elbow_flex_angle = motion_data['elbow_flex_r']
+    lumbar_angle = motion_data['lumbar_extension']
 
     sampling_frequency = fs
 
@@ -339,7 +338,7 @@ def process_motion_data(motion_file_path, fs, cutoff_frequency_pos=5, cutoff_fre
         'lumbar_acc_filt': lumbar_acc_filt
     }
 
-def save_plot_motion_data(data_dir, motion_data, plot_name, show=False):
+def save_plot_motion_data(data_dir, motion_data, plot_name, show_plot=False):
     # Define the figure and subplots
     fig, axs = plt.subplots(3, 4, figsize=(15, 15))
 
@@ -426,7 +425,7 @@ def save_plot_motion_data(data_dir, motion_data, plot_name, show=False):
     plt.savefig(os.path.join(data_dir, plot_name))
 
     # # Show the plots
-    if show:
+    if show_plot:
         plt.show()
 
 def save_motion_data(data_dir, motion_data, file_name):
