@@ -17,6 +17,40 @@ tot_attempts = 1
 # weight = 1
 # attempt = 1
 
+def quaternion_multiply(q1, q2):
+    w1, x1, y1, z1 = q1
+    w2, x2, y2, z2 = q2
+    w = w1*w2 - x1*x2 - y1*y2 - z1*z2
+    x = w1*x2 + x1*w2 + y1*z2 - z1*y2
+    y = w1*y2 - x1*z2 + y1*w2 + z1*x2
+    z = w1*z2 + x1*y2 - y1*x2 + z1*w2
+    return np.array([w, x, y, z])
+
+def rotate_pelvis(data_file_path):
+    # Define the rotation quaternion for 180-degree rotation around the x-axis
+    # rotation_quaternion = np.array([np.sqrt(2)/2, np.sqrt(2)/2, 0, 0])
+    rotation_quaternion = np.array([0, 1, 0, 0])
+
+    # Read the sensor data from the CSV file
+    data = pd.read_csv(data_file_path)
+
+    # Extract the quaternion columns (assuming they are the last 4 columns)
+    quaternion_columns = data.iloc[:, -4:]
+
+    # Rotate each quaternion in the set
+    rotated_quaternions = []
+    for i in range(len(quaternion_columns)):
+        quaternion = quaternion_columns.iloc[i].to_numpy()
+        rotated_quaternion = quaternion_multiply(quaternion, rotation_quaternion)
+        rotated_quaternions.append(rotated_quaternion)
+
+    # Update the corresponding columns in the DataFrame with the rotated quaternions
+    for i, col in enumerate(quaternion_columns.columns):
+        data[col] = [q[i] for q in rotated_quaternions]
+
+    # Save the updated DataFrame to the output CSV file
+    data.to_csv(data_file_path.replace('.csv', '_rotated.csv'), index=False, header=False)
+
 def interpolate_sensor_data(original_data_dir, file_names):
     """
     Interpolates missing timesteps in sensor data files.
@@ -26,33 +60,30 @@ def interpolate_sensor_data(original_data_dir, file_names):
     - file_names (list of str): List of file names of the sensor data files to be interpolated.
     """
 
-    for file_name in file_names:
+    for file in file_names:
         # Read the sensor data from the CSV file
-        file_path = os.path.join(original_data_dir, file_name)
+        file_path = os.path.join(original_data_dir, file)
         data = pd.read_csv(file_path, header=None)
 
         # Interpolate missing timesteps
         new_data = []
         for i in range(len(data) - 1):
-            new_data.append(data.iloc[i])
+            new_data.append(data.iloc[i].tolist())  # Append individual row
             current_time = round(data.iloc[i, 0], 2)
             next_time = round(data.iloc[i + 1, 0], 2)
             gap = round(next_time - current_time, 2)
             if gap > 0.01:  # Check if there is a jump
                 num_missing_steps = int(gap / 0.01) - 1
                 step_size = (data.iloc[i + 1] - data.iloc[i]) / (num_missing_steps + 1)
-                new_data_s = []
                 for j in range(1, num_missing_steps + 1):
-                    interpolated_step = data.iloc[i] + step_size * j
-                    new_data_s.append(interpolated_step)
-                # Normalize the quaternion values
-                quaternion_values = np.array(new_data_s[-4:])
-                norm = np.linalg.norm(quaternion_values)
-                normalized_quaternion = quaternion_values / norm
-                new_data_s[-4:] = normalized_quaternion
-                new_data.append(new_data_s)
+                    interpolated_step = (data.iloc[i] + step_size * j).tolist()  # Convert to list
+                    quaternion_values = np.array(interpolated_step[-4:])
+                    norm = np.linalg.norm(quaternion_values)
+                    normalized_quaternion = quaternion_values / norm
+                    interpolated_step[-4:] = normalized_quaternion.tolist()  # Convert to list
+                    new_data.append(interpolated_step)  # Append list of interpolated row
 
-        new_data.append(data.iloc[-1])  # Add the last row
+        new_data.append(data.iloc[-1].tolist())  # Add the last row as a list
 
         # Convert new data to DataFrame
         interpolated_df = pd.DataFrame(new_data)
@@ -60,7 +91,7 @@ def interpolate_sensor_data(original_data_dir, file_names):
         interpolated_df[0] = interpolated_df[0].round(2)
 
         # Save interpolated data to CSV file
-        interpolated_file_path = os.path.join(original_data_dir, file_name)
+        interpolated_file_path = os.path.join(original_data_dir, file)
         interpolated_df.to_csv(interpolated_file_path, index=False, header=False)
 
 def synchronize_csv_files(data_dir, csv_files):
@@ -254,7 +285,7 @@ def opensim_processing():
 
     # Setup and run the IMU IK tool with visualization set to true
     imu_ik = osim.IMUInverseKinematicsTool('c:/Users/giaco/Documents/OpenSim/4.5/Code/Python/OpenSenseExample/myIMUIK_Setup.xml')
-    imu_ik.run(False)
+    imu_ik.run(True)
 
 def process_motion_data(motion_file_path, fs, cutoff_frequency_pos=5, cutoff_frequency_vel=5, cutoff_frequency_acc=5):
     # Read the motion data file into a DataFrame
@@ -452,7 +483,9 @@ for person in range(1, tot_person + 1):
 
             # Directory where CSV files are located for the current person, weight, and attempt
             data_dir = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu')
-            csv_files = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
+            csv_files = ['sensor1_rotated.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
+
+            rotate_pelvis(os.path.join(data_dir, 'sensor1.csv'))
 
             # Interpolate the missing values in the sensor readings
             interpolate_sensor_data(data_dir, csv_files)
@@ -469,6 +502,7 @@ for person in range(1, tot_person + 1):
             # List of files to delete
             files_to_delete = [
                 'sensor1_sync.csv',
+                'sensor1_rotated_sync.csv',
                 'sensor2_sync.csv',
                 'sensor3_sync.csv',
                 'sensor4_sync.csv',

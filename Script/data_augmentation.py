@@ -84,7 +84,7 @@ def time_warping(sensor_data, type=2, amount_of_warping=10):
 
     return warped_df
 
-def copy_csv_file(source_dir, destination_dir, filename):
+def add_noise_label(source_dir, destination_dir, noise, filename):
     # Create the destination directory if it doesn't exist
     if not os.path.exists(destination_dir):
         os.makedirs(destination_dir)
@@ -92,9 +92,22 @@ def copy_csv_file(source_dir, destination_dir, filename):
     # Construct the full paths for the source and destination files
     source_file = os.path.join(source_dir, filename)
     destination_file = os.path.join(destination_dir, filename)
-    
-    # Copy the file from the source directory to the destination directory
-    shutil.copyfile(source_file, destination_file)
+
+    # Read the source file and write modified contents to the destination file
+    with open(source_file, 'r') as source_file_handle:
+        lines = source_file_handle.readlines()
+        # Write the first line (header) to the destination file
+        with open(destination_file, 'w') as destination_file_handle:
+            destination_file_handle.write(lines[0])
+            # Process and write the remaining lines (data)
+            for line in lines[1:]:
+                # Split the line into numbers
+                numbers = line.strip().split(',')
+                # Convert the numbers to floats and add noise
+                noisy_numbers = [numbers[0], str(float(numbers[1]) + noise)]
+                # Write the noisy numbers back to the destination file
+                destination_file_handle.write(','.join(noisy_numbers) + '\n')
+
 
 tot_person = 1
 tot_weights = 1
@@ -120,6 +133,7 @@ for person in range(1, tot_person + 1):
             warp_type = random.randint(1, 2) # 1-> Expansion, 2-> Contraction
             amount_of_warping = random.randint(10, 20) # Insert or delete a row every 10 to 20 timesteps (ms)
 
+            mean_diff = []
             # Process each data file
             for file_name in data_files:
                 # Read the sensor data from the CSV file
@@ -135,6 +149,10 @@ for person in range(1, tot_person + 1):
                     std_dev = 0.01
                     noisy_quaternion = add_gaussian_noise_to_quaternion(quaternion, std_dev)
                     augmented_quaternions.append(noisy_quaternion)
+
+                # Compute the difference between the original and the augmented quaternions
+                diff = augmented_quaternions - quaternions
+                mean_diff.append(np.mean(diff))
                 # Replace the original quaternions with augmented quaternions in the DataFrame
                 sensor_data.iloc[:, 16:20] = augmented_quaternions
 
@@ -148,6 +166,9 @@ for person in range(1, tot_person + 1):
                 augmented_file_path = os.path.join(augmented_imu_data_dir, file_name.split('.')[0] + '.csv')
                 augmented_data.to_csv(augmented_file_path, index=False, header=False)
 
-            copy_csv_file(emg_data_path, augmented_emg_data_dir, 'emg_label.csv')
+            # Find the mean value of noise throughout all 4 sensors
+            mean_noise = np.mean(mean_diff) * 50
+
+            add_noise_label(emg_data_path, augmented_emg_data_dir, mean_noise, 'emg_label.csv')
 
     print(f'Successfully augmented person {person}/{tot_person}')

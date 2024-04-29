@@ -7,6 +7,39 @@ tot_person = 2
 tot_weights = 1
 tot_attempts = 2
 
+def apply_filters(signal, fs, lowcut_bp, highcut_bp, Q, f0, cutoff_freq):
+    # Design the bandpass filter
+    nyquist = 0.5 * fs
+    low = lowcut_bp / nyquist
+    high = highcut_bp / nyquist
+    b_bp, a_bp = butter(order_bp, [low, high], btype='band')
+
+    # Design the notch filter
+    b_notch, a_notch = iirnotch(f0, Q, fs)
+
+    # Apply the bandpass filter
+    signal_filtered = filtfilt(b_bp, a_bp, signal)
+
+    # Apply the notch filter
+    signal_filtered = filtfilt(b_notch, a_notch, signal_filtered)
+
+    # Rectify the signal
+    signal_rectified = np.abs(signal_filtered)
+
+    # Apply lowpass filter
+    nyquist = 0.5 * fs
+    normal_cutoff = cutoff_freq / nyquist
+    b, a = butter(5, normal_cutoff, btype='low', analog=False)
+    signal_lowpass_filtered = filtfilt(b, a, signal_rectified)
+
+    # Compute RMS
+    window_size = 5
+    rms = np.sqrt(np.convolve(signal_lowpass_filtered**2, np.ones(window_size)/window_size, mode='valid'))
+    pad_width = (window_size - 1) // 2
+    rms = np.pad(rms, (pad_width, pad_width), mode='edge')
+
+    return rms
+
 for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
@@ -35,39 +68,6 @@ for person in range(1, tot_person + 1):
             chan_3 = (merged_df.iloc[:, 2]).values
             mvc_sg = (mvc_df.iloc[:]).values.flatten()
 
-            def apply_filters(signal, fs, lowcut_bp, highcut_bp, Q, f0, cutoff_freq):
-                # Design the bandpass filter
-                nyquist = 0.5 * fs
-                low = lowcut_bp / nyquist
-                high = highcut_bp / nyquist
-                b_bp, a_bp = butter(order_bp, [low, high], btype='band')
-
-                # Design the notch filter
-                b_notch, a_notch = iirnotch(f0, Q, fs)
-
-                # Apply the bandpass filter
-                signal_filtered = filtfilt(b_bp, a_bp, signal)
-
-                # Apply the notch filter
-                signal_filtered = filtfilt(b_notch, a_notch, signal_filtered)
-
-                # Rectify the signal
-                signal_rectified = np.abs(signal_filtered)
-
-                # Apply lowpass filter
-                nyquist = 0.5 * fs
-                normal_cutoff = cutoff_freq / nyquist
-                b, a = butter(5, normal_cutoff, btype='low', analog=False)
-                signal_lowpass_filtered = filtfilt(b, a, signal_rectified)
-
-                # Compute RMS
-                window_size = 5
-                rms = np.sqrt(np.convolve(signal_lowpass_filtered**2, np.ones(window_size)/window_size, mode='valid'))
-                pad_width = (window_size - 1) // 2
-                rms = np.pad(rms, (pad_width, pad_width), mode='edge')
-
-                return rms
-
             # Define filter parameters
             lowcut_bp = 5  # Hz
             highcut_bp = 45  # Hz
@@ -86,9 +86,10 @@ for person in range(1, tot_person + 1):
             # Apply filters to chan_3
             chan_3_rms = apply_filters(chan_3, fs, lowcut_bp, highcut_bp, Q, f0, cutoff_freq)
 
+            # Apply filter to mvc signal
             mvc_rms = apply_filters(mvc_sg, fs, lowcut_bp, highcut_bp, Q, f0, cutoff_freq)
 
-            # Extract the maximum value
+            # Extract the maximum voluntary contruction (MVC)
             mvc_max = mvc_rms.max()
 
             # Normalize the signals
