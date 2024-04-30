@@ -11,42 +11,35 @@ base_dir = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Datas
 
 tot_person = 1
 tot_weights = 1
-tot_attempts = 1
+tot_attempts = 2
 
 # person = 2
 # weight = 1
 # attempt = 1
 
-def quaternion_multiply(q1, q2):
-    w1, x1, y1, z1 = q1
-    w2, x2, y2, z2 = q2
-    w = w1*w2 - x1*x2 - y1*y2 - z1*z2
-    x = w1*x2 + x1*w2 + y1*z2 - z1*y2
-    y = w1*y2 - x1*z2 + y1*w2 + z1*x2
-    z = w1*z2 + x1*y2 - y1*x2 + z1*w2
-    return np.array([w, x, y, z])
-
-def rotate_pelvis(data_file_path):
-    # Define the rotation quaternion for 180-degree rotation around the x-axis
-    # rotation_quaternion = np.array([np.sqrt(2)/2, np.sqrt(2)/2, 0, 0])
-    rotation_quaternion = np.array([0, 1, 0, 0])
-
-    # Read the sensor data from the CSV file
+def rotate_pelvis(data_file_path, angle):
     data = pd.read_csv(data_file_path)
-
-    # Extract the quaternion columns (assuming they are the last 4 columns)
     quaternion_columns = data.iloc[:, -4:]
 
-    # Rotate each quaternion in the set
-    rotated_quaternions = []
+    # Invert the sign of each angle
+    inverted_quaternions = []
     for i in range(len(quaternion_columns)):
         quaternion = quaternion_columns.iloc[i].to_numpy()
-        rotated_quaternion = quaternion_multiply(quaternion, rotation_quaternion)
-        rotated_quaternions.append(rotated_quaternion)
 
-    # Update the corresponding columns in the DataFrame with the rotated quaternions
+        w, x, y, z = quaternion
+        inverted_quaternion = np.array([
+            w * np.cos(angle) - x * np.sin(angle),
+            w * np.sin(angle) + x * np.cos(angle),
+            y,
+            z
+        ])
+
+        # Append the inverted quaternion to the list
+        inverted_quaternions.append(inverted_quaternion)
+
+    # Update the corresponding columns in the DataFrame with the inverted quaternions
     for i, col in enumerate(quaternion_columns.columns):
-        data[col] = [q[i] for q in rotated_quaternions]
+        data[col] = [q[i] for q in inverted_quaternions]
 
     # Save the updated DataFrame to the output CSV file
     data.to_csv(data_file_path.replace('.csv', '_rotated.csv'), index=False, header=False)
@@ -285,7 +278,7 @@ def opensim_processing():
 
     # Setup and run the IMU IK tool with visualization set to true
     imu_ik = osim.IMUInverseKinematicsTool('c:/Users/giaco/Documents/OpenSim/4.5/Code/Python/OpenSenseExample/myIMUIK_Setup.xml')
-    imu_ik.run(True)
+    imu_ik.run(False)
 
 def process_motion_data(motion_file_path, fs, cutoff_frequency_pos=5, cutoff_frequency_vel=5, cutoff_frequency_acc=5):
     # Read the motion data file into a DataFrame
@@ -485,7 +478,9 @@ for person in range(1, tot_person + 1):
             data_dir = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu')
             csv_files = ['sensor1_rotated.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
 
-            rotate_pelvis(os.path.join(data_dir, 'sensor1.csv'))
+            # Apply a rotation of 270° to the pelvis sensor to have it facing forward in OpenSim
+            angle = np.pi * 3/4
+            rotate_pelvis(os.path.join(data_dir, 'sensor1.csv'), angle)
 
             # Interpolate the missing values in the sensor readings
             interpolate_sensor_data(data_dir, csv_files)
