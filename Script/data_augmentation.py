@@ -104,7 +104,8 @@ def add_noise_label(source_dir, destination_dir, noise, filename):
                 # Split the line into numbers
                 numbers = line.strip().split(',')
                 # Convert the numbers to floats and add noise
-                noisy_numbers = [numbers[0], str(float(numbers[1]) + noise)]
+                # If noise > 0 it means that the angles are slightly bigger, so the load was not that heavy
+                noisy_numbers = [numbers[0], str(float(numbers[1]) - noise)]
                 # Write the noisy numbers back to the destination file
                 destination_file_handle.write(','.join(noisy_numbers) + '\n')
 
