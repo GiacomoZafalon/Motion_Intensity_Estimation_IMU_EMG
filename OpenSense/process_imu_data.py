@@ -303,18 +303,17 @@ def delete_files(data_dir, files_to_delete):
         if os.path.exists(file_path):
             os.remove(file_path)
 
-def opensim_processing():
+def opensim_processing(show_placer=False, show_ik=False):
     # Setup and run the IMUPlacer tool, with model visualization set to true
     imu_placer = osim.IMUPlacer('c:/Users/giaco/Documents/OpenSim/4.5/Code/Python/OpenSenseExample/myIMUPlacer_Setup.xml')
-    # imu_placer = osim.IMUPlacer('c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/OpenSense/myIMUPlacer_Setup.xml')
-    imu_placer.run(True) #1.57079632679
+    imu_placer.run(show_placer)
 
     # Write the calibrated model to file
     calibrated_model = imu_placer.getCalibratedModel()
 
     # Setup and run the IMU IK tool with visualization set to true
     imu_ik = osim.IMUInverseKinematicsTool('c:/Users/giaco/Documents/OpenSim/4.5/Code/Python/OpenSenseExample/myIMUIK_Setup.xml')
-    imu_ik.run(True)
+    imu_ik.run(show_ik)
 
 def process_motion_data(motion_file_path, fs, cutoff_frequency_pos=5, cutoff_frequency_vel=5, cutoff_frequency_acc=5):
     # Read the motion data file into a DataFrame
@@ -537,15 +536,14 @@ for person in range(1, tot_person + 1):
 
             # List of files to delete
             files_to_delete = [
-                'sensor1_sync.csv',
-                #'sensor1_rotated_sync.csv',
-                'sensor2_sync.csv',
-                'sensor3_sync.csv',
-                'sensor4_sync.csv',
-                'sensor1_sync_calib.csv',
-                'sensor2_sync_calib.csv',
-                'sensor3_sync_calib.csv',
-                'sensor4_sync_calib.csv',
+                'sensor1_rotated.csv',
+                'sensor1_rotated_sync.csv',
+                'sensor2_rotated.csv',
+                'sensor2_rotated_sync.csv',
+                'sensor3_rotated.csv',
+                'sensor3_rotated_sync.csv',
+                'sensor4_rotated.csv',
+                'sensor4_rotated_sync.csv',
                 'quaternion_table.csv'
             ]
 
@@ -553,7 +551,7 @@ for person in range(1, tot_person + 1):
             delete_files(data_dir, files_to_delete)
 
             # Perform the inverse kinematics through OpenSim
-            opensim_processing()
+            opensim_processing(False, False)
 
             print(f'Data processing complete for Person {person}/{tot_person}, Weight {weight}/{tot_weights}, Attempt {attempt}/{tot_attempts}')
 

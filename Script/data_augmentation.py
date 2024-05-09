@@ -110,66 +110,69 @@ def add_noise_label(source_dir, destination_dir, noise, filename):
                 destination_file_handle.write(','.join(noisy_numbers) + '\n')
 
 
+
+
+
 tot_person = 1
 tot_weights = 1
 tot_attempts = 2
+times = 1
 
+for i in range(1, times + 1):
+    for person in range(1, tot_person + 1):
+        for weight in range(1, tot_weights + 1):
+            for attempt in range(1, tot_attempts + 1):
 
+                base_dir = f'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/'
+                imu_data_path = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu')
+                emg_data_path = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/emg')
+                augmented_imu_data_dir = os.path.join(base_dir, f'P{person+i*tot_person}/W{weight}/A{attempt}/imu')
+                augmented_emg_data_dir = os.path.join(base_dir, f'P{person+i*tot_person}/W{weight}/A{attempt}/emg')
 
+                # List of sensor data files
+                data_files = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
+                emg_file = 'emg_label.csv'
 
-for person in range(1, tot_person + 1):
-    for weight in range(1, tot_weights + 1):
-        for attempt in range(1, tot_attempts + 1):
+                warp_type = random.randint(1, 2) # 1-> Expansion, 2-> Contraction
+                amount_of_warping = random.randint(10, 20) # Insert or delete a row every 10 to 20 timesteps (ms)
 
-            base_dir = f'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/'
-            imu_data_path = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu')
-            emg_data_path = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/emg')
-            augmented_imu_data_dir = os.path.join(base_dir, f'P{person+tot_person}/W{weight}/A{attempt}/imu')
-            augmented_emg_data_dir = os.path.join(base_dir, f'P{person+tot_person}/W{weight}/A{attempt}/emg')
+                mean_diff = []
+                # Process each data file
+                for file_name in data_files:
+                    # Read the sensor data from the CSV file
+                    imu_file_path = os.path.join(imu_data_path, file_name)
+                    sensor_data = pd.read_csv(imu_file_path, header=None)
 
-            # List of sensor data files
-            data_files = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
-            emg_file = 'emg_label.csv'
+                    # Extract quaternions from columns 16 to 19
+                    quaternions = sensor_data.iloc[:, 16:20].values
 
-            warp_type = random.randint(1, 2) # 1-> Expansion, 2-> Contraction
-            amount_of_warping = random.randint(10, 20) # Insert or delete a row every 10 to 20 timesteps (ms)
+                    # Apply the Gaussian noise
+                    augmented_quaternions = []
+                    for quaternion in quaternions:
+                        std_dev = 0.01
+                        noisy_quaternion = add_gaussian_noise_to_quaternion(quaternion, std_dev)
+                        augmented_quaternions.append(noisy_quaternion)
 
-            mean_diff = []
-            # Process each data file
-            for file_name in data_files:
-                # Read the sensor data from the CSV file
-                imu_file_path = os.path.join(imu_data_path, file_name)
-                sensor_data = pd.read_csv(imu_file_path, header=None)
+                    # Compute the difference between the original and the augmented quaternions
+                    diff = augmented_quaternions - quaternions
+                    mean_diff.append(np.mean(diff))
+                    # Replace the original quaternions with augmented quaternions in the DataFrame
+                    sensor_data.iloc[:, 16:20] = augmented_quaternions
 
-                # Extract quaternions from columns 16 to 19
-                quaternions = sensor_data.iloc[:, 16:20].values
+                    # Apply the time warping
+                    augmented_data = time_warping(sensor_data, warp_type, amount_of_warping)
 
-                # Apply the Gaussian noise
-                augmented_quaternions = []
-                for quaternion in quaternions:
-                    std_dev = 0.01
-                    noisy_quaternion = add_gaussian_noise_to_quaternion(quaternion, std_dev)
-                    augmented_quaternions.append(noisy_quaternion)
+                    # Ensure the output directory exists
+                    os.makedirs(augmented_imu_data_dir, exist_ok=True)
 
-                # Compute the difference between the original and the augmented quaternions
-                diff = augmented_quaternions - quaternions
-                mean_diff.append(np.mean(diff))
-                # Replace the original quaternions with augmented quaternions in the DataFrame
-                sensor_data.iloc[:, 16:20] = augmented_quaternions
+                    # Write the augmented data back to the same CSV file
+                    augmented_file_path = os.path.join(augmented_imu_data_dir, file_name.split('.')[0] + '.csv')
+                    augmented_data.to_csv(augmented_file_path, index=False, header=False)
 
-                # Apply the time warping
-                augmented_data = time_warping(sensor_data, warp_type, amount_of_warping)
+                # Find the mean value of noise throughout all 4 sensors
+                mean_noise = np.mean(mean_diff) * 50
 
-                # Ensure the output directory exists
-                os.makedirs(augmented_imu_data_dir, exist_ok=True)
+                add_noise_label(emg_data_path, augmented_emg_data_dir, mean_noise, 'emg_label.csv')
 
-                # Write the augmented data back to the same CSV file
-                augmented_file_path = os.path.join(augmented_imu_data_dir, file_name.split('.')[0] + '.csv')
-                augmented_data.to_csv(augmented_file_path, index=False, header=False)
-
-            # Find the mean value of noise throughout all 4 sensors
-            mean_noise = np.mean(mean_diff) * 50
-
-            add_noise_label(emg_data_path, augmented_emg_data_dir, mean_noise, 'emg_label.csv')
-
-    print(f'Successfully augmented person {person}/{tot_person}')
+        print(f'Successfully augmented person {person}/{tot_person}')
+    print(f'Round {i}/{times} completed')

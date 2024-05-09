@@ -18,6 +18,10 @@ os.makedirs(SAVE_DIR, exist_ok=True)
 # File path
 file_path = os.path.join(SAVE_DIR, FILE_NAME)
 
+# Remove the old file if it already exists
+if os.path.exists(file_path):
+    os.remove(file_path)
+
 # Create a TCP/IP socket
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     # Bind the socket to the address and port
@@ -29,9 +33,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     print(f'Server listening on port {PORT}')
     data_list = []  # List to store received data
 
-    # Write column names to the CSV file
-    # write_column_names(file_path, COLUMN_NAMES)
-
     while True:
         # Accept incoming connections
         conn, addr = s.accept()
@@ -41,11 +42,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             # Handle incoming data
             while True:
                 data = conn.recv(1024)
-                # Check for keyboard input
-                if msvcrt.kbhit():
-                    key = msvcrt.getch().decode()
-                    if key == 'm':
-                        break  # Exit the loop if 'm' is pressed
 
                 if not data:
                     break
@@ -64,8 +60,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                         with open(file_path, mode='a', newline='') as file:
                             writer = csv.writer(file)
                             writer.writerow(numbers)
-                        
-                        # print(numbers)
 
         print('Connection closed')
         break
