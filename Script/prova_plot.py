@@ -1,24 +1,58 @@
-import csv
-import matplotlib.pyplot as plt
+import numpy as np
+import os
 
-csv_file_path = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P1\W1\A1\emg\emg_data.csv'  # Replace with the path to your CSV file
+# Define quaternion rotation functions
+def normalize_quaternion(q):
+    return q / np.linalg.norm(q)
 
-# Lists to store the values from the first column
-values = []
+def quaternion_conjugate(q):
+    return np.array([q[0], -q[1], -q[2], -q[3]])
 
-# Open the CSV file for reading
-with open(csv_file_path, 'r', newline='') as csvfile:
-    csv_reader = csv.reader(csvfile)
+def quaternion_multiply(q1, q2):
+    w1, x1, y1, z1 = q1
+    w2, x2, y2, z2 = q2
+    w = w1 * w2 - x1 * x2 - y1 * y2 - z1 * z2
+    x = w1 * x2 + x1 * w2 + y1 * z2 - z1 * y2
+    y = w1 * y2 + y1 * w2 + z1 * x2 - x1 * z2
+    z = w1 * z2 + z1 * w2 + x1 * y2 - y1 * x2
+    return np.array([w, x, y, z])
+
+def rotate_to_target(q, q0):
+    # Normalize input quaternions
+    q0 = normalize_quaternion(q0)
+    target = np.array([1, 0, 0, 0])
+    target = normalize_quaternion(target)
     
-    # Iterate over each row in the CSV file
-    for row in csv_reader:
-        # Append the value of the first column (index 0) to the list
-        values.append(-float(row[0]))  # Convert the value to float if necessary
+    # Calculate the rotation quaternion that rotates q to the target quaternion
+    rotation_quaternion = quaternion_multiply(target, quaternion_conjugate(q0))
+    
+    # Apply the rotation to q
+    rotated_q = quaternion_multiply(rotation_quaternion, q)
+    
+    return rotated_q
 
-# Plot the values
-plt.plot(values)
-plt.xlabel('Index')  # Set label for x-axis
-plt.ylabel('Value')  # Set label for y-axis
-plt.title('Values from First Column')  # Set title of the plot
-plt.grid(True)  # Enable grid
-plt.show()  # Show the plot
+# Directory containing the CSV files
+directory = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P1/W1/A1/imu/'
+
+# Loop through each CSV file
+for filename in ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']:
+    filepath = os.path.join(directory, filename)
+    
+    # Load data
+    data = np.loadtxt(filepath, delimiter=',')
+    
+    # Extract quaternion data from the remaining rows
+    quaternions = data[:, -4:]
+    
+    # Rotate the first quaternion to match the target quaternion
+    rotated_target_quaternion = rotate_to_target(quaternions[1], quaternions[1])
+    
+    # Apply the same rotation to all other quaternions
+    rotated_quaternions = np.array([rotate_to_target(q, quaternions[1]) for q in quaternions])
+    
+    # Replace the original quaternion data with the rotated quaternions
+    data[:, -4:] = rotated_quaternions
+    
+    # Save the modified data back to a file
+    output_filepath = os.path.join(directory, filename.replace('.csv', '_rot_quat.csv'))
+    np.savetxt(output_filepath, data, delimiter=',')

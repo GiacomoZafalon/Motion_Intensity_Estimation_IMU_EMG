@@ -11,7 +11,7 @@ base_dir = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Datas
 
 tot_person = 1
 tot_weights = 1
-tot_attempts = 1
+tot_attempts = 2
 
 # person = 2
 # weight = 1
@@ -53,32 +53,33 @@ def rotate_up_low_arm(data_dir, angle_x, angle_y, angle_z, file_names):
         # Save the updated DataFrame to the output CSV file
         data.to_csv(data_file_path.replace('.csv', '_rotated.csv'), index=False, header=False)
 
-def rotate_pelvis_torso(data_dir, angle_x, angle_y, angle_z, file_names):
-    for file in file_names[:2]:
-        data_file_path = os.path.join(data_dir, file)
-        data = pd.read_csv(data_file_path)
-        quaternion_columns = data.iloc[:, -4:]
+def rotate_body(data_dir, number_body_part, angle_x, angle_y, angle_z, file_names):
+    # for file in file_names[number_body_part]:
+    file = file_names[number_body_part]
+    data_file_path = os.path.join(data_dir, file)
+    data = pd.read_csv(data_file_path)
+    quaternion_columns = data.iloc[:, -4:]
 
-        # Define the rotation quaternions for 180-degree rotation around the x-axis and z-axis
-        rotation_quaternion_x = np.array([np.cos(angle_x / 2), np.sin(angle_x / 2), 0, 0])
-        rotation_quaternion_y = np.array([np.cos(angle_y / 2), 0, np.sin(angle_y / 2), 0])
-        rotation_quaternion_z = np.array([np.cos(angle_z / 2), 0, 0, np.sin(angle_z / 2)])
+    # Define the rotation quaternions for 180-degree rotation around the x-axis and z-axis
+    rotation_quaternion_x = np.array([np.cos(angle_x / 2), np.sin(angle_x / 2), 0, 0])
+    rotation_quaternion_y = np.array([np.cos(angle_y / 2), 0, np.sin(angle_y / 2), 0])
+    rotation_quaternion_z = np.array([np.cos(angle_z / 2), 0, 0, np.sin(angle_z / 2)])
 
-        # Rotate each quaternion in the set
-        rotated_quaternions = []
-        for i in range(len(quaternion_columns)):
-            quaternion = quaternion_columns.iloc[i].to_numpy()
-            rotated_quaternion_x = quaternion_multiply(rotation_quaternion_x, quaternion)
-            rotated_quaternion_xy = quaternion_multiply(rotation_quaternion_y, rotated_quaternion_x)
-            rotated_quaternion_xyz = quaternion_multiply(rotation_quaternion_z, rotated_quaternion_xy)
-            rotated_quaternions.append(rotated_quaternion_xyz)
+    # Rotate each quaternion in the set
+    rotated_quaternions = []
+    for i in range(len(quaternion_columns)):
+        quaternion = quaternion_columns.iloc[i].to_numpy()
+        rotated_quaternion_x = quaternion_multiply(rotation_quaternion_x, quaternion)
+        rotated_quaternion_xy = quaternion_multiply(rotation_quaternion_y, rotated_quaternion_x)
+        rotated_quaternion_xyz = quaternion_multiply(rotation_quaternion_z, rotated_quaternion_xy)
+        rotated_quaternions.append(rotated_quaternion_xyz)
 
-        # Update the corresponding columns in the DataFrame with the rotated quaternions
-        for i, col in enumerate(quaternion_columns.columns):
-            data[col] = [q[i] for q in rotated_quaternions]
+    # Update the corresponding columns in the DataFrame with the rotated quaternions
+    for i, col in enumerate(quaternion_columns.columns):
+        data[col] = [q[i] for q in rotated_quaternions]
 
-        # Save the updated DataFrame to the output CSV file
-        data.to_csv(data_file_path.replace('.csv', '_rotated.csv'), index=False, header=False)
+    # Save the updated DataFrame to the output CSV file
+    data.to_csv(data_file_path.replace('.csv', '_rotated.csv'), index=False, header=False)
 
 def interpolate_sensor_data(original_data_dir, file_names):
     """
@@ -518,9 +519,11 @@ for person in range(1, tot_person + 1):
             angle_x = np.pi
             angle_y = np.pi
             angle_z = np.pi
-            rotate_up_low_arm(data_dir, 0, angle_y*1/2, 0, file_names)
+            rotate_up_low_arm(data_dir, angle_x*1/2, angle_y*1/2, angle_z*0/2, file_names)
 
-            rotate_pelvis_torso(data_dir, 0, angle_y, 0, file_names)
+            rotate_body(data_dir, 0, 0, angle_y, angle_z*0/2, file_names) # pelvis
+
+            rotate_body(data_dir, 1, -angle_x*1/2, -angle_y*1/2, angle_z*1/4, file_names) # torso
 
             # Interpolate the missing values in the sensor readings
             interpolate_sensor_data(data_dir, csv_files)
@@ -551,7 +554,7 @@ for person in range(1, tot_person + 1):
             delete_files(data_dir, files_to_delete)
 
             # Perform the inverse kinematics through OpenSim
-            opensim_processing(False, False)
+            opensim_processing(False, True)
 
             print(f'Data processing complete for Person {person}/{tot_person}, Weight {weight}/{tot_weights}, Attempt {attempt}/{tot_attempts}')
 
