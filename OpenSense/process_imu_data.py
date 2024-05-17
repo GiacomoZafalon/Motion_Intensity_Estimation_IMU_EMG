@@ -5,6 +5,7 @@ import os
 import csv
 import numpy as np
 from scipy.signal import butter, filtfilt
+from scipy.spatial.transform import Rotation as R
 
 # Define the base directory where all data is located
 base_dir = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/'
@@ -12,6 +13,28 @@ base_dir = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Datas
 # person = 2
 # weight = 1
 # attempt = 1
+
+def process_quaternions(directory, file_names):
+    for file in file_names:
+        file_path = filepath = os.path.join(directory, file)
+        # Load the CSV file
+        df = pd.read_csv(file_path)
+        
+        # Extract the first 3 columns (assumed to be Euler angles: roll, pitch, yaw)
+        euler_angles = df.iloc[:, 1:4].values
+        
+        # Convert Euler angles to quaternions
+        r = R.from_euler('xyz', euler_angles, degrees=True)
+        quaternions = r.as_quat()  # This gives quaternions in the order (x, y, z, w)
+        
+        # Create a DataFrame for the quaternions
+        quat_df = pd.DataFrame(quaternions, columns=['qx', 'qy', 'qz', 'qw'])
+        
+        # Replace the last 4 columns with the new quaternions
+        df.iloc[:, -4:] = quat_df
+        
+        # Save the modified DataFrame back to CSV
+        df.to_csv(file_path, index=False, header=False)
 
 def rotate_quaternions_in_files(directory, filenames):
     """
@@ -77,25 +100,25 @@ def rotate_quaternions_in_files(directory, filenames):
 
 
     def rotate_to_target(q, q0):
-        # First rotation: Align the quaternion with [1, 0, 0, 0]
+        # First rotation: Rotate the quaternion to align with the new reference frame
+        # Define the rotation matrix from the old reference frame to the new reference frame
+        rotation_matrix = np.array([[-1, 0, 0],
+                                    [0, 0, 1],
+                                    [0, 1, 0]])
+        
+        # Convert the quaternion to a rotation matrix
+        rotation_matrix_original = quaternion_to_rotation_matrix(q0)
+        
+        # Apply the rotation to align the old reference frame with the new reference frame
+        rotated_rotation_matrix = np.dot(rotation_matrix_original, rotation_matrix)
+        
+        # Convert the rotated rotation matrix back to a quaternion
+        rotated_q0 = rotation_matrix_to_quaternion(rotated_rotation_matrix)
+
+        # Second rotation: Align the quaternion with [1, 0, 0, 0]
         target_quaternion = np.array([1, 0, 0, 0])
-        rotation_quaternion = quaternion_multiply(target_quaternion, quaternion_conjugate(q0))
+        rotation_quaternion = quaternion_multiply(target_quaternion, quaternion_conjugate(rotated_q0))
         rotated_q = quaternion_multiply(rotation_quaternion, q)
-        
-        # # Second rotation: Rotate the quaternion to align with the new reference frame
-        # # Define the rotation matrix from the old reference frame to the new reference frame
-        # rotation_matrix = np.array([[0, 0, 1],
-        #                             [0, 1, 0],
-        #                             [-1, 0, 0]])
-        
-        # # Convert the quaternion to a rotation matrix
-        # rotation_matrix_original = quaternion_to_rotation_matrix(rotated_q)
-        
-        # # Apply the rotation to align the old reference frame with the new reference frame
-        # rotated_rotation_matrix = np.dot(rotation_matrix_original, rotation_matrix)
-        
-        # # Convert the rotated rotation matrix back to a quaternion
-        # rotated_q = rotation_matrix_to_quaternion(rotated_rotation_matrix)
 
         return rotated_q
 
@@ -132,36 +155,18 @@ def quaternion_multiply(q1, q2):
     z = w1 * z2 - x1 * y2 + z1 * w2 + y1 * x2
     return np.array([w, x, y, z])
 
-def rotate_up_low_arm(data_dir, angle_x, angle_y, angle_z, file_names):
-    for file in file_names[2:]:
-        data_file_path = os.path.join(data_dir, file)
-        data = pd.read_csv(data_file_path)
-        quaternion_columns = data.iloc[:, -4:]
-
-        # Define the rotation quaternions for 180-degree rotation around the x-axis and z-axis
-        rotation_quaternion_x = np.array([np.cos(angle_x / 2), np.sin(angle_x / 2), 0, 0])
-        rotation_quaternion_y = np.array([np.cos(angle_y / 2), 0, np.sin(angle_y / 2), 0])
-        rotation_quaternion_z = np.array([np.cos(angle_z / 2), 0, 0, np.sin(angle_z / 2)])
-
-        # Rotate each quaternion in the set
-        rotated_quaternions = []
-        for i in range(len(quaternion_columns)):
-            quaternion = quaternion_columns.iloc[i].to_numpy()
-            rotated_quaternion_x = quaternion_multiply(rotation_quaternion_x, quaternion)
-            rotated_quaternion_xy = quaternion_multiply(rotation_quaternion_y, rotated_quaternion_x)
-            rotated_quaternion_xyz = quaternion_multiply(rotation_quaternion_z, rotated_quaternion_xy)
-            rotated_quaternions.append(rotated_quaternion_xyz)
-
-        # Update the corresponding columns in the DataFrame with the rotated quaternions
-        for i, col in enumerate(quaternion_columns.columns):
-            data[col] = [q[i] for q in rotated_quaternions]
-
-        # Save the updated DataFrame to the output CSV file
-        data.to_csv(data_file_path, index=False, header=False)
-
-def rotate_body(data_dir, number_body_part, angle_x, angle_y, angle_z, file_names):
+def rotate_body(data_dir, body_part, angle_x, angle_y, angle_z, file_names):
     # for file in file_names[number_body_part]:
-    file = file_names[number_body_part]
+    if body_part == 'pelvis':
+        number = 0
+    elif body_part == 'torso':
+        number = 1
+    elif body_part == 'upper_arm':
+        number = 2
+    elif body_part == 'lower_arm':
+        number = 3
+
+    file = file_names[number]
     data_file_path = os.path.join(data_dir, file)
     data = pd.read_csv(data_file_path)
     quaternion_columns = data.iloc[:, -4:]
@@ -185,7 +190,7 @@ def rotate_body(data_dir, number_body_part, angle_x, angle_y, angle_z, file_name
         data[col] = [q[i] for q in rotated_quaternions]
 
     # Save the updated DataFrame to the output CSV file
-    data.to_csv(data_file_path.replace('.csv', '_rotated.csv'), index=False, header=False)
+    data.to_csv(data_file_path, index=False, header=False)
 
 def interpolate_sensor_data(original_data_dir, file_names):
     """
@@ -623,22 +628,29 @@ for person in range(1, tot_person + 1):
             # Directory where CSV files are located for the current person, weight, and attempt
             data_dir = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu')
             file_names = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
+            # csv_files = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
             # csv_files2 = ['sensor1_rot_quat.csv', 'sensor2_rot_quat.csv', 'sensor3.csv', 'sensor4.csv']
             csv_files = ['sensor1_rot_quat.csv', 'sensor2_rot_quat.csv', 'sensor3_rot_quat.csv', 'sensor4_rot_quat.csv']
 
+
+            angle_x = np.pi
+            angle_y = np.pi
+            angle_z = np.pi
+
+            process_quaternions(data_dir, file_names)
 
             # Example usage
             rotate_quaternions_in_files(data_dir, file_names)
 
             # Apply a rotation of 270° to the pelvis sensor to have it facing forward in OpenSim
-            angle_x = np.pi
-            angle_y = np.pi
-            angle_z = np.pi
-            rotate_up_low_arm(data_dir, angle_x*2/2, angle_y*2/2, angle_z*1/2, csv_files)
+            
+            # rotate_up_low_arm(data_dir, angle_x*0/2, angle_y*2/2, angle_z*2/2, csv_files)
 
-            # rotate_body(data_dir, 0, 0, angle_y, angle_z*0/2, file_names) # pelvis
+            # rotate_body(data_dir, 'pelvis', angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # pelvis
+            # rotate_body(data_dir, 'torso',  angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # torso
 
-            # rotate_body(data_dir, 1, -angle_x*1/2, -angle_y*1/2, angle_z*1/4, file_names) # torso
+            rotate_body(data_dir, 'upper_arm', angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # torso
+            rotate_body(data_dir, 'lower_arm', angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # torso
 
             # Interpolate the missing values in the sensor readings
             interpolate_sensor_data(data_dir, csv_files)
@@ -669,7 +681,7 @@ for person in range(1, tot_person + 1):
             delete_files(data_dir, files_to_delete)
 
             # Perform the inverse kinematics through OpenSim
-            opensim_processing(True, True)
+            opensim_processing(False, True)
 
             print(f'Data processing complete for Person {person}/{tot_person}, Weight {weight}/{tot_weights}, Attempt {attempt}/{tot_attempts}')
 
