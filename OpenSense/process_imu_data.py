@@ -14,27 +14,63 @@ base_dir = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Datas
 # weight = 1
 # attempt = 1
 
-def process_quaternions(directory, file_names):
-    for file in file_names:
-        file_path = filepath = os.path.join(directory, file)
+def smooth_euler_angles(angles):
+    angles_1 = angles[:, 0]
+    angles_3 = angles[:, 2]
+    for i in range(1, len(angles)):
+        diff_1 = angles_1[i] - angles_1[i - 1]
+        diff_3 = angles_3[i] - angles_3[i - 1]
+        if abs(diff_1) > 300:
+            # print('here', diff_1, diff_1/abs(diff_1))
+            angles_1[i] = angles_1[i] - (360 * diff_1/abs(diff_1))
+        if abs(diff_1) > 100 and abs(diff_1) < 300:
+            angles_1[i] = angles_1[i] - diff_1
+        if abs(diff_3) > 100:
+            angles_3[i] = angles_3[i] - (180 * diff_3/abs(diff_3))
+    return angles_1, angles_3
+
+def interpolate_missing_data(df):
+    cols_to_interpolate = [1, 2, 3]
+    df.iloc[:, cols_to_interpolate] = df.iloc[:, cols_to_interpolate].replace(0, np.nan)  # Replace zeros with NaN for interpolation
+    df.iloc[:, cols_to_interpolate] = df.iloc[:, cols_to_interpolate].interpolate(method='linear')  # Interpolate missing values
+    df.iloc[:, cols_to_interpolate] = df.iloc[:, cols_to_interpolate].fillna(method='bfill')  # Backfill any remaining NaNs
+    df.iloc[:, cols_to_interpolate] = df.iloc[:, cols_to_interpolate].fillna(method='ffill')  # Forward fill any remaining NaNs
+    return df
+
+def process_quaternions(directory, filenames):
+    for file in filenames:
+        file_path = os.path.join(directory, file)
         # Load the CSV file
         df = pd.read_csv(file_path)
+
+        df = interpolate_missing_data(df)
         
-        # Extract the first 3 columns (assumed to be Euler angles: roll, pitch, yaw)
+        # Extract the first 3 columns (Euler angles: roll, pitch, yaw)
         euler_angles = df.iloc[:, 1:4].values
-        
+        old_quat = df.iloc[:, -4:].copy().values
+
+        angles_1, angles_3 = smooth_euler_angles(euler_angles)
+
+        df.iloc[:, 1] = angles_1
+        df.iloc[:, 3] = angles_3
+        euler_angles = df.iloc[:, 1:4].values
+
         # Convert Euler angles to quaternions
-        r = R.from_euler('xyz', euler_angles, degrees=True)
+        r = R.from_euler('zyx', euler_angles, degrees=True)
         quaternions = r.as_quat()  # This gives quaternions in the order (x, y, z, w)
         
         # Create a DataFrame for the quaternions
         quat_df = pd.DataFrame(quaternions, columns=['qx', 'qy', 'qz', 'qw'])
+
+        # Negate specific components to match plotting conventions
+        # quat_df['qy'] = -quat_df['qy']
+        # quat_df['qw'] = -quat_df['qw']
         
         # Replace the last 4 columns with the new quaternions
         df.iloc[:, -4:] = quat_df
         
         # Save the modified DataFrame back to CSV
-        df.to_csv(file_path, index=False, header=False)
+        df.to_csv(file_path.replace('.csv', '_rot_quat.csv'), index=False, header=False)
 
 def rotate_quaternions_in_files(directory, filenames):
     """
@@ -102,9 +138,9 @@ def rotate_quaternions_in_files(directory, filenames):
     def rotate_to_target(q, q0):
         # First rotation: Rotate the quaternion to align with the new reference frame
         # Define the rotation matrix from the old reference frame to the new reference frame
-        rotation_matrix = np.array([[-1, 0, 0],
-                                    [0, 0, 1],
-                                    [0, 1, 0]])
+        rotation_matrix = np.array([[0, 0, 1],
+                                    [0, -1, 0],
+                                    [-1, 0, 0]])
         
         # Convert the quaternion to a rotation matrix
         rotation_matrix_original = quaternion_to_rotation_matrix(q0)
@@ -142,7 +178,8 @@ def rotate_quaternions_in_files(directory, filenames):
         data[:, -4:] = rotated_quaternions
 
         # Save the modified data back to a file
-        output_filepath = os.path.join(directory, filename.replace('.csv', '_rot_quat.csv'))
+        output_filepath = os.path.join(directory, filename)
+        # output_filepath = os.path.join(directory, filename.replace('.csv', '_rot_quat.csv'))
         np.savetxt(output_filepath, data, delimiter=',')
 
 
@@ -640,7 +677,7 @@ for person in range(1, tot_person + 1):
             process_quaternions(data_dir, file_names)
 
             # Example usage
-            rotate_quaternions_in_files(data_dir, file_names)
+            rotate_quaternions_in_files(data_dir, csv_files)
 
             # Apply a rotation of 270° to the pelvis sensor to have it facing forward in OpenSim
             
@@ -649,8 +686,8 @@ for person in range(1, tot_person + 1):
             # rotate_body(data_dir, 'pelvis', angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # pelvis
             # rotate_body(data_dir, 'torso',  angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # torso
 
-            rotate_body(data_dir, 'upper_arm', angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # torso
-            rotate_body(data_dir, 'lower_arm', angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # torso
+            # rotate_body(data_dir, 'upper_arm', angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # torso
+            # rotate_body(data_dir, 'lower_arm', angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # torso
 
             # Interpolate the missing values in the sensor readings
             interpolate_sensor_data(data_dir, csv_files)
