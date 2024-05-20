@@ -102,6 +102,9 @@ def rotate_quaternions_in_files(directory, filenames):
         rotation_matrix = np.array([[1 - 2*(y**2 + z**2), 2*(x*y - w*z), 2*(x*z + w*y)],
                                     [2*(x*y + w*z), 1 - 2*(x**2 + z**2), 2*(y*z - w*x)],
                                     [2*(x*z - w*y), 2*(y*z + w*x), 1 - 2*(x**2 + y**2)]])
+        # rotation_matrix = np.array([[- 1 + 2*(w**2 + x**2), 2*(x*y - w*z), 2*(x*z + w*y)],
+        #                             [2*(x*y + w*z), - 1 + 2*(w**2 + y**2), 2*(y*z - w*x)],
+        #                             [2*(x*z - w*y), 2*(y*z + w*x), - 1 + 2*(w**2 + z**2)]])
         return rotation_matrix
 
     def rotation_matrix_to_quaternion(R):
@@ -151,9 +154,13 @@ def rotate_quaternions_in_files(directory, filenames):
         # Convert the rotated rotation matrix back to a quaternion
         rotated_q0 = rotation_matrix_to_quaternion(rotated_rotation_matrix)
 
-        # Second rotation: Align the quaternion with [1, 0, 0, 0]
+        # Second rotation: Align the first quaternion with [1, 0, 0, 0]
         target_quaternion = np.array([1, 0, 0, 0])
+
+        # Get the rotation required for the first quaternion to match the target
         rotation_quaternion = quaternion_multiply(target_quaternion, quaternion_conjugate(rotated_q0))
+
+        # Apply this rotation to all quaternions q
         rotated_q = quaternion_multiply(rotation_quaternion, q)
 
         return rotated_q
@@ -686,8 +693,8 @@ for person in range(1, tot_person + 1):
             # rotate_body(data_dir, 'pelvis', angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # pelvis
             # rotate_body(data_dir, 'torso',  angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # torso
 
-            # rotate_body(data_dir, 'upper_arm', angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # torso
-            # rotate_body(data_dir, 'lower_arm', angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # torso
+            rotate_body(data_dir, 'upper_arm', angle_x*1/2, angle_y*0/2, -angle_z*1/2, csv_files) # upper arm
+            rotate_body(data_dir, 'lower_arm', angle_x*1/2, angle_y*0/2, -angle_z*1/2, csv_files) # lower arm
 
             # Interpolate the missing values in the sensor readings
             interpolate_sensor_data(data_dir, csv_files)
@@ -703,14 +710,14 @@ for person in range(1, tot_person + 1):
 
             # List of files to delete
             files_to_delete = [
-                'sensor1_rotated.csv',
-                'sensor1_rotated_sync.csv',
-                'sensor2_rotated.csv',
-                'sensor2_rotated_sync.csv',
-                'sensor3_rotated.csv',
-                'sensor3_rotated_sync.csv',
-                'sensor4_rotated.csv',
-                'sensor4_rotated_sync.csv',
+                'sensor1_rot_quat.csv',
+                'sensor1_rot_quat_sync.csv',
+                'sensor2_rot_quat.csv',
+                'sensor2_rot_quat_sync.csv',
+                'sensor3_rot_quat.csv',
+                'sensor3_rot_quat_sync.csv',
+                'sensor4_rot_quat.csv',
+                'sensor4_rot_quat_sync.csv',
                 'quaternion_table.csv'
             ]
 
