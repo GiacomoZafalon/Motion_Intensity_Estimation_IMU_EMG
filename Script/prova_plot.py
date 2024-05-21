@@ -53,8 +53,8 @@ def process_quaternions(directory, filenames):
         quat_df = pd.DataFrame(quaternions, columns=['qx', 'qy', 'qz', 'qw'])
 
         # Negate specific components to match plotting conventions
-        # quat_df['qy'] = -quat_df['qy']
-        # quat_df['qw'] = -quat_df['qw']
+        quat_df['qy'] = -quat_df['qy']
+        quat_df['qw'] = -quat_df['qw']
         
         # Replace the last 4 columns with the new quaternions
         df.iloc[:, -4:] = quat_df
@@ -97,5 +97,5 @@ def process_quaternions(directory, filenames):
         plt.show()
 
 data_dir = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P1\W1\A1\imu'
-file_names = ['sensor3.csv']
+file_names = ['sensor2.csv']
 process_quaternions(data_dir, file_names)

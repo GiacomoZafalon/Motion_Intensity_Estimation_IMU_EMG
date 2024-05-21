@@ -72,7 +72,7 @@ def process_quaternions(directory, filenames):
         # Save the modified DataFrame back to CSV
         df.to_csv(file_path.replace('.csv', '_rot_quat.csv'), index=False, header=False)
 
-def rotate_quaternions_in_files(directory, filenames):
+def rotate_quaternions_in_files(directory, filenames, rotation_matrix):
     """
     Rotate quaternions in each CSV file in the specified directory using the
     first quaternion as the target quaternion and save the modified data to new files.
@@ -138,12 +138,10 @@ def rotate_quaternions_in_files(directory, filenames):
         return np.array([qw, qx, qy, qz])
 
 
-    def rotate_to_target(q, q0):
+    def rotate_to_target(q, q0, rot_mat):
         # First rotation: Rotate the quaternion to align with the new reference frame
         # Define the rotation matrix from the old reference frame to the new reference frame
-        rotation_matrix = np.array([[0, 0, 1],
-                                    [0, -1, 0],
-                                    [-1, 0, 0]])
+        rotation_matrix = rot_mat
         
         # Convert the quaternion to a rotation matrix
         rotation_matrix_original = quaternion_to_rotation_matrix(q0)
@@ -175,19 +173,26 @@ def rotate_quaternions_in_files(directory, filenames):
         # Extract quaternion data from the remaining rows
         quaternions = data[:, -4:]
 
+        rot_mat = rotation_matrix
+
         # Rotate the first quaternion to match the target quaternion
-        rotated_target_quaternion = rotate_to_target(quaternions[1], quaternions[1])
+        rotated_target_quaternion = rotate_to_target(quaternions[1], quaternions[1], rot_mat)
 
         # Apply the same rotation to all other quaternions
-        rotated_quaternions = np.array([rotate_to_target(q, quaternions[1]) for q in quaternions])
+        rotated_quaternions = np.array([rotate_to_target(q, quaternions[1], rot_mat) for q in quaternions])
 
         # Replace the original quaternion data with the rotated quaternions
         data[:, -4:] = rotated_quaternions
 
         # Save the modified data back to a file
-        output_filepath = os.path.join(directory, filename)
+        # output_filepath = os.path.join(directory, filename)
         # output_filepath = os.path.join(directory, filename.replace('.csv', '_rot_quat.csv'))
-        np.savetxt(output_filepath, data, delimiter=',')
+        if filename == 'sensor1.csv' or filename == 'sensor2.csv':
+            output_filepath = os.path.join(directory, filename.replace('.csv', '_rot_quat.csv'))
+            np.savetxt(output_filepath, data, delimiter=',')
+        elif filename == 'sensor3_rot_quat.csv' or filename == 'sensor4_rot_quat.csv':
+            output_filepath = os.path.join(directory, filename)
+            np.savetxt(output_filepath, data, delimiter=',')
 
 
 def quaternion_multiply(q1, q2):
@@ -669,32 +674,47 @@ for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
 
+            # person = 1
+            # weight = 1
+            # attempt = 2
+
             # Directory where CSV files are located for the current person, weight, and attempt
             data_dir = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu')
             file_names = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
+            csv_files_proc = ['sensor1.csv', 'sensor2.csv', 'sensor3_rot_quat.csv', 'sensor4_rot_quat.csv']
             # csv_files = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
             # csv_files2 = ['sensor1_rot_quat.csv', 'sensor2_rot_quat.csv', 'sensor3.csv', 'sensor4.csv']
             csv_files = ['sensor1_rot_quat.csv', 'sensor2_rot_quat.csv', 'sensor3_rot_quat.csv', 'sensor4_rot_quat.csv']
 
+            files = file_names[2:]
+
+            process_quaternions(data_dir, files)
+
+            rotation_matrix = np.array([[0, -1, 0],
+                                        [1, 0, 0],
+                                        [0, 0, 1]])
+
+            # Example usage
+            pelvis_torso = ['sensor1.csv', 'sensor2.csv']
+            rotate_quaternions_in_files(data_dir, pelvis_torso, rotation_matrix)
+
+            rotation_matrix = np.array([[0, 1, 0],
+                                        [0, 0, 1],
+                                        [1, 0, 0]])
+
+            # Example usage
+            up_low_arm = ['sensor3_rot_quat.csv', 'sensor4_rot_quat.csv']
+            rotate_quaternions_in_files(data_dir, up_low_arm, rotation_matrix)
 
             angle_x = np.pi
             angle_y = np.pi
             angle_z = np.pi
 
-            process_quaternions(data_dir, file_names)
+            rotate_body(data_dir, 'pelvis', angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # pelvis
+            rotate_body(data_dir, 'torso',  angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # torso
 
-            # Example usage
-            rotate_quaternions_in_files(data_dir, csv_files)
-
-            # Apply a rotation of 270° to the pelvis sensor to have it facing forward in OpenSim
-            
-            # rotate_up_low_arm(data_dir, angle_x*0/2, angle_y*2/2, angle_z*2/2, csv_files)
-
-            # rotate_body(data_dir, 'pelvis', angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # pelvis
-            # rotate_body(data_dir, 'torso',  angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # torso
-
-            rotate_body(data_dir, 'upper_arm', angle_x*1/2, angle_y*0/2, -angle_z*1/2, csv_files) # upper arm
-            rotate_body(data_dir, 'lower_arm', angle_x*1/2, angle_y*0/2, -angle_z*1/2, csv_files) # lower arm
+            rotate_body(data_dir, 'upper_arm', angle_x*0/2, -angle_y*0/2, -angle_z*0/2, csv_files) # upper arm
+            rotate_body(data_dir, 'lower_arm', angle_x*0/2, -angle_y*0/2, -angle_z*0/2, csv_files) # lower arm
 
             # Interpolate the missing values in the sensor readings
             interpolate_sensor_data(data_dir, csv_files)
@@ -710,13 +730,13 @@ for person in range(1, tot_person + 1):
 
             # List of files to delete
             files_to_delete = [
-                'sensor1_rot_quat.csv',
+                # 'sensor1_rot_quat.csv',
                 'sensor1_rot_quat_sync.csv',
-                'sensor2_rot_quat.csv',
+                # 'sensor2_rot_quat.csv',
                 'sensor2_rot_quat_sync.csv',
-                'sensor3_rot_quat.csv',
+                # 'sensor3_rot_quat.csv',
                 'sensor3_rot_quat_sync.csv',
-                'sensor4_rot_quat.csv',
+                # 'sensor4_rot_quat.csv',
                 'sensor4_rot_quat_sync.csv',
                 'quaternion_table.csv'
             ]
