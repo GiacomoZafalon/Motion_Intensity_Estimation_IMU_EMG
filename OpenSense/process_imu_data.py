@@ -17,16 +17,27 @@ base_dir = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Datas
 def smooth_euler_angles(angles):
     angles_1 = angles[:, 0]
     angles_3 = angles[:, 2]
+    jump = 0
+    jump_3 = 0
+    diff_1_prec = 0
+    diff_3_prec = 0
     for i in range(1, len(angles)):
         diff_1 = angles_1[i] - angles_1[i - 1]
+        angles_1[i-1] = angles_1[i-1] - jump
         diff_3 = angles_3[i] - angles_3[i - 1]
+        angles_3[i-1] = angles_3[i-1] - jump_3
         if abs(diff_1) > 300:
-            # print('here', diff_1, diff_1/abs(diff_1))
             angles_1[i] = angles_1[i] - (360 * diff_1/abs(diff_1))
-        if abs(diff_1) > 100 and abs(diff_1) < 300:
-            angles_1[i] = angles_1[i] - diff_1
-        if abs(diff_3) > 100:
-            angles_3[i] = angles_3[i] - (180 * diff_3/abs(diff_3))
+        if abs(diff_1) > 20 and abs(diff_1) < 300:
+            if abs(diff_1_prec - diff_1) > 20:
+                jump += diff_1
+            diff_1_prec = diff_1
+        if abs(diff_3) > 20:
+            if abs(diff_3_prec - diff_3) > 20:
+                jump_3 += diff_3
+            diff_3_prec = diff_3
+    angles_1[-1] = angles_1[-1] - jump
+    angles_3[-1] = angles_3[-1] - jump_3
     return angles_1, angles_3
 
 def interpolate_missing_data(df):
@@ -185,14 +196,15 @@ def rotate_quaternions_in_files(directory, filenames, rotation_matrix):
         data[:, -4:] = rotated_quaternions
 
         # Save the modified data back to a file
-        # output_filepath = os.path.join(directory, filename)
+        output_filepath = os.path.join(directory, filename)
         # output_filepath = os.path.join(directory, filename.replace('.csv', '_rot_quat.csv'))
-        if filename == 'sensor1.csv' or filename == 'sensor2.csv':
-            output_filepath = os.path.join(directory, filename.replace('.csv', '_rot_quat.csv'))
-            np.savetxt(output_filepath, data, delimiter=',')
-        elif filename == 'sensor3_rot_quat.csv' or filename == 'sensor4_rot_quat.csv':
-            output_filepath = os.path.join(directory, filename)
-            np.savetxt(output_filepath, data, delimiter=',')
+        np.savetxt(output_filepath, data, delimiter=',')
+        # if filename == 'sensor1.csv' or filename == 'sensor2.csv':
+        #     output_filepath = os.path.join(directory, filename.replace('.csv', '_rot_quat.csv'))
+        #     np.savetxt(output_filepath, data, delimiter=',')
+        # elif filename == 'sensor3_rot_quat.csv' or filename == 'sensor4_rot_quat.csv':
+        #     output_filepath = os.path.join(directory, filename)
+        #     np.savetxt(output_filepath, data, delimiter=',')
 
 
 def quaternion_multiply(q1, q2):
@@ -668,93 +680,105 @@ def save_motion_data(data_dir, motion_data, file_name):
 
 tot_person = 1
 tot_weights = 1
-tot_attempts = 2
+tot_attempts = 3
 
 for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
 
-            # person = 1
-            # weight = 1
-            # attempt = 2
+            angle_y_rot = 0
 
-            # Directory where CSV files are located for the current person, weight, and attempt
-            data_dir = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu')
-            file_names = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
-            csv_files_proc = ['sensor1.csv', 'sensor2.csv', 'sensor3_rot_quat.csv', 'sensor4_rot_quat.csv']
-            # csv_files = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
-            # csv_files2 = ['sensor1_rot_quat.csv', 'sensor2_rot_quat.csv', 'sensor3.csv', 'sensor4.csv']
-            csv_files = ['sensor1_rot_quat.csv', 'sensor2_rot_quat.csv', 'sensor3_rot_quat.csv', 'sensor4_rot_quat.csv']
+            while True:
 
-            files = file_names[2:]
+                # person = 1
+                # weight = 1
+                # attempt = 3
 
-            process_quaternions(data_dir, files)
+                # Directory where CSV files are located for the current person, weight, and attempt
+                data_dir = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu')
+                file_names = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
+                csv_files_proc = ['sensor1.csv', 'sensor2.csv', 'sensor3_rot_quat.csv', 'sensor4_rot_quat.csv']
+                # csv_files = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
+                # csv_files2 = ['sensor1_rot_quat.csv', 'sensor2_rot_quat.csv', 'sensor3.csv', 'sensor4.csv']
+                csv_files = ['sensor1_rot_quat.csv', 'sensor2_rot_quat.csv', 'sensor3_rot_quat.csv', 'sensor4_rot_quat.csv']
 
-            rotation_matrix = np.array([[0, -1, 0],
-                                        [1, 0, 0],
-                                        [0, 0, 1]])
+                files = file_names
 
-            # Example usage
-            pelvis_torso = ['sensor1.csv', 'sensor2.csv']
-            rotate_quaternions_in_files(data_dir, pelvis_torso, rotation_matrix)
+                process_quaternions(data_dir, files)
 
-            rotation_matrix = np.array([[0, 1, 0],
-                                        [0, 0, 1],
-                                        [1, 0, 0]])
+                rotation_matrix_torso = np.array([[0, 0, -1],
+                                                [1, 0, 0],
+                                                [0, -1, 0]])
 
-            # Example usage
-            up_low_arm = ['sensor3_rot_quat.csv', 'sensor4_rot_quat.csv']
-            rotate_quaternions_in_files(data_dir, up_low_arm, rotation_matrix)
+                # Example usage
+                pelvis_torso = ['sensor1_rot_quat.csv', 'sensor2_rot_quat.csv']
+                rotate_quaternions_in_files(data_dir, pelvis_torso, rotation_matrix_torso)
 
-            angle_x = np.pi
-            angle_y = np.pi
-            angle_z = np.pi
+                rotation_matrix_arm = np.array([[0, 1, 0],
+                                                [0, 0, -1],
+                                                [-1, 0, 0]])
 
-            rotate_body(data_dir, 'pelvis', angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # pelvis
-            rotate_body(data_dir, 'torso',  angle_x*0/2, angle_y*0/2, angle_z*0/2, csv_files) # torso
+                # Example usage
+                up_low_arm = ['sensor3_rot_quat.csv', 'sensor4_rot_quat.csv']
+                rotate_quaternions_in_files(data_dir, up_low_arm, rotation_matrix_arm)
 
-            rotate_body(data_dir, 'upper_arm', angle_x*0/2, -angle_y*0/2, -angle_z*0/2, csv_files) # upper arm
-            rotate_body(data_dir, 'lower_arm', angle_x*0/2, -angle_y*0/2, -angle_z*0/2, csv_files) # lower arm
+                angle_x = np.pi
+                angle_y = np.pi
+                angle_z = np.pi
 
-            # Interpolate the missing values in the sensor readings
-            interpolate_sensor_data(data_dir, csv_files)
+                rotate_body(data_dir, 'pelvis', 0, angle_y_rot, 0, csv_files) # pelvis
+                rotate_body(data_dir, 'torso',  0, angle_y_rot, 0, csv_files) # torso
 
-            # Align all the data of the sensors that started recording at different times
-            synchronize_csv_files(data_dir, csv_files)
+                # rotate_body(data_dir, 'upper_arm', angle_x*0/2, -angle_y*0/2, -angle_z*0/2, csv_files) # upper arm
+                # rotate_body(data_dir, 'lower_arm', angle_x*0/2, -angle_y*0/2, -angle_z*0/2, csv_files) # lower arm
 
-            # Merge the data from the sensors into a single file
-            merged_file = merge_csv_files(data_dir, 'merged_data.csv', csv_files)
+                # Interpolate the missing values in the sensor readings
+                interpolate_sensor_data(data_dir, csv_files)
 
-            # Create the .sto file to use with OpenSim
-            create_opensim_file(data_dir, merged_file)
+                # Align all the data of the sensors that started recording at different times
+                synchronize_csv_files(data_dir, csv_files)
 
-            # List of files to delete
-            files_to_delete = [
-                # 'sensor1_rot_quat.csv',
-                'sensor1_rot_quat_sync.csv',
-                # 'sensor2_rot_quat.csv',
-                'sensor2_rot_quat_sync.csv',
-                # 'sensor3_rot_quat.csv',
-                'sensor3_rot_quat_sync.csv',
-                # 'sensor4_rot_quat.csv',
-                'sensor4_rot_quat_sync.csv',
-                'quaternion_table.csv'
-            ]
+                # Merge the data from the sensors into a single file
+                merged_file = merge_csv_files(data_dir, 'merged_data.csv', csv_files)
 
-            # Delete the files that are not useful anymore
-            delete_files(data_dir, files_to_delete)
+                # Create the .sto file to use with OpenSim
+                create_opensim_file(data_dir, merged_file)
 
-            # Perform the inverse kinematics through OpenSim
-            opensim_processing(False, True)
+                # List of files to delete
+                files_to_delete = [
+                    # 'sensor1_rot_quat.csv',
+                    'sensor1_rot_quat_sync.csv',
+                    # 'sensor2_rot_quat.csv',
+                    'sensor2_rot_quat_sync.csv',
+                    # 'sensor3_rot_quat.csv',
+                    'sensor3_rot_quat_sync.csv',
+                    # 'sensor4_rot_quat.csv',
+                    'sensor4_rot_quat_sync.csv',
+                    'quaternion_table.csv'
+                ]
 
-            print(f'Data processing complete for Person {person}/{tot_person}, Weight {weight}/{tot_weights}, Attempt {attempt}/{tot_attempts}')
+                # Delete the files that are not useful anymore
+                delete_files(data_dir, files_to_delete)
 
-            # Process the data obtained with OpenSim to get filtered angles, velocities, and accelerations
-            motion_data = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/OpenSense/IKResults/ik_lifting_orientations.mot'
-            motion_data_processed = process_motion_data(motion_data, 100, 5, 5, 5)
+                # Perform the inverse kinematics through OpenSim
+                opensim_processing(False, True)
 
-            # Save the plots and the data of the joints
-            save_plot_motion_data(data_dir, motion_data_processed, 'joint_data.png', False)
-            save_motion_data(data_dir, motion_data_processed, 'data_neural.csv')
+                print(f'Data processing complete for Person {person}/{tot_person}, Weight {weight}/{tot_weights}, Attempt {attempt}/{tot_attempts}')
+
+                # Process the data obtained with OpenSim to get filtered angles, velocities, and accelerations
+                motion_data = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/OpenSense/IKResults/ik_lifting_orientations.mot'
+                motion_data_processed = process_motion_data(motion_data, 100, 5, 5, 5)
+
+                # Save the plots and the data of the joints
+                save_plot_motion_data(data_dir, motion_data_processed, 'joint_data.png', False)
+                save_motion_data(data_dir, motion_data_processed, 'data_neural.csv')
+
+                # Check to see if the subject is rotated by 180°, if so, rotate it forward and repeat
+                if abs(max(motion_data_processed['shoulder_flex_angle_filt'])) < abs(min(motion_data_processed['shoulder_flex_angle_filt'])):
+                    angle_y_rot = np.pi
+                    print('Subject rotated by 180°, repeating the process...')
+                else:
+                    break
+                    
 
 print('Done')

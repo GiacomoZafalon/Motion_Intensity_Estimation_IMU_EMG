@@ -7,16 +7,30 @@ import os
 def smooth_euler_angles(angles):
     angles_1 = angles[:, 0]
     angles_3 = angles[:, 2]
+    jump = 0
+    jump_3 = 0
+    diff_1_prec = 0
+    diff_3_prec = 0
     for i in range(1, len(angles)):
         diff_1 = angles_1[i] - angles_1[i - 1]
+        angles_1[i-1] = angles_1[i-1] - jump
         diff_3 = angles_3[i] - angles_3[i - 1]
+        angles_3[i-1] = angles_3[i-1] - jump_3
         if abs(diff_1) > 300:
             # print('here', diff_1, diff_1/abs(diff_1))
             angles_1[i] = angles_1[i] - (360 * diff_1/abs(diff_1))
-        if abs(diff_1) > 100 and abs(diff_1) < 300:
-            angles_1[i] = angles_1[i] - diff_1
-        if abs(diff_3) > 100:
-            angles_3[i] = angles_3[i] - (180 * diff_3/abs(diff_3))
+        if abs(diff_1) > 20 and abs(diff_1) < 300:
+            if abs(diff_1_prec - diff_1) > 20:
+                jump += diff_1
+            diff_1_prec = diff_1
+            # angles_1[i] = angles_1[i] - diff_1
+        if abs(diff_3) > 20:
+            if abs(diff_3_prec - diff_3) > 20:
+                jump_3 += diff_3
+            diff_3_prec = diff_3
+            # angles_3[i] = angles_3[i] - (180 * diff_3/abs(diff_3))
+    angles_1[-1] = angles_1[-1] - jump
+    angles_3[-1] = angles_3[-1] - jump_3
     return angles_1, angles_3
 
 def interpolate_missing_data(df):
@@ -53,8 +67,8 @@ def process_quaternions(directory, filenames):
         quat_df = pd.DataFrame(quaternions, columns=['qx', 'qy', 'qz', 'qw'])
 
         # Negate specific components to match plotting conventions
-        quat_df['qy'] = -quat_df['qy']
-        quat_df['qw'] = -quat_df['qw']
+        # quat_df['qy'] = -quat_df['qy']
+        # quat_df['qw'] = -quat_df['qw']
         
         # Replace the last 4 columns with the new quaternions
         df.iloc[:, -4:] = quat_df
@@ -96,6 +110,6 @@ def process_quaternions(directory, filenames):
         # Show the plots
         plt.show()
 
-data_dir = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P1\W1\A1\imu'
-file_names = ['sensor2.csv']
+data_dir = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P1\W1\A3\imu'
+file_names = ['sensor4.csv']
 process_quaternions(data_dir, file_names)
