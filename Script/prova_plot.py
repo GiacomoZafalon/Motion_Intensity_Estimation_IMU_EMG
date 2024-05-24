@@ -97,10 +97,11 @@ def process_quaternions(directory, filenames):
         ax2.set_xlabel('Index')
         ax2.set_ylabel('Quaternion Value')
 
-        ax3.plot(euler_angles[:, 0], label='roll')
-        ax3.plot(euler_angles[:, 1], label='pitch')
-        ax3.plot(euler_angles[:, 2], label='yaw')
+        ax3.plot(euler_angles[:, 0], label='yaw')
+        ax3.plot(euler_angles[:, 1], label='roll')
+        ax3.plot(euler_angles[:, 2], label='pitch')
         ax3.set_title('Plot of Euler Angles')
+        ax3.legend()
         ax3.set_xlabel('Index')
         ax3.set_ylabel('Euler Angle (degrees)')
 

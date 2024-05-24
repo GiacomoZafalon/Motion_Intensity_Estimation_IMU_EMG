@@ -684,13 +684,15 @@ for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
 
+            person = 1
+            weight = 1
+            attempt = 4
+
             angle_y_rot = 0
+            angle_z_rot = 0
+            times = 0
 
             while True:
-
-                person = 1
-                weight = 1
-                attempt = 4
 
                 # Directory where CSV files are located for the current person, weight, and attempt
                 data_dir = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu')
@@ -709,7 +711,7 @@ for person in range(1, tot_person + 1):
                                                   [0, -1, 0]])
 
                 # Example usage
-                pelvis_torso = ['sensor1_rot_quat.csv', 'sensor2_rot_quat.csv']
+                pelvis_torso = csv_files[:2]
                 rotate_quaternions_in_files(data_dir, pelvis_torso, rotation_matrix_torso)
 
                 rotation_matrix_arm = np.array([[0, 1, 0],
@@ -717,15 +719,15 @@ for person in range(1, tot_person + 1):
                                                 [-1, 0, 0]])
 
                 # Example usage
-                up_low_arm = ['sensor3_rot_quat.csv', 'sensor4_rot_quat.csv']
+                up_low_arm = csv_files[2:]
                 rotate_quaternions_in_files(data_dir, up_low_arm, rotation_matrix_arm)
 
                 angle_x = np.pi
                 angle_y = np.pi
                 angle_z = np.pi
 
-                rotate_body(data_dir, 'pelvis', 0, angle_y_rot, 0, csv_files) # pelvis
-                rotate_body(data_dir, 'torso',  0, angle_y_rot, 0, csv_files) # torso
+                rotate_body(data_dir, 'pelvis', 0, angle_y_rot, angle_z_rot, csv_files) # pelvis
+                rotate_body(data_dir, 'torso',  0, angle_y_rot, angle_z_rot, csv_files) # torso
 
                 rotate_body(data_dir, 'upper_arm', 0, 0, 0, csv_files) # upper arm
                 rotate_body(data_dir, 'lower_arm', 0, 0, 0, csv_files) # lower arm
@@ -773,8 +775,15 @@ for person in range(1, tot_person + 1):
 
                 # Check to see if the subject is rotated by 180°, if so, rotate it forward and repeat
                 if abs(max(motion_data_processed['shoulder_flex_angle_filt'])) < abs(min(motion_data_processed['shoulder_flex_angle_filt'])):
-                    angle_y_rot = np.pi
-                    print('Subject rotated by 180°, repeating the process...')
+                    times += 1
+                    if times == 1:
+                        angle_y_rot = np.pi
+                        angle_z_rot = 0
+                        print('Subject rotated by 180° around y, repeating the process...')
+                    elif times == 2:
+                        angle_y_rot= 0
+                        angle_z_rot = np.pi
+                        print('Subject rotated by 180° around z, repeating the process...')
                 else:
                     break
                     
