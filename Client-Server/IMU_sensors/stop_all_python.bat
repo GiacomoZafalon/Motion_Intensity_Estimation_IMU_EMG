@@ -1,6 +1,8 @@
 @echo off
-REM Find all running Python processes
-for /f "tokens=2" %%i in ('tasklist /fi "imagename eq python.exe" /nh') do (
-    REM Terminate each Python process forcefully
-    taskkill /pid %%i /f
-)
+
+echo Attempting to stop all Python scripts...
+
+REM Use Task Manager to end all Python processes
+taskkill /F /IM python.exe /T
+
+echo All Python scripts stopped.

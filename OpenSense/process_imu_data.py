@@ -198,13 +198,12 @@ def rotate_quaternions_in_files(directory, filenames, rotation_matrix):
         # Save the modified data back to a file
         output_filepath = os.path.join(directory, filename)
         # output_filepath = os.path.join(directory, filename.replace('.csv', '_rot_quat.csv'))
-        np.savetxt(output_filepath, data, delimiter=',')
         # if filename == 'sensor1.csv' or filename == 'sensor2.csv':
         #     output_filepath = os.path.join(directory, filename.replace('.csv', '_rot_quat.csv'))
-        #     np.savetxt(output_filepath, data, delimiter=',')
         # elif filename == 'sensor3_rot_quat.csv' or filename == 'sensor4_rot_quat.csv':
         #     output_filepath = os.path.join(directory, filename)
-        #     np.savetxt(output_filepath, data, delimiter=',')
+
+        np.savetxt(output_filepath, data, delimiter=',')
 
 
 def quaternion_multiply(q1, q2):
@@ -217,7 +216,6 @@ def quaternion_multiply(q1, q2):
     return np.array([w, x, y, z])
 
 def rotate_body(data_dir, body_part, angle_x, angle_y, angle_z, file_names):
-    # for file in file_names[number_body_part]:
     if body_part == 'pelvis':
         number = 0
     elif body_part == 'torso':
@@ -680,7 +678,7 @@ def save_motion_data(data_dir, motion_data, file_name):
 
 tot_person = 1
 tot_weights = 1
-tot_attempts = 3
+tot_attempts = 1
 
 for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
@@ -690,9 +688,9 @@ for person in range(1, tot_person + 1):
 
             while True:
 
-                # person = 1
-                # weight = 1
-                # attempt = 3
+                person = 1
+                weight = 1
+                attempt = 4
 
                 # Directory where CSV files are located for the current person, weight, and attempt
                 data_dir = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu')
@@ -707,8 +705,8 @@ for person in range(1, tot_person + 1):
                 process_quaternions(data_dir, files)
 
                 rotation_matrix_torso = np.array([[0, 0, -1],
-                                                [1, 0, 0],
-                                                [0, -1, 0]])
+                                                  [1, 0, 0],
+                                                  [0, -1, 0]])
 
                 # Example usage
                 pelvis_torso = ['sensor1_rot_quat.csv', 'sensor2_rot_quat.csv']
@@ -729,8 +727,8 @@ for person in range(1, tot_person + 1):
                 rotate_body(data_dir, 'pelvis', 0, angle_y_rot, 0, csv_files) # pelvis
                 rotate_body(data_dir, 'torso',  0, angle_y_rot, 0, csv_files) # torso
 
-                # rotate_body(data_dir, 'upper_arm', angle_x*0/2, -angle_y*0/2, -angle_z*0/2, csv_files) # upper arm
-                # rotate_body(data_dir, 'lower_arm', angle_x*0/2, -angle_y*0/2, -angle_z*0/2, csv_files) # lower arm
+                rotate_body(data_dir, 'upper_arm', 0, 0, 0, csv_files) # upper arm
+                rotate_body(data_dir, 'lower_arm', 0, 0, 0, csv_files) # lower arm
 
                 # Interpolate the missing values in the sensor readings
                 interpolate_sensor_data(data_dir, csv_files)
@@ -746,13 +744,13 @@ for person in range(1, tot_person + 1):
 
                 # List of files to delete
                 files_to_delete = [
-                    # 'sensor1_rot_quat.csv',
+                    'sensor1_rot_quat.csv',
                     'sensor1_rot_quat_sync.csv',
-                    # 'sensor2_rot_quat.csv',
+                    'sensor2_rot_quat.csv',
                     'sensor2_rot_quat_sync.csv',
-                    # 'sensor3_rot_quat.csv',
+                    'sensor3_rot_quat.csv',
                     'sensor3_rot_quat_sync.csv',
-                    # 'sensor4_rot_quat.csv',
+                    'sensor4_rot_quat.csv',
                     'sensor4_rot_quat_sync.csv',
                     'quaternion_table.csv'
                 ]
