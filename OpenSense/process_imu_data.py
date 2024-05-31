@@ -33,7 +33,7 @@ def smooth_euler_angles(angles):
                 jump += diff_1
             diff_1_prec = diff_1
         if abs(diff_3) > 20:
-            if abs(diff_3_prec - diff_3) > 20:
+            if abs(diff_3_prec - diff_3) > 5:
                 jump_3 += diff_3
             diff_3_prec = diff_3
     angles_1[-1] = angles_1[-1] - jump
@@ -62,7 +62,7 @@ def process_quaternions(directory, filenames):
 
         angles_1, angles_3 = smooth_euler_angles(euler_angles)
 
-        df.iloc[:, 1] = angles_1
+        df.iloc[:, 1] = -angles_1
         df.iloc[:, 3] = angles_3
         euler_angles = df.iloc[:, 1:4].values
 
@@ -196,12 +196,12 @@ def rotate_quaternions_in_files(directory, filenames, rotation_matrix):
         data[:, -4:] = rotated_quaternions
 
         # Save the modified data back to a file
-        output_filepath = os.path.join(directory, filename)
+        # output_filepath = os.path.join(directory, filename)
         # output_filepath = os.path.join(directory, filename.replace('.csv', '_rot_quat.csv'))
-        # if filename == 'sensor1.csv' or filename == 'sensor2.csv':
-        #     output_filepath = os.path.join(directory, filename.replace('.csv', '_rot_quat.csv'))
-        # elif filename == 'sensor3_rot_quat.csv' or filename == 'sensor4_rot_quat.csv':
-        #     output_filepath = os.path.join(directory, filename)
+        if filename == 'sensor1.csv' or filename == 'sensor2.csv':
+            output_filepath = os.path.join(directory, filename.replace('.csv', '_rot_quat.csv'))
+        elif filename == 'sensor3_rot_quat.csv' or filename == 'sensor4_rot_quat.csv':
+            output_filepath = os.path.join(directory, filename)
 
         np.savetxt(output_filepath, data, delimiter=',')
 
@@ -423,6 +423,20 @@ def merge_csv_files(data_dir, output_file_name, csv_files):
     merged_file_path = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/imu/merged_data.csv'
     
     return merged_file_path
+
+def save_imu_data(data_dir, columns_to_extract, output_file):
+
+    file_path = os.path.join(data_dir, 'merged_data.csv')
+
+    # Read the CSV file
+    for i in range(len(columns_to_extract)):
+        data = pd.read_csv(file_path, usecols=columns_to_extract[i])
+
+        # Define the output file path
+        output_file_path = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/imu/{output_file[i]}'
+
+        # Save the extracted columns to a new CSV file
+        data.to_csv(output_file_path, index=False, header=False)
 
 def create_opensim_file(data_dir, merged_file):
     # File paths
@@ -688,6 +702,7 @@ for person in range(1, tot_person + 1):
             weight = 1
             attempt = 4
 
+            angle_x_rot = 0
             angle_y_rot = 0
             angle_z_rot = 0
             times = 0
@@ -702,21 +717,27 @@ for person in range(1, tot_person + 1):
                 # csv_files2 = ['sensor1_rot_quat.csv', 'sensor2_rot_quat.csv', 'sensor3.csv', 'sensor4.csv']
                 csv_files = ['sensor1_rot_quat.csv', 'sensor2_rot_quat.csv', 'sensor3_rot_quat.csv', 'sensor4_rot_quat.csv']
 
+                # files = file_names[2:]
                 files = file_names
 
                 process_quaternions(data_dir, files)
 
-                rotation_matrix_torso = np.array([[0, 0, -1],
-                                                  [1, 0, 0],
+                rotation_matrix_torso = np.array([[0, 0, 1],
+                                                  [-1, 0, 0],
                                                   [0, -1, 0]])
 
                 # Example usage
+                # pelvis_torso = file_names[:2]
                 pelvis_torso = csv_files[:2]
                 rotate_quaternions_in_files(data_dir, pelvis_torso, rotation_matrix_torso)
 
                 rotation_matrix_arm = np.array([[0, 1, 0],
-                                                [0, 0, -1],
-                                                [-1, 0, 0]])
+                                                [0, 0, 1],
+                                                [1, 0, 0]])
+                
+                # rotation_matrix_arm = np.array([[1, 0, 0],
+                #                                 [0, 1, 0],
+                #                                 [0, 0, 1]])
 
                 # Example usage
                 up_low_arm = csv_files[2:]
@@ -726,8 +747,11 @@ for person in range(1, tot_person + 1):
                 angle_y = np.pi
                 angle_z = np.pi
 
-                rotate_body(data_dir, 'pelvis', 0, angle_y_rot, angle_z_rot, csv_files) # pelvis
-                rotate_body(data_dir, 'torso',  0, angle_y_rot, angle_z_rot, csv_files) # torso
+                rotate_body(data_dir, 'pelvis', angle_x_rot, angle_y_rot, angle_z_rot, csv_files) # pelvis
+                rotate_body(data_dir, 'torso',  angle_x_rot, angle_y_rot, angle_z_rot, csv_files) # torso
+
+                # rotate_body(data_dir, 'pelvis', 0, 0, 0, csv_files) # upper arm
+                # rotate_body(data_dir, 'torso',  0, 0, 0, csv_files) # lower arm
 
                 rotate_body(data_dir, 'upper_arm', 0, 0, 0, csv_files) # upper arm
                 rotate_body(data_dir, 'lower_arm', 0, 0, 0, csv_files) # lower arm
@@ -740,6 +764,17 @@ for person in range(1, tot_person + 1):
 
                 # Merge the data from the sensors into a single file
                 merged_file = merge_csv_files(data_dir, 'merged_data.csv', csv_files)
+
+                # Define the columns to be extracted (0-based index)
+                columns_to_euler = [0, 1, 2, 3, 15, 16, 17, 29, 30, 31, 43, 44, 45]
+                columns_to_euler_acc = [0, 1, 2, 3, 7, 8, 9, 15, 16, 17, 21, 22, 23, 29, 30, 31, 35, 36, 37, 43, 44, 45, 49, 50, 51]
+                columns_to_euler_gyro = [0, 1, 2, 3, 4, 5, 6, 15, 16, 17, 18, 19, 20, 29, 30, 31, 32, 33, 34, 43, 44, 45, 46, 47, 48]
+                column_to_euler_acc_gyro = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 15, 16, 17, 18, 19, 20, 21, 22, 23, 29, 30, 31, 32, 33, 34, 35, 36, 37, 43, 44, 45, 46, 47, 48, 49, 50, 51]
+
+                columns_to_extract = [columns_to_euler, columns_to_euler_acc, columns_to_euler_gyro, column_to_euler_acc_gyro]
+                output_file = ['data_neural_euler.csv', 'data_neural_euler_acc.csv', 'data_neural_euler_gyro.csv', 'data_neural_euler_acc_gyro.csv']
+
+                save_imu_data(data_dir, columns_to_extract, output_file)
 
                 # Create the .sto file to use with OpenSim
                 create_opensim_file(data_dir, merged_file)
@@ -767,7 +802,7 @@ for person in range(1, tot_person + 1):
 
                 # Process the data obtained with OpenSim to get filtered angles, velocities, and accelerations
                 motion_data = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/OpenSense/IKResults/ik_lifting_orientations.mot'
-                motion_data_processed = process_motion_data(motion_data, 100, 5, 5, 5)
+                motion_data_processed = process_motion_data(motion_data, 100, 7, 7, 7)
 
                 # Save the plots and the data of the joints
                 save_plot_motion_data(data_dir, motion_data_processed, 'joint_data.png', False)
@@ -777,13 +812,20 @@ for person in range(1, tot_person + 1):
                 if abs(max(motion_data_processed['shoulder_flex_angle_filt'])) < abs(min(motion_data_processed['shoulder_flex_angle_filt'])):
                     times += 1
                     if times == 1:
+                        angle_x_rot = 0
                         angle_y_rot = np.pi
                         angle_z_rot = 0
                         print('Subject rotated by 180° around y, repeating the process...')
                     elif times == 2:
+                        angle_x_rot = 0
                         angle_y_rot= 0
                         angle_z_rot = np.pi
                         print('Subject rotated by 180° around z, repeating the process...')
+                    elif times == 3:
+                        angle_x_rot = np.pi
+                        angle_y_rot = 0
+                        angle_z_rot = 0
+                        print('Subject rotated by 180° around x, repeating the process...')
                 else:
                     break
                     

@@ -15,7 +15,9 @@ def smooth_euler_angles(angles):
         diff_1 = angles_1[i] - angles_1[i - 1]
         angles_1[i-1] = angles_1[i-1] - jump
         diff_3 = angles_3[i] - angles_3[i - 1]
+        # print('before' ,angles_3[i-1])
         angles_3[i-1] = angles_3[i-1] - jump_3
+        # print('after', angles_3[i-1])
         if abs(diff_1) > 300:
             # print('here', diff_1, diff_1/abs(diff_1))
             angles_1[i] = angles_1[i] - (360 * diff_1/abs(diff_1))
@@ -25,8 +27,11 @@ def smooth_euler_angles(angles):
             diff_1_prec = diff_1
             # angles_1[i] = angles_1[i] - diff_1
         if abs(diff_3) > 20:
-            if abs(diff_3_prec - diff_3) > 20:
+            # print('diff prec', diff_3_prec)
+            # print('diff', diff_3)
+            if abs(diff_3_prec - diff_3) > 5:
                 jump_3 += diff_3
+                # print('jump', jump_3)
             diff_3_prec = diff_3
             # angles_3[i] = angles_3[i] - (180 * diff_3/abs(diff_3))
     angles_1[-1] = angles_1[-1] - jump
@@ -51,11 +56,12 @@ def process_quaternions(directory, filenames):
         
         # Extract the first 3 columns (Euler angles: roll, pitch, yaw)
         euler_angles = df.iloc[:, 1:4].values
+        old_euler = euler_angles.copy()
         old_quat = df.iloc[:, -4:].copy().values
 
         angles_1, angles_3 = smooth_euler_angles(euler_angles)
 
-        df.iloc[:, 1] = angles_1
+        df.iloc[:, 1] = -angles_1
         df.iloc[:, 3] = angles_3
         euler_angles = df.iloc[:, 1:4].values
 
@@ -112,5 +118,5 @@ def process_quaternions(directory, filenames):
         plt.show()
 
 data_dir = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P1\W1\A4\imu'
-file_names = ['sensor4.csv']
+file_names = ['sensor2.csv']
 process_quaternions(data_dir, file_names)
