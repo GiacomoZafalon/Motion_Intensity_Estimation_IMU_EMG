@@ -21,12 +21,12 @@ def smooth_euler_angles(angles):
         if abs(diff_1) > 300:
             # print('here', diff_1, diff_1/abs(diff_1))
             angles_1[i] = angles_1[i] - (360 * diff_1/abs(diff_1))
-        if abs(diff_1) > 20 and abs(diff_1) < 300:
-            if abs(diff_1_prec - diff_1) > 20:
+        if abs(diff_1) > 5 and abs(diff_1) < 300:
+            if abs(diff_1_prec - diff_1) > 5:
                 jump += diff_1
             diff_1_prec = diff_1
             # angles_1[i] = angles_1[i] - diff_1
-        if abs(diff_3) > 20:
+        if abs(diff_3) > 5:
             # print('diff prec', diff_3_prec)
             # print('diff', diff_3)
             if abs(diff_3_prec - diff_3) > 5:
@@ -93,6 +93,13 @@ def process_quaternions(directory, filenames):
         ax1.set_title('Plot of Quaternion Values')
         ax1.set_xlabel('Index')
         ax1.set_ylabel('Quaternion Value')
+
+        # ax1.plot(old_euler[:, 0], label='qw_old')
+        # ax1.plot(old_euler[:, 1], label='qx_old')
+        # ax1.plot(old_euler[:, 2], label='qy_old')
+        # ax1.set_title('Plot of Quaternion Values')
+        # ax1.set_xlabel('Index')
+        # ax1.set_ylabel('Quaternion Value')
         
         # Plot the new smoothed quaternion values
         ax2.plot(quat_df['qw'], label='qw_smooth')
@@ -118,5 +125,5 @@ def process_quaternions(directory, filenames):
         plt.show()
 
 data_dir = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P1\W1\A4\imu'
-file_names = ['sensor2.csv']
+file_names = ['sensor3.csv']
 process_quaternions(data_dir, file_names)

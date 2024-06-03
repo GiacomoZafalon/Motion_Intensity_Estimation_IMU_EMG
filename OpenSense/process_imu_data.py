@@ -28,11 +28,11 @@ def smooth_euler_angles(angles):
         angles_3[i-1] = angles_3[i-1] - jump_3
         if abs(diff_1) > 300:
             angles_1[i] = angles_1[i] - (360 * diff_1/abs(diff_1))
-        if abs(diff_1) > 20 and abs(diff_1) < 300:
-            if abs(diff_1_prec - diff_1) > 20:
+        if abs(diff_1) > 5 and abs(diff_1) < 300:
+            if abs(diff_1_prec - diff_1) > 5:
                 jump += diff_1
             diff_1_prec = diff_1
-        if abs(diff_3) > 20:
+        if abs(diff_3) > 5:
             if abs(diff_3_prec - diff_3) > 5:
                 jump_3 += diff_3
             diff_3_prec = diff_3
@@ -196,12 +196,12 @@ def rotate_quaternions_in_files(directory, filenames, rotation_matrix):
         data[:, -4:] = rotated_quaternions
 
         # Save the modified data back to a file
-        # output_filepath = os.path.join(directory, filename)
-        # output_filepath = os.path.join(directory, filename.replace('.csv', '_rot_quat.csv'))
-        if filename == 'sensor1.csv' or filename == 'sensor2.csv':
-            output_filepath = os.path.join(directory, filename.replace('.csv', '_rot_quat.csv'))
-        elif filename == 'sensor3_rot_quat.csv' or filename == 'sensor4_rot_quat.csv':
-            output_filepath = os.path.join(directory, filename)
+        output_filepath = os.path.join(directory, filename)
+        # # output_filepath = os.path.join(directory, filename.replace('.csv', '_rot_quat.csv'))
+        # if filename == 'sensor1.csv' or filename == 'sensor2.csv':
+        #     output_filepath = os.path.join(directory, filename.replace('.csv', '_rot_quat.csv'))
+        # elif filename == 'sensor3_rot_quat.csv' or filename == 'sensor4_rot_quat.csv':
+        #     output_filepath = os.path.join(directory, filename)
 
         np.savetxt(output_filepath, data, delimiter=',')
 
@@ -722,24 +722,27 @@ for person in range(1, tot_person + 1):
 
                 process_quaternions(data_dir, files)
 
+                # rotation_matrix_torso = np.array([[0, 0, 1],
+                #                                   [-1, 0, 0],
+                #                                   [0, -1, 0]])
+
                 rotation_matrix_torso = np.array([[0, 0, 1],
                                                   [-1, 0, 0],
                                                   [0, -1, 0]])
 
-                # Example usage
                 # pelvis_torso = file_names[:2]
                 pelvis_torso = csv_files[:2]
                 rotate_quaternions_in_files(data_dir, pelvis_torso, rotation_matrix_torso)
 
+                # rotation around z and y of 90° wrt pelvis/torso
                 rotation_matrix_arm = np.array([[0, 1, 0],
                                                 [0, 0, 1],
                                                 [1, 0, 0]])
-                
-                # rotation_matrix_arm = np.array([[1, 0, 0],
-                #                                 [0, 1, 0],
-                #                                 [0, 0, 1]])
 
-                # Example usage
+                # rotation_matrix_arm = np.array([[0, -1, 0] ,
+                #                                 [0, 0, 1],
+                #                                 [-1, 0, 0]])
+
                 up_low_arm = csv_files[2:]
                 rotate_quaternions_in_files(data_dir, up_low_arm, rotation_matrix_arm)
 
