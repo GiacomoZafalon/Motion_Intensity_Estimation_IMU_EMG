@@ -6,6 +6,7 @@ import csv
 import numpy as np
 from scipy.signal import butter, filtfilt
 from scipy.spatial.transform import Rotation as R
+import shutil
 
 # Define the base directory where all data is located
 base_dir = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/'
@@ -692,15 +693,15 @@ def save_motion_data(data_dir, motion_data, file_name):
 
 tot_person = 1
 tot_weights = 1
-tot_attempts = 1
+tot_attempts = 4
 
 for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
 
-            person = 1
-            weight = 1
-            attempt = 4
+            # person = 1
+            # weight = 1
+            # attempt = 4
 
             angle_x_rot = 0
             angle_y_rot = 0
@@ -799,13 +800,18 @@ for person in range(1, tot_person + 1):
                 delete_files(data_dir, files_to_delete)
 
                 # Perform the inverse kinematics through OpenSim
-                opensim_processing(False, True)
+                opensim_processing(False, False)
 
                 print(f'Data processing complete for Person {person}/{tot_person}, Weight {weight}/{tot_weights}, Attempt {attempt}/{tot_attempts}')
 
                 # Process the data obtained with OpenSim to get filtered angles, velocities, and accelerations
                 motion_data = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/OpenSense/IKResults/ik_lifting_orientations.mot'
-                motion_data_processed = process_motion_data(motion_data, 100, 7, 7, 7)
+                dest_path = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/motion')
+                if os.path.exists(dest_path) is False:
+                    os.mkdir(dest_path)
+                copy_path = os.path.join(dest_path, 'ik_lifting_orientations.mot')
+                shutil.copyfile(motion_data, copy_path)
+                motion_data_processed = process_motion_data(motion_data, 100, 10, 10, 10)
 
                 # Save the plots and the data of the joints
                 save_plot_motion_data(data_dir, motion_data_processed, 'joint_data.png', False)
