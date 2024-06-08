@@ -124,6 +124,6 @@ def process_quaternions(directory, filenames):
         # Show the plots
         plt.show()
 
-data_dir = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P1\W1\A4\imu'
-file_names = ['sensor3.csv']
+data_dir = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P3\W2\A1\imu'
+file_names = ['sensor4.csv']
 process_quaternions(data_dir, file_names)

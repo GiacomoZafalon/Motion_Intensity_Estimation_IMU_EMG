@@ -693,15 +693,15 @@ def save_motion_data(data_dir, motion_data, file_name):
 
 tot_person = 1
 tot_weights = 1
-tot_attempts = 4
+tot_attempts = 1
 
 for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
 
-            # person = 1
-            # weight = 1
-            # attempt = 4
+            person = 2
+            weight = 5
+            attempt = 1
 
             angle_x_rot = 0
             angle_y_rot = 0
@@ -800,7 +800,7 @@ for person in range(1, tot_person + 1):
                 delete_files(data_dir, files_to_delete)
 
                 # Perform the inverse kinematics through OpenSim
-                opensim_processing(False, False)
+                opensim_processing(False, True)
 
                 print(f'Data processing complete for Person {person}/{tot_person}, Weight {weight}/{tot_weights}, Attempt {attempt}/{tot_attempts}')
 

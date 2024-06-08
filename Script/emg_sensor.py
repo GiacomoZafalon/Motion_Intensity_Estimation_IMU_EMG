@@ -49,14 +49,14 @@ for person in range(1, tot_person + 1):
         for attempt in range(1, tot_attempts + 1):
             # print(f'Processing data for Person {person}, Weight {weight}, Attempt {attempt}...')
 
-            person = 1
+            person = 2
             weight = 1
             attempt = 1
 
             # File paths
             file_path = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/emg/emg_data.csv'
 
-            mvc_path = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/emg/emg_mvc.csv'
+            mvc_path = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W5/A1/emg/emg_data.csv'
             # Read the emg_mvc.csv file
             mvc_df = pd.read_csv(mvc_path)
 
@@ -102,23 +102,23 @@ for person in range(1, tot_person + 1):
             normalized_chan_2 = chan_2_rms / mvc_max
             normalized_chan_3 = chan_3_rms / mvc_max
 
-            # # Plotting chan_1 and chan_1_rms
-            # plt.figure(figsize=(12, 6))
+            # Plotting chan_1 and chan_1_rms
+            plt.figure(figsize=(12, 6))
 
-            # plt.subplot(2, 1, 1)
-            # plt.plot(chan_1)
-            # plt.title('Channel 1 Signal')
-            # plt.xlabel('Sample')
-            # plt.ylabel('Amplitude')
+            plt.subplot(2, 1, 1)
+            plt.plot(chan_1)
+            plt.title('Channel 1 Signal')
+            plt.xlabel('Sample')
+            plt.ylabel('Amplitude')
 
-            # plt.subplot(2, 1, 2)
-            # plt.plot(chan_1_rms)
-            # plt.title('Channel 1 RMS Signal')
-            # plt.xlabel('Sample')
-            # plt.ylabel('RMS Amplitude')
+            plt.subplot(2, 1, 2)
+            plt.plot(chan_1_rms)
+            plt.title('Channel 1 RMS Signal')
+            plt.xlabel('Sample')
+            plt.ylabel('RMS Amplitude')
 
-            # plt.tight_layout()
-            # plt.show()
+            plt.tight_layout()
+            plt.show()
 
             label = max(normalized_chan_1) + max(normalized_chan_2) + max(normalized_chan_3)
             if label > 3:

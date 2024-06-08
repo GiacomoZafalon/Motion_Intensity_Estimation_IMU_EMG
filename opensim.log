@@ -14849,3 +14849,889 @@
 [2024-06-04 12:10:55.632] [info] Solved at time: 6.28 s
 [2024-06-04 12:10:55.641] [info] Solved at time: 6.29 s
 [2024-06-04 12:10:55.683] [info] Wrote IK with IMU tracking results to: 'ik_lifting_orientations.mot'.
+[2024-06-06 15:05:27.311] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015.osim
+[2024-06-06 15:05:28.860] [info] Heading correction computed to be -90.0070 degs about ground Y.
+[2024-06-06 15:05:28.863] [info] Processing pelvis_imu
+[2024-06-06 15:05:28.863] [info] Computed offset for pelvis_imu
+[2024-06-06 15:05:28.864] [info] Offset is 
+[-0.999999,0.00116182,7.65332e-06]
+[-7.51186e-06,0.000121764,-1]
+[-0.00116182,-0.999999,-0.000121755]
+
+[2024-06-06 15:05:28.865] [info] Creating offset frame for pelvis_imu
+[2024-06-06 15:05:28.870] [info] Added offset frame for pelvis_imu.
+[2024-06-06 15:05:28.871] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-06-06 15:05:28.871] [info] Processing torso_imu
+[2024-06-06 15:05:28.871] [info] Computed offset for torso_imu
+[2024-06-06 15:05:28.872] [info] Offset is 
+[-0.999919,-0.00423516,-0.0120416]
+[0.0120405,0.000297068,-0.999927]
+[0.00423843,-0.999991,-0.00024605]
+
+[2024-06-06 15:05:28.874] [info] Creating offset frame for torso_imu
+[2024-06-06 15:05:28.877] [info] Added offset frame for torso_imu.
+[2024-06-06 15:05:28.879] [info] torso_imu offset computed from torso_imu data from file.
+[2024-06-06 15:05:28.880] [info] Processing humerus_r_imu
+[2024-06-06 15:05:28.880] [info] Computed offset for humerus_r_imu
+[2024-06-06 15:05:28.881] [info] Offset is 
+[0.00240161,-0.999992,0.0031295]
+[0.999997,0.00240362,0.000638825]
+[-0.000646342,0.00312796,0.999995]
+
+[2024-06-06 15:05:28.882] [info] Creating offset frame for humerus_r_imu
+[2024-06-06 15:05:28.890] [info] Added offset frame for humerus_r_imu.
+[2024-06-06 15:05:28.891] [info] humerus_r_imu offset computed from humerus_r_imu data from file.
+[2024-06-06 15:05:28.892] [info] Processing ulna_r_imu
+[2024-06-06 15:05:28.892] [info] Computed offset for ulna_r_imu
+[2024-06-06 15:05:28.893] [info] Offset is 
+[0.00822928,-0.999928,0.00874786]
+[0.999961,0.00820185,-0.00316763]
+[0.00309565,0.00877359,0.999957]
+
+[2024-06-06 15:05:28.897] [info] Creating offset frame for ulna_r_imu
+[2024-06-06 15:05:28.902] [info] Added offset frame for ulna_r_imu.
+[2024-06-06 15:05:28.905] [info] ulna_r_imu offset computed from ulna_r_imu data from file.
+[2024-06-06 15:05:29.093] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015_calibrated.osim
+[2024-06-06 15:05:29.139] [info] Loading orientations as quaternions from 'OpenSense/lifting_orientations.sto'...
+[2024-06-06 15:05:29.162] [info] InverseKinematicsSolver found 4 model frames to track.
+[2024-06-06 15:05:29.361] [info] Solved at time: 0.02 s
+[2024-06-06 15:05:29.396] [info] Solved at time: 0.03 s
+[2024-06-06 15:05:29.426] [info] Solved at time: 0.04 s
+[2024-06-06 15:05:29.455] [info] Solved at time: 0.05 s
+[2024-06-06 15:05:29.479] [info] Solved at time: 0.06 s
+[2024-06-06 15:05:29.503] [info] Solved at time: 0.07 s
+[2024-06-06 15:05:29.540] [info] Solved at time: 0.08 s
+[2024-06-06 15:05:29.568] [info] Solved at time: 0.09 s
+[2024-06-06 15:05:29.594] [info] Solved at time: 0.1 s
+[2024-06-06 15:05:29.629] [info] Solved at time: 0.11 s
+[2024-06-06 15:05:29.664] [info] Solved at time: 0.12 s
+[2024-06-06 15:05:29.691] [info] Solved at time: 0.13 s
+[2024-06-06 15:05:29.723] [info] Solved at time: 0.14 s
+[2024-06-06 15:05:29.751] [info] Solved at time: 0.15 s
+[2024-06-06 15:05:29.782] [info] Solved at time: 0.16 s
+[2024-06-06 15:05:29.814] [info] Solved at time: 0.17 s
+[2024-06-06 15:05:29.843] [info] Solved at time: 0.18 s
+[2024-06-06 15:05:29.876] [info] Solved at time: 0.19 s
+[2024-06-06 15:05:29.902] [info] Solved at time: 0.2 s
+[2024-06-06 15:05:29.936] [info] Solved at time: 0.21 s
+[2024-06-06 15:05:29.983] [info] Solved at time: 0.22 s
+[2024-06-06 15:05:30.026] [info] Solved at time: 0.23 s
+[2024-06-06 15:05:30.068] [info] Solved at time: 0.24 s
+[2024-06-06 15:05:30.111] [info] Solved at time: 0.25 s
+[2024-06-06 15:05:30.150] [info] Solved at time: 0.26 s
+[2024-06-06 15:05:30.176] [info] Solved at time: 0.27 s
+[2024-06-06 15:05:30.215] [info] Solved at time: 0.28 s
+[2024-06-06 15:05:30.244] [info] Solved at time: 0.29 s
+[2024-06-06 15:05:30.278] [info] Solved at time: 0.3 s
+[2024-06-06 15:05:30.308] [info] Solved at time: 0.31 s
+[2024-06-06 15:05:30.331] [info] Solved at time: 0.32 s
+[2024-06-06 15:05:30.361] [info] Solved at time: 0.33 s
+[2024-06-06 15:05:30.385] [info] Solved at time: 0.34 s
+[2024-06-06 15:05:30.414] [info] Solved at time: 0.35 s
+[2024-06-06 15:05:30.443] [info] Solved at time: 0.36 s
+[2024-06-06 15:05:30.479] [info] Solved at time: 0.37 s
+[2024-06-06 15:05:30.490] [info] Solved at time: 0.38 s
+[2024-06-06 15:05:30.519] [info] Solved at time: 0.39 s
+[2024-06-06 15:05:30.557] [info] Solved at time: 0.4 s
+[2024-06-06 15:05:30.644] [info] Solved at time: 0.41 s
+[2024-06-06 15:05:30.683] [info] Solved at time: 0.42 s
+[2024-06-06 15:05:30.714] [info] Solved at time: 0.43 s
+[2024-06-06 15:05:30.737] [info] Solved at time: 0.44 s
+[2024-06-06 15:05:30.768] [info] Solved at time: 0.45 s
+[2024-06-06 15:05:30.797] [info] Solved at time: 0.46 s
+[2024-06-06 15:05:30.825] [info] Solved at time: 0.47 s
+[2024-06-06 15:05:30.851] [info] Solved at time: 0.48 s
+[2024-06-06 15:05:30.879] [info] Solved at time: 0.49 s
+[2024-06-06 15:05:30.909] [info] Solved at time: 0.5 s
+[2024-06-06 15:05:30.935] [info] Solved at time: 0.51 s
+[2024-06-06 15:05:31.021] [info] Solved at time: 0.52 s
+[2024-06-06 15:05:31.047] [info] Solved at time: 0.53 s
+[2024-06-06 15:05:31.077] [info] Solved at time: 0.54 s
+[2024-06-06 15:05:31.099] [info] Solved at time: 0.55 s
+[2024-06-06 15:05:31.113] [info] Solved at time: 0.56 s
+[2024-06-06 15:05:31.130] [info] Solved at time: 0.57 s
+[2024-06-06 15:05:31.156] [info] Solved at time: 0.58 s
+[2024-06-06 15:05:31.178] [info] Solved at time: 0.59 s
+[2024-06-06 15:05:31.200] [info] Solved at time: 0.6 s
+[2024-06-06 15:05:31.219] [info] Solved at time: 0.61 s
+[2024-06-06 15:05:31.241] [info] Solved at time: 0.62 s
+[2024-06-06 15:05:31.261] [info] Solved at time: 0.63 s
+[2024-06-06 15:05:31.284] [info] Solved at time: 0.64 s
+[2024-06-06 15:05:31.312] [info] Solved at time: 0.65 s
+[2024-06-06 15:05:31.333] [info] Solved at time: 0.66 s
+[2024-06-06 15:05:31.357] [info] Solved at time: 0.67 s
+[2024-06-06 15:05:31.383] [info] Solved at time: 0.68 s
+[2024-06-06 15:05:31.410] [info] Solved at time: 0.69 s
+[2024-06-06 15:05:31.431] [info] Solved at time: 0.7 s
+[2024-06-06 15:05:31.462] [info] Solved at time: 0.71 s
+[2024-06-06 15:05:31.486] [info] Solved at time: 0.72 s
+[2024-06-06 15:05:31.510] [info] Solved at time: 0.73 s
+[2024-06-06 15:05:31.531] [info] Solved at time: 0.74 s
+[2024-06-06 15:05:31.555] [info] Solved at time: 0.75 s
+[2024-06-06 15:05:31.580] [info] Solved at time: 0.76 s
+[2024-06-06 15:05:31.603] [info] Solved at time: 0.77 s
+[2024-06-06 15:05:31.622] [info] Solved at time: 0.78 s
+[2024-06-06 15:05:31.651] [info] Solved at time: 0.79 s
+[2024-06-06 15:05:31.681] [info] Solved at time: 0.8 s
+[2024-06-06 15:05:31.711] [info] Solved at time: 0.81 s
+[2024-06-06 15:05:31.743] [info] Solved at time: 0.82 s
+[2024-06-06 15:05:31.768] [info] Solved at time: 0.83 s
+[2024-06-06 15:05:31.807] [info] Solved at time: 0.84 s
+[2024-06-06 15:05:31.834] [info] Solved at time: 0.85 s
+[2024-06-06 15:05:31.874] [info] Solved at time: 0.86 s
+[2024-06-06 15:05:31.898] [info] Solved at time: 0.87 s
+[2024-06-06 15:05:31.936] [info] Solved at time: 0.88 s
+[2024-06-06 15:05:31.969] [info] Solved at time: 0.89 s
+[2024-06-06 15:05:32.018] [info] Solved at time: 0.9 s
+[2024-06-06 15:05:32.040] [info] Solved at time: 0.91 s
+[2024-06-06 15:05:32.066] [info] Solved at time: 0.92 s
+[2024-06-06 15:05:32.099] [info] Solved at time: 0.93 s
+[2024-06-06 15:05:32.133] [info] Solved at time: 0.94 s
+[2024-06-06 15:05:32.161] [info] Solved at time: 0.95 s
+[2024-06-06 15:05:32.191] [info] Solved at time: 0.96 s
+[2024-06-06 15:05:32.217] [info] Solved at time: 0.97 s
+[2024-06-06 15:05:32.248] [info] Solved at time: 0.98 s
+[2024-06-06 15:05:32.271] [info] Solved at time: 0.99 s
+[2024-06-06 15:05:32.311] [info] Solved at time: 1.0 s
+[2024-06-06 15:05:32.337] [info] Solved at time: 1.01 s
+[2024-06-06 15:05:32.362] [info] Solved at time: 1.02 s
+[2024-06-06 15:05:32.384] [info] Solved at time: 1.03 s
+[2024-06-06 15:05:32.413] [info] Solved at time: 1.04 s
+[2024-06-06 15:05:32.439] [info] Solved at time: 1.05 s
+[2024-06-06 15:05:32.466] [info] Solved at time: 1.06 s
+[2024-06-06 15:05:32.491] [info] Solved at time: 1.07 s
+[2024-06-06 15:05:32.532] [info] Solved at time: 1.08 s
+[2024-06-06 15:05:32.564] [info] Solved at time: 1.09 s
+[2024-06-06 15:05:32.586] [info] Solved at time: 1.1 s
+[2024-06-06 15:05:32.617] [info] Solved at time: 1.11 s
+[2024-06-06 15:05:32.647] [info] Solved at time: 1.12 s
+[2024-06-06 15:05:32.677] [info] Solved at time: 1.13 s
+[2024-06-06 15:05:32.701] [info] Solved at time: 1.14 s
+[2024-06-06 15:05:32.723] [info] Solved at time: 1.15 s
+[2024-06-06 15:05:32.753] [info] Solved at time: 1.16 s
+[2024-06-06 15:05:32.779] [info] Solved at time: 1.17 s
+[2024-06-06 15:05:32.805] [info] Solved at time: 1.18 s
+[2024-06-06 15:05:32.829] [info] Solved at time: 1.19 s
+[2024-06-06 15:05:32.858] [info] Solved at time: 1.2 s
+[2024-06-06 15:05:32.884] [info] Solved at time: 1.21 s
+[2024-06-06 15:05:32.919] [info] Solved at time: 1.22 s
+[2024-06-06 15:05:32.948] [info] Solved at time: 1.23 s
+[2024-06-06 15:05:32.966] [info] Solved at time: 1.24 s
+[2024-06-06 15:05:32.997] [info] Solved at time: 1.25 s
+[2024-06-06 15:05:33.025] [info] Solved at time: 1.26 s
+[2024-06-06 15:05:33.051] [info] Solved at time: 1.27 s
+[2024-06-06 15:05:33.078] [info] Solved at time: 1.28 s
+[2024-06-06 15:05:33.111] [info] Solved at time: 1.29 s
+[2024-06-06 15:05:33.133] [info] Solved at time: 1.3 s
+[2024-06-06 15:05:33.164] [info] Solved at time: 1.31 s
+[2024-06-06 15:05:33.193] [info] Solved at time: 1.32 s
+[2024-06-06 15:05:33.226] [info] Solved at time: 1.33 s
+[2024-06-06 15:05:33.259] [info] Solved at time: 1.34 s
+[2024-06-06 15:05:33.291] [info] Solved at time: 1.35 s
+[2024-06-06 15:05:33.324] [info] Solved at time: 1.36 s
+[2024-06-06 15:05:33.352] [info] Solved at time: 1.37 s
+[2024-06-06 15:05:33.378] [info] Solved at time: 1.38 s
+[2024-06-06 15:05:33.397] [info] Solved at time: 1.39 s
+[2024-06-06 15:05:33.418] [info] Solved at time: 1.4 s
+[2024-06-06 15:05:33.436] [info] Solved at time: 1.41 s
+[2024-06-06 15:05:33.467] [info] Solved at time: 1.42 s
+[2024-06-06 15:05:33.498] [info] Solved at time: 1.43 s
+[2024-06-06 15:05:33.524] [info] Solved at time: 1.44 s
+[2024-06-06 15:05:33.557] [info] Solved at time: 1.45 s
+[2024-06-06 15:05:33.586] [info] Solved at time: 1.46 s
+[2024-06-06 15:05:33.623] [info] Solved at time: 1.47 s
+[2024-06-06 15:05:33.651] [info] Solved at time: 1.48 s
+[2024-06-06 15:05:33.692] [info] Solved at time: 1.49 s
+[2024-06-06 15:05:33.726] [info] Solved at time: 1.5 s
+[2024-06-06 15:05:33.751] [info] Solved at time: 1.51 s
+[2024-06-06 15:05:33.791] [info] Solved at time: 1.52 s
+[2024-06-06 15:05:33.826] [info] Solved at time: 1.53 s
+[2024-06-06 15:05:33.874] [info] Solved at time: 1.54 s
+[2024-06-06 15:05:33.924] [info] Solved at time: 1.55 s
+[2024-06-06 15:05:33.949] [info] Solved at time: 1.56 s
+[2024-06-06 15:05:33.980] [info] Solved at time: 1.57 s
+[2024-06-06 15:05:34.010] [info] Solved at time: 1.58 s
+[2024-06-06 15:05:34.035] [info] Solved at time: 1.59 s
+[2024-06-06 15:05:34.077] [info] Solved at time: 1.6 s
+[2024-06-06 15:05:34.100] [info] Solved at time: 1.61 s
+[2024-06-06 15:05:34.122] [info] Solved at time: 1.62 s
+[2024-06-06 15:05:34.161] [info] Solved at time: 1.63 s
+[2024-06-06 15:05:34.183] [info] Solved at time: 1.64 s
+[2024-06-06 15:05:34.203] [info] Solved at time: 1.65 s
+[2024-06-06 15:05:34.249] [info] Solved at time: 1.66 s
+[2024-06-06 15:05:34.351] [info] Solved at time: 1.67 s
+[2024-06-06 15:05:34.391] [info] Solved at time: 1.68 s
+[2024-06-06 15:05:34.425] [info] Solved at time: 1.69 s
+[2024-06-06 15:05:34.454] [info] Solved at time: 1.7 s
+[2024-06-06 15:05:34.479] [info] Solved at time: 1.71 s
+[2024-06-06 15:05:34.504] [info] Solved at time: 1.72 s
+[2024-06-06 15:05:34.527] [info] Solved at time: 1.73 s
+[2024-06-06 15:05:34.549] [info] Solved at time: 1.74 s
+[2024-06-06 15:05:34.580] [info] Solved at time: 1.75 s
+[2024-06-06 15:05:34.613] [info] Solved at time: 1.76 s
+[2024-06-06 15:05:34.643] [info] Solved at time: 1.77 s
+[2024-06-06 15:05:34.672] [info] Solved at time: 1.78 s
+[2024-06-06 15:05:34.701] [info] Solved at time: 1.79 s
+[2024-06-06 15:05:34.727] [info] Solved at time: 1.8 s
+[2024-06-06 15:05:34.750] [info] Solved at time: 1.81 s
+[2024-06-06 15:05:34.775] [info] Solved at time: 1.82 s
+[2024-06-06 15:05:34.803] [info] Solved at time: 1.83 s
+[2024-06-06 15:05:34.830] [info] Solved at time: 1.84 s
+[2024-06-06 15:05:34.857] [info] Solved at time: 1.85 s
+[2024-06-06 15:05:34.881] [info] Solved at time: 1.86 s
+[2024-06-06 15:05:34.901] [info] Solved at time: 1.87 s
+[2024-06-06 15:05:34.924] [info] Solved at time: 1.88 s
+[2024-06-06 15:05:34.949] [info] Solved at time: 1.89 s
+[2024-06-06 15:05:34.968] [info] Solved at time: 1.9 s
+[2024-06-06 15:05:34.989] [info] Solved at time: 1.91 s
+[2024-06-06 15:05:35.011] [info] Solved at time: 1.92 s
+[2024-06-06 15:05:35.034] [info] Solved at time: 1.93 s
+[2024-06-06 15:05:35.054] [info] Solved at time: 1.94 s
+[2024-06-06 15:05:35.084] [info] Solved at time: 1.95 s
+[2024-06-06 15:05:35.118] [info] Solved at time: 1.96 s
+[2024-06-06 15:05:35.149] [info] Solved at time: 1.97 s
+[2024-06-06 15:05:35.178] [info] Solved at time: 1.98 s
+[2024-06-06 15:05:35.210] [info] Solved at time: 1.99 s
+[2024-06-06 15:05:35.236] [info] Solved at time: 2.0 s
+[2024-06-06 15:05:35.258] [info] Solved at time: 2.01 s
+[2024-06-06 15:05:35.282] [info] Solved at time: 2.02 s
+[2024-06-06 15:05:35.304] [info] Solved at time: 2.03 s
+[2024-06-06 15:05:35.330] [info] Solved at time: 2.04 s
+[2024-06-06 15:05:35.355] [info] Solved at time: 2.05 s
+[2024-06-06 15:05:35.381] [info] Solved at time: 2.06 s
+[2024-06-06 15:05:35.395] [info] Solved at time: 2.07 s
+[2024-06-06 15:05:35.417] [info] Solved at time: 2.08 s
+[2024-06-06 15:05:35.447] [info] Solved at time: 2.09 s
+[2024-06-06 15:05:35.473] [info] Solved at time: 2.1 s
+[2024-06-06 15:05:35.497] [info] Solved at time: 2.11 s
+[2024-06-06 15:05:35.526] [info] Solved at time: 2.12 s
+[2024-06-06 15:05:35.552] [info] Solved at time: 2.13 s
+[2024-06-06 15:05:35.578] [info] Solved at time: 2.14 s
+[2024-06-06 15:05:35.598] [info] Solved at time: 2.15 s
+[2024-06-06 15:05:35.628] [info] Solved at time: 2.16 s
+[2024-06-06 15:05:35.658] [info] Solved at time: 2.17 s
+[2024-06-06 15:05:35.685] [info] Solved at time: 2.18 s
+[2024-06-06 15:05:35.706] [info] Solved at time: 2.19 s
+[2024-06-06 15:05:35.727] [info] Solved at time: 2.2 s
+[2024-06-06 15:05:35.751] [info] Solved at time: 2.21 s
+[2024-06-06 15:05:35.774] [info] Solved at time: 2.22 s
+[2024-06-06 15:05:35.796] [info] Solved at time: 2.23 s
+[2024-06-06 15:05:35.817] [info] Solved at time: 2.24 s
+[2024-06-06 15:05:35.846] [info] Solved at time: 2.25 s
+[2024-06-06 15:05:35.874] [info] Solved at time: 2.26 s
+[2024-06-06 15:05:35.895] [info] Solved at time: 2.27 s
+[2024-06-06 15:05:35.920] [info] Solved at time: 2.28 s
+[2024-06-06 15:05:35.935] [info] Solved at time: 2.29 s
+[2024-06-06 15:05:35.962] [info] Solved at time: 2.3 s
+[2024-06-06 15:05:35.982] [info] Solved at time: 2.31 s
+[2024-06-06 15:05:36.002] [info] Solved at time: 2.32 s
+[2024-06-06 15:05:36.027] [info] Solved at time: 2.33 s
+[2024-06-06 15:05:36.051] [info] Solved at time: 2.34 s
+[2024-06-06 15:05:36.077] [info] Solved at time: 2.35 s
+[2024-06-06 15:05:36.101] [info] Solved at time: 2.36 s
+[2024-06-06 15:05:36.121] [info] Solved at time: 2.37 s
+[2024-06-06 15:05:36.144] [info] Solved at time: 2.38 s
+[2024-06-06 15:05:36.169] [info] Solved at time: 2.39 s
+[2024-06-06 15:05:36.193] [info] Solved at time: 2.4 s
+[2024-06-06 15:05:36.214] [info] Solved at time: 2.41 s
+[2024-06-06 15:05:36.235] [info] Solved at time: 2.42 s
+[2024-06-06 15:05:36.266] [info] Solved at time: 2.43 s
+[2024-06-06 15:05:36.287] [info] Solved at time: 2.44 s
+[2024-06-06 15:05:36.313] [info] Solved at time: 2.45 s
+[2024-06-06 15:05:36.342] [info] Solved at time: 2.46 s
+[2024-06-06 15:05:36.366] [info] Solved at time: 2.47 s
+[2024-06-06 15:05:36.391] [info] Solved at time: 2.48 s
+[2024-06-06 15:05:36.416] [info] Solved at time: 2.49 s
+[2024-06-06 15:05:36.435] [info] Solved at time: 2.5 s
+[2024-06-06 15:05:36.457] [info] Solved at time: 2.51 s
+[2024-06-06 15:05:36.478] [info] Solved at time: 2.52 s
+[2024-06-06 15:05:36.500] [info] Solved at time: 2.53 s
+[2024-06-06 15:05:36.525] [info] Solved at time: 2.54 s
+[2024-06-06 15:05:36.549] [info] Solved at time: 2.55 s
+[2024-06-06 15:05:36.575] [info] Solved at time: 2.56 s
+[2024-06-06 15:05:36.597] [info] Solved at time: 2.57 s
+[2024-06-06 15:05:36.619] [info] Solved at time: 2.58 s
+[2024-06-06 15:05:36.642] [info] Solved at time: 2.59 s
+[2024-06-06 15:05:36.664] [info] Solved at time: 2.6 s
+[2024-06-06 15:05:36.685] [info] Solved at time: 2.61 s
+[2024-06-06 15:05:36.713] [info] Solved at time: 2.62 s
+[2024-06-06 15:05:36.735] [info] Solved at time: 2.63 s
+[2024-06-06 15:05:36.757] [info] Solved at time: 2.64 s
+[2024-06-06 15:05:36.781] [info] Solved at time: 2.65 s
+[2024-06-06 15:05:36.808] [info] Solved at time: 2.66 s
+[2024-06-06 15:05:36.827] [info] Solved at time: 2.67 s
+[2024-06-06 15:05:36.846] [info] Solved at time: 2.68 s
+[2024-06-06 15:05:36.869] [info] Solved at time: 2.69 s
+[2024-06-06 15:05:36.898] [info] Solved at time: 2.7 s
+[2024-06-06 15:05:36.919] [info] Solved at time: 2.71 s
+[2024-06-06 15:05:36.942] [info] Solved at time: 2.72 s
+[2024-06-06 15:05:36.965] [info] Solved at time: 2.73 s
+[2024-06-06 15:05:36.997] [info] Solved at time: 2.74 s
+[2024-06-06 15:05:37.029] [info] Solved at time: 2.75 s
+[2024-06-06 15:05:37.053] [info] Solved at time: 2.76 s
+[2024-06-06 15:05:37.076] [info] Solved at time: 2.77 s
+[2024-06-06 15:05:37.099] [info] Solved at time: 2.78 s
+[2024-06-06 15:05:37.124] [info] Solved at time: 2.79 s
+[2024-06-06 15:05:37.150] [info] Solved at time: 2.8 s
+[2024-06-06 15:05:37.171] [info] Solved at time: 2.81 s
+[2024-06-06 15:05:37.195] [info] Solved at time: 2.82 s
+[2024-06-06 15:05:37.215] [info] Solved at time: 2.83 s
+[2024-06-06 15:05:37.240] [info] Solved at time: 2.84 s
+[2024-06-06 15:05:37.259] [info] Solved at time: 2.85 s
+[2024-06-06 15:05:37.278] [info] Solved at time: 2.86 s
+[2024-06-06 15:05:37.299] [info] Solved at time: 2.87 s
+[2024-06-06 15:05:37.318] [info] Solved at time: 2.88 s
+[2024-06-06 15:05:37.343] [info] Solved at time: 2.89 s
+[2024-06-06 15:05:37.363] [info] Solved at time: 2.9 s
+[2024-06-06 15:05:37.383] [info] Solved at time: 2.91 s
+[2024-06-06 15:05:37.401] [info] Solved at time: 2.92 s
+[2024-06-06 15:05:37.427] [info] Solved at time: 2.93 s
+[2024-06-06 15:05:37.494] [info] Solved at time: 2.94 s
+[2024-06-06 15:05:37.536] [info] Solved at time: 2.95 s
+[2024-06-06 15:05:37.564] [info] Solved at time: 2.96 s
+[2024-06-06 15:05:37.586] [info] Solved at time: 2.97 s
+[2024-06-06 15:05:37.609] [info] Solved at time: 2.98 s
+[2024-06-06 15:05:37.627] [info] Solved at time: 2.99 s
+[2024-06-06 15:05:37.646] [info] Solved at time: 3.0 s
+[2024-06-06 15:05:37.671] [info] Solved at time: 3.01 s
+[2024-06-06 15:05:37.696] [info] Solved at time: 3.02 s
+[2024-06-06 15:05:37.725] [info] Solved at time: 3.03 s
+[2024-06-06 15:05:37.755] [info] Solved at time: 3.04 s
+[2024-06-06 15:05:37.783] [info] Solved at time: 3.05 s
+[2024-06-06 15:05:37.816] [info] Solved at time: 3.06 s
+[2024-06-06 15:05:37.854] [info] Wrote IK with IMU tracking results to: 'ik_lifting_orientations.mot'.
+[2024-06-06 15:05:44.079] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015.osim
+[2024-06-06 15:05:44.158] [info] Heading correction computed to be 90.0037 degs about ground Y.
+[2024-06-06 15:05:44.160] [info] Processing pelvis_imu
+[2024-06-06 15:05:44.160] [info] Computed offset for pelvis_imu
+[2024-06-06 15:05:44.161] [info] Offset is 
+[0.999999,0.00116182,6.47093e-05]
+[6.46341e-05,6.47051e-05,-1]
+[-0.00116183,0.999999,6.46299e-05]
+
+[2024-06-06 15:05:44.161] [info] Creating offset frame for pelvis_imu
+[2024-06-06 15:05:44.165] [info] Added offset frame for pelvis_imu.
+[2024-06-06 15:05:44.165] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-06-06 15:05:44.165] [info] Processing torso_imu
+[2024-06-06 15:05:44.166] [info] Computed offset for torso_imu
+[2024-06-06 15:05:44.166] [info] Offset is 
+[0.999981,0.0018502,-0.00590913]
+[-0.00589811,-0.00590875,-0.999965]
+[-0.00188505,0.999981,-0.00589773]
+
+[2024-06-06 15:05:44.168] [info] Creating offset frame for torso_imu
+[2024-06-06 15:05:44.172] [info] Added offset frame for torso_imu.
+[2024-06-06 15:05:44.176] [info] torso_imu offset computed from torso_imu data from file.
+[2024-06-06 15:05:44.177] [info] Processing humerus_r_imu
+[2024-06-06 15:05:44.178] [info] Computed offset for humerus_r_imu
+[2024-06-06 15:05:44.179] [info] Offset is 
+[-0.00240149,0.999992,-0.00331589]
+[0.999997,0.00240362,0.000638824]
+[0.000646789,-0.00331435,-0.999994]
+
+[2024-06-06 15:05:44.180] [info] Creating offset frame for humerus_r_imu
+[2024-06-06 15:05:44.186] [info] Added offset frame for humerus_r_imu.
+[2024-06-06 15:05:44.190] [info] humerus_r_imu offset computed from humerus_r_imu data from file.
+[2024-06-06 15:05:44.191] [info] Processing ulna_r_imu
+[2024-06-06 15:05:44.195] [info] Computed offset for ulna_r_imu
+[2024-06-06 15:05:44.196] [info] Offset is 
+[-0.00796173,0.999928,-0.0089351]
+[0.999963,0.00793317,-0.00322749]
+[-0.00315638,-0.00896046,-0.999955]
+
+[2024-06-06 15:05:44.197] [info] Creating offset frame for ulna_r_imu
+[2024-06-06 15:05:44.201] [info] Added offset frame for ulna_r_imu.
+[2024-06-06 15:05:44.202] [info] ulna_r_imu offset computed from ulna_r_imu data from file.
+[2024-06-06 15:05:44.342] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015_calibrated.osim
+[2024-06-06 15:05:44.384] [info] Loading orientations as quaternions from 'OpenSense/lifting_orientations.sto'...
+[2024-06-06 15:05:44.400] [info] InverseKinematicsSolver found 4 model frames to track.
+[2024-06-06 15:05:44.522] [info] Solved at time: 0.02 s
+[2024-06-06 15:05:44.552] [info] Solved at time: 0.03 s
+[2024-06-06 15:05:44.588] [info] Solved at time: 0.04 s
+[2024-06-06 15:05:44.600] [info] Solved at time: 0.05 s
+[2024-06-06 15:05:44.630] [info] Solved at time: 0.06 s
+[2024-06-06 15:05:44.670] [info] Solved at time: 0.07 s
+[2024-06-06 15:05:44.708] [info] Solved at time: 0.08 s
+[2024-06-06 15:05:44.719] [info] Solved at time: 0.09 s
+[2024-06-06 15:05:44.736] [info] Solved at time: 0.1 s
+[2024-06-06 15:05:44.751] [info] Solved at time: 0.11 s
+[2024-06-06 15:05:44.779] [info] Solved at time: 0.12 s
+[2024-06-06 15:05:44.795] [info] Solved at time: 0.13 s
+[2024-06-06 15:05:44.810] [info] Solved at time: 0.14 s
+[2024-06-06 15:05:44.833] [info] Solved at time: 0.15 s
+[2024-06-06 15:05:44.848] [info] Solved at time: 0.16 s
+[2024-06-06 15:05:44.862] [info] Solved at time: 0.17 s
+[2024-06-06 15:05:44.873] [info] Solved at time: 0.18 s
+[2024-06-06 15:05:44.901] [info] Solved at time: 0.19 s
+[2024-06-06 15:05:44.928] [info] Solved at time: 0.2 s
+[2024-06-06 15:05:44.944] [info] Solved at time: 0.21 s
+[2024-06-06 15:05:44.972] [info] Solved at time: 0.22 s
+[2024-06-06 15:05:44.999] [info] Solved at time: 0.23 s
+[2024-06-06 15:05:45.023] [info] Solved at time: 0.24 s
+[2024-06-06 15:05:45.046] [info] Solved at time: 0.25 s
+[2024-06-06 15:05:45.071] [info] Solved at time: 0.26 s
+[2024-06-06 15:05:45.167] [info] Solved at time: 0.27 s
+[2024-06-06 15:05:45.212] [info] Solved at time: 0.28 s
+[2024-06-06 15:05:45.238] [info] Solved at time: 0.29 s
+[2024-06-06 15:05:45.268] [info] Solved at time: 0.3 s
+[2024-06-06 15:05:45.296] [info] Solved at time: 0.31 s
+[2024-06-06 15:05:45.317] [info] Solved at time: 0.32 s
+[2024-06-06 15:05:45.340] [info] Solved at time: 0.33 s
+[2024-06-06 15:05:45.380] [info] Solved at time: 0.34 s
+[2024-06-06 15:05:45.419] [info] Solved at time: 0.35 s
+[2024-06-06 15:05:45.484] [info] Solved at time: 0.36 s
+[2024-06-06 15:05:45.529] [info] Solved at time: 0.37 s
+[2024-06-06 15:05:45.576] [info] Solved at time: 0.38 s
+[2024-06-06 15:05:45.604] [info] Solved at time: 0.39 s
+[2024-06-06 15:05:45.635] [info] Solved at time: 0.4 s
+[2024-06-06 15:05:45.668] [info] Solved at time: 0.41 s
+[2024-06-06 15:05:45.701] [info] Solved at time: 0.42 s
+[2024-06-06 15:05:45.724] [info] Solved at time: 0.43 s
+[2024-06-06 15:05:45.752] [info] Solved at time: 0.44 s
+[2024-06-06 15:05:45.782] [info] Solved at time: 0.45 s
+[2024-06-06 15:05:45.810] [info] Solved at time: 0.46 s
+[2024-06-06 15:05:45.844] [info] Solved at time: 0.47 s
+[2024-06-06 15:05:45.869] [info] Solved at time: 0.48 s
+[2024-06-06 15:05:45.896] [info] Solved at time: 0.49 s
+[2024-06-06 15:05:45.925] [info] Solved at time: 0.5 s
+[2024-06-06 15:05:45.952] [info] Solved at time: 0.51 s
+[2024-06-06 15:05:45.978] [info] Solved at time: 0.52 s
+[2024-06-06 15:05:45.988] [info] Solved at time: 0.53 s
+[2024-06-06 15:05:46.003] [info] Solved at time: 0.54 s
+[2024-06-06 15:05:46.024] [info] Solved at time: 0.55 s
+[2024-06-06 15:05:46.055] [info] Solved at time: 0.56 s
+[2024-06-06 15:05:46.076] [info] Solved at time: 0.57 s
+[2024-06-06 15:05:46.092] [info] Solved at time: 0.58 s
+[2024-06-06 15:05:46.115] [info] Solved at time: 0.59 s
+[2024-06-06 15:05:46.144] [info] Solved at time: 0.6 s
+[2024-06-06 15:05:46.182] [info] Solved at time: 0.61 s
+[2024-06-06 15:05:46.221] [info] Solved at time: 0.62 s
+[2024-06-06 15:05:46.253] [info] Solved at time: 0.63 s
+[2024-06-06 15:05:46.286] [info] Solved at time: 0.64 s
+[2024-06-06 15:05:46.314] [info] Solved at time: 0.65 s
+[2024-06-06 15:05:46.344] [info] Solved at time: 0.66 s
+[2024-06-06 15:05:46.363] [info] Solved at time: 0.67 s
+[2024-06-06 15:05:46.384] [info] Solved at time: 0.68 s
+[2024-06-06 15:05:46.405] [info] Solved at time: 0.69 s
+[2024-06-06 15:05:46.432] [info] Solved at time: 0.7 s
+[2024-06-06 15:05:46.449] [info] Solved at time: 0.71 s
+[2024-06-06 15:05:46.467] [info] Solved at time: 0.72 s
+[2024-06-06 15:05:46.487] [info] Solved at time: 0.73 s
+[2024-06-06 15:05:46.508] [info] Solved at time: 0.74 s
+[2024-06-06 15:05:46.538] [info] Solved at time: 0.75 s
+[2024-06-06 15:05:46.566] [info] Solved at time: 0.76 s
+[2024-06-06 15:05:46.596] [info] Solved at time: 0.77 s
+[2024-06-06 15:05:46.626] [info] Solved at time: 0.78 s
+[2024-06-06 15:05:46.658] [info] Solved at time: 0.79 s
+[2024-06-06 15:05:46.689] [info] Solved at time: 0.8 s
+[2024-06-06 15:05:46.723] [info] Solved at time: 0.81 s
+[2024-06-06 15:05:46.761] [info] Solved at time: 0.82 s
+[2024-06-06 15:05:46.799] [info] Solved at time: 0.83 s
+[2024-06-06 15:05:46.825] [info] Solved at time: 0.84 s
+[2024-06-06 15:05:46.861] [info] Solved at time: 0.85 s
+[2024-06-06 15:05:46.889] [info] Solved at time: 0.86 s
+[2024-06-06 15:05:46.914] [info] Solved at time: 0.87 s
+[2024-06-06 15:05:46.946] [info] Solved at time: 0.88 s
+[2024-06-06 15:05:46.968] [info] Solved at time: 0.89 s
+[2024-06-06 15:05:46.996] [info] Solved at time: 0.9 s
+[2024-06-06 15:05:47.028] [info] Solved at time: 0.91 s
+[2024-06-06 15:05:47.061] [info] Solved at time: 0.92 s
+[2024-06-06 15:05:47.092] [info] Solved at time: 0.93 s
+[2024-06-06 15:05:47.127] [info] Solved at time: 0.94 s
+[2024-06-06 15:05:47.166] [info] Solved at time: 0.95 s
+[2024-06-06 15:05:47.193] [info] Solved at time: 0.96 s
+[2024-06-06 15:05:47.216] [info] Solved at time: 0.97 s
+[2024-06-06 15:05:47.248] [info] Solved at time: 0.98 s
+[2024-06-06 15:05:47.273] [info] Solved at time: 0.99 s
+[2024-06-06 15:05:47.295] [info] Solved at time: 1.0 s
+[2024-06-06 15:05:47.331] [info] Solved at time: 1.01 s
+[2024-06-06 15:05:47.369] [info] Solved at time: 1.02 s
+[2024-06-06 15:05:47.443] [info] Solved at time: 1.03 s
+[2024-06-06 15:05:47.480] [info] Solved at time: 1.04 s
+[2024-06-06 15:05:47.500] [info] Solved at time: 1.05 s
+[2024-06-06 15:05:47.518] [info] Solved at time: 1.06 s
+[2024-06-06 15:05:47.538] [info] Solved at time: 1.07 s
+[2024-06-06 15:05:47.581] [info] Solved at time: 1.08 s
+[2024-06-06 15:05:47.612] [info] Solved at time: 1.09 s
+[2024-06-06 15:05:47.642] [info] Solved at time: 1.1 s
+[2024-06-06 15:05:47.672] [info] Solved at time: 1.11 s
+[2024-06-06 15:05:47.696] [info] Solved at time: 1.12 s
+[2024-06-06 15:05:47.726] [info] Solved at time: 1.13 s
+[2024-06-06 15:05:47.751] [info] Solved at time: 1.14 s
+[2024-06-06 15:05:47.775] [info] Solved at time: 1.15 s
+[2024-06-06 15:05:47.798] [info] Solved at time: 1.16 s
+[2024-06-06 15:05:47.816] [info] Solved at time: 1.17 s
+[2024-06-06 15:05:47.835] [info] Solved at time: 1.18 s
+[2024-06-06 15:05:47.861] [info] Solved at time: 1.19 s
+[2024-06-06 15:05:47.890] [info] Solved at time: 1.2 s
+[2024-06-06 15:05:47.913] [info] Solved at time: 1.21 s
+[2024-06-06 15:05:47.946] [info] Solved at time: 1.22 s
+[2024-06-06 15:05:47.985] [info] Solved at time: 1.23 s
+[2024-06-06 15:05:48.009] [info] Solved at time: 1.24 s
+[2024-06-06 15:05:48.044] [info] Solved at time: 1.25 s
+[2024-06-06 15:05:48.077] [info] Solved at time: 1.26 s
+[2024-06-06 15:05:48.098] [info] Solved at time: 1.27 s
+[2024-06-06 15:05:48.128] [info] Solved at time: 1.28 s
+[2024-06-06 15:05:48.163] [info] Solved at time: 1.29 s
+[2024-06-06 15:05:48.198] [info] Solved at time: 1.3 s
+[2024-06-06 15:05:48.231] [info] Solved at time: 1.31 s
+[2024-06-06 15:05:48.271] [info] Solved at time: 1.32 s
+[2024-06-06 15:05:48.302] [info] Solved at time: 1.33 s
+[2024-06-06 15:05:48.327] [info] Solved at time: 1.34 s
+[2024-06-06 15:05:48.351] [info] Solved at time: 1.35 s
+[2024-06-06 15:05:48.378] [info] Solved at time: 1.36 s
+[2024-06-06 15:05:48.401] [info] Solved at time: 1.37 s
+[2024-06-06 15:05:48.432] [info] Solved at time: 1.38 s
+[2024-06-06 15:05:48.451] [info] Solved at time: 1.39 s
+[2024-06-06 15:05:48.488] [info] Solved at time: 1.4 s
+[2024-06-06 15:05:48.523] [info] Solved at time: 1.41 s
+[2024-06-06 15:05:48.552] [info] Solved at time: 1.42 s
+[2024-06-06 15:05:48.576] [info] Solved at time: 1.43 s
+[2024-06-06 15:05:48.612] [info] Solved at time: 1.44 s
+[2024-06-06 15:05:48.644] [info] Solved at time: 1.45 s
+[2024-06-06 15:05:48.679] [info] Solved at time: 1.46 s
+[2024-06-06 15:05:48.712] [info] Solved at time: 1.47 s
+[2024-06-06 15:05:48.747] [info] Solved at time: 1.48 s
+[2024-06-06 15:05:48.786] [info] Solved at time: 1.49 s
+[2024-06-06 15:05:48.818] [info] Solved at time: 1.5 s
+[2024-06-06 15:05:48.853] [info] Solved at time: 1.51 s
+[2024-06-06 15:05:48.897] [info] Solved at time: 1.52 s
+[2024-06-06 15:05:48.933] [info] Solved at time: 1.53 s
+[2024-06-06 15:05:48.968] [info] Solved at time: 1.54 s
+[2024-06-06 15:05:48.990] [info] Solved at time: 1.55 s
+[2024-06-06 15:05:49.023] [info] Solved at time: 1.56 s
+[2024-06-06 15:05:49.064] [info] Solved at time: 1.57 s
+[2024-06-06 15:05:49.107] [info] Solved at time: 1.58 s
+[2024-06-06 15:05:49.145] [info] Solved at time: 1.59 s
+[2024-06-06 15:05:49.190] [info] Solved at time: 1.6 s
+[2024-06-06 15:05:49.224] [info] Solved at time: 1.61 s
+[2024-06-06 15:05:49.266] [info] Solved at time: 1.62 s
+[2024-06-06 15:05:49.309] [info] Solved at time: 1.63 s
+[2024-06-06 15:05:49.348] [info] Solved at time: 1.64 s
+[2024-06-06 15:05:49.389] [info] Solved at time: 1.65 s
+[2024-06-06 15:05:49.424] [info] Solved at time: 1.66 s
+[2024-06-06 15:05:49.461] [info] Solved at time: 1.67 s
+[2024-06-06 15:05:49.499] [info] Solved at time: 1.68 s
+[2024-06-06 15:05:49.541] [info] Solved at time: 1.69 s
+[2024-06-06 15:05:49.580] [info] Solved at time: 1.7 s
+[2024-06-06 15:05:49.610] [info] Solved at time: 1.71 s
+[2024-06-06 15:05:49.644] [info] Solved at time: 1.72 s
+[2024-06-06 15:05:49.671] [info] Solved at time: 1.73 s
+[2024-06-06 15:05:49.706] [info] Solved at time: 1.74 s
+[2024-06-06 15:05:49.734] [info] Solved at time: 1.75 s
+[2024-06-06 15:05:49.767] [info] Solved at time: 1.76 s
+[2024-06-06 15:05:49.794] [info] Solved at time: 1.77 s
+[2024-06-06 15:05:49.832] [info] Solved at time: 1.78 s
+[2024-06-06 15:05:49.869] [info] Solved at time: 1.79 s
+[2024-06-06 15:05:49.902] [info] Solved at time: 1.8 s
+[2024-06-06 15:05:49.935] [info] Solved at time: 1.81 s
+[2024-06-06 15:05:49.969] [info] Solved at time: 1.82 s
+[2024-06-06 15:05:50.001] [info] Solved at time: 1.83 s
+[2024-06-06 15:05:50.045] [info] Solved at time: 1.84 s
+[2024-06-06 15:05:50.087] [info] Solved at time: 1.85 s
+[2024-06-06 15:05:50.130] [info] Solved at time: 1.86 s
+[2024-06-06 15:05:50.169] [info] Solved at time: 1.87 s
+[2024-06-06 15:05:50.210] [info] Solved at time: 1.88 s
+[2024-06-06 15:05:50.251] [info] Solved at time: 1.89 s
+[2024-06-06 15:05:50.296] [info] Solved at time: 1.9 s
+[2024-06-06 15:05:50.338] [info] Solved at time: 1.91 s
+[2024-06-06 15:05:50.377] [info] Solved at time: 1.92 s
+[2024-06-06 15:05:50.424] [info] Solved at time: 1.93 s
+[2024-06-06 15:05:50.470] [info] Solved at time: 1.94 s
+[2024-06-06 15:05:50.510] [info] Solved at time: 1.95 s
+[2024-06-06 15:05:50.542] [info] Solved at time: 1.96 s
+[2024-06-06 15:05:50.570] [info] Solved at time: 1.97 s
+[2024-06-06 15:05:50.602] [info] Solved at time: 1.98 s
+[2024-06-06 15:05:50.628] [info] Solved at time: 1.99 s
+[2024-06-06 15:05:50.669] [info] Solved at time: 2.0 s
+[2024-06-06 15:05:50.705] [info] Solved at time: 2.01 s
+[2024-06-06 15:05:50.741] [info] Solved at time: 2.02 s
+[2024-06-06 15:05:50.777] [info] Solved at time: 2.03 s
+[2024-06-06 15:05:50.814] [info] Solved at time: 2.04 s
+[2024-06-06 15:05:50.853] [info] Solved at time: 2.05 s
+[2024-06-06 15:05:50.886] [info] Solved at time: 2.06 s
+[2024-06-06 15:05:50.902] [info] Solved at time: 2.07 s
+[2024-06-06 15:05:50.929] [info] Solved at time: 2.08 s
+[2024-06-06 15:05:50.956] [info] Solved at time: 2.09 s
+[2024-06-06 15:05:50.997] [info] Solved at time: 2.1 s
+[2024-06-06 15:05:51.035] [info] Solved at time: 2.11 s
+[2024-06-06 15:05:51.069] [info] Solved at time: 2.12 s
+[2024-06-06 15:05:51.106] [info] Solved at time: 2.13 s
+[2024-06-06 15:05:51.143] [info] Solved at time: 2.14 s
+[2024-06-06 15:05:51.177] [info] Solved at time: 2.15 s
+[2024-06-06 15:05:51.210] [info] Solved at time: 2.16 s
+[2024-06-06 15:05:51.234] [info] Solved at time: 2.17 s
+[2024-06-06 15:05:51.263] [info] Solved at time: 2.18 s
+[2024-06-06 15:05:51.303] [info] Solved at time: 2.19 s
+[2024-06-06 15:05:51.343] [info] Solved at time: 2.2 s
+[2024-06-06 15:05:51.383] [info] Solved at time: 2.21 s
+[2024-06-06 15:05:51.415] [info] Solved at time: 2.22 s
+[2024-06-06 15:05:51.448] [info] Solved at time: 2.23 s
+[2024-06-06 15:05:51.492] [info] Solved at time: 2.24 s
+[2024-06-06 15:05:51.535] [info] Solved at time: 2.25 s
+[2024-06-06 15:05:51.578] [info] Solved at time: 2.26 s
+[2024-06-06 15:05:51.616] [info] Solved at time: 2.27 s
+[2024-06-06 15:05:51.650] [info] Solved at time: 2.28 s
+[2024-06-06 15:05:51.671] [info] Solved at time: 2.29 s
+[2024-06-06 15:05:51.700] [info] Solved at time: 2.3 s
+[2024-06-06 15:05:51.727] [info] Solved at time: 2.31 s
+[2024-06-06 15:05:51.750] [info] Solved at time: 2.32 s
+[2024-06-06 15:05:51.788] [info] Solved at time: 2.33 s
+[2024-06-06 15:05:51.872] [info] Solved at time: 2.34 s
+[2024-06-06 15:05:51.909] [info] Solved at time: 2.35 s
+[2024-06-06 15:05:51.933] [info] Solved at time: 2.36 s
+[2024-06-06 15:05:51.966] [info] Solved at time: 2.37 s
+[2024-06-06 15:05:52.008] [info] Solved at time: 2.38 s
+[2024-06-06 15:05:52.028] [info] Solved at time: 2.39 s
+[2024-06-06 15:05:52.066] [info] Solved at time: 2.4 s
+[2024-06-06 15:05:52.102] [info] Solved at time: 2.41 s
+[2024-06-06 15:05:52.127] [info] Solved at time: 2.42 s
+[2024-06-06 15:05:52.153] [info] Solved at time: 2.43 s
+[2024-06-06 15:05:52.174] [info] Solved at time: 2.44 s
+[2024-06-06 15:05:52.203] [info] Solved at time: 2.45 s
+[2024-06-06 15:05:52.235] [info] Solved at time: 2.46 s
+[2024-06-06 15:05:52.267] [info] Solved at time: 2.47 s
+[2024-06-06 15:05:52.298] [info] Solved at time: 2.48 s
+[2024-06-06 15:05:52.332] [info] Solved at time: 2.49 s
+[2024-06-06 15:05:52.366] [info] Solved at time: 2.5 s
+[2024-06-06 15:05:52.399] [info] Solved at time: 2.51 s
+[2024-06-06 15:05:52.435] [info] Solved at time: 2.52 s
+[2024-06-06 15:05:52.470] [info] Solved at time: 2.53 s
+[2024-06-06 15:05:52.502] [info] Solved at time: 2.54 s
+[2024-06-06 15:05:52.526] [info] Solved at time: 2.55 s
+[2024-06-06 15:05:52.554] [info] Solved at time: 2.56 s
+[2024-06-06 15:05:52.579] [info] Solved at time: 2.57 s
+[2024-06-06 15:05:52.617] [info] Solved at time: 2.58 s
+[2024-06-06 15:05:52.648] [info] Solved at time: 2.59 s
+[2024-06-06 15:05:52.679] [info] Solved at time: 2.6 s
+[2024-06-06 15:05:52.712] [info] Solved at time: 2.61 s
+[2024-06-06 15:05:52.738] [info] Solved at time: 2.62 s
+[2024-06-06 15:05:52.771] [info] Solved at time: 2.63 s
+[2024-06-06 15:05:52.800] [info] Solved at time: 2.64 s
+[2024-06-06 15:05:52.827] [info] Solved at time: 2.65 s
+[2024-06-06 15:05:52.856] [info] Solved at time: 2.66 s
+[2024-06-06 15:05:52.888] [info] Solved at time: 2.67 s
+[2024-06-06 15:05:52.924] [info] Solved at time: 2.68 s
+[2024-06-06 15:05:52.950] [info] Solved at time: 2.69 s
+[2024-06-06 15:05:52.981] [info] Solved at time: 2.7 s
+[2024-06-06 15:05:53.006] [info] Solved at time: 2.71 s
+[2024-06-06 15:05:53.040] [info] Solved at time: 2.72 s
+[2024-06-06 15:05:53.074] [info] Solved at time: 2.73 s
+[2024-06-06 15:05:53.099] [info] Solved at time: 2.74 s
+[2024-06-06 15:05:53.144] [info] Solved at time: 2.75 s
+[2024-06-06 15:05:53.219] [info] Solved at time: 2.76 s
+[2024-06-06 15:05:53.266] [info] Solved at time: 2.77 s
+[2024-06-06 15:05:53.297] [info] Solved at time: 2.78 s
+[2024-06-06 15:05:53.318] [info] Solved at time: 2.79 s
+[2024-06-06 15:05:53.340] [info] Solved at time: 2.8 s
+[2024-06-06 15:05:53.364] [info] Solved at time: 2.81 s
+[2024-06-06 15:05:53.387] [info] Solved at time: 2.82 s
+[2024-06-06 15:05:53.416] [info] Solved at time: 2.83 s
+[2024-06-06 15:05:53.448] [info] Solved at time: 2.84 s
+[2024-06-06 15:05:53.472] [info] Solved at time: 2.85 s
+[2024-06-06 15:05:53.489] [info] Solved at time: 2.86 s
+[2024-06-06 15:05:53.521] [info] Solved at time: 2.87 s
+[2024-06-06 15:05:53.558] [info] Solved at time: 2.88 s
+[2024-06-06 15:05:53.596] [info] Solved at time: 2.89 s
+[2024-06-06 15:05:53.628] [info] Solved at time: 2.9 s
+[2024-06-06 15:05:53.665] [info] Solved at time: 2.91 s
+[2024-06-06 15:05:53.694] [info] Solved at time: 2.92 s
+[2024-06-06 15:05:53.730] [info] Solved at time: 2.93 s
+[2024-06-06 15:05:53.767] [info] Solved at time: 2.94 s
+[2024-06-06 15:05:53.799] [info] Solved at time: 2.95 s
+[2024-06-06 15:05:53.838] [info] Solved at time: 2.96 s
+[2024-06-06 15:05:53.869] [info] Solved at time: 2.97 s
+[2024-06-06 15:05:53.906] [info] Solved at time: 2.98 s
+[2024-06-06 15:05:53.932] [info] Solved at time: 2.99 s
+[2024-06-06 15:05:53.952] [info] Solved at time: 3.0 s
+[2024-06-06 15:05:53.981] [info] Solved at time: 3.01 s
+[2024-06-06 15:05:54.001] [info] Solved at time: 3.02 s
+[2024-06-06 15:05:54.033] [info] Solved at time: 3.03 s
+[2024-06-06 15:05:54.067] [info] Solved at time: 3.04 s
+[2024-06-06 15:05:54.098] [info] Solved at time: 3.05 s
+[2024-06-06 15:05:54.131] [info] Solved at time: 3.06 s
+[2024-06-06 15:05:54.177] [info] Wrote IK with IMU tracking results to: 'ik_lifting_orientations.mot'.
+[2024-06-06 15:06:52.008] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015.osim
+[2024-06-06 15:06:52.132] [info] Heading correction computed to be -90.0070 degs about ground Y.
+[2024-06-06 15:06:52.135] [info] Processing pelvis_imu
+[2024-06-06 15:06:52.135] [info] Computed offset for pelvis_imu
+[2024-06-06 15:06:52.136] [info] Offset is 
+[-0.999999,0.00116182,7.65332e-06]
+[-7.51186e-06,0.000121764,-1]
+[-0.00116182,-0.999999,-0.000121755]
+
+[2024-06-06 15:06:52.138] [info] Creating offset frame for pelvis_imu
+[2024-06-06 15:06:52.142] [info] Added offset frame for pelvis_imu.
+[2024-06-06 15:06:52.143] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-06-06 15:06:52.144] [info] Processing torso_imu
+[2024-06-06 15:06:52.144] [info] Computed offset for torso_imu
+[2024-06-06 15:06:52.145] [info] Offset is 
+[-0.999919,-0.00423516,-0.0120416]
+[0.0120405,0.000297068,-0.999927]
+[0.00423843,-0.999991,-0.00024605]
+
+[2024-06-06 15:06:52.146] [info] Creating offset frame for torso_imu
+[2024-06-06 15:06:52.150] [info] Added offset frame for torso_imu.
+[2024-06-06 15:06:52.151] [info] torso_imu offset computed from torso_imu data from file.
+[2024-06-06 15:06:52.151] [info] Processing humerus_r_imu
+[2024-06-06 15:06:52.152] [info] Computed offset for humerus_r_imu
+[2024-06-06 15:06:52.152] [info] Offset is 
+[0.00240161,-0.999992,0.0031295]
+[0.999997,0.00240362,0.000638825]
+[-0.000646342,0.00312796,0.999995]
+
+[2024-06-06 15:06:52.154] [info] Creating offset frame for humerus_r_imu
+[2024-06-06 15:06:52.160] [info] Added offset frame for humerus_r_imu.
+[2024-06-06 15:06:52.161] [info] humerus_r_imu offset computed from humerus_r_imu data from file.
+[2024-06-06 15:06:52.161] [info] Processing ulna_r_imu
+[2024-06-06 15:06:52.162] [info] Computed offset for ulna_r_imu
+[2024-06-06 15:06:52.162] [info] Offset is 
+[0.00822928,-0.999928,0.00874786]
+[0.999961,0.00820185,-0.00316763]
+[0.00309565,0.00877359,0.999957]
+
+[2024-06-06 15:06:52.164] [info] Creating offset frame for ulna_r_imu
+[2024-06-06 15:06:52.167] [info] Added offset frame for ulna_r_imu.
+[2024-06-06 15:06:52.168] [info] ulna_r_imu offset computed from ulna_r_imu data from file.
+[2024-06-06 15:06:52.324] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015_calibrated.osim
+[2024-06-06 15:06:52.376] [info] Loading orientations as quaternions from 'OpenSense/lifting_orientations.sto'...
+[2024-06-06 15:06:53.851] [info] InverseKinematicsSolver found 4 model frames to track.
+[2024-06-06 15:07:04.217] [info] Wrote IK with IMU tracking results to: 'ik_lifting_orientations.mot'.
+[2024-06-06 15:07:10.855] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015.osim
+[2024-06-06 15:07:10.915] [info] Heading correction computed to be 90.0037 degs about ground Y.
+[2024-06-06 15:07:10.918] [info] Processing pelvis_imu
+[2024-06-06 15:07:10.918] [info] Computed offset for pelvis_imu
+[2024-06-06 15:07:10.918] [info] Offset is 
+[0.999999,0.00116182,6.47093e-05]
+[6.46341e-05,6.47051e-05,-1]
+[-0.00116183,0.999999,6.46299e-05]
+
+[2024-06-06 15:07:10.919] [info] Creating offset frame for pelvis_imu
+[2024-06-06 15:07:10.923] [info] Added offset frame for pelvis_imu.
+[2024-06-06 15:07:10.923] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-06-06 15:07:10.924] [info] Processing torso_imu
+[2024-06-06 15:07:10.925] [info] Computed offset for torso_imu
+[2024-06-06 15:07:10.926] [info] Offset is 
+[0.999981,0.0018502,-0.00590913]
+[-0.00589811,-0.00590875,-0.999965]
+[-0.00188505,0.999981,-0.00589773]
+
+[2024-06-06 15:07:10.927] [info] Creating offset frame for torso_imu
+[2024-06-06 15:07:10.933] [info] Added offset frame for torso_imu.
+[2024-06-06 15:07:10.934] [info] torso_imu offset computed from torso_imu data from file.
+[2024-06-06 15:07:10.935] [info] Processing humerus_r_imu
+[2024-06-06 15:07:10.935] [info] Computed offset for humerus_r_imu
+[2024-06-06 15:07:10.936] [info] Offset is 
+[-0.00240149,0.999992,-0.00331589]
+[0.999997,0.00240362,0.000638824]
+[0.000646789,-0.00331435,-0.999994]
+
+[2024-06-06 15:07:10.937] [info] Creating offset frame for humerus_r_imu
+[2024-06-06 15:07:10.942] [info] Added offset frame for humerus_r_imu.
+[2024-06-06 15:07:10.943] [info] humerus_r_imu offset computed from humerus_r_imu data from file.
+[2024-06-06 15:07:10.943] [info] Processing ulna_r_imu
+[2024-06-06 15:07:10.943] [info] Computed offset for ulna_r_imu
+[2024-06-06 15:07:10.944] [info] Offset is 
+[-0.00796173,0.999928,-0.0089351]
+[0.999963,0.00793317,-0.00322749]
+[-0.00315638,-0.00896046,-0.999955]
+
+[2024-06-06 15:07:10.945] [info] Creating offset frame for ulna_r_imu
+[2024-06-06 15:07:10.948] [info] Added offset frame for ulna_r_imu.
+[2024-06-06 15:07:10.949] [info] ulna_r_imu offset computed from ulna_r_imu data from file.
+[2024-06-06 15:07:11.076] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015_calibrated.osim
+[2024-06-06 15:07:11.121] [info] Loading orientations as quaternions from 'OpenSense/lifting_orientations.sto'...
+[2024-06-06 15:07:12.032] [info] InverseKinematicsSolver found 4 model frames to track.
+[2024-06-06 15:07:22.372] [info] Wrote IK with IMU tracking results to: 'ik_lifting_orientations.mot'.
+[2024-06-06 15:08:12.073] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015.osim
+[2024-06-06 15:08:12.146] [info] Heading correction computed to be -90.051 degs about ground Y.
+[2024-06-06 15:08:12.148] [info] Processing pelvis_imu
+[2024-06-06 15:08:12.149] [info] Computed offset for pelvis_imu
+[2024-06-06 15:08:12.149] [info] Offset is 
+[-1,-0.00017008,0.000853287]
+[-0.000853438,0.000889758,-0.999999]
+[0.000169321,-1,-0.000889903]
+
+[2024-06-06 15:08:12.150] [info] Creating offset frame for pelvis_imu
+[2024-06-06 15:08:12.153] [info] Added offset frame for pelvis_imu.
+[2024-06-06 15:08:12.154] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-06-06 15:08:12.154] [info] Processing torso_imu
+[2024-06-06 15:08:12.154] [info] Computed offset for torso_imu
+[2024-06-06 15:08:12.155] [info] Offset is 
+[-0.992198,0.123572,0.0165239]
+[-0.0161744,0.00383079,-0.999862]
+[-0.123618,-0.992328,-0.0018022]
+
+[2024-06-06 15:08:12.156] [info] Creating offset frame for torso_imu
+[2024-06-06 15:08:12.159] [info] Added offset frame for torso_imu.
+[2024-06-06 15:08:12.160] [info] torso_imu offset computed from torso_imu data from file.
+[2024-06-06 15:08:12.163] [info] Processing humerus_r_imu
+[2024-06-06 15:08:12.163] [info] Computed offset for humerus_r_imu
+[2024-06-06 15:08:12.164] [info] Offset is 
+[-0.028582,-0.998964,0.0354084]
+[0.999591,-0.0285958,0.000117217]
+[0.000895437,0.0353973,0.999373]
+
+[2024-06-06 15:08:12.165] [info] Creating offset frame for humerus_r_imu
+[2024-06-06 15:08:12.169] [info] Added offset frame for humerus_r_imu.
+[2024-06-06 15:08:12.169] [info] humerus_r_imu offset computed from humerus_r_imu data from file.
+[2024-06-06 15:08:12.170] [info] Processing ulna_r_imu
+[2024-06-06 15:08:12.170] [info] Computed offset for ulna_r_imu
+[2024-06-06 15:08:12.170] [info] Offset is 
+[-0.00050008,-0.999991,-0.00424264]
+[0.999973,-0.000530939,0.00727548]
+[-0.00727767,-0.00423889,0.999965]
+
+[2024-06-06 15:08:12.173] [info] Creating offset frame for ulna_r_imu
+[2024-06-06 15:08:12.178] [info] Added offset frame for ulna_r_imu.
+[2024-06-06 15:08:12.179] [info] ulna_r_imu offset computed from ulna_r_imu data from file.
+[2024-06-06 15:08:12.304] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015_calibrated.osim
+[2024-06-06 15:08:12.352] [info] Loading orientations as quaternions from 'OpenSense/lifting_orientations.sto'...
+[2024-06-06 15:08:13.460] [info] InverseKinematicsSolver found 4 model frames to track.
+[2024-06-06 15:08:24.446] [info] Wrote IK with IMU tracking results to: 'ik_lifting_orientations.mot'.
+[2024-06-06 15:08:30.374] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015.osim
+[2024-06-06 15:08:30.442] [info] Heading correction computed to be 90.05 degs about ground Y.
+[2024-06-06 15:08:30.444] [info] Processing pelvis_imu
+[2024-06-06 15:08:30.444] [info] Computed offset for pelvis_imu
+[2024-06-06 15:08:30.444] [info] Offset is 
+[1,-0.00017008,0.000871902]
+[0.00087205,0.000871142,-0.999999]
+[0.000169321,1,0.00087129]
+
+[2024-06-06 15:08:30.447] [info] Creating offset frame for pelvis_imu
+[2024-06-06 15:08:30.451] [info] Added offset frame for pelvis_imu.
+[2024-06-06 15:08:30.452] [info] pelvis_imu offset computed from pelvis_imu data from file.
+[2024-06-06 15:08:30.452] [info] Processing torso_imu
+[2024-06-06 15:08:30.452] [info] Computed offset for torso_imu
+[2024-06-06 15:08:30.454] [info] Offset is 
+[0.993147,0.116429,0.0101202]
+[0.0090036,0.0101124,-0.999908]
+[-0.116521,0.993147,0.00899478]
+
+[2024-06-06 15:08:30.457] [info] Creating offset frame for torso_imu
+[2024-06-06 15:08:30.463] [info] Added offset frame for torso_imu.
+[2024-06-06 15:08:30.464] [info] torso_imu offset computed from torso_imu data from file.
+[2024-06-06 15:08:30.466] [info] Processing humerus_r_imu
+[2024-06-06 15:08:30.469] [info] Computed offset for humerus_r_imu
+[2024-06-06 15:08:30.469] [info] Offset is 
+[0.0285804,0.9989,-0.03717]
+[0.999591,-0.0285958,0.000117217]
+[-0.000945819,-0.0371581,-0.999309]
+
+[2024-06-06 15:08:30.472] [info] Creating offset frame for humerus_r_imu
+[2024-06-06 15:08:30.475] [info] Added offset frame for humerus_r_imu.
+[2024-06-06 15:08:30.476] [info] humerus_r_imu offset computed from humerus_r_imu data from file.
+[2024-06-06 15:08:30.476] [info] Processing ulna_r_imu
+[2024-06-06 15:08:30.477] [info] Computed offset for ulna_r_imu
+[2024-06-06 15:08:30.477] [info] Offset is 
+[0.000780994,0.999997,0.00248192]
+[0.999974,-0.000798877,0.00721234]
+[0.0072143,0.00247623,-0.999971]
+
+[2024-06-06 15:08:30.479] [info] Creating offset frame for ulna_r_imu
+[2024-06-06 15:08:30.484] [info] Added offset frame for ulna_r_imu.
+[2024-06-06 15:08:30.485] [info] ulna_r_imu offset computed from ulna_r_imu data from file.
+[2024-06-06 15:08:30.617] [info] Loaded model Rajagopal_2015 from file OpenSense/Rajagopal_2015_calibrated.osim
+[2024-06-06 15:08:30.658] [info] Loading orientations as quaternions from 'OpenSense/lifting_orientations.sto'...
+[2024-06-06 15:08:31.610] [info] InverseKinematicsSolver found 4 model frames to track.
+[2024-06-06 15:08:42.707] [info] Wrote IK with IMU tracking results to: 'ik_lifting_orientations.mot'.
