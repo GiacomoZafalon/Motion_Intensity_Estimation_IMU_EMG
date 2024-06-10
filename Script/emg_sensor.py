@@ -36,27 +36,31 @@ def apply_filters(signal, fs, lowcut_bp, highcut_bp, Q, f0, cutoff_freq, window)
 
     return rms
 
+def categorize_label(label):
+    if 0 <= label <= 0.2:
+        return 0
+    elif 0.2 < label <= 0.4:
+        return 1
+    elif 0.4 < label <= 0.6:
+        return 2
+    elif 0.6 < label <= 0.8:
+        return 3
+    elif 0.8 < label <= 1.0:
+        return 4
+    else:
+        print('Error in the label')
 
-
-
-
-tot_person = 1
-tot_weights = 1
+tot_person = 5
+tot_weights = 5
 tot_attempts = 1
 
 for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
-            # print(f'Processing data for Person {person}, Weight {weight}, Attempt {attempt}...')
-
-            person = 2
-            weight = 1
-            attempt = 1
-
             # File paths
             file_path = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/emg/emg_data.csv'
-
             mvc_path = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W5/A1/emg/emg_data.csv'
+
             # Read the emg_mvc.csv file
             mvc_df = pd.read_csv(mvc_path)
 
@@ -102,35 +106,19 @@ for person in range(1, tot_person + 1):
             normalized_chan_2 = chan_2_rms / mvc_max
             normalized_chan_3 = chan_3_rms / mvc_max
 
-            # Plotting chan_1 and chan_1_rms
-            plt.figure(figsize=(12, 6))
-
-            plt.subplot(2, 1, 1)
-            plt.plot(chan_1)
-            plt.title('Channel 1 Signal')
-            plt.xlabel('Sample')
-            plt.ylabel('Amplitude')
-
-            plt.subplot(2, 1, 2)
-            plt.plot(chan_1_rms)
-            plt.title('Channel 1 RMS Signal')
-            plt.xlabel('Sample')
-            plt.ylabel('RMS Amplitude')
-
-            plt.tight_layout()
-            plt.show()
-
             label = max(normalized_chan_1) + max(normalized_chan_2) + max(normalized_chan_3)
             if label > 3:
                 label = 3
             label = label / 3
 
-            # print(label)
+            # Categorize the label
+            category = categorize_label(label)
 
-            # Create a DataFrame for the label
-            label_df = pd.DataFrame({'label': [label]})
+            # Create a DataFrame for the label and category
+            label_df = pd.DataFrame({'label': [label], 'class': [category]})
+            # print(label, category)
 
             # Save the DataFrame to a CSV file
-            label_df.to_csv(f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/emg/emg_label.csv')
+            label_df.to_csv(f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/emg/emg_label.csv', index=False)
 
     print(f'Data processing complete for Person {person}/{tot_person}')

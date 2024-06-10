@@ -194,11 +194,13 @@ def save_motion_data(data_dir, motion_data, file_name):
 
 
 
-
+# p4w5a1 add - for lumbar angle
+# p3w5a1 add -
+# p5 w1/3/4 a1 add - for lumbar angle
 
 tot_person = 1
 tot_weights = 1
-tot_attempts = 4
+tot_attempts = 1
 
 base_dir = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/'
 
@@ -206,9 +208,9 @@ for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
 
-            # person = 1
-            # weight = 1
-            # attempt = 4
+            person = 3
+            weight = 5
+            attempt = 1
 
             data_dir = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu')
 
@@ -217,7 +219,7 @@ for person in range(1, tot_person + 1):
             motion_data_processed = process_motion_data(motion_data, 100, 3, 3, 3)
 
             # Save the plots and the data of the joints
-            save_plot_motion_data(data_dir, motion_data_processed, 'joint_data.png', False)
+            save_plot_motion_data(data_dir, motion_data_processed, 'joint_data.png', True)
             save_motion_data(data_dir, motion_data_processed, 'data_neural.csv')
 
             print(f'Data processing complete for Person {person}/{tot_person}, Weight {weight}/{tot_weights}, Attempt {attempt}/{tot_attempts}')

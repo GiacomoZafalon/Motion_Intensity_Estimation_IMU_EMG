@@ -699,7 +699,7 @@ for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
 
-            person = 2
+            person = 3
             weight = 5
             attempt = 1
 
@@ -723,13 +723,13 @@ for person in range(1, tot_person + 1):
 
                 process_quaternions(data_dir, files)
 
-                # rotation_matrix_torso = np.array([[0, 0, 1],
-                #                                   [-1, 0, 0],
-                #                                   [0, -1, 0]])
-
                 rotation_matrix_torso = np.array([[0, 0, 1],
                                                   [-1, 0, 0],
                                                   [0, -1, 0]])
+
+                # rotation_matrix_torso = np.array([[0, 0, -1],
+                #                                   [-1, 0, 0],
+                #                                   [0, 1, 0]])
 
                 # pelvis_torso = file_names[:2]
                 pelvis_torso = csv_files[:2]
@@ -811,7 +811,7 @@ for person in range(1, tot_person + 1):
                     os.mkdir(dest_path)
                 copy_path = os.path.join(dest_path, 'ik_lifting_orientations.mot')
                 shutil.copyfile(motion_data, copy_path)
-                motion_data_processed = process_motion_data(motion_data, 100, 10, 10, 10)
+                motion_data_processed = process_motion_data(motion_data, 100, 3, 3, 3)
 
                 # Save the plots and the data of the joints
                 save_plot_motion_data(data_dir, motion_data_processed, 'joint_data.png', False)

@@ -1,3 +1,3 @@
-person = 10
-weight = 5
+person = 6
+weight = 1
 attempt = 1
