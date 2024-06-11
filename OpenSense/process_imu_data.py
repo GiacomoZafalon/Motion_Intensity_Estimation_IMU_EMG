@@ -681,8 +681,8 @@ def save_motion_data(data_dir, motion_data, file_name):
     with open(csv_file_path, mode='w', newline='') as file:
         writer = csv.writer(file)
         
-        # Write the header
-        writer.writerow(motion_data.keys())
+        # # Write the header
+        # writer.writerow(motion_data.keys())
         
         # Write the data rows
         for values in zip(*motion_data.values()):

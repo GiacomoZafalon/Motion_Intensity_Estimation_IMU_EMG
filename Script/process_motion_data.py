@@ -6,7 +6,7 @@ from scipy.signal import butter, filtfilt
 
 def process_motion_data(motion_file_path, fs, cutoff_frequency_pos=5, cutoff_frequency_vel=5, cutoff_frequency_acc=5):
     # Read the motion data file into a DataFrame
-    motion_data = pd.read_csv(motion_file_path, delimiter='\t', skiprows=6)
+    motion_data = pd.read_csv(motion_file_path)
 
     def calculate_angular_velocity(angles, timestamps):
         velocities = [0]
@@ -36,12 +36,12 @@ def process_motion_data(motion_file_path, fs, cutoff_frequency_pos=5, cutoff_fre
         b, a = butter_lowpass(cutoff_frequency, sampling_frequency, order=filter_order)
         filtered_data = filtfilt(b, a, data)
         return filtered_data
-    
-    time = motion_data['time']
-    shoulder_flex_angle = motion_data['arm_flex_r']
-    shoulder_add_angle = motion_data['arm_add_r']
-    elbow_flex_angle = motion_data['elbow_flex_r']
-    lumbar_angle = motion_data['lumbar_extension']
+
+    time = motion_data.iloc[:, 0].to_numpy()
+    shoulder_flex_angle = motion_data.iloc[:, 1].to_numpy()
+    shoulder_add_angle = motion_data.iloc[:, 2].to_numpy()
+    elbow_flex_angle = motion_data.iloc[:, 3].to_numpy()
+    lumbar_angle = motion_data.iloc[:, 4].to_numpy()
 
     sampling_frequency = fs
 
@@ -87,6 +87,9 @@ def process_motion_data(motion_file_path, fs, cutoff_frequency_pos=5, cutoff_fre
     }
 
 def save_plot_motion_data(data_dir, motion_data, plot_name, show_plot=False):
+    # Ensure the directory exists
+    os.makedirs(data_dir, exist_ok=True)
+
     # Define the figure and subplots
     fig, axs = plt.subplots(3, 4, figsize=(15, 15))
 
@@ -108,7 +111,7 @@ def save_plot_motion_data(data_dir, motion_data, plot_name, show_plot=False):
     axs[0, 2].set_title('Shoulder Adduction Angle')
     axs[0, 2].grid(True)
 
-    # Plot the filtered shoulder adduction angle
+    # Plot the filtered lumbar angle
     axs[0, 3].plot(motion_data['time'], motion_data['lumbar_angle_filt'], color='black')
     axs[0, 3].set_ylabel('Lumbar Angle (degrees)')
     axs[0, 3].set_title('Lumbar Angle')
@@ -132,7 +135,7 @@ def save_plot_motion_data(data_dir, motion_data, plot_name, show_plot=False):
     axs[1, 2].set_title('Shoulder Adduction Velocity')
     axs[1, 2].grid(True)
 
-    # Plot the filtered shoulder adduction angle
+    # Plot the filtered lumbar velocity
     axs[1, 3].plot(motion_data['time'], motion_data['lumbar_vel_filt'], color='black')
     axs[1, 3].set_ylabel('Lumbar Velocity (degrees/s)')
     axs[1, 3].set_title('Lumbar Velocity')
@@ -156,7 +159,7 @@ def save_plot_motion_data(data_dir, motion_data, plot_name, show_plot=False):
     axs[2, 2].set_title('Shoulder Adduction Acceleration')
     axs[2, 2].grid(True)
 
-    # Plot the filtered shoulder adduction angle
+    # Plot the filtered lumbar acceleration
     axs[2, 3].plot(motion_data['time'], motion_data['lumbar_acc_filt'], color='black')
     axs[2, 3].set_ylabel('Lumbar Acceleration (degrees/s^2)')
     axs[2, 3].set_title('Lumbar Acceleration')
@@ -172,11 +175,14 @@ def save_plot_motion_data(data_dir, motion_data, plot_name, show_plot=False):
     # Save the plot
     plt.savefig(os.path.join(data_dir, plot_name))
 
-    # # Show the plots
+    # Show the plots
     if show_plot:
         plt.show()
 
 def save_motion_data(data_dir, motion_data, file_name):
+    # Ensure the directory exists
+    os.makedirs(data_dir, exist_ok=True)
+
     # Define the file path for saving the CSV file
     csv_file_path = os.path.join(data_dir, file_name)
 
@@ -184,20 +190,14 @@ def save_motion_data(data_dir, motion_data, file_name):
     with open(csv_file_path, mode='w', newline='') as file:
         writer = csv.writer(file)
         
-        # Write the header
-        writer.writerow(motion_data.keys())
+        # # Write the header
+        # writer.writerow(motion_data.keys())
         
         # Write the data rows
         for values in zip(*motion_data.values()):
             writer.writerow(values)
 
-
-
-
-# p4w5a1 add - for lumbar angle
-# p3w5a1 add -
-# p5 w1/3/4 a1 add - for lumbar angle
-
+# Define parameters
 tot_person = 1
 tot_weights = 1
 tot_attempts = 1
@@ -208,21 +208,20 @@ for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
 
-            person = 3
-            weight = 5
-            attempt = 1
+            person = 1
+            weight = 1
+            attempt = 2
 
             data_dir = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu')
 
             # Process the data obtained with OpenSim to get filtered angles, velocities, and accelerations
-            motion_data = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/motion/ik_lifting_orientations.mot')
-            motion_data_processed = process_motion_data(motion_data, 100, 3, 3, 3)
+            motion_data_path = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu/data_neural.csv')
+            motion_data_processed = process_motion_data(motion_data_path, 100, 3, 3, 3)
 
             # Save the plots and the data of the joints
             save_plot_motion_data(data_dir, motion_data_processed, 'joint_data.png', True)
-            save_motion_data(data_dir, motion_data_processed, 'data_neural.csv')
+            save_motion_data(data_dir, motion_data_processed, 'data_neural_filt.csv')
 
             print(f'Data processing complete for Person {person}/{tot_person}, Weight {weight}/{tot_weights}, Attempt {attempt}/{tot_attempts}')
-                    
 
 print('Done')
