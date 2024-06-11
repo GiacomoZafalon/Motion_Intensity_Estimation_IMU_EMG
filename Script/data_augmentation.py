@@ -114,21 +114,26 @@ def process_file(file_path, output_dir, warp_type=2, amount_of_warping=10, std_d
 tot_person = 5
 tot_weights = 5
 tot_attempts = 1
-times = 5
+times = 1
 
 
-for person in range(1, tot_person + 1):
-    for weight in range(1, tot_weights + 1):
-        for attempt in range(1, tot_attempts + 1):
-            for i in range(1, times + 1):
+# for person in range(1, tot_person + 1):
+#     for weight in range(1, tot_weights + 1):
+#         for attempt in range(1, tot_attempts + 1):
+#             for i in range(1, times + 1):
+
+for i in range(1, times + 1):
+    for person in range(1, tot_person + 1):
+        for weight in range(1, tot_weights + 1):
+            for attempt in range(1, tot_attempts + 1):
 
                 base_dir = f'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/'
                 imu_data_path = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu')
                 emg_data_path = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/emg')
-                # augmented_imu_data_dir = os.path.join(base_dir, f'P{person+i*tot_person}/W{weight}/A{attempt}/imu')
-                # augmented_emg_data_dir = os.path.join(base_dir, f'P{person+i*tot_person}/W{weight}/A{attempt}/emg')
-                augmented_imu_data_dir = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt+i}/imu')
-                augmented_emg_data_dir = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt+i}/emg')
+                augmented_imu_data_dir = os.path.join(base_dir, f'P{person+i*tot_person}/W{weight}/A{attempt}/imu')
+                augmented_emg_data_dir = os.path.join(base_dir, f'P{person+i*tot_person}/W{weight}/A{attempt}/emg')
+                # augmented_imu_data_dir = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt+i}/imu')
+                # augmented_emg_data_dir = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt+i}/emg')
 
                 if not os.path.exists(augmented_imu_data_dir):
                     os.makedirs(augmented_imu_data_dir)
@@ -153,6 +158,7 @@ for person in range(1, tot_person + 1):
                 final_noise = np.mean(mean_noise)
                 add_noise_label(emg_data_path, augmented_emg_data_dir, final_noise, 'emg_label.csv')
 
-                print(f'Augmented person {person}/{tot_person}, weight {weight}/{tot_weights} for time {i}/{times}')
+                # print(f'Augmented person {person}/{tot_person}, weight {weight}/{tot_weights} for time {i}/{times}')
+        print(f'Augmented person {person}/{tot_person} for time {i}/{times}')
 
 print("Data augmentation complete.")

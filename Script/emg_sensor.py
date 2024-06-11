@@ -57,7 +57,7 @@ count_2 = 0
 count_3 = 0
 count_4 = 0
 
-tot_person = 5
+tot_person = 10
 tot_weights = 5
 tot_attempts = 6
 
@@ -134,7 +134,7 @@ for person in range(1, tot_person + 1):
             category = categorize_label(label)
             # Create a DataFrame for the label and category
             label_df = pd.DataFrame({'label': [label], 'class': [category]})
-            print(label, category)
+            # print(label, category)
             if category == 0:
                 count_0 += 1
             elif category == 1:
@@ -149,7 +149,7 @@ for person in range(1, tot_person + 1):
             # Save the DataFrame to a CSV file
             label_df.to_csv(f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/emg/emg_label.csv', index=False)
 
-        print(f'Data processing complete for Person {person}/{tot_person}, weight {weight}/{tot_weights}')
+    print(f'Data processing complete for Person {person}/{tot_person}')
 
 print('count 0: ', count_0)
 print('count 1: ', count_1)

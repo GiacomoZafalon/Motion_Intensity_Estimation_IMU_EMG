@@ -1,6 +1,6 @@
 import pandas as pd
 
-tot_person = 5
+tot_person = 10
 tot_weight = 5
 tot_attempt = 6
 
@@ -29,6 +29,6 @@ for person in range(1, tot_person + 1):
                 # Save the extracted columns to a new CSV file
                 data.to_csv(output_file_path, index=False, header=False)
 
-            print(f'Data saved for person {person}/{tot_person}, weight {weight}/{tot_weight} for attempt {attempt}/{tot_attempt}')
+    print(f'Data saved for person {person}/{tot_person}')
 
 print('Done')
