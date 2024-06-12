@@ -50,15 +50,16 @@ class DataProcessor:
         return all_data
 
 # Example usage:
-person = 1
-weight = 1
-attempt = 1
+person = 10
+weight = 5
+attempt = 6
 
 processor = DataProcessor(person, weight, attempt)
 all_data = processor.process_data()
 print(len(all_data))
 for i in range(len(all_data)):
     data, label = all_data[i]
-    print(data.shape, label.shape)
-# print(data)
-# print(label)
+    print(data.shape, label)
+print(data)
+print(label)
+print(all_data[-1])
