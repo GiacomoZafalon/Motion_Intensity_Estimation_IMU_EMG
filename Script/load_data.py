@@ -1,7 +1,15 @@
-import pickle
 import torch
+from torch import nn
+import torch.nn.functional as F
+import numpy as np
+import matplotlib.pyplot as plt
 import pandas as pd
+import math
+import torch.optim as optim
+from torch.utils.data import DataLoader, Dataset
+import pickle
 import os
+from tqdm import tqdm
 
 class DataProcessor:
     def __init__(self, person, weight, attempt):
@@ -15,15 +23,15 @@ class DataProcessor:
 
         imu_chunks = []
         num_timesteps = imu_data.shape[0]
-        num_chunks = num_timesteps // 200
-        remainder = num_timesteps % 200
+        num_chunks = num_timesteps // 100
+        remainder = num_timesteps % 100
 
-        for i in range(num_chunks, 0, -1):
-            chunk = imu_data.iloc[(i - 1) * 200: i * 200]
+        for i in range(num_chunks):
+            chunk = imu_data.iloc[i * 100: (i + 1) * 100]
             imu_chunks.append(torch.tensor(chunk.values))
 
-        if remainder > 50:
-            last_chunk = imu_data.iloc[:200]
+        if remainder > 20:
+            last_chunk = imu_data.iloc[-100:]
             imu_chunks.append(torch.tensor(last_chunk.values))
 
         return imu_chunks
@@ -64,24 +72,30 @@ class DataProcessor:
 
     def load_data(self, input_file):
         data = []
+        file_size = os.path.getsize(input_file)
         with open(input_file, 'rb') as f:
+            pbar = tqdm(total=file_size, unit='B', unit_scale=True, desc="Loading data")
             while True:
                 try:
+                    position = f.tell()
                     data.append(pickle.load(f))
+                    pbar.update(f.tell() - position)
                 except EOFError:
                     break
+            pbar.close()
         return data
 
-# Set parameters
-person = 10021
-weight = 5
-attempt = 6
-output_file = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\All_data_file\all_data.pkl'
+if __name__ == '__main__':
+    person = 10021
+    weight = 5
+    attempt = 6
 
-# Process data and save to file
-processor = DataProcessor(person, weight, attempt)
-processor.process_data(output_file, save_interval=10)  # Save data every 10 people
+    # Load `all_data` from the file
+    input_file = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\All_data_file\all_data.pkl'
+    processor = DataProcessor(person, weight, attempt)
+    # Load data (for testing or further processing)
+    print('Loading data...')
+    all_data = processor.load_data(input_file)
+    # print(f'Total data loaded: {len(loaded_data)}')
 
-# Load data (for testing or further processing)
-# loaded_data = processor.load_data(output_file)
-# print(f'Total data loaded: {len(loaded_data)}')
+    print(len(all_data))

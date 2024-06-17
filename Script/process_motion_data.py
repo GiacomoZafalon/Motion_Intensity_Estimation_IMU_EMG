@@ -41,7 +41,7 @@ def process_motion_data(motion_file_path, fs, cutoff_frequency_pos=5, cutoff_fre
     shoulder_flex_angle = motion_data.iloc[:, 1].to_numpy()
     shoulder_add_angle = motion_data.iloc[:, 2].to_numpy()
     elbow_flex_angle = motion_data.iloc[:, 3].to_numpy()
-    lumbar_angle = motion_data.iloc[:, 4].to_numpy()
+    lumbar_angle = -motion_data.iloc[:, 4].to_numpy()
 
     sampling_frequency = fs
 
@@ -208,9 +208,9 @@ for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
 
-            person = 1
-            weight = 1
-            attempt = 2
+            person = 8
+            weight = 3
+            attempt = 1
 
             data_dir = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu')
 
@@ -220,7 +220,7 @@ for person in range(1, tot_person + 1):
 
             # Save the plots and the data of the joints
             save_plot_motion_data(data_dir, motion_data_processed, 'joint_data.png', True)
-            save_motion_data(data_dir, motion_data_processed, 'data_neural_filt.csv')
+            save_motion_data(data_dir, motion_data_processed, 'data_neural.csv')
 
             print(f'Data processing complete for Person {person}/{tot_person}, Weight {weight}/{tot_weights}, Attempt {attempt}/{tot_attempts}')
 

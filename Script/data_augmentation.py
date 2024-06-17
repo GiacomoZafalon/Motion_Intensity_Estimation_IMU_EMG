@@ -111,18 +111,18 @@ def process_file(file_path, output_dir, warp_type=2, amount_of_warping=10, std_d
 
 
 
-tot_person = 5
+tot_person = 12
 tot_weights = 5
-tot_attempts = 1
-times = 1
+tot_attempts = 6
+times = 900
 
 
-# for person in range(1, tot_person + 1):
+# for person in range(9, tot_person + 1):
 #     for weight in range(1, tot_weights + 1):
 #         for attempt in range(1, tot_attempts + 1):
 #             for i in range(1, times + 1):
 
-for i in range(1, times + 1):
+for i in range(132, times + 1):
     for person in range(1, tot_person + 1):
         for weight in range(1, tot_weights + 1):
             for attempt in range(1, tot_attempts + 1):

@@ -699,7 +699,7 @@ for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
 
-            person = 3
+            person = 12
             weight = 5
             attempt = 1
 
@@ -723,13 +723,13 @@ for person in range(1, tot_person + 1):
 
                 process_quaternions(data_dir, files)
 
-                rotation_matrix_torso = np.array([[0, 0, 1],
-                                                  [-1, 0, 0],
-                                                  [0, -1, 0]])
-
-                # rotation_matrix_torso = np.array([[0, 0, -1],
+                # rotation_matrix_torso = np.array([[0, 0, 1],
                 #                                   [-1, 0, 0],
-                #                                   [0, 1, 0]])
+                #                                   [0, -1, 0]])
+
+                rotation_matrix_torso = np.array([[0, 0, -1],
+                                                  [-1, 0, 0],
+                                                  [0, 1, 0]])
 
                 # pelvis_torso = file_names[:2]
                 pelvis_torso = csv_files[:2]
@@ -800,7 +800,7 @@ for person in range(1, tot_person + 1):
                 delete_files(data_dir, files_to_delete)
 
                 # Perform the inverse kinematics through OpenSim
-                opensim_processing(False, True)
+                opensim_processing(False, False)
 
                 print(f'Data processing complete for Person {person}/{tot_person}, Weight {weight}/{tot_weights}, Attempt {attempt}/{tot_attempts}')
 

@@ -57,11 +57,11 @@ count_2 = 0
 count_3 = 0
 count_4 = 0
 
-tot_person = 10
+tot_person = 10021
 tot_weights = 5
 tot_attempts = 6
 
-for person in range(1, tot_person + 1):
+for person in range(9, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
             # File paths
