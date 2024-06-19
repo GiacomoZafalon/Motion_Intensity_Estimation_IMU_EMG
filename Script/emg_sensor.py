@@ -57,16 +57,16 @@ count_2 = 0
 count_3 = 0
 count_4 = 0
 
-tot_person = 10021
+tot_person = 1
 tot_weights = 5
-tot_attempts = 6
+tot_attempts = 1
 
-for person in range(9, tot_person + 1):
+for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
             # File paths
-            file_path = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/emg/emg_data.csv'
-            mvc_path = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W5/A1/emg/emg_data.csv'
+            file_path = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P{person}\W{weight}\A{attempt}\emg\emg_data.csv'
+            mvc_path = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P{person}\W5\A1\emg\emg_data.csv'
 
             if os.path.exists(file_path):
 
@@ -121,20 +121,21 @@ for person in range(9, tot_person + 1):
                 label = label / 3
 
             else:
-                file_path = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/emg/emg_label.csv'
+                file_path = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/Dataset2/emg_label_p{person}_w{weight}_a{attempt}.csv'
                 df_label = pd.read_csv(file_path)
                 label = df_label.iloc[0, 0]
                 if label > 1:
                     label = 1
                 elif label < 0:
                     label = 0.05
-                else: label = label
+                else: 
+                    label = label
 
             # Categorize the label
             category = categorize_label(label)
             # Create a DataFrame for the label and category
             label_df = pd.DataFrame({'label': [label], 'class': [category]})
-            # print(label, category)
+            print(label, category)
             if category == 0:
                 count_0 += 1
             elif category == 1:
@@ -147,7 +148,7 @@ for person in range(9, tot_person + 1):
                 count_4 += 1
 
             # Save the DataFrame to a CSV file
-            label_df.to_csv(f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/emg/emg_label.csv', index=False)
+            label_df.to_csv(rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P{person}\W{weight}\A{attempt}\emg\emg_label.csv', index=False)
 
     print(f'Data processing complete for Person {person}/{tot_person}')
 

@@ -39,9 +39,9 @@ def smooth_euler_angles(angles):
     return angles_1, angles_3
 
 def interpolate_missing_data(df):
-    cols_to_interpolate = [1, 2, 3]
+    cols_to_interpolate = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     df.iloc[:, cols_to_interpolate] = df.iloc[:, cols_to_interpolate].replace(0, np.nan)  # Replace zeros with NaN for interpolation
-    df.iloc[:, cols_to_interpolate] = df.iloc[:, cols_to_interpolate].interpolate(method='linear')  # Interpolate missing values
+    df.iloc[:, cols_to_interpolate] = np.round(df.iloc[:, cols_to_interpolate].interpolate(method='linear'), 2)  # Interpolate missing values
     df.iloc[:, cols_to_interpolate] = df.iloc[:, cols_to_interpolate].fillna(method='bfill')  # Backfill any remaining NaNs
     df.iloc[:, cols_to_interpolate] = df.iloc[:, cols_to_interpolate].fillna(method='ffill')  # Forward fill any remaining NaNs
     return df
@@ -124,6 +124,6 @@ def process_quaternions(directory, filenames):
         # Show the plots
         plt.show()
 
-data_dir = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P12\W5\A1\imu'
+data_dir = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P2\W1\A1\imu'
 file_names = ['sensor4.csv']
 process_quaternions(data_dir, file_names)

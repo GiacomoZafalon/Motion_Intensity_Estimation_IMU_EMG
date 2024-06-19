@@ -9,6 +9,7 @@ import torch.optim as optim
 from torch.utils.data import DataLoader, Dataset
 import pickle
 import os
+from tqdm import tqdm
 
 class DataProcessor:
     def __init__(self, person, weight, attempt):
@@ -71,12 +72,17 @@ class DataProcessor:
 
     def load_data(self, input_file):
         data = []
+        file_size = os.path.getsize(input_file)
         with open(input_file, 'rb') as f:
+            pbar = tqdm(total=file_size, unit='B', unit_scale=True, desc="Loading data")
             while True:
                 try:
+                    position = f.tell()
                     data.append(pickle.load(f))
+                    pbar.update(f.tell() - position)
                 except EOFError:
                     break
+            pbar.close()
         return data
 
 class CustomDataset(Dataset):
