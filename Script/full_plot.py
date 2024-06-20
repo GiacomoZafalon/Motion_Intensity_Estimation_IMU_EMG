@@ -248,7 +248,7 @@ for person in range(1, tot_persons + 1):
             # weight = 1
             # attempt = 1
 
-            data_dir = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P{person}\W{weight}\A{attempt}\imu'
+            data_dir = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset_original\P{person}\W{weight}\A{attempt}\imu'
             file_names = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
             csv_files = ['sensor1_rot_quat.csv', 'sensor2_rot_quat.csv', 'sensor3_rot_quat.csv', 'sensor4_rot_quat.csv']
             output_file_name = 'merged_data.csv'
@@ -267,6 +267,10 @@ for person in range(1, tot_persons + 1):
 
             # List of files to delete
             files_to_delete = [
+                'copy_sensor1.csv',
+                'copy_sensor2.csv',
+                'copy_sensor3.csv',
+                'copy_sensor4.csv',
                 'sensor1_inter.csv',
                 'sensor2_inter.csv',
                 'sensor3_inter.csv',

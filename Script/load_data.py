@@ -1,29 +1,56 @@
-import os
 import pandas as pd
+import shutil
+import os
 
-# Base directory where all the P, W, A folders are located
-base_dir = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset'
+def copy_files(file_list, directory):
+    for file in file_list:
+        src = os.path.join(directory, file)
+        dest = os.path.join(directory, f"copy_{file}")
+        shutil.copy(src, dest)
 
-def check_files_for_nans(base_dir):
-    # Loop through P1 to P10
-    for p in range(1, 11):
-        # Loop through W1 to W4
-        for w in range(1, 5):
-            # Loop through A1
-            for a in range(1, 2):
-                # Construct the directory path
-                dir_path = os.path.join(base_dir, f'P{p}', f'W{w}', f'A{a}', 'imu')
-                # Construct the file path
-                file_path = os.path.join(dir_path, 'merged_file_final.csv')
+def process_files(file_list, directory, rows_to_remove):
+    for file in file_list:
+        file_path = os.path.join(directory, file)
+        
+        # Read the CSV file
+        df = pd.read_csv(file_path)
+        
+        # Remove the specified number of rows
+        df = df.iloc[rows_to_remove:]
+        
+        # Rewrite the first column to start from 0.01 and increment by 0.01
+        df.iloc[:, 0] = [round(0.01 * (i + 1), 2) for i in range(len(df))]
+        
+        # Save the modified DataFrame back to the CSV file
+        df.to_csv(file_path, index=False, header=False)
+
+def main():
+    tot_persons = 20
+    tot_weights = 5
+    tot_attempts = 1
+    # tot_persons = 1
+    # tot_weights = 1
+    # tot_attempts = 1
+
+
+    for person in range(1, tot_persons + 1):
+        for weight in range(1, tot_weights + 1):
+            for attempt in range(1, tot_attempts + 1):
+                # person = 9
+                # weight = 5
+                # attempt = 1
+                # Prompt user for the directory and number of rows to remove
+                directory = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P{person}\W{weight}\A{attempt}\imu'
+                # rows_to_remove = int(input(f"p{person}w{weight}: Enter the number of top rows to remove: "))
+                rows_to_remove = 1
                 
-                # Check if the file exists
-                if os.path.exists(file_path):
-                    print(f'Checking file: {file_path}')
-                    # Read the CSV file
-                    df = pd.read_csv(file_path, header=None)
-                    # Check for NaN values
-                    if df.isnull().values.any():
-                        print(f'Found NaN in file: {file_path}')
+                file_list = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
+                
+                # Copy the files
+                copy_files(file_list, directory)
+                
+                # Process the files
+                process_files(file_list, directory, rows_to_remove)
 
-# Call the function
-check_files_for_nans(base_dir)
+if __name__ == "__main__":
+    main()
