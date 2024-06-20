@@ -1,45 +1,31 @@
-import pandas as pd
-import numpy as np
 import os
 import shutil
 
 # Source and destination folders
-source_folder = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/Dataset2'
-
-# Function to process CSV files: interpolate missing values
-def interpolate_csv(file_path):
-    # Read the CSV file
-    df = pd.read_csv(file_path)
-
-    # Replace 0s with NaNs
-    df.replace(0, np.nan, inplace=True)
-
-    # Interpolate missing values
-    df.interpolate(method='linear', inplace=True)
-
-    # Save the interpolated data back to the same file
-    df.to_csv(file_path, index=False, header=False)
+data_dir = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset'
 
 # Total counts for persons, weights, and attempts
-tot_person = 10812
+tot_person = 10
 tot_weight = 5
-tot_attempt = 6
+tot_attempt = 1
 
 # Iterate through all person, weight, and attempt combinations
-for person in range(10664, tot_person + 1):
+for person in range(1, tot_person + 1):
     for weight in range(1, tot_weight + 1):
         for attempt in range(1, tot_attempt + 1):
-
+            
             # Define paths to IMU and EMG folders
-            imu_path = f'{source_folder}/data_neural_euler_acc_gyro_p{person}_w{weight}_a{attempt}.csv'
-
-            # Define the IMU CSV file path
-            data_neural_file = imu_path
-
-            # Check if the IMU CSV file exists
-            if os.path.exists(data_neural_file):
-                # Interpolate missing values in the IMU CSV file
-                interpolate_csv(data_neural_file)
+            emg_original = f'{data_dir}/P1/W{weight}/A1/emg/emg_label.csv'
+            emg_dest_dir = f'{data_dir}/P{person}/W{weight}/A{attempt}/emg'
+            emg_dest = os.path.join(emg_dest_dir, 'emg_label.csv')
+            
+            # Create destination directory if it does not exist
+            if not os.path.exists(emg_dest_dir):
+                os.makedirs(emg_dest_dir)
+            
+            # Copy the file
+            if not os.path.exists(emg_dest):
+                shutil.copy(emg_original, emg_dest)
 
     print(f'person {person}/{tot_person} done')
 
