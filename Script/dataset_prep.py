@@ -12,10 +12,7 @@ class DataProcessor:
         self.length = length
 
     def load_imu_data(self, person, weight, attempt, length, time):
-        if time == 0 or time == 2:
-            imu_path = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Dataset2\data_neural_euler_acc_gyro_p{person}_w{weight}_a{attempt}.csv'
-        elif time == 1:
-            imu_path = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Dataset\data_neural_p{person}_w{weight}_a{attempt}.csv'
+        imu_path = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Dataset_augmented\data_neural_euler_acc_gyro_P{person}_W{weight}_A{attempt}.csv'
         imu_data = pd.read_csv(imu_path, header=None)  # Load CSV data using pandas
 
         imu_chunks = []
@@ -27,7 +24,7 @@ class DataProcessor:
             chunk = imu_data.iloc[(i - 1) * length: i * length]
             imu_chunks.append(torch.tensor(chunk.values))
 
-        if remainder > 50 and num_chunks > 0:
+        if remainder > 15 and num_chunks > 0:
             last_chunk = imu_data.iloc[:length]
             imu_chunks.append(torch.tensor(last_chunk.values))
 
@@ -38,17 +35,13 @@ class DataProcessor:
             pad_values = imu_data.iloc[0].values
             pad_array = pd.DataFrame([pad_values] * pad_length)
             last_chunk = pd.concat([pad_array, imu_data.iloc[:remainder]], ignore_index=True)
-            last_chunk.iloc[:, 0] = 0.02 + 0.01 * last_chunk.index
-            # print(last_chunk)
+            last_chunk.iloc[:, 0] = 0.01 + 0.01 * last_chunk.index
             imu_chunks.append(torch.tensor(last_chunk.values))
 
         return imu_chunks
 
     def load_emg_data(self, person, weight, attempt, time):
-        if time == 0 or time == 2:
-            emg_path = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Dataset2\emg_label_p{person}_w{weight}_a{attempt}.csv'
-        elif time == 1:
-            emg_path = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Dataset\emg_label_p{person}_w{weight}_a{attempt}.csv'
+        emg_path = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Dataset_augmented\emg_label_P{person}_W{weight}_A{attempt}.csv'
         emg_data = pd.read_csv(emg_path)  # Load CSV data using pandas
         emg_tensor = torch.tensor(emg_data.iloc[:, 1].values)  # Convert DataFrame to tensor
         return emg_tensor
@@ -100,41 +93,14 @@ class DataProcessor:
             f.write(f'Last processed person: {person_number}')
 
 
-for i in range(3):
-    if i == 0:
-        # Set parameters
-        person = 10812
-        weight = 5
-        attempt = 6
-        length = 200
-        output_file = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\All_data_file_raw_2s\all_data.pkl'
+for i in range(1):
+    # Set parameters
+    person = 7279
+    weight = 5
+    attempt = 10
+    length = 50
+    output_file = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\All_data_file\all_data_new_plus.pkl'
 
-        # Process data and save to file
-        processor = DataProcessor(person, weight, attempt, length, i)
-        processor.process_data(output_file, save_interval=10)  # Save data every 10 people
-    if i == 1:
-        # Set parameters
-        person = 10021
-        weight = 5
-        attempt = 6
-        length = 200
-        output_file = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\All_data_file_2s\all_data.pkl'
-
-        # Process data and save to file
-        processor = DataProcessor(person, weight, attempt, length, i)
-        processor.process_data(output_file, save_interval=10)  # Save data every 10 people
-    if i == 2:
-        # Set parameters
-        person = 10812
-        weight = 5
-        attempt = 6
-        length = 100
-        output_file = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\All_data_file_raw\all_data.pkl'
-
-        # Process data and save to file
-        processor = DataProcessor(person, weight, attempt, length, i)
-        processor.process_data(output_file, save_interval=10)  # Save data every 10 people
-
-# Load data (for testing or further processing)
-# loaded_data = processor.load_data(output_file)
-# print(f'Total data loaded: {len(loaded_data)}')
+    # Process data and save to file
+    processor = DataProcessor(person, weight, attempt, length, i)
+    processor.process_data(output_file, save_interval=10)  # Save data every 10 people

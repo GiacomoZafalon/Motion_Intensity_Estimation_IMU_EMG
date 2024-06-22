@@ -65,9 +65,9 @@ def augment_data(person, weight, attempt, time_step, base_dir, tot_person, tot_t
     imu_data_path = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu/data_neural_euler_acc_gyro.csv')
     emg_data_path = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/emg/emg_label.csv')
     
-    augmented_base_dir = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Dataset_aug'
+    augmented_base_dir = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Dataset_augmented'
     augmented_imu_data_dir = os.path.join(augmented_base_dir, f'data_neural_euler_acc_gyro_P{person + time_step*tot_person}_W{weight}_A{attempt}.csv')
-    augmented_emg_data_dir = os.path.join(augmented_base_dir, f'emg_label_P{person + time_step*tot_person}_P{weight}_P{attempt}.csv')
+    augmented_emg_data_dir = os.path.join(augmented_base_dir, f'emg_label_P{person + time_step*tot_person}_W{weight}_A{attempt}.csv')
 
     warp_type = random.randint(1, 2)
     amount_of_warping = random.randint(10, 20)
@@ -92,10 +92,10 @@ def augment_data(person, weight, attempt, time_step, base_dir, tot_person, tot_t
 #         print(f'Completed augmentation for person {person}/{tot_person} for time {time_step}/{times}')
 
 if __name__ == "__main__":
-    tot_person = 20
+    tot_person = 29
     tot_weights = 5
     tot_attempts = 10
-    times = 400
+    times = 250
 
     base_dir = 'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/'
 

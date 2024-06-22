@@ -25,24 +25,24 @@ def process_files(file_list, directory, rows_to_remove):
         df.to_csv(file_path, index=False, header=False)
 
 def main():
-    tot_persons = 20
-    tot_weights = 5
-    tot_attempts = 1
-    # tot_persons = 1
-    # tot_weights = 1
+    # tot_persons = 8
+    # tot_weights = 5
     # tot_attempts = 1
+    tot_persons = 1
+    tot_weights = 1
+    tot_attempts = 1
 
 
     for person in range(1, tot_persons + 1):
         for weight in range(1, tot_weights + 1):
             for attempt in range(1, tot_attempts + 1):
-                # person = 9
-                # weight = 5
-                # attempt = 1
+                person = 7
+                weight = 4
+                attempt = 1
                 # Prompt user for the directory and number of rows to remove
-                directory = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P{person}\W{weight}\A{attempt}\imu'
+                directory = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset_original_2\P{person}\W{weight}\A{attempt}\imu'
                 # rows_to_remove = int(input(f"p{person}w{weight}: Enter the number of top rows to remove: "))
-                rows_to_remove = 1
+                rows_to_remove = 15
                 
                 file_list = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
                 

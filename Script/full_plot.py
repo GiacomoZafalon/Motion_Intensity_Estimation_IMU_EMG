@@ -232,7 +232,7 @@ def delete_files(data_dir, files_to_delete):
 
 
 
-tot_persons = 20
+tot_persons = 8
 tot_weights = 5
 tot_attempts = 1
 # tot_persons = 1
