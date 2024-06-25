@@ -216,41 +216,206 @@ def quaternion_multiply(q1, q2):
     z = w1 * z2 - x1 * y2 + z1 * w2 + y1 * x2
     return np.array([w, x, y, z])
 
-def rotate_body(data_dir, body_part, angle_x, angle_y, angle_z, file_names):
-    if body_part == 'pelvis':
-        number = 0
-    elif body_part == 'torso':
-        number = 1
-    elif body_part == 'upper_arm':
-        number = 2
-    elif body_part == 'lower_arm':
-        number = 3
+def parse_quaternion(quaternion_str):
+    # Parse a quaternion string into a numpy array
+    parts = quaternion_str.split(',')
+    return np.array([float(parts[3]), float(parts[0]), float(parts[1]), float(parts[2])])
 
-    file = file_names[number]
-    data_file_path = os.path.join(data_dir, file)
-    data = pd.read_csv(data_file_path)
-    quaternion_columns = data.iloc[:, -4:]
+def format_quaternion(quaternion):
+    # Format a quaternion numpy array into string
+    return f"{quaternion[1]},{quaternion[2]},{quaternion[3]},{quaternion[0]}"
 
-    # Define the rotation quaternions for 180-degree rotation around the x-axis and z-axis
-    rotation_quaternion_x = np.array([np.cos(angle_x / 2), np.sin(angle_x / 2), 0, 0])
-    rotation_quaternion_y = np.array([np.cos(angle_y / 2), 0, np.sin(angle_y / 2), 0])
-    rotation_quaternion_z = np.array([np.cos(angle_z / 2), 0, 0, np.sin(angle_z / 2)])
+def rotate_body(data_dir, body_part, angle_x, angle_y, angle_z, file_name='lifting_orientations.sto'):
+    data_file_path = os.path.join(data_dir, file_name)
+    
+    body_parts_map = {
+        'pelvis': 0,
+        'torso': 1,
+        'upper_arm': 2,
+        'lower_arm': 3
+    }
 
-    # Rotate each quaternion in the set
+    if body_part not in body_parts_map:
+        raise ValueError(f"Invalid body part: {body_part}")
+    
+    column_to_rotate_idx = body_parts_map[body_part]
+    columns = ['pelvis', 'torso', 'humerus_r', 'ulna_r']  # Define columns before use
+    column_to_rotate = f'{columns[column_to_rotate_idx]}_imu'
+
+    # Read the .sto file into a DataFrame
+    df = pd.read_csv(data_file_path, delimiter='\t', skiprows=5)  # Skip the first 6 rows for the header
+    
+    # Check if the column exists
+    if column_to_rotate not in df.columns:
+        raise ValueError(f"Column '{column_to_rotate}' does not exist in the DataFrame.")
+    
+    # Split the column into separate quaternion components
+    quat_components = df[column_to_rotate].apply(parse_quaternion)
     rotated_quaternions = []
-    for i in range(len(quaternion_columns)):
-        quaternion = quaternion_columns.iloc[i].to_numpy()
+    
+    # Perform quaternion rotation for each quaternion
+    for quaternion in quat_components:
+        rotation_quaternion_x = np.array([np.cos(angle_x / 2), np.sin(angle_x / 2), 0, 0])
+        rotation_quaternion_y = np.array([np.cos(angle_y / 2), 0, np.sin(angle_y / 2), 0])
+        rotation_quaternion_z = np.array([np.cos(angle_z / 2), 0, 0, np.sin(angle_z / 2)])
+        
         rotated_quaternion_x = quaternion_multiply(rotation_quaternion_x, quaternion)
         rotated_quaternion_xy = quaternion_multiply(rotation_quaternion_y, rotated_quaternion_x)
         rotated_quaternion_xyz = quaternion_multiply(rotation_quaternion_z, rotated_quaternion_xy)
+        
         rotated_quaternions.append(rotated_quaternion_xyz)
+    
+    # Format the rotated quaternions back into strings
+    rotated_quaternions_str = [format_quaternion(q) for q in rotated_quaternions]
+    
+    # Update the DataFrame with the rotated quaternions
+    df[column_to_rotate] = rotated_quaternions_str
 
-    # Update the corresponding columns in the DataFrame with the rotated quaternions
-    for i, col in enumerate(quaternion_columns.columns):
-        data[col] = [q[i] for q in rotated_quaternions]
+    # Save the updated DataFrame back to the .sto file
+    with open(data_file_path, 'r') as f:
+        lines = f.readlines()
+    
+    # Write the header back
+    with open(data_file_path, 'w') as f:
+        f.writelines(lines[:6])  # Write the first 7 lines (including endheader)
+        
+        # Write the updated quaternion data
+        for idx, row in df.iterrows():
+            row_str = '\t'.join([f"{row[col]}" for col in df.columns]) + '\n'
+            f.write(row_str)
 
-    # Save the updated DataFrame to the output CSV file
-    data.to_csv(data_file_path, index=False, header=False)
+def normalize_quaternion(q):
+    return q / np.linalg.norm(q)
+
+def quaternion_conjugate(q):
+    return np.array([q[0], -q[1], -q[2], -q[3]])
+
+def quaternion_multiply(q1, q2):
+    w1, x1, y1, z1 = q1
+    w2, x2, y2, z2 = q2
+    w = w1 * w2 - x1 * x2 - y1 * y2 - z1 * z2
+    x = w1 * x2 + x1 * w2 + y1 * z2 - z1 * y2
+    y = w1 * y2 + y1 * w2 + z1 * x2 - x1 * z2
+    z = w1 * z2 + z1 * w2 + x1 * y2 - y1 * x2
+    return np.array([w, x, y, z])
+
+def quaternion_to_rotation_matrix(q):
+    w, x, y, z = q
+    # print(q)
+    # w = q[0]
+    # x = q[1]
+    # y = q[2]
+    # z = q[3]
+    rotation_matrix = np.array([[1 - 2*(y**2 + z**2), 2*(x*y - w*z), 2*(x*z + w*y)],
+                                [2*(x*y + w*z), 1 - 2*(x**2 + z**2), 2*(y*z - w*x)],
+                                [2*(x*z - w*y), 2*(y*z + w*x), 1 - 2*(x**2 + y**2)]])
+    return rotation_matrix
+
+def rotate_to_target(q, q0, rot_mat):
+    rotation_matrix = rot_mat
+    rotation_matrix_original = quaternion_to_rotation_matrix(q0)
+    rotated_rotation_matrix = np.dot(rotation_matrix_original, rotation_matrix)
+    rotated_q0 = rotation_matrix_to_quaternion(rotated_rotation_matrix)
+    target_quaternion = np.array([1, 0, 0, 0])
+    rotation_quaternion = quaternion_multiply(target_quaternion, quaternion_conjugate(rotated_q0))
+    rotated_q = quaternion_multiply(rotation_quaternion, q)
+    return rotated_q
+
+def rotation_matrix_to_quaternion(R):
+    tr = R[0, 0] + R[1, 1] + R[2, 2]
+    
+    if tr > 0:
+        S = np.sqrt(tr + 1.0) * 2
+        qw = 0.25 * S
+        qx = (R[2, 1] - R[1, 2]) / S
+        qy = (R[0, 2] - R[2, 0]) / S
+        qz = (R[1, 0] - R[0, 1]) / S
+    elif R[0, 0] > R[1, 1] and R[0, 0] > R[2, 2]:
+        S = np.sqrt(1.0 + R[0, 0] - R[1, 1] - R[2, 2]) * 2
+        qw = (R[2, 1] - R[1, 2]) / S
+        qx = 0.25 * S
+        qy = (R[0, 1] + R[1, 0]) / S
+        qz = (R[0, 2] + R[2, 0]) / S
+    elif R[1, 1] > R[2, 2]:
+        S = np.sqrt(1.0 + R[1, 1] - R[0, 0] - R[2, 2]) * 2
+        qw = (R[0, 2] - R[2, 0]) / S
+        qx = (R[0, 1] + R[1, 0]) / S
+        qy = 0.25 * S
+        qz = (R[1, 2] + R[2, 1]) / S
+    else:
+        S = np.sqrt(1.0 + R[2, 2] - R[0, 0] - R[1, 1]) * 2
+        qw = (R[1, 0] - R[0, 1]) / S
+        qx = (R[0, 2] + R[2, 0]) / S
+        qy = (R[1, 2] + R[2, 1]) / S
+        qz = 0.25 * S
+    
+    return np.array([qw, qx, qy, qz])
+
+def rotate_body_to_target(sto_file, body_parts, rotation_matrix):
+    # Read the STO file
+    with open(sto_file, 'r') as f:
+        lines = f.readlines()
+    
+    # Extract header information
+    header = lines[:6]
+    data_lines = lines[6:]
+    
+    # Extract quaternion data
+    quaternions = []
+    for line in data_lines:
+        parts = line.strip().split('\t')
+        quaternion_strings = parts[1:]  # Exclude time column
+        quaternion_data = [np.array([float(q) for q in quat.split(',')]) for quat in quaternion_strings]
+        quaternions.append(quaternion_data)
+    # print(quaternions[0][0])
+
+    # start = quaternions[0][1]
+    
+    # Rotate quaternions for specified body parts
+    rotated_quaternions = []
+    for i, body_part in enumerate(body_parts):
+        if body_part == 'pelvis' or body_part == 'torso':
+            start = quaternions[0][i]
+        else:
+            start = quaternions[0][i+2]
+
+        for idx, q in enumerate(quaternions):
+            
+            if idx == 0:  # Only rotate the first set of quaternions
+                # Rotate each specified body part quaternion to match the target quaternion
+                    if body_part == 'pelvis' or body_part == 'torso':
+                        part_idx = i
+                    else:
+                        part_idx = i + 2
+                    if part_idx <= len(quaternions[idx]):
+                        # Rotate q[part_idx] to match target orientation
+                        rotated_q = rotate_to_target(q[part_idx], q[part_idx], rotation_matrix)
+                        q[part_idx] = rotated_q
+            else:
+                # Apply the same rotation to all quaternions in subsequent sets
+                    if body_part == 'pelvis' or body_part == 'torso':
+                        part_idx = i
+                    else:
+                        part_idx = i + 2
+                    if part_idx <= len(quaternions[idx]):
+                        # Rotate q[part_idx] using the rotation_matrix
+                        q[part_idx] = rotate_to_target(q[part_idx], start, rotation_matrix)
+        
+            rotated_quaternions.append(q)
+
+    # Prepare lines to write back to STO file
+    new_data_lines = []
+    for idx, line in enumerate(data_lines):
+        parts = line.strip().split('\t')
+        time = parts[0]
+        rotated_quaternion_strings = [','.join([str(comp) for comp in q]) for q in rotated_quaternions[idx]]
+        new_line = f"{time}\t" + "\t".join(rotated_quaternion_strings) + "\n"
+        new_data_lines.append(new_line)
+    
+    # Write the modified data back to the STO file
+    with open(sto_file, 'w') as f:
+        f.writelines(header)
+        f.writelines(new_data_lines)
 
 def interpolate_sensor_data(original_data_dir, file_names):
     """
@@ -699,7 +864,7 @@ for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
 
-            person = 12
+            person = 17
             weight = 5
             attempt = 1
 
@@ -718,86 +883,106 @@ for person in range(1, tot_person + 1):
                 # csv_files2 = ['sensor1_rot_quat.csv', 'sensor2_rot_quat.csv', 'sensor3.csv', 'sensor4.csv']
                 csv_files = ['sensor1_rot_quat.csv', 'sensor2_rot_quat.csv', 'sensor3_rot_quat.csv', 'sensor4_rot_quat.csv']
 
-                # files = file_names[2:]
-                files = file_names
+                # # files = file_names[2:]
+                # files = file_names
 
-                process_quaternions(data_dir, files)
+                # process_quaternions(data_dir, files)
 
                 # rotation_matrix_torso = np.array([[0, 0, 1],
                 #                                   [-1, 0, 0],
                 #                                   [0, -1, 0]])
+                # rotation_matrix_torso = np.array([[1, 0, 0], 
+                #                                   [0, 1, 0], 
+                #                                   [0, 0, 1]])
 
                 rotation_matrix_torso = np.array([[0, 0, -1],
                                                   [-1, 0, 0],
                                                   [0, 1, 0]])
 
-                # pelvis_torso = file_names[:2]
-                pelvis_torso = csv_files[:2]
-                rotate_quaternions_in_files(data_dir, pelvis_torso, rotation_matrix_torso)
+                # # pelvis_torso = file_names[:2]
+                # pelvis_torso = csv_files[:2]
+                body_parts_torso = ['pelvis', 'torso']
+                sto_file_path = os.path.join(data_dir, 'lifting_orientations.sto')
+                rotate_body_to_target(sto_file_path, body_parts_torso, rotation_matrix_torso)
+                # rotate_body_to_target(data_dir, pelvis_torso, rotation_matrix_torso)
 
-                # rotation around z and y of 90° wrt pelvis/torso
+                # # rotation around z and y of 90° wrt pelvis/torso
                 rotation_matrix_arm = np.array([[0, 1, 0],
                                                 [0, 0, 1],
                                                 [1, 0, 0]])
+                # rotation_matrix_arm = np.array([[1, 0, 0],
+                #                                 [0, -1, 0],
+                #                                 [0, 0, 1]])
 
                 # rotation_matrix_arm = np.array([[0, -1, 0] ,
                 #                                 [0, 0, 1],
                 #                                 [-1, 0, 0]])
 
-                up_low_arm = csv_files[2:]
-                rotate_quaternions_in_files(data_dir, up_low_arm, rotation_matrix_arm)
+                # up_low_arm = csv_files[2:]
+                
+                body_parts_arm = ['upper_arm', 'lower_arm']
+                sto_file_path = os.path.join(data_dir, 'lifting_orientations.sto')
+                rotate_body_to_target(sto_file_path, body_parts_arm, rotation_matrix_arm)
+                # rotate_body_to_target(data_dir, up_low_arm, rotation_matrix_arm)
+                # aaa
 
-                angle_x = np.pi
-                angle_y = np.pi
-                angle_z = np.pi
+                # angle_x = np.pi
+                # angle_y = np.pi
+                # angle_z = np.pi
 
-                rotate_body(data_dir, 'pelvis', angle_x_rot, angle_y_rot, angle_z_rot, csv_files) # pelvis
-                rotate_body(data_dir, 'torso',  angle_x_rot, angle_y_rot, angle_z_rot, csv_files) # torso
+                rotate_body(data_dir, 'pelvis', angle_x_rot, angle_y_rot, angle_z_rot) # pelvis
+                rotate_body(data_dir, 'torso',  angle_x_rot, angle_y_rot, angle_z_rot) # torso
 
-                # rotate_body(data_dir, 'pelvis', 0, 0, 0, csv_files) # upper arm
-                # rotate_body(data_dir, 'torso',  0, 0, 0, csv_files) # lower arm
+                # # rotate_body(data_dir, 'pelvis', 0, 0, 0, csv_files) # upper arm
+                # # rotate_body(data_dir, 'torso',  0, 0, 0, csv_files) # lower arm
 
-                rotate_body(data_dir, 'upper_arm', 0, 0, 0, csv_files) # upper arm
-                rotate_body(data_dir, 'lower_arm', 0, 0, 0, csv_files) # lower arm
+                # rotate_body(data_dir, 'upper_arm', 0, 0, 0, csv_files) # upper arm
+                # rotate_body(data_dir, 'lower_arm', 0, 0, 0, csv_files) # lower arm
 
-                # Interpolate the missing values in the sensor readings
-                interpolate_sensor_data(data_dir, csv_files)
+                # # Interpolate the missing values in the sensor readings
+                # interpolate_sensor_data(data_dir, csv_files)
 
-                # Align all the data of the sensors that started recording at different times
-                synchronize_csv_files(data_dir, csv_files)
+                # # Align all the data of the sensors that started recording at different times
+                # synchronize_csv_files(data_dir, csv_files)
 
-                # Merge the data from the sensors into a single file
-                merged_file = merge_csv_files(data_dir, 'merged_data.csv', csv_files)
+                # # Merge the data from the sensors into a single file
+                # merged_file = merge_csv_files(data_dir, 'merged_data.csv', csv_files)
 
-                # Define the columns to be extracted (0-based index)
-                columns_to_euler = [0, 1, 2, 3, 15, 16, 17, 29, 30, 31, 43, 44, 45]
-                columns_to_euler_acc = [0, 1, 2, 3, 7, 8, 9, 15, 16, 17, 21, 22, 23, 29, 30, 31, 35, 36, 37, 43, 44, 45, 49, 50, 51]
-                columns_to_euler_gyro = [0, 1, 2, 3, 4, 5, 6, 15, 16, 17, 18, 19, 20, 29, 30, 31, 32, 33, 34, 43, 44, 45, 46, 47, 48]
-                column_to_euler_acc_gyro = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 15, 16, 17, 18, 19, 20, 21, 22, 23, 29, 30, 31, 32, 33, 34, 35, 36, 37, 43, 44, 45, 46, 47, 48, 49, 50, 51]
+                # # Define the columns to be extracted (0-based index)
+                # columns_to_euler = [0, 1, 2, 3, 15, 16, 17, 29, 30, 31, 43, 44, 45]
+                # columns_to_euler_acc = [0, 1, 2, 3, 7, 8, 9, 15, 16, 17, 21, 22, 23, 29, 30, 31, 35, 36, 37, 43, 44, 45, 49, 50, 51]
+                # columns_to_euler_gyro = [0, 1, 2, 3, 4, 5, 6, 15, 16, 17, 18, 19, 20, 29, 30, 31, 32, 33, 34, 43, 44, 45, 46, 47, 48]
+                # column_to_euler_acc_gyro = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 15, 16, 17, 18, 19, 20, 21, 22, 23, 29, 30, 31, 32, 33, 34, 35, 36, 37, 43, 44, 45, 46, 47, 48, 49, 50, 51]
 
-                columns_to_extract = [columns_to_euler, columns_to_euler_acc, columns_to_euler_gyro, column_to_euler_acc_gyro]
-                output_file = ['data_neural_euler.csv', 'data_neural_euler_acc.csv', 'data_neural_euler_gyro.csv', 'data_neural_euler_acc_gyro.csv']
+                # columns_to_extract = [columns_to_euler, columns_to_euler_acc, columns_to_euler_gyro, column_to_euler_acc_gyro]
+                # output_file = ['data_neural_euler.csv', 'data_neural_euler_acc.csv', 'data_neural_euler_gyro.csv', 'data_neural_euler_acc_gyro.csv']
 
-                save_imu_data(data_dir, columns_to_extract, output_file)
+                # save_imu_data(data_dir, columns_to_extract, output_file)
 
-                # Create the .sto file to use with OpenSim
-                create_opensim_file(data_dir, merged_file)
+                # # Create the .sto file to use with OpenSim
+                # create_opensim_file(data_dir, merged_file)
 
-                # List of files to delete
-                files_to_delete = [
-                    'sensor1_rot_quat.csv',
-                    'sensor1_rot_quat_sync.csv',
-                    'sensor2_rot_quat.csv',
-                    'sensor2_rot_quat_sync.csv',
-                    'sensor3_rot_quat.csv',
-                    'sensor3_rot_quat_sync.csv',
-                    'sensor4_rot_quat.csv',
-                    'sensor4_rot_quat_sync.csv',
-                    'quaternion_table.csv'
-                ]
+                # # List of files to delete
+                # files_to_delete = [
+                #     'sensor1_rot_quat.csv',
+                #     'sensor1_rot_quat_sync.csv',
+                #     'sensor2_rot_quat.csv',
+                #     'sensor2_rot_quat_sync.csv',
+                #     'sensor3_rot_quat.csv',
+                #     'sensor3_rot_quat_sync.csv',
+                #     'sensor4_rot_quat.csv',
+                #     'sensor4_rot_quat_sync.csv',
+                #     'quaternion_table.csv'
+                # ]
 
-                # Delete the files that are not useful anymore
-                delete_files(data_dir, files_to_delete)
+                # # Delete the files that are not useful anymore
+                # delete_files(data_dir, files_to_delete)
+                
+                source_path = os.path.join(data_dir, 'lifting_orientations.sto')
+                dest_path_opensim = 'c:/Users/giaco/Documents/OpenSim/4.5/Code/Python/OpenSenseExample/lifting_orientations.sto'
+                dest_path_opensense = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/OpenSense/lifting_orientations.sto'
+                shutil.copyfile(source_path, dest_path_opensim)
+                shutil.copyfile(source_path, dest_path_opensense)
 
                 # Perform the inverse kinematics through OpenSim
                 opensim_processing(False, False)
@@ -814,7 +999,7 @@ for person in range(1, tot_person + 1):
                 motion_data_processed = process_motion_data(motion_data, 100, 3, 3, 3)
 
                 # Save the plots and the data of the joints
-                save_plot_motion_data(data_dir, motion_data_processed, 'joint_data.png', False)
+                save_plot_motion_data(data_dir, motion_data_processed, 'joint_data.png', True)
                 save_motion_data(data_dir, motion_data_processed, 'data_neural.csv')
 
                 # Check to see if the subject is rotated by 180°, if so, rotate it forward and repeat

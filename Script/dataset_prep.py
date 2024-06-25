@@ -12,7 +12,10 @@ class DataProcessor:
         self.length = length
 
     def load_imu_data(self, person, weight, attempt, length, time):
-        imu_path = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Dataset_augmented\data_neural_euler_acc_gyro_P{person}_W{weight}_A{attempt}.csv'
+        if time == 0:
+            imu_path = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Dataset_train_augmented\data_neural_euler_acc_gyro_P{person}_W{weight}_A{attempt}.csv'
+        if time == 1:
+            imu_path = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Dataset_test_augmented\data_neural_euler_acc_gyro_P{person}_W{weight}_A{attempt}.csv'
         imu_data = pd.read_csv(imu_path, header=None)  # Load CSV data using pandas
 
         imu_chunks = []
@@ -41,7 +44,10 @@ class DataProcessor:
         return imu_chunks
 
     def load_emg_data(self, person, weight, attempt, time):
-        emg_path = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Dataset_augmented\emg_label_P{person}_W{weight}_A{attempt}.csv'
+        if time == 0:
+            emg_path = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Dataset_train_augmented\emg_label_P{person}_W{weight}_A{attempt}.csv'
+        if time == 1:
+            emg_path = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Dataset_test_augmented\emg_label_P{person}_W{weight}_A{attempt}.csv'
         emg_data = pd.read_csv(emg_path)  # Load CSV data using pandas
         emg_tensor = torch.tensor(emg_data.iloc[:, 1].values)  # Convert DataFrame to tensor
         return emg_tensor
@@ -94,13 +100,25 @@ class DataProcessor:
 
 
 for i in range(1):
-    # Set parameters
-    person = 7279
-    weight = 5
-    attempt = 10
-    length = 50
-    output_file = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\All_data_file\all_data_new_plus.pkl'
+    if i == 0:
+        # Set parameters
+        person = 3311
+        weight = 5
+        attempt = 10
+        length = 50
+        output_file = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\All_data_file\all_data_train_new.pkl'
 
-    # Process data and save to file
-    processor = DataProcessor(person, weight, attempt, length, i)
-    processor.process_data(output_file, save_interval=10)  # Save data every 10 people
+        # Process data and save to file
+        processor = DataProcessor(person, weight, attempt, length, i)
+        processor.process_data(output_file, save_interval=10)  # Save data every 10 people
+    if i == 1:
+        # Set parameters
+        person = 1510
+        weight = 5
+        attempt = 10
+        length = 50
+        output_file = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\All_data_file\all_data_test.pkl'
+
+        # Process data and save to file
+        processor = DataProcessor(person, weight, attempt, length, i)
+        processor.process_data(output_file, save_interval=10)  # Save data every 10 people
