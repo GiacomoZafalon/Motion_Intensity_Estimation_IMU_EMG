@@ -64,8 +64,10 @@ def process_file(file_path, output_path, warp_type=2, amount_of_warping=10, std_
 def augment_data(person, weight, attempt, time_step, base_dir, tot_person, tot_times, std_dev=0.1):
     imu_data_path = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu/data_neural_euler_acc_gyro.csv')
     emg_data_path = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/emg/emg_label.csv')
-    
-    augmented_base_dir = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Dataset_train_augmented'
+    if j == 0:
+        augmented_base_dir = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Dataset_train_augmented'
+    if j == 1:
+        augmented_base_dir = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Dataset_test_augmented'
     augmented_imu_data_dir = os.path.join(augmented_base_dir, f'data_neural_euler_acc_gyro_P{person + time_step*tot_person}_W{weight}_A{attempt}.csv')
     augmented_emg_data_dir = os.path.join(augmented_base_dir, f'emg_label_P{person + time_step*tot_person}_W{weight}_A{attempt}.csv')
 
@@ -84,28 +86,40 @@ def augment_data(person, weight, attempt, time_step, base_dir, tot_person, tot_t
 
     print(f'Completed augmentation for person {person}/{tot_person} for time {time_step}/{tot_times}')
 
-# def process_person(person, tot_weights, tot_attempts, times, base_dir):
-#     for time_step in range(1, times + 1):
-#         for weight in range(1, tot_weights + 1):
-#             for attempt in range(1, tot_attempts + 1):
-#                 augment_data(person, weight, attempt, time_step, base_dir, tot_person, 0.1)
-#         print(f'Completed augmentation for person {person}/{tot_person} for time {time_step}/{times}')
 
 if __name__ == "__main__":
-    tot_person = 11
-    tot_weights = 5
-    tot_attempts = 10
-    times = 300
+    for j in range(2):
+        if j == 0:
+            tot_person = 11
+            tot_weights = 5
+            tot_attempts = 10
+            times = 300
 
-    base_dir = 'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset_train/'
+            base_dir = 'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/Dataset_train/'
 
-    # Use joblib for parallel processing
-    Parallel(n_jobs=-1)(
-    delayed(augment_data)(person, weight, attempt, i, base_dir, tot_person, times, 0.1)
-    for i in range(1, times + 1)
-    for person in range(1, tot_person + 1)
-    for weight in range(1, tot_weights + 1)
-    for attempt in range(1, tot_attempts + 1)
-)
+            # Use joblib for parallel processing
+            Parallel(n_jobs=-1)(
+            delayed(augment_data)(person, weight, attempt, i, base_dir, tot_person, times, 0.1)
+            for i in range(1, times + 1)
+            for person in range(1, tot_person + 1)
+            for weight in range(1, tot_weights + 1)
+            for attempt in range(1, tot_attempts + 1)
+            )
+        if j == 1:
+            tot_person = 10
+            tot_weights = 5
+            tot_attempts = 10
+            times = 150
+
+            base_dir = 'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/Dataset_test/'
+
+            # Use joblib for parallel processing
+            Parallel(n_jobs=-1)(
+            delayed(augment_data)(person, weight, attempt, i, base_dir, tot_person, times, 0.1)
+            for i in range(1, times + 1)
+            for person in range(1, tot_person + 1)
+            for weight in range(1, tot_weights + 1)
+            for attempt in range(1, tot_attempts + 1)
+            )
 
 print("Data augmentation complete.")

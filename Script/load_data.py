@@ -36,13 +36,13 @@ def main():
     for person in range(1, tot_persons + 1):
         for weight in range(1, tot_weights + 1):
             for attempt in range(1, tot_attempts + 1):
-                person = 7
-                weight = 4
+                person = 11
+                weight = 1
                 attempt = 1
                 # Prompt user for the directory and number of rows to remove
-                directory = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset_original_2\P{person}\W{weight}\A{attempt}\imu'
-                # rows_to_remove = int(input(f"p{person}w{weight}: Enter the number of top rows to remove: "))
-                rows_to_remove = 15
+                directory = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P{person}\W{weight}\A{attempt}\imu'
+                rows_to_remove = int(input(f"p{person}w{weight}: Enter the number of top rows to remove: "))
+                # rows_to_remove = 15
                 
                 file_list = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
                 

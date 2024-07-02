@@ -3,6 +3,8 @@ import shutil
 import pandas as pd
 import re
 from scipy.signal import butter, filtfilt
+import numpy as np
+import matplotlib.pyplot as plt
 
 def extract_columns_from_csv(tot_persons, tot_weights, tot_attempts):
     column_to_euler_acc_gyro = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 14, 15, 16, 17, 18, 19, 20, 21, 22, 27, 28, 29, 30, 31, 32, 33, 34, 35, 40, 41, 42, 43, 44, 45, 46, 47, 48]
@@ -24,14 +26,10 @@ def extract_columns_from_csv(tot_persons, tot_weights, tot_attempts):
                         print(f"No data: {file_path}")
                         continue
                     
-                    output_file_path = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset_original_2/P{person}/W{weight}/A{attempt}/imu/{output_file[i]}'
+                    output_file_path = f'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/P{person}/W{weight}/A{attempt}/imu/{output_file[i]}'
                     data.to_csv(output_file_path, index=False, header=None)
 
     print('Data saved')
-
-
-
-
 
 def find_highest_person_number(folder_path):
     # Regular expression pattern to extract the person number from the filename
@@ -84,7 +82,6 @@ def copy_and_rename_files(base_dir, output_dir, number_to_add):
                     shutil.copy(emg_source, emg_dest)
                     print(f"Copied {emg_source} to {emg_dest}")
 
-
 def delete_extra_attempt_folders(base_directory, tot_persons, tot_weights):
     for person in range(1, tot_persons + 1):
         for weight in range(1, tot_weights + 1):
@@ -97,88 +94,243 @@ def delete_extra_attempt_folders(base_directory, tot_persons, tot_weights):
                         shutil.rmtree(attempt_path)
                         print(f"Deleted folder: {attempt_path}")
 
-def get_average_lengths(base_dir, tot_persons, tot_weights):
-    # Initialize a dictionary to hold lengths for each weight
+def compute_average_lengths_and_accelerations(base_dir, tot_persons, tot_weights):
+    # Initialize dictionaries to hold lengths and acceleration results for each weight
     lengths = {f'W{w}': [] for w in range(1, tot_weights + 1)}
+    weight_results = {
+        weight: {
+            'total_average': 0,
+            'count': 0,
+            'max_accel_person': None,
+            'max_accel_value': -float('inf'),
+            'max_accels': []
+        } for weight in range(1, tot_weights + 1)
+    }
 
     # Iterate through each person and weight
     for person in range(1, tot_persons + 1):
         for weight in range(1, tot_weights + 1):
             file_path = os.path.join(base_dir, f'P{person}', f'W{weight}', 'A1', 'imu', 'merged_file_final_filt.csv')
             if os.path.exists(file_path):
+                # Calculate length
                 df = pd.read_csv(file_path, header=None)
                 lengths[f'W{weight}'].append(len(df))
 
+                # Calculate accelerations
+                path = os.path.join(base_dir, f'P{person}', f'W{weight}', 'A1', 'imu')
+                merged_file_path = os.path.join(path, 'merged_file_final_filt.csv')
+
+                if os.path.exists(merged_file_path):
+                    df_final = pd.read_csv(merged_file_path, header=None)
+                    accel_columns = [4, 5, 6, 17, 18, 19, 30, 31, 32, 43, 44, 45]
+
+                    # Compute average and maximum accelerations for the current file
+                    average_accel = df_final[accel_columns].mean().mean()
+                    max_accel = df_final[accel_columns].max().max()
+
+                    # Update the results for the current weight
+                    weight_results[weight]['total_average'] += average_accel
+                    weight_results[weight]['count'] += 1
+
+                    # Store the maximum acceleration for averaging later
+                    weight_results[weight]['max_accels'].append(max_accel)
+
+                    # Check if this person has the max acceleration for this weight
+                    if max_accel > weight_results[weight]['max_accel_value']:
+                        weight_results[weight]['max_accel_value'] = max_accel
+                        weight_results[weight]['max_accel_person'] = person
+                else:
+                    print(f"File not found: {merged_file_path}")
+            else:
+                print(f"File not found: {file_path}")
+
     # Calculate the average lengths for each weight
     average_lengths = {weight: (sum(lengths[weight]) / len(lengths[weight])) if lengths[weight] else 0 for weight in lengths}
-
-    return average_lengths
-
-def compute_max_accelerations(data_dir, tot_persons, tot_weights):
-    weight_results = {weight: {'total_max': 0, 'count': 0} for weight in range(1, tot_weights + 1)}
-
-    for person in range(1, tot_persons + 1):
-        for weight in range(1, tot_weights + 1):
-            path = os.path.join(data_dir, f'P{person}', f'W{weight}', 'A1', 'imu')
-            merged_file_path = os.path.join(path, 'merged_file_final_filt.csv')
-
-            if os.path.exists(merged_file_path):
-                df_final = pd.read_csv(merged_file_path, header=None)
-                accel_columns = [4, 5, 6, 17, 18, 19, 30, 31, 32, 43, 44, 45]
-
-                # Compute average and maximum accelerations for the current file
-                max_accel = df_final[accel_columns].max().max()
-
-                weight_results[weight]['total_max'] += max_accel
-                weight_results[weight]['count'] += 1
-            else:
-                print(f"File not found: {merged_file_path}")
 
     # Calculate the final average and maximum accelerations for each weight
     results = []
     for weight in range(1, tot_weights + 1):
         if weight_results[weight]['count'] > 0:
-            max_accel = weight_results[weight]['total_max'] / weight_results[weight]['count']
+            average_accel = weight_results[weight]['total_average'] / weight_results[weight]['count']
+            max_accel = weight_results[weight]['max_accel_value']
+            avg_of_max_accels = sum(weight_results[weight]['max_accels']) / len(weight_results[weight]['max_accels'])
+            max_accel_person = weight_results[weight]['max_accel_person']
             results.append({
-                'weight': weight,
-                'maximum_acceleration': max_accel
+                'weight': f'W{weight}',
+                'avg_length': average_lengths[f'W{weight}']/100,
+                'avg_acc': average_accel,
+                'max_acc': max_accel,
+                'avg_max_acc': avg_of_max_accels,
+                'person_max_acc': max_accel_person
             })
         else:
             results.append({
-                'weight': weight,
-                'maximum_acceleration': None
+                'weight': f'W{weight}',
+                'avg_length': average_lengths[f'W{weight}']/100,
+                'avg_acc': None,
+                'max_acc': None,
+                'avg_max_acc': None,
+                'person_max_acc': None
             })
 
     return results
 
-tot_persons = 28
+def plot_columns_for_all_weights(base_dir, tot_persons, tot_weights, columns):
+    # Iterate through each column
+    for column in columns:
+        # Iterate through each weight
+        for weight in range(1, tot_weights + 1):
+            plt.figure(figsize=(10, 6))
+
+            all_interpolated_data = []
+
+            # Iterate through each person
+            for person in range(1, tot_persons + 1):
+                file_path = os.path.join(base_dir, f'P{person}', f'W{weight}', 'A1', 'imu', 'merged_file_final_filt.csv')
+                if os.path.exists(file_path):
+                    df = pd.read_csv(file_path, header=None)
+
+                    # Check if the dataframe has enough columns
+                    if df.shape[1] > column:
+                        column_data = df.iloc[:, column]
+                        # Normalize the length
+                        normalized_length = np.linspace(0, 100, num=100)
+                        interpolated_data = np.interp(normalized_length, np.linspace(0, 100, num=len(column_data)), column_data)
+                        all_interpolated_data.append(interpolated_data)
+                        plt.plot(normalized_length, interpolated_data, alpha=0.2)  # No label here
+                    else:
+                        print(f"File {file_path} does not have enough columns.")
+                else:
+                    print(f"File not found: {file_path}")
+
+            # Compute the average and standard deviation of the interpolated data
+            if all_interpolated_data:
+                average_data = np.mean(all_interpolated_data, axis=0)
+                std_dev_data = np.std(all_interpolated_data, axis=0)
+
+                plt.plot(normalized_length, average_data, label='Average', color='black', linewidth=2.5)
+                plt.plot(normalized_length, average_data + std_dev_data, 'r--', linewidth=2, label='+/- Std Dev')
+                plt.plot(normalized_length, average_data - std_dev_data, 'r--', linewidth=2)
+
+                # Fill the area between the +1 and -1 standard deviation lines
+                plt.fill_between(normalized_length, average_data - std_dev_data, average_data + std_dev_data, color='gray', alpha=0.3)
+
+            if column == 2:
+                body = 'Lower back'
+                plt.ylim(0, 95)
+            elif column == 15:
+                body = 'Torso'
+                plt.ylim(0, 95)
+            elif column == 29:
+                body = 'Upper arm'
+                plt.ylim(-20, 190)
+            elif column == 42:
+                body = 'Forearm'
+                plt.ylim(-20, 190)
+            plt.title(f'Weight {weight} - {body} orientation')
+            plt.xlabel('Percentage of Movement Completed [%]')
+            plt.ylabel(f'{body} orientation [°]')
+            plt.grid(True)
+            plt.tight_layout()
+            plt.legend()  # Only includes labeled plots
+
+            # Save the plot
+            plot_path = os.path.join(rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Results\Shadow_plots\imu', f'weight_{weight}_column_{column}_{body}_plot.png')
+            plt.savefig(plot_path)
+            plt.close()
+            print(f"Saved plot for weight {weight} and body: {body}")
+
+def plot_emg_columns_for_all_weights(base_dir, tot_persons, tot_weights, columns):
+    # Iterate through each column
+    for column in columns:
+        # Iterate through each weight
+        for weight in range(1, tot_weights + 1):
+            plt.figure(figsize=(10, 6))
+
+            all_interpolated_data = []
+
+            # Iterate through each person
+            for person in range(1, tot_persons + 1):
+                file_path = os.path.join(base_dir, f'P{person}', f'W{weight}', 'A1', 'emg', 'emg_data.csv')
+                if os.path.exists(file_path):
+                    df = pd.read_csv(file_path, header=None)
+
+                    # Check if the dataframe has enough columns
+                    if df.shape[1] > column:
+                        column_data = df.iloc[:, column]
+                        # Normalize the length
+                        normalized_length = np.linspace(0, 100, num=100)
+                        interpolated_data = np.interp(normalized_length, np.linspace(0, 100, num=len(column_data)), column_data)
+                        all_interpolated_data.append(interpolated_data)
+                        plt.plot(normalized_length, interpolated_data, alpha=0.2)  # No label here
+                    else:
+                        print(f"File {file_path} does not have enough columns.")
+                else:
+                    print(f"File not found: {file_path}")
+
+            # Compute the average and standard deviation of the interpolated data
+            if all_interpolated_data:
+                average_data = np.mean(all_interpolated_data, axis=0)
+                std_dev_data = np.std(all_interpolated_data, axis=0)
+
+                plt.plot(normalized_length, average_data, label='Average', color='black', linewidth=2.5)
+                plt.plot(normalized_length, average_data + std_dev_data, 'r--', linewidth=2, label='+/- Std Dev')
+                plt.plot(normalized_length, average_data - std_dev_data, 'r--', linewidth=2)
+
+                # Fill the area between the +1 and -1 standard deviation lines
+                plt.fill_between(normalized_length, average_data - std_dev_data, average_data + std_dev_data, color='gray', alpha=0.3)
+
+            if column == 0:
+                body = 'Bicep'
+            elif column == 1:
+                body = 'Middle deltoid'
+            elif column == 2:
+                body = 'Front deltoid'
+            plt.title(f'Weight {weight} - EMG {body}')
+            plt.xlabel('Percentage of Movement Completed [%]')
+            plt.ylabel(f'EMG {body} Value [mV]')
+            plt.ylim(-50, 700)
+            plt.grid(True)
+            plt.tight_layout()
+            plt.legend()  # Only includes labeled plots
+
+            # Save the plot
+            plot_path = os.path.join(rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\Results\Shadow_plots\emg', f'weight_{weight}_emg_{body}_plot.png')
+            plt.savefig(plot_path)
+            plt.close()
+            print(f"Saved plot for weight {weight} and EMG {body}")
+
+tot_persons = 10
 tot_weights = 5
-tot_attempts = 10
+tot_attempts = 1
 number_to_add = 0
 
 base_dir = 'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/'
-output_dir = 'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/Dataset_train_augmented/'
+output_dir = 'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/Dataset_test_augmented/'
 
-## Uncomment the needed function ##
+## UNCOMMENT THE NEEDED FUNCTION ##
 
-# Extracts columns from merged_file to create data_neural_euler_acc_gyro.csv
+# # Extracts columns from merged_file to create data_neural_euler_acc_gyro.csv
 # extract_columns_from_csv(tot_persons, tot_weights, tot_attempts)
 
-# Deletes the non useful attempt folders
+# # Deletes the non useful attempt folders
 # delete_extra_attempt_folders(base_dir, tot_persons, tot_weights)
 
-# Copies the files data_neural_euler_acc_gyro.csv from the p/w/a folders to the combined folder with the new name
+# # Copies the files data_neural_euler_acc_gyro.csv from the p/w/a folders to the combined folder with the new name
 # copy_and_rename_files(base_dir, output_dir, number_to_add)
 
-# Finds the highest person number in the augmented dataset folder
+# # Finds the highest person number in the augmented dataset folder
 # find_highest_person_number(output_dir)
 
-# Get the average lengths
-average_lengths = get_average_lengths(base_dir, tot_persons, tot_weights)
-for weight, avg_length in average_lengths.items():
-    print(f'Weight: {weight}, Average length: {avg_length:.2f}')
+# Gets the maximum acceleration for each weight
+# results = compute_average_lengths_and_accelerations(base_dir, tot_persons, tot_weights)
+# for result in results:
+#     print(f"Weight {result['weight']} -> Avg duration: {result['avg_length']:.2f}s; Avg Acceleration: {result['avg_acc']:.2f}; Max Acceleration: {result['max_acc']:.2f} at P{result['person_max_acc']}; Avg Max Acceleration: {result['avg_max_acc']:.2f}")
 
-results = compute_max_accelerations(base_dir, tot_persons, tot_weights)
-for result in results:
-    print(f"Weight: W{result['weight']}, Maximum Acceleration: {result['maximum_acceleration']:.2f}")
+# # Plots all the Euler data for each weight in one plot with average and std dev
+# columns_imu = [2, 15, 29, 42]  # Columns to be plotted
+# plot_columns_for_all_weights(base_dir, tot_persons, tot_weights, columns_imu)
 
+# # Plots all the emg data for each weight in one plot with average and std dev
+columns_emg = [0, 1, 2]  # EMG columns to be plotted
+plot_emg_columns_for_all_weights(base_dir, tot_persons, tot_weights, columns_emg)

@@ -111,7 +111,7 @@ def plot_quaternions(sto_file, person, weight, attempt):
     plt.show()
 
 # Example usage:
-person = 13
+person = 10
 weight = 5
 attempt = 1
 data_dir = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P{person}\W{weight}\A{attempt}\imu'
@@ -120,9 +120,9 @@ sto_file_path = os.path.join(data_dir, 'lifting_orientations.sto')
 
 # Plotting the merged data file
 df_filt = pd.read_csv(merged_file_path, header=None)
-# plot_euler(df_final, person, weight, attempt)
+plot_euler(df_filt, person, weight, attempt)
 
-plot_accelerations(df_filt, person, weight, attempt)
+# plot_accelerations(df_filt, person, weight, attempt)
 
 # Plotting the quaternion data from the .sto file
 # plot_quaternions(sto_file_path, person, weight, attempt)

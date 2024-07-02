@@ -81,12 +81,12 @@ def augment_data(person, weight, attempt, time_step, tot_times, base_dir, tot_pe
 
     print(f'Completed augmentation for person {person}/{tot_person} weight {weight}/{tot_weight} for time {time_step}/{tot_times}')
 
-tot_persons = 8
+tot_persons = 28
 tot_weights = 5
 tot_attempts = 1
 times = 9
 
-base_dir = 'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset_original_2/'
+base_dir = 'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/'
 
 for person in range(1, tot_persons + 1):
     for weight in range(1, tot_weights + 1):
