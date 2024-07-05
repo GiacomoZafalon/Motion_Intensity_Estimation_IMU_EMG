@@ -113,19 +113,19 @@ def read_motion_data(file_path):
     return pd.read_csv(file_path, header=None, names=columns)
 
 # Define parameters
-tot_person = 12
-tot_weights = 5
+tot_person = 1
+tot_weights = 1
 tot_attempts = 1
 
 base_dir = 'c:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/GitHub/Dataset/'
 
-for person in range(9, tot_person + 1):
+for person in range(1, tot_person + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
 
-            # person = 6
-            # weight = 5
-            # attempt = 1
+            person = 5
+            weight = 5
+            attempt = 1
 
             data_dir = os.path.join(base_dir, f'P{person}/W{weight}/A{attempt}/imu')
 

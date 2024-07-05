@@ -81,7 +81,7 @@ def augment_data(person, weight, attempt, time_step, tot_times, base_dir, tot_pe
 
     print(f'Completed augmentation for person {person}/{tot_person} weight {weight}/{tot_weight} for time {time_step}/{tot_times}')
 
-tot_persons = 28
+tot_persons = 30
 tot_weights = 5
 tot_attempts = 1
 times = 9

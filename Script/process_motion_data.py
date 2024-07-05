@@ -190,18 +190,32 @@ def process_merged_data(input_file_path, output_file_path):
     df = pd.read_csv(input_file_path, header=None)
 
     # Find the index of the row with the maximum value in column 28
-    max_value_index = df[28].idxmax()
+    max_value_index_col28 = df[28].idxmax()
 
-    # Skip 10 rows from the maximum value index
-    start_index = max_value_index
+    # print(min_value_index_col2, df.iloc[min_value_index_col2, 2])
+
+    # if min_value_index_col2 >= max_value_index_col28:
+    #     min_value_index_col2 = 0
+
+    # # Determine the starting index based on the greater of the two indices
+    # start_index = max(max_value_index_col28, min_value_index_col2)
 
     # Slice the DataFrame to keep rows from start_index onwards
-    df_final = df.iloc[:start_index]
+    df_final = df.iloc[:max_value_index_col28]
+
+    # Find the index of the row with the minimum value in column 2
+    min_value_index_col2 = df_final[2].idxmin()
+
+    df_final = df_final.iloc[min_value_index_col2:]
+
+    # Adjust the first column to start from 0.01 and increment by 0.01
+    df_final.iloc[:, 0] = np.round(np.arange(0.01, (len(df_final) * 0.01) + 0.01, 0.01), 2)[:len(df_final)]
 
     # Save the final DataFrame to a new CSV file
     df_final.to_csv(output_file_path, index=False, header=False)
 
     return df_final
+
 
 def filter_merged_data(input_file_path, output_file_path):
     # Read the merged data file
@@ -349,21 +363,21 @@ def plot_quaternions(sto_file, person, weight, attempt):
 
 
 
-# tot_persons = 12
-# tot_weights = 5
-# tot_attempts = 1
-tot_persons = 1
-tot_weights = 1
+tot_persons = 30
+tot_weights = 5
 tot_attempts = 1
+# tot_persons = 1
+# tot_weights = 1
+# tot_attempts = 1
 
 
 for person in range(1, tot_persons + 1):
     for weight in range(1, tot_weights + 1):
         for attempt in range(1, tot_attempts + 1):
 
-            person = 11
-            weight = 1
-            attempt = 1
+            # person = 13
+            # weight = 1
+            # attempt = 1
 
             data_dir = rf'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\Dataset\P{person}\W{weight}\A{attempt}\imu'
             file_names = ['sensor1.csv', 'sensor2.csv', 'sensor3.csv', 'sensor4.csv']
@@ -378,7 +392,7 @@ for person in range(1, tot_persons + 1):
             remove_empty_top_rows_and_adjust(merged_file_path, len(csv_files))
 
             input_file_path = os.path.join(data_dir, 'merged_data.csv')
-            output_file_path = os.path.join(data_dir, 'merged_file_final.csv')
+            output_file_path = os.path.join(data_dir, 'merged_file_final_2.csv')
 
             df_final = process_merged_data(input_file_path, output_file_path)
 
@@ -411,6 +425,6 @@ for person in range(1, tot_persons + 1):
             sto_file_path = os.path.join(data_dir, 'lifting_orientations.sto')
             # plot_quaternions(sto_file_path, person, weight, attempt)
 
-            plot_column_groups(df_filt, person, weight, attempt)
+            # plot_column_groups(df_filt, person, weight, attempt)
 
     print(f'Person {person}/{tot_persons} done')

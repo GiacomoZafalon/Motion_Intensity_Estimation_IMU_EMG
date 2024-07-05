@@ -100,14 +100,13 @@ class DataProcessor:
 
 
 for i in range(2):
-    # i = 1
     if i == 0:
         # Set parameters
         person = 3311
         weight = 5
         attempt = 10
-        length = 100
-        output_file = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\All_data_file\all_data_train_filt_1s_3.pkl'
+        length = 50
+        output_file = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\All_data_file\all_data_train_trunc.pkl'
 
         # Process data and save to file
         processor = DataProcessor(person, weight, attempt, length, i)
@@ -117,8 +116,8 @@ for i in range(2):
         person = 1510
         weight = 5
         attempt = 10
-        length = 100
-        output_file = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\All_data_file\all_data_test_filt_1s_3.pkl'
+        length = 50
+        output_file = r'C:\Users\giaco\OneDrive\Desktop\Università\Tesi_Master\GitHub\All_data_file\all_data_test_trunc.pkl'
 
         # Process data and save to file
         processor = DataProcessor(person, weight, attempt, length, i)
