@@ -416,9 +416,9 @@ output_dir = 'C:/Users/giaco/OneDrive/Desktop/Università/Tesi_Master/Dataset_te
 # find_highest_person_number(output_dir)
 
 # # Gets the average duration, average acceleration, and maximum acceleration throughout all the folders
-# results = compute_average_lengths_and_accelerations(base_dir, tot_persons, tot_weights)
-# for result in results:
-#     print(f"Weight {result['weight']} -> Avg duration: {result['avg_length']:.2f}s; Avg Acceleration: {result['avg_acc']:.2f}; Max Acceleration: {result['max_acc']:.2f} at P{result['person_max_acc']}; Avg Max Acceleration: {result['avg_max_acc']:.2f}")
+results = compute_average_lengths_and_accelerations(base_dir, tot_persons, tot_weights)
+for result in results:
+    print(f"Weight {result['weight']} -> Avg duration: {result['avg_length']:.2f}s; Avg Acceleration: {result['avg_acc']:.2f}; Max Acceleration: {result['max_acc']:.2f} at P{result['person_max_acc']}; Avg Max Acceleration: {result['avg_max_acc']:.2f}")
 
 # # Plots all the Euler data for each weight in one plot with average and std dev
 # columns_imu = [2, 15, 29, 42]  # Columns to be plotted
